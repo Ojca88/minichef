@@ -85,3 +85,20 @@ export function buildMonthPlan(year, month) {
 export function youtubeSearchUrl(query) {
   return `https://www.youtube.com/results?search_query=${encodeURIComponent(query + ' bebé receta')}`;
 }
+
+const DAY_NAMES = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+const MONTH_SHORT = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+
+export function formatTodayLong(date = new Date()) {
+  const dayName = DAY_NAMES[date.getDay()];
+  const capitalized = dayName.charAt(0).toUpperCase() + dayName.slice(1);
+  return `${capitalized}, ${date.getDate()} de ${MONTH_SHORT[date.getMonth()]}`;
+}
+
+export function formatUpdatedAt(isoString) {
+  if (!isoString) return 'Sin datos de commit';
+  const d = new Date(isoString);
+  const hh = String(d.getHours()).padStart(2, '0');
+  const mm = String(d.getMinutes()).padStart(2, '0');
+  return `Actualizado el ${d.getDate()} ${MONTH_SHORT[d.getMonth()]} ${d.getFullYear()} · ${hh}:${mm}`;
+}

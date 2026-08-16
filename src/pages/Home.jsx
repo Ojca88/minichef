@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RECIPES } from '../data';
+import { RECIPES, formatTodayLong, formatUpdatedAt } from '../data';
 import RecipeCard from '../components/RecipeCard';
+
+/* global __LAST_COMMIT_DATE__ */
 
 export default function Home() {
   const navigate = useNavigate();
@@ -15,8 +17,11 @@ export default function Home() {
   return (
     <div style={{ padding: '20px 20px 90px' }}>
       <header style={{ marginBottom: 20 }}>
-        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Hola 👋</p>
+        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Hola 👋 · {formatTodayLong()}</p>
         <h1 style={{ fontSize: 24 }}>¿Qué le damos hoy?</h1>
+        <p style={{ fontSize: 11, color: 'var(--ink-muted)', marginTop: 4 }}>
+          {formatUpdatedAt(typeof __LAST_COMMIT_DATE__ !== 'undefined' ? __LAST_COMMIT_DATE__ : null)}
+        </p>
       </header>
 
       <button
