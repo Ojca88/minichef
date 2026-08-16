@@ -1,0 +1,68 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { RECIPES } from '../data';
+import RecipeCard from '../components/RecipeCard';
+
+export default function Home() {
+  const navigate = useNavigate();
+  const [suggestion, setSuggestion] = useState(null);
+
+  function generar() {
+    const pick = RECIPES[Math.floor(Math.random() * RECIPES.length)];
+    setSuggestion(pick);
+  }
+
+  return (
+    <div style={{ padding: '20px 20px 90px' }}>
+      <header style={{ marginBottom: 20 }}>
+        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Hola 👋</p>
+        <h1 style={{ fontSize: 24 }}>¿Qué le damos hoy?</h1>
+      </header>
+
+      <button
+        onClick={generar}
+        style={{
+          width: '100%', background: 'var(--sage)', color: 'var(--white)', border: 'none',
+          borderRadius: 'var(--radius-lg)', padding: '18px 20px', textAlign: 'left',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16,
+        }}
+      >
+        <span>
+          <span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 600 }}>
+            Sugerencia rápida
+          </span>
+          <span style={{ fontSize: 13, opacity: 0.85 }}>Toca para generar una idea</span>
+        </span>
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {suggestion && (
+        <div style={{ marginBottom: 20 }}>
+          <RecipeCard recipe={suggestion} showMeal />
+        </div>
+      )}
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+        <NavCard title="Planificador" subtitle="Menú de la semana" color="apricot" onClick={() => navigate('/planificador')} />
+        <NavCard title="Recetario" subtitle="Filtra por edad" color="blue" onClick={() => navigate('/recetario')} />
+        <NavCard title="Seguimiento" subtitle="Grupos de alimentos" color="sage" onClick={() => navigate('/seguimiento')} />
+        <NavCard title="Compra" subtitle="Desde tu menú" color="apricot" onClick={() => navigate('/lista-compra')} />
+      </div>
+    </div>
+  );
+}
+
+function NavCard({ title, subtitle, color, onClick }) {
+  const bg = { apricot: 'var(--apricot-light)', blue: 'var(--blue-light)', sage: 'var(--sage-light)' }[color];
+  return (
+    <button onClick={onClick} style={{
+      background: bg, border: 'none', borderRadius: 'var(--radius-md)', padding: '16px',
+      textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 4, minHeight: 90,
+    }}>
+      <span style={{ fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600 }}>{title}</span>
+      <span style={{ fontSize: 12, color: 'var(--ink-muted)' }}>{subtitle}</span>
+    </button>
+  );
+}
