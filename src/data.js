@@ -1,58 +1,32 @@
+import RAW_RECIPES from './recipes.json';
+
 export const AGE_RANGES = ['12-18 meses', '18-24 meses', '2-3 años', '3-4 años'];
-
-export const RECIPES = [
-  {
-    id: 'r1', name: 'Puré de calabacín y pollo', meal: 'Comida', age: '12-18 meses',
-    time: '15 min', texture: 'Puré', allergens: [],
-    ingredients: ['1 calabacín', '100g pechuga de pollo', '1 patata pequeña', 'Aceite de oliva'],
-    steps: ['Cuece el calabacín y la patata 15 min.', 'Cuece el pollo aparte hasta que esté hecho.', 'Tritura todo junto con un chorrito de aceite.'],
-  },
-  {
-    id: 'r2', name: 'Arroz con verduras', meal: 'Comida', age: '18-24 meses',
-    time: '25 min', texture: 'Trocitos', allergens: [],
-    ingredients: ['80g arroz', 'Zanahoria', 'Guisantes', 'Cebolla'],
-    steps: ['Rehoga la verdura picada fina.', 'Añade el arroz y el doble de agua.', 'Cuece 18 min a fuego bajo.'],
-  },
-  {
-    id: 'r3', name: 'Lentejas suaves', meal: 'Comida', age: '2-3 años',
-    time: '35 min', texture: 'Trocitos', allergens: [],
-    ingredients: ['Lentejas', 'Zanahoria', 'Tomate', 'Patata'],
-    steps: ['Sofríe la verdura.', 'Añade las lentejas y cubre de agua.', 'Cuece 30 min y aplasta un poco.'],
-  },
-  {
-    id: 'r4', name: 'Plátano chafado', meal: 'Merienda', age: '12-18 meses',
-    time: '5 min', texture: 'Puré', allergens: [],
-    ingredients: ['1 plátano maduro'],
-    steps: ['Chafa el plátano con un tenedor hasta la textura deseada.'],
-  },
-  {
-    id: 'r5', name: 'Yogur con fruta', meal: 'Merienda', age: '18-24 meses',
-    time: '5 min', texture: 'Trocitos', allergens: ['Lácteos'],
-    ingredients: ['Yogur natural', 'Fruta de temporada'],
-    steps: ['Corta la fruta en trozos pequeños.', 'Mezcla con el yogur.'],
-  },
-  {
-    id: 'r6', name: 'Crema de calabaza', meal: 'Cena', age: '12-18 meses',
-    time: '20 min', texture: 'Puré', allergens: [],
-    ingredients: ['Calabaza', 'Puerro', 'Patata'],
-    steps: ['Cuece todas las verduras 18 min.', 'Tritura hasta obtener una crema fina.'],
-  },
-  {
-    id: 'r7', name: 'Tortilla francesa suave', meal: 'Cena', age: '2-3 años',
-    time: '10 min', texture: 'Trocitos', allergens: ['Huevo'],
-    ingredients: ['2 huevos', 'Aceite de oliva'],
-    steps: ['Bate el huevo.', 'Cuaja en la sartén a fuego suave por ambos lados.'],
-  },
-  {
-    id: 'r8', name: 'Puré de guisantes', meal: 'Cena', age: '18-24 meses',
-    time: '15 min', texture: 'Puré', allergens: [],
-    ingredients: ['Guisantes', 'Patata', 'Menta (opcional)'],
-    steps: ['Cuece los guisantes y la patata.', 'Tritura hasta lograr una crema homogénea.'],
-  },
-];
-
 export const MEALS = ['Comida', 'Merienda', 'Cena'];
 export const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+
+const MEAL_LABELS = { comida: 'Comida', merienda: 'Merienda', cena: 'Cena' };
+const TEXTURE_LABELS = { pure: 'Puré', trocitos: 'Trocitos', finger: 'Finger food' };
+const ALLERGEN_LABELS = { huevo: 'Huevo', lacteos: 'Lácteos', gluten: 'Gluten', pescado: 'Pescado', frutosSecos: 'Frutos secos' };
+
+// El dataset real (150 recetas) vive en recipes.json, generado por scripts/generate-recipes.mjs.
+// Cada receta puede aplicar a varios tipos de comida; aquí se "desdobla" una fila por cada
+// mealType para que el resto de la app (que espera un único `meal` por receta) siga funcionando igual.
+export const RECIPES = RAW_RECIPES.flatMap((r) => r.mealTypes.map((mealType) => ({
+  id: r.mealTypes.length > 1 ? `${r.id}-${mealType}` : r.id,
+  name: r.name,
+  meal: MEAL_LABELS[mealType] || mealType,
+  age: AGE_RANGES[r.minAgeIdx] || AGE_RANGES[0],
+  ageIdx: r.minAgeIdx,
+  time: `${r.time} min`,
+  texture: TEXTURE_LABELS[r.texture] || r.texture,
+  allergens: (r.allergens || []).map((a) => ALLERGEN_LABELS[a] || a),
+  ingredients: r.ingredients.map((i) => `${i.name} — ${i.quantity}`),
+  steps: r.steps,
+  tips: r.tips || [],
+  utensils: r.utensils || [],
+  videoUrl: r.videoUrl || null,
+  videoTitle: r.videoTitle || null,
+})));
 
 export function recipesFor(meal) {
   return RECIPES.filter(r => r.meal === meal);

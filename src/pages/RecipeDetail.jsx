@@ -63,7 +63,7 @@ export default function RecipeDetail() {
       </div>
 
       <a
-        href={youtubeSearchUrl(recipe.name)}
+        href={recipe.videoUrl || youtubeSearchUrl(recipe.name)}
         target="_blank"
         rel="noopener noreferrer"
         style={{
@@ -76,7 +76,7 @@ export default function RecipeDetail() {
           <path d="M22 12s0-3.4-.4-5a2.9 2.9 0 0 0-2-2C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.6.5a2.9 2.9 0 0 0-2 2C2 8.6 2 12 2 12s0 3.4.4 5a2.9 2.9 0 0 0 2 2c1.7.5 7.6.5 7.6.5s5.9 0 7.6-.5a2.9 2.9 0 0 0 2-2c.4-1.6.4-5 .4-5Z" fill="#C4302B" />
           <path d="M10 15.5v-7l6 3.5-6 3.5Z" fill="white" />
         </svg>
-        Ver vídeos de esta receta en YouTube
+        {recipe.videoUrl ? (recipe.videoTitle || 'Ver vídeo de esta receta') : 'Buscar vídeos de esta receta en YouTube'}
       </a>
 
       <section style={{ marginBottom: 22 }}>
@@ -96,6 +96,22 @@ export default function RecipeDetail() {
           ))}
         </ol>
       </section>
+
+      {recipe.tips && recipe.tips.length > 0 && (
+        <section style={{ marginTop: 22 }}>
+          <h2 style={{ fontSize: 15, marginBottom: 10 }}>Consejos</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {recipe.tips.map((tip, i) => (
+              <div key={i} style={{
+                fontSize: 13, lineHeight: 1.5, color: 'var(--sage-dark)', background: 'var(--sage-light)',
+                borderRadius: 'var(--radius-md)', padding: '10px 12px',
+              }}>
+                {tip}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

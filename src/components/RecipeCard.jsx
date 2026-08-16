@@ -44,7 +44,7 @@ export default function RecipeCard({ recipe, showMeal = false }) {
         <Badge tone="sage">{recipe.age}</Badge>
         <Badge tone="apricot">{recipe.time}</Badge>
         <a
-          href={youtubeSearchUrl(recipe.name)}
+          href={recipe.videoUrl || youtubeSearchUrl(recipe.name)}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}

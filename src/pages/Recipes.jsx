@@ -20,7 +20,8 @@ export default function Recipes() {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
         {MEALS.map(meal => {
-          const items = RECIPES.filter(r => r.meal === meal && (age === 'Todas' || r.age === age));
+          const ageIdx = AGE_RANGES.indexOf(age);
+          const items = RECIPES.filter(r => r.meal === meal && (age === 'Todas' || r.ageIdx <= ageIdx));
           const isOpen = open[meal];
           return (
             <div key={meal} style={{

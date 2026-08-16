@@ -768,6 +768,9 @@ const generated = [];
   ['espinacas', 'garbanzos'], ['calabacin', 'garbanzos'], ['boniato', 'judiasBlancas'],
   ['brocoli', 'salmon', 'patata'], ['calabaza', 'pavo'], ['judiaVerde', 'merluza', 'patata'],
   ['coliflor', 'lentejasRojas'], ['zanahoria', 'lentejas', 'chirivia'],
+  ['espinacas', 'boniato', 'pavo'], ['pimientoRojo', 'calabacin', 'pollo'], ['remolacha', 'zanahoria', 'garbanzos'],
+  ['chirivia', 'boniato', 'pollo'], ['brocoli', 'coliflor', 'pollo'], ['calabaza', 'zanahoria', 'pavo'],
+  ['puerro', 'patata', 'merluza'], ['judiaVerde', 'zanahoria', 'pavo'],
 ].forEach(([...keys]) => generated.push(pureHervido({ mealType: 'comida', items: keys.map((k) => ING[k]) })));
 
 // pure_hervido — cena
@@ -776,6 +779,8 @@ const generated = [];
   ['zanahoria', 'lentejasRojas'], ['chirivia', 'guisantes'], ['judiaVerde', 'patata', 'pavo'],
   ['calabaza', 'judiasBlancas'], ['boniato', 'zanahoria', 'pollo'], ['puerro', 'judiasBlancas'],
   ['calabaza', 'puerro'], ['coliflor', 'brocoli', 'pavo'], ['zanahoria', 'garbanzos'],
+  ['boniato', 'espinacas', 'pollo'], ['chirivia', 'patata', 'pavo'], ['remolacha', 'boniato'],
+  ['pimientoRojo', 'zanahoria', 'pollo'], ['calabacin', 'guisantes', 'merluza'], ['puerro', 'zanahoria', 'ternera'],
 ].forEach((keys) => generated.push(pureHervido({ mealType: 'cena', items: keys.map((k) => ING[k]) })));
 
 // pure_fruta — merienda
@@ -784,14 +789,18 @@ const generated = [];
   ['manzana', 'mango'], ['ciruela', 'pera'], ['albaricoque', 'manzana'], ['melocoton', 'pera', 'manzana'],
   ['mango'], ['papaya'], ['aguacate', 'platano'], ['platano', 'manzana'], ['kiwi', 'pera'],
   ['arandanos', 'manzana'], ['sandia'],
+  ['ciruela', 'melocoton'], ['papaya', 'platano'], ['fresas', 'manzana'], ['albaricoque', 'pera'],
+  ['kiwi', 'manzana'], ['mango', 'pera'],
 ].forEach((keys) => generated.push(pureFruta({ items: keys.map((k) => ING[k]) })));
 
 // yogur_fruta — merienda
-[['platano'], ['melocoton'], ['fresas'], ['mango'], ['kiwi'], ['arandanos'], ['papaya'], ['ciruela']]
+[['platano'], ['melocoton'], ['fresas'], ['mango'], ['kiwi'], ['arandanos'], ['papaya'], ['ciruela'],
+  ['fresas', 'platano'], ['manzana', 'pera'], ['mango', 'fresas'], ['melocoton', 'arandanos']]
   .forEach((keys) => generated.push(yogurFruta({ items: keys.map((k) => ING[k]) })));
 
 // tortitas — merienda
-[['quinoa', 'platano'], ['avena', 'manzana'], ['avena', 'pera'], ['cuscus', 'platano'], ['quinoa', 'melocoton']]
+[['quinoa', 'platano'], ['avena', 'manzana'], ['avena', 'pera'], ['cuscus', 'platano'], ['quinoa', 'melocoton'],
+  ['avena', 'ciruela'], ['quinoa', 'pera'], ['cuscus', 'manzana']]
   .forEach(([c, f]) => generated.push(tortitas({ cereal: ING[c], fruit: ING[f] })));
 
 // palitos_untables — merienda
@@ -801,7 +810,8 @@ generated.push(palitosUntables({ spreadName: 'aguacate y plátano', spreadItems:
 generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.mango], prepSteps: ['Chafa la pulpa de mango con un tenedor hasta obtener una crema suave.'] }));
 
 // tortilla_finger — only vegetables that make sense grated raw into an omelette
-[['comida', 'zanahoria'], ['comida', 'boniato'], ['cena', 'calabaza'], ['cena', 'remolacha']]
+[['comida', 'zanahoria'], ['comida', 'boniato'], ['cena', 'calabaza'], ['cena', 'remolacha'],
+  ['comida', 'chirivia'], ['cena', 'puerro']]
   .forEach(([meal, veg]) => generated.push(tortillaFinger({ mealType: meal, veg: ING[veg] })));
 
 // salteado_cereal — comida
@@ -811,6 +821,11 @@ generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.
   { cereal: 'cuscus', protein: 'pollo', veggies: ['calabacin'] },
   { cereal: 'quinoa', protein: 'pavo', veggies: ['judiaVerde'] },
   { cereal: 'arroz', protein: 'ternera', veggies: ['zanahoria'] },
+  { cereal: 'quinoa', protein: 'pollo', veggies: ['pimientoRojo'] },
+  { cereal: 'cuscus', protein: 'pavo', veggies: ['calabacin', 'zanahoria'] },
+  { cereal: 'arroz', protein: 'pollo', veggies: ['guisantes', 'zanahoria'] },
+  { cereal: 'quinoa', protein: 'salmon', veggies: ['brocoli'] },
+  { cereal: 'cuscus', protein: 'ternera', veggies: ['pimientoRojo', 'calabacin'] },
 ].forEach(({ cereal, protein, veggies }) => generated.push(salteadoCereal({ cereal: ING[cereal], protein: ING[protein], veggies: veggies.map((v) => ING[v]) })));
 
 // guiso_trocitos
@@ -819,6 +834,10 @@ generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.
   { mealType: 'cena', protein: 'pavo', veggies: ['calabacin', 'tomate'] },
   { mealType: 'cena', protein: 'ternera', veggies: ['boniato', 'zanahoria'] },
   { mealType: 'cena', protein: 'pollo', veggies: ['judiaVerde', 'patata'] },
+  { mealType: 'comida', protein: 'ternera', veggies: ['pimientoRojo', 'zanahoria'] },
+  { mealType: 'comida', protein: 'pavo', veggies: ['boniato', 'guisantes'] },
+  { mealType: 'cena', protein: 'pollo', veggies: ['coliflor', 'zanahoria'] },
+  { mealType: 'cena', protein: 'ternera', veggies: ['patata', 'guisantes'] },
 ].forEach(({ mealType, protein, veggies }) => generated.push(guisoTrocitos({ mealType, protein: ING[protein], veggies: veggies.map((v) => ING[v]) })));
 
 // sopa_trocitos — cena
@@ -827,10 +846,15 @@ generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.
   { starch: 'cuscus', veggies: ['calabacin', 'tomate'] },
   { starch: 'fideosFinos', veggies: ['brocoli', 'zanahoria'] },
   { starch: 'fideosFinos', veggies: ['guisantes', 'zanahoria'] },
+  { starch: 'quinoa', veggies: ['calabacin', 'tomate'] },
+  { starch: 'cuscus', veggies: ['zanahoria', 'guisantes'] },
+  { starch: 'fideosFinos', veggies: ['puerro', 'zanahoria'] },
+  { starch: 'arroz', veggies: ['calabaza', 'puerro'] },
 ].forEach(({ starch, veggies }) => generated.push(sopaTrocitos({ starch: ING[starch], veggies: veggies.map((v) => ING[v]) })));
 
 // desmenuzado — cena
-[['pavo', 'boniato'], ['pollo', 'calabaza'], ['ternera', 'patata']]
+[['pavo', 'boniato'], ['pollo', 'calabaza'], ['ternera', 'patata'],
+  ['pollo', 'chirivia'], ['pavo', 'zanahoria'], ['ternera', 'boniato']]
   .forEach(([protein, veg]) => generated.push(desmenuzado({ protein: ING[protein], veg: ING[veg] })));
 
 // ---------------------------------------------------------------------------
