@@ -8,7 +8,7 @@ interface QuickSuggestionModalProps {
 
 export function QuickSuggestionModal({ state }: QuickSuggestionModalProps) {
   if (!state.quickOpen) return null;
-  const recipe = getRecipe(state.quickRecipeId ?? undefined);
+  const recipe = getRecipe(state.recipes, state.quickRecipeId ?? undefined);
   if (!recipe) return null;
 
   return (

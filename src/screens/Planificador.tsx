@@ -28,7 +28,20 @@ export function Planificador({ state, onGoCompra }: PlanificadorProps) {
         <ChipGroup name="age-plan" options={ageOptions} />
       </div>
 
-      <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
+      <div style={{ display: 'flex', gap: 6 }}>
+        {Array.from({ length: state.weekCount }, (_, i) => i).map((w) => (
+          <button
+            key={w}
+            type="button"
+            className={`week-chip ${w === state.selectedWeek ? 'active' : ''}`}
+            onClick={() => state.setSelectedWeek(w)}
+          >
+            Sem {w + 1}
+          </button>
+        ))}
+      </div>
+
+      <div data-no-swipe style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
         {DAYS.map((d) => (
           <button
             key={d.key}
@@ -48,7 +61,7 @@ export function Planificador({ state, onGoCompra }: PlanificadorProps) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {MEALS.map((m) => {
           const key = keyOf(state.selectedDay, m.key);
-          const recipe = getRecipe(state.plan[key]);
+          const recipe = getRecipe(state.recipes, state.plan[key]);
           const status = state.statuses[key];
           const isFixed = !!state.fixed[key];
           return (

@@ -1,18 +1,18 @@
-import { DAYS, MEALS, RECIPES, getRecipe, keyOf, type MealKey } from '../data/recipes';
+import { DAYS, MEALS, getRecipe, keyOf, type MealKey, type Recipe } from '../data/recipes';
 
 export type Plan = Record<string, string>;
 export type FixedSlots = Record<string, boolean>;
 
 /** Generates a full week plan: no repeated recipe in the week, avoids repeating
  * a food group within the same meal slot on nearby days. Respects any fixed slots. */
-export function generateWeek(ageIdx: number, fixedSlots: Plan = {}): Plan {
+export function generateWeek(recipes: Recipe[], ageIdx: number, fixedSlots: Plan = {}): Plan {
   const used = new Set(Object.values(fixedSlots));
   const recency: Record<MealKey, Record<string, number>> = { comida: {}, merienda: {}, cena: {} };
   const plan: Plan = {};
 
   Object.keys(fixedSlots).forEach((k) => {
     const meal = k.split('_')[1] as MealKey;
-    const r = getRecipe(fixedSlots[k]);
+    const r = getRecipe(recipes, fixedSlots[k]);
     if (r) r.foodGroups.forEach((g) => { recency[meal][g] = -1; });
   });
 
@@ -23,7 +23,7 @@ export function generateWeek(ageIdx: number, fixedSlots: Plan = {}): Plan {
         plan[key] = fixedSlots[key];
         return;
       }
-      const pool = RECIPES.filter((r) => r.mealTypes.includes(m.key) && r.minAgeIdx <= ageIdx);
+      const pool = recipes.filter((r) => r.mealTypes.includes(m.key) && r.minAgeIdx <= ageIdx);
       let candidates = pool.filter((r) => !used.has(r.id));
       if (!candidates.length) candidates = pool;
 

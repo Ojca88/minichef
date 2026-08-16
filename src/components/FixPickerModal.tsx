@@ -1,5 +1,4 @@
 import type { AppState } from '../hooks/useAppState';
-import { RECIPES } from '../data/recipes';
 import { CloseIcon } from './Icons';
 
 interface FixPickerModalProps {
@@ -9,7 +8,7 @@ interface FixPickerModalProps {
 export function FixPickerModal({ state }: FixPickerModalProps) {
   if (!state.fixPicker.open) return null;
 
-  const candidates = RECIPES.filter(
+  const candidates = state.recipes.filter(
     (r) => r.mealTypes.includes(state.fixPicker.meal) && r.minAgeIdx <= state.ageIdx,
   );
 

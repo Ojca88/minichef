@@ -7,7 +7,7 @@ interface RecipeDetailModalProps {
 }
 
 export function RecipeDetailModal({ state }: RecipeDetailModalProps) {
-  const recipe = getRecipe(state.recipeDetailId ?? undefined);
+  const recipe = getRecipe(state.recipes, state.recipeDetailId ?? undefined);
   if (!recipe) return null;
 
   const allergensText = recipe.allergens.length
@@ -36,16 +36,35 @@ export function RecipeDetailModal({ state }: RecipeDetailModalProps) {
         </button>
         <div>
           <h5 style={{ margin: '0 0 6px' }}>Ingredientes</h5>
-          <ul style={{ margin: 0, paddingLeft: 18, fontSize: 13 }}>
-            {recipe.ingredients.map((ing) => <li key={ing}>{ing}</li>)}
+          <ul style={{ margin: 0, paddingLeft: 18, fontSize: 13, display: 'flex', flexDirection: 'column', gap: 3 }}>
+            {recipe.ingredients.map((ing) => (
+              <li key={ing.name}><strong>{ing.name}</strong> — {ing.quantity}</li>
+            ))}
           </ul>
+        </div>
+        <div>
+          <h5 style={{ margin: '0 0 6px' }}>Utensilios necesarios</h5>
+          <p style={{ margin: 0, fontSize: 13, opacity: 0.85 }}>{recipe.utensils.join(', ')}</p>
         </div>
         <div>
           <h5 style={{ margin: '0 0 6px' }}>Pasos</h5>
           <ol style={{ margin: 0, paddingLeft: 18, fontSize: 13 }}>
-            {recipe.steps.map((st, i) => <li style={{ marginBottom: 4 }} key={i}>{st}</li>)}
+            {recipe.steps.map((st, i) => <li style={{ marginBottom: 6 }} key={i}>{st}</li>)}
           </ol>
         </div>
+        {recipe.tips.length > 0 && (
+          <div>
+            <h5 style={{ margin: '0 0 6px' }}>Consejos</h5>
+            <ul style={{ margin: 0, paddingLeft: 18, fontSize: 13, opacity: 0.85, display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {recipe.tips.map((tip, i) => <li key={i}>{tip}</li>)}
+            </ul>
+          </div>
+        )}
+        {recipe.videoUrl && (
+          <a href={recipe.videoUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-block" style={{ justifyContent: 'center', textAlign: 'center' }}>
+            Ver vídeo: {recipe.videoTitle || 'cómo se prepara'}
+          </a>
+        )}
       </div>
     </div>
   );

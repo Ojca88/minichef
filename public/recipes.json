@@ -1,0 +1,4898 @@
+[
+  {
+    "id": "r1",
+    "name": "Puré de calabaza y patata",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada (unos 150 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita (unos 5 ml)"
+      }
+    ],
+    "utensils": [
+      "Cazuela mediana",
+      "Colador",
+      "Batidora de mano (o un tenedor)",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lávate las manos y lava bien la calabaza y la patata bajo el grifo, aunque las vayas a pelar.",
+      "Pela la calabaza y la patata con un pelador o un cuchillo pequeño. Retira las pepitas de la calabaza con una cuchara. Corta ambas en dados de unos 2 cm: así se cuecen antes y de forma pareja.",
+      "Pon los dados en la cazuela y cúbrelos con agua fría sin sal (el bebé no necesita sal añadida). Lleva a ebullición y luego baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que puedas atravesar un trozo de patata con un tenedor sin resistencia. Si aún está duro, dale 3-4 minutos más.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora (o chafa con el tenedor si prefieres una textura menos fina) junto con el aceite de oliva, añadiendo un poco del agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura con una cucharita antes de dárselo: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
+      "Si es la primera vez que tu bebé prueba la calabaza, ofrécela sola 2-3 días antes de mezclarla con otros alimentos nuevos, para poder identificar posibles reacciones."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=6r_IwdTSLc8",
+    "videoTitle": "Puré o crema de calabaza, zanahoria y patata para bebés"
+  },
+  {
+    "id": "r2",
+    "name": "Lentejas con verduras",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 35,
+    "texture": "pure",
+    "foodGroups": [
+      "legumbres",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Lentejas",
+        "quantity": "3 cucharadas soperas secas (unos 40 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 zanahoria, pelada"
+      },
+      {
+        "name": "Puerro",
+        "quantity": "1/2 puerro (solo la parte blanca y verde clara)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1/2 patata pequeña, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava las lentejas bajo el grifo en un colador hasta que el agua salga clara; así eliminas el polvo y posibles impurezas.",
+      "Lava y pela la zanahoria y la patata. Lava bien el puerro separando las capas, ya que suele acumular tierra entre ellas, y córtalo en rodajas finas. Corta la zanahoria y la patata en dados pequeños.",
+      "Pon las lentejas y las verduras en la cazuela y cubre con agua fría sin sal, un par de dedos por encima de los ingredientes.",
+      "Lleva a ebullición, baja el fuego y cuece a fuego lento unos 30 minutos, removiendo de vez en cuando y retirando la espuma que suba a la superficie.",
+      "Comprueba el punto apretando una lenteja entre los dedos: debe deshacerse sin esfuerzo. Si siguen duras, añade un poco más de agua caliente y cuece 5-10 minutos más.",
+      "Escurre reservando un poco del caldo de cocción y tritura con la batidora junto con el aceite de oliva, añadiendo caldo hasta conseguir la textura que tu bebé tolere.",
+      "Deja templar y comprueba la temperatura antes de servir."
+    ],
+    "tips": [
+      "Las legumbres cocidas y trituradas se congelan muy bien: guarda raciones individuales para los días con poco tiempo."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=JCpMXuUxvM4",
+    "videoTitle": "Puré de lentejas para bebés"
+  },
+  {
+    "id": "r3",
+    "name": "Crema de calabacín y pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el calabacín (no hace falta pelarlo si la piel está en buen estado, aporta fibra) y córtalo en dados. Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Pon el calabacín y el pollo en la cazuela y cubre con agua sin sal.",
+      "Lleva a ebullición y cuece a fuego medio 20 minutos, hasta que el pollo esté blanco por dentro, sin ninguna parte rosada, y el calabacín se deshaga al pincharlo.",
+      "Escurre reservando un poco del caldo de cocción.",
+      "Tritura el pollo y el calabacín juntos con la batidora, añadiendo caldo poco a poco hasta lograr una crema fina, sin grumos ni hebras.",
+      "Añade el aceite de oliva en crudo justo antes de servir y remueve bien.",
+      "Deja templar y comprueba que no queden trozos duros de pollo sin triturar antes de ofrecerlo."
+    ],
+    "tips": [
+      "Comprueba siempre que el pollo esté completamente cocido, sin ninguna parte rosada, antes de triturarlo."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=VGc94Kq16xo",
+    "videoTitle": "Crema de calabacín con pollo"
+  },
+  {
+    "id": "r4",
+    "name": "Arroz con verduras y pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "3 cucharadas soperas (unos 40 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 zanahoria pequeña, en dados"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "2 cucharadas (frescos o congelados)"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para el arroz",
+      "Sartén con tapa",
+      "Colador",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el arroz bajo el grifo hasta que el agua salga clara. Cuécelo en agua sin sal siguiendo el tiempo del paquete (suele ser 15-18 minutos). Escurre y reserva.",
+      "Mientras se cuece el arroz, pela y corta la zanahoria en dados muy pequeños (de menos de 1 cm) y corta la pechuga de pollo en tiras finas.",
+      "Calienta un chorrito de aceite en una sartén y saltea el pollo a fuego medio 5-6 minutos, removiendo, hasta que esté dorado y bien hecho por dentro.",
+      "Añade la zanahoria y los guisantes a la sartén con un par de cucharadas de agua, tapa y cocina 8-10 minutos hasta que la zanahoria esté blanda al pincharla.",
+      "Mezcla el arroz cocido con el pollo y las verduras en la sartén y remueve 1-2 minutos a fuego bajo para que se integren los sabores.",
+      "Con un tenedor, aplasta ligeramente los guisantes y separa los granos de arroz para que no formen bolas: así es más fácil de masticar y tragar para tu bebé.",
+      "Deja templar y sirve en trozos pequeños y blandos, comprobando que no haya piezas duras."
+    ],
+    "tips": [
+      "Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=fNVJLNBXBNs",
+    "videoTitle": "Potito casero de verduras, arroz y pollo para bebés"
+  },
+  {
+    "id": "r5",
+    "name": "Puré de garbanzos y zanahoria",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 35,
+    "texture": "pure",
+    "foodGroups": [
+      "legumbres",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 zanahoria, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela y corta la zanahoria en rodajas finas para que se cueza antes.",
+      "Ponla en la cazuela y cubre con agua sin sal. Lleva a ebullición y cuece 12-15 minutos, hasta que esté blanda al pinchar con un tenedor.",
+      "Si usas garbanzos de bote, escúrrelos y enjuágalos bajo el grifo para eliminar el exceso de sal del líquido de conserva; si los has cocido en casa, resérvalos sin más.",
+      "Añade los garbanzos a la cazuela con la zanahoria durante los últimos 2-3 minutos, solo para calentarlos.",
+      "Escurre reservando un poco de agua de cocción y tritura todo junto con la batidora y el aceite de oliva.",
+      "Añade agua reservada poco a poco hasta conseguir una crema fina; los garbanzos pueden dejar textura granulada, tritura bien si tu bebé aún no tolera grumos.",
+      "Deja templar antes de servir."
+    ],
+    "tips": [
+      "La piel de los garbanzos puede quedar en trocitos pequeños tras triturar: si tu bebé es muy pequeño, pasa el puré por un colador fino para eliminarla."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=lPTCRc6EuYs",
+    "videoTitle": "Puré para bebés de garbanzos, calabaza, patata, pollo y zanahoria"
+  },
+  {
+    "id": "r6",
+    "name": "Merluza con puré de patata y brócoli",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "pescado"
+    ],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Merluza",
+        "quantity": "1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Brócoli",
+        "quantity": "3-4 ramilletes pequeños"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Cazuela",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela y trocea la patata en dados. Separa el brócoli en ramilletes pequeños y lava bien.",
+      "Cuece la patata en agua sin sal unos 15 minutos hasta que esté blanda. Añade el brócoli los últimos 6-7 minutos.",
+      "Mientras tanto, cocina la merluza al vapor (o en una sartén con un poco de agua, tapada) 6-8 minutos, hasta que la carne quede blanca y se separe fácilmente en láminas con el tenedor.",
+      "Este es el paso más importante: desmenuza la merluza con los dedos limpios o dos tenedores y repasa cada trozo despacio buscando espinas. La merluza suele tener pocas, pero conviene revisar bien antes de triturar.",
+      "Escurre la patata y el brócoli reservando un poco del agua de cocción.",
+      "Tritura la merluza sin espinas junto con la patata, el brócoli y el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave.",
+      "Vuelve a repasar el puré ya triturado con los dedos limpios por si quedara alguna espina pequeña, antes de ofrecerlo."
+    ],
+    "tips": [
+      "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo en pequeña cantidad por la mañana, para poder observar cómo reacciona durante el día."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=OI-MUt3viAw",
+    "videoTitle": "Puré de verduras con merluza para bebés"
+  },
+  {
+    "id": "r7",
+    "name": "Ternera guisada con verduras",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 40,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Ternera",
+        "quantity": "60-70 g para guisar, en trozos pequeños"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 zanahoria, pelada"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "1 tomate maduro pequeño"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1/2 patata pequeña, pelada"
+      }
+    ],
+    "utensils": [
+      "Cazuela u olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta la ternera en trozos muy pequeños, del tamaño de un guisante grande, retirando cualquier nervio o grasa visible.",
+      "Calienta un chorrito de aceite de oliva en la cazuela y sofríe la ternera a fuego medio 3-4 minutos, removiendo, hasta que cambie de color por fuera.",
+      "Pela y corta la zanahoria y la patata en dados pequeños. Pela y trocea el tomate (puedes escaldarlo unos segundos en agua caliente para que la piel salga con facilidad).",
+      "Añade las verduras a la cazuela con la ternera y cubre con agua sin sal hasta que todo quede cubierto.",
+      "Tapa y cocina a fuego lento 30 minutos, removiendo de vez en cuando y añadiendo un poco más de agua si se queda seco.",
+      "Comprueba que la ternera esté muy tierna deshaciéndola con un tenedor; si aún está dura, dale 10-15 minutos más a fuego bajo.",
+      "Deja templar y, si tu bebé empieza con trocitos, aplasta ligeramente cada pieza con el tenedor para facilitar la masticación."
+    ],
+    "tips": [
+      "La ternera guisada muy despacio queda más tierna: si tienes tiempo, cocínala 45-50 minutos a fuego muy bajo para que se deshaga con facilidad."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=5ovRxjBsDUQ",
+    "videoTitle": "Ternera guisada en olla exprés"
+  },
+  {
+    "id": "r8",
+    "name": "Tortilla de calabacín",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño, rallado"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "Unas gotas"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Lava el calabacín y rállalo con la piel usando un rallador de agujero grueso.",
+      "Pon el calabacín rallado en un colador o sobre papel de cocina y presiona para quitar el exceso de agua; así la tortilla no quedará blanda.",
+      "Casca el huevo en un bol (revisa que no caiga nada de cáscara dentro) y bátelo bien con un tenedor.",
+      "Mezcla el calabacín escurrido con el huevo batido.",
+      "Calienta una gota de aceite en una sartén antiadherente a fuego medio-bajo. Vierte la mezcla y extiéndela para formar una tortilla fina.",
+      "Cocina 3-4 minutos por un lado hasta que los bordes estén cuajados, dale la vuelta con ayuda de un plato y cocina 2-3 minutos más por el otro lado, hasta que el centro esté totalmente cuajado, sin huevo líquido.",
+      "Deja templar sobre una tabla y corta en tiras del grosor de un dedo adulto, para que tu bebé pueda sujetarlas con el puño."
+    ],
+    "tips": [
+      "Comprueba siempre que el huevo esté completamente cuajado, sin partes líquidas, antes de servirlo.",
+      "El huevo es un alérgeno frecuente: si es la primera vez, ofrece un trozo pequeño y observa a tu bebé durante las horas siguientes."
+    ]
+  },
+  {
+    "id": "r9",
+    "name": "Puré de lentejas rojas con calabaza",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "legumbres",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Lentejas rojas",
+        "quantity": "3 cucharadas soperas (unos 40 g)"
+      },
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Enjuaga las lentejas rojas en un colador bajo el grifo hasta que el agua salga clara (se cuecen rápido y no necesitan remojo previo).",
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados pequeños.",
+      "Pon las lentejas y la calabaza en la cazuela y cubre con agua fría sin sal.",
+      "Lleva a ebullición, baja el fuego y cuece 18-20 minutos, removiendo de vez en cuando, hasta que las lentejas estén completamente deshechas y blandas.",
+      "Comprueba el punto aplastando una lenteja entre los dedos: debe deshacerse sin esfuerzo.",
+      "Escurre el exceso de agua si quedara mucho líquido y tritura todo junto con el aceite de oliva hasta obtener una crema fina y homogénea.",
+      "Deja templar antes de servir."
+    ],
+    "tips": [
+      "Las lentejas rojas se deshacen solas al cocer, así que este puré suele quedar muy cremoso sin apenas necesidad de triturar."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=cnsiLIPpyIU",
+    "videoTitle": "Crema de lentejas rojas y calabaza"
+  },
+  {
+    "id": "r10",
+    "name": "Plátano chafado con copos de avena",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 5,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien maduro"
+      },
+      {
+        "name": "Copos de avena finos",
+        "quantity": "1 cucharada"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Elige un plátano bien maduro, con alguna mancha marrón en la piel: es más dulce y fácil de chafar.",
+      "Pela el plátano y ponlo en un bol.",
+      "Chafa con un tenedor hasta obtener una pasta sin grumos grandes.",
+      "Añade los copos de avena finos poco a poco, removiendo, hasta que se integren y la mezcla espese ligeramente.",
+      "Deja reposar 2-3 minutos: la avena absorbe algo de humedad y la textura queda más suave.",
+      "Remueve una última vez antes de servir; si queda muy espeso, añade unas gotas de agua para aligerar."
+    ],
+    "tips": [
+      "No necesita cocción, así que es ideal para cuando tienes poco tiempo.",
+      "Si usas copos de avena normales (no finos), tritúralos unos segundos en un molinillo para que sean más fáciles de digerir."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=jXl1smn0yBM",
+    "videoTitle": "Papilla de avena y plátano para bebés a partir de 6 meses"
+  },
+  {
+    "id": "r11",
+    "name": "Yogur natural con fruta",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 5,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Pera o manzana",
+        "quantity": "1/2 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Lava bien la pera o la manzana. Puedes pelarla o dejar la piel si está bien lavada, según lo que tolere tu bebé.",
+      "Corta la fruta en trozos muy pequeños y blandos; si está dura, cuécela al vapor 5 minutos para ablandarla antes de trocearla.",
+      "Pon el yogur natural sin azúcar añadido en un bol.",
+      "Mezcla los trozos de fruta con el yogur, removiendo bien.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío para tu bebé."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "El yogur es lácteo: si es la primera vez que tu bebé prueba lácteos de vaca, empieza con una cantidad pequeña."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=wFG0roT2rvU",
+    "videoTitle": "Yogur con frutas: un postre saludable para bebés"
+  },
+  {
+    "id": "r12",
+    "name": "Tortitas de avena y plátano",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Avena",
+        "quantity": "3 cucharadas (unos 30 g)"
+      },
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, madura"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Batidora (o un tenedor)",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Pela el plátano y trocéalo. Casca el huevo en un bol comprobando que no caiga nada de cáscara.",
+      "Tritura la avena, el plátano y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes (o chafa el plátano con un tenedor y mezcla bien si no tienes batidora).",
+      "Calienta una sartén antiadherente a fuego bajo sin aceite (o con una gota si tiende a pegarse).",
+      "Vierte pequeñas porciones de masa, una cucharada cada vez, para formar tortitas pequeñas.",
+      "Cocina 2 minutos por un lado hasta que salgan burbujas en la superficie y los bordes se vean firmes, luego dale la vuelta con la espátula y cocina 1-2 minutos más por el otro lado.",
+      "Comprueba que el centro esté bien cuajado, sin masa líquida, antes de retirarlas del fuego.",
+      "Deja enfriar sobre un plato y corta en tiras para que tu bebé las pueda coger con la mano."
+    ],
+    "tips": [
+      "Haz tortitas pequeñas, del tamaño de una cuchara sopera, para que se cocinen bien por dentro sin quemarse por fuera.",
+      "Este plato lleva huevo: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=TLDJLT-jA6I",
+    "videoTitle": "Tortitas de avena y plátano"
+  },
+  {
+    "id": "r13",
+    "name": "Puré de manzana y pera",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 15,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava, pela y descorazona la manzana y la pera. Córtalas en trozos de tamaño similar para que se cuezan por igual.",
+      "Colócalas en una vaporera o en una cazuela con un dedo de agua.",
+      "Cuece al vapor unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora (o chafa con un tenedor si prefieres una textura más rústica) hasta obtener una compota fina.",
+      "Si queda demasiado espesa, añade una cucharadita del agua de cocción reservada."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta cocida ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=YYf_oecEpyA",
+    "videoTitle": "Cómo hacer puré de pera con manzana para bebés"
+  },
+  {
+    "id": "r14",
+    "name": "Palitos de pan con aguacate",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 5,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "grasas"
+    ],
+    "ingredients": [
+      {
+        "name": "Pan tierno",
+        "quantity": "1 rebanada, a poder ser integral"
+      },
+      {
+        "name": "Aguacate",
+        "quantity": "1/2 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Corta el pan en palitos de aproximadamente 1 cm de grosor y del largo de un dedo adulto, para que tu bebé pueda sujetarlos bien con el puño.",
+      "Parte el aguacate por la mitad, retira el hueso con cuidado y extrae la pulpa con una cuchara.",
+      "Chafa la pulpa con un tenedor en un bol hasta obtener una crema suave, sin grumos grandes.",
+      "Unta generosamente cada palito de pan con la crema de aguacate por todas las caras.",
+      "Sirve enseguida: el aguacate se oxida y oscurece rápido al contacto con el aire."
+    ],
+    "tips": [
+      "Elige un aguacate maduro, que ceda ligeramente al presionarlo con el dedo, para que sea fácil de chafar.",
+      "Este plato lleva gluten (el pan): si es la primera vez que lo prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "r15",
+    "name": "Compota de melocotón",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 15,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Melocotón",
+        "quantity": "1-2 unidades, maduras"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava el melocotón. Puedes escaldarlo unos segundos en agua hirviendo y pasarlo después por agua fría: así la piel se retira mucho más fácil.",
+      "Pela, deshuesa y corta el melocotón en trozos.",
+      "Ponlo en la cazuela con un par de cucharadas de agua (la fruta suelta líquido al cocerse, no hace falta cubrirla del todo).",
+      "Cuece a fuego bajo 10 minutos, removiendo de vez en cuando, hasta que los trozos estén blandos y se deshagan con facilidad.",
+      "Retira del fuego y deja templar.",
+      "Tritura con la batidora o chafa con un tenedor hasta lograr una compota suave y sin trozos."
+    ],
+    "tips": [
+      "Si el melocotón está muy maduro y dulce, puedes saltarte la cocción y triturarlo directamente en crudo."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=PA17R8ZtWxk",
+    "videoTitle": "Compota para bebés: melocotón"
+  },
+  {
+    "id": "r16",
+    "name": "Crema de puerro y patata",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Puerro",
+        "quantity": "1/2 unidad (parte blanca y verde clara)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta el puerro por la mitad a lo largo y lávalo bien bajo el grifo separando las capas, ya que suele acumular tierra entre ellas. Corta la parte blanca y verde clara en rodajas finas.",
+      "Pela y corta la patata en dados.",
+      "Pon el puerro y la patata en la cazuela y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego y cuece 20 minutos, hasta que la patata se deshaga al pincharla con un tenedor.",
+      "Escurre reservando un poco del caldo de cocción.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo caldo poco a poco hasta lograr una crema fina y sin hebras de puerro.",
+      "Deja templar y comprueba que no queden hebras sin triturar antes de servir."
+    ],
+    "tips": [
+      "Congela en raciones pequeñas: esta crema aguanta bien hasta 1 mes en el congelador."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=Sl2A7HWlYQw",
+    "videoTitle": "Crema de puerro y patata: receta fácil y rápida"
+  },
+  {
+    "id": "r17",
+    "name": "Puré de brócoli y pescado blanco",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "pescado"
+    ],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Brócoli",
+        "quantity": "3-4 ramilletes pequeños"
+      },
+      {
+        "name": "Pescado blanco",
+        "quantity": "1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Vaporera",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa el brócoli en ramilletes pequeños y lávalos bien.",
+      "Cuece el brócoli al vapor 8-10 minutos, hasta que esté blando al pincharlo con un tenedor.",
+      "Cocina el pescado blanco al vapor (o en una sartén con un poco de agua, tapado) 5-7 minutos, hasta que la carne quede opaca y se deshaga en láminas con facilidad.",
+      "Con los dedos limpios, desmenuza el pescado y repasa cada trozo despacio, buscando espinas. Este paso es el más importante: no te precipites.",
+      "Tritura el pescado sin espinas junto con el brócoli y el aceite de oliva, añadiendo un poco de agua si queda muy espeso.",
+      "Vuelve a repasar el puré ya triturado con los dedos limpios, por si quedara alguna espina pequeña.",
+      "Deja templar antes de servir."
+    ],
+    "tips": [
+      "Pide en la pescadería que te quiten la piel y las espinas visibles; aun así, repasa siempre tú misma/o antes de dárselo a tu bebé.",
+      "El pescado es un alérgeno frecuente: introdúcelo poco a poco y por la mañana, para poder observar cómo reacciona."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=nc1IDfZusaY",
+    "videoTitle": "Potito de pescado, arroz y verdura para bebé"
+  },
+  {
+    "id": "r18",
+    "name": "Sopa de fideos con verduras",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 20,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Fideos finos",
+        "quantity": "Un puñado pequeño (unos 30 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 zanahoria, en dados pequeños"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño, en dados pequeños"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en dados muy pequeños. Lava el calabacín y córtalo también en dados pequeños.",
+      "Pon las verduras en la cazuela y cubre con agua o caldo casero sin sal.",
+      "Lleva a ebullición y cuece 10-12 minutos, hasta que la zanahoria empiece a ablandarse.",
+      "Añade los fideos finos y cuece 4-5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se peguen.",
+      "Comprueba que tanto la verdura como los fideos estén blandos, sin partes duras.",
+      "Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.",
+      "Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca."
+    ],
+    "tips": [
+      "Los fideos calientes pueden quemar por dentro aunque el plato parezca templado: remueve y deja reposar un par de minutos más de lo que creas necesario.",
+      "Los fideos llevan gluten: si es la primera vez que tu bebé lo prueba, empieza con una ración pequeña."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=qsjsXk2Qbhg",
+    "videoTitle": "Sopa de fideos con verduras para niños"
+  },
+  {
+    "id": "r19",
+    "name": "Tortilla francesa con calabacín",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 10,
+    "texture": "finger",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño, rallado"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Ralla el calabacín con un rallador de agujero grueso.",
+      "Escurre el calabacín rallado presionándolo con las manos o con papel de cocina, para eliminar el exceso de agua.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Mezcla el calabacín escurrido con el huevo batido.",
+      "Calienta una sartén antiadherente a fuego bajo con una gota de aceite. Vierte la mezcla extendiéndola en una capa fina.",
+      "Cocina 3 minutos por un lado y dale la vuelta con ayuda de un plato; cocina 2-3 minutos más por el otro lado, hasta que el centro esté totalmente cuajado.",
+      "Deja templar sobre una tabla y corta en tiras del grosor de un dedo para que tu bebé pueda sujetarlas."
+    ],
+    "tips": [
+      "Comprueba siempre que no quede huevo líquido en el centro antes de servir.",
+      "Este plato lleva huevo: si es la primera vez que lo prueba, ofrece una cantidad pequeña y obsérvalo durante las horas siguientes."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=9XR9TzgWkBY",
+    "videoTitle": "Tortilla francesa para bebés, tierna y esponjosa"
+  },
+  {
+    "id": "r20",
+    "name": "Puré de boniato y guisantes",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Boniato",
+        "quantity": "1 unidad pequeña (unos 150 g)"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "3 cucharadas (frescos o congelados)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela el boniato y córtalo en dados.",
+      "Ponlo en la cazuela y cubre con agua sin sal. Lleva a ebullición y cuece 15 minutos.",
+      "Añade los guisantes (frescos o congelados, no hace falta descongelarlos antes) y cuece 5 minutos más, hasta que el boniato se deshaga al pincharlo y los guisantes estén blandos.",
+      "Escurre reservando un poco del agua de cocción.",
+      "Tritura todo junto con el aceite de oliva hasta conseguir una crema homogénea, añadiendo agua reservada si queda demasiado espesa.",
+      "Si tu bebé aún no tolera la piel de los guisantes, pasa el puré por un colador fino después de triturar.",
+      "Deja templar antes de servir."
+    ],
+    "tips": [
+      "El boniato es naturalmente dulce, así que este puré suele gustar mucho a los bebés que empiezan con la alimentación complementaria."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=jNtBZURC5FU",
+    "videoTitle": "Puré de boniato o batata dulce para bebés"
+  },
+  {
+    "id": "r21",
+    "name": "Pollo desmenuzado con puré de zanahoria",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete (unos 80 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 unidad, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Dos cazuelas (o una, si las cueces por turnos)",
+      "Batidora de mano",
+      "Dos tenedores para desmenuzar"
+    ],
+    "steps": [
+      "Pon la pechuga de pollo entera (o en trozos grandes) en una cazuela y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego y cuece 20-25 minutos, hasta que el pollo esté muy tierno y ya no tenga nada de color rosado por dentro.",
+      "Mientras tanto, pela y corta la zanahoria en rodajas y cuécela en otra cazuela con agua sin sal 15 minutos, hasta que esté blanda al pinchar.",
+      "Escurre la zanahoria y tritúrala con la batidora junto con el aceite de oliva hasta obtener un puré suave.",
+      "Saca el pollo del agua y déjalo templar unos minutos para poder manipularlo sin quemarte.",
+      "Desmenuza el pollo con dos tenedores (o con los dedos limpios) tirando en direcciones opuestas, hasta conseguir hilos finos, sin trozos grandes ni duros.",
+      "Sirve el pollo desmenuzado junto al puré de zanahoria, mezclando un poco de puré con el pollo si tu bebé aún prefiere texturas más suaves."
+    ],
+    "tips": [
+      "Desmenuzar el pollo mientras aún está tibio es mucho más fácil que cuando se enfría del todo."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=WJLQ_G8hnVQ",
+    "videoTitle": "Papilla de pollo y zanahoria"
+  },
+  {
+    "id": "g1",
+    "name": "Puré de boniato y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g)"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela el boniato y córtalo en dados.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Pon el boniato y la pechuga de pollo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que el boniato se deshaga al pincharlo y el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g2",
+    "name": "Puré de chirivía y patata",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Chirivía",
+        "quantity": "1 chirivía pequeña, pelada"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la chirivía y córtala en dados.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Pon la chirivía y la patata en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que la chirivía se deshaga al pincharla y un tenedor atraviese la patata sin resistencia.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g3",
+    "name": "Puré de judía verde, patata y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Judía verde",
+        "quantity": "Un puñado (unos 80 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava las judías verdes, retira los extremos y los hilos laterales, y trocéalas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Pon la judía verde, la patata y la pechuga de pollo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que las judías verdes estén blandas, un tenedor atraviese la patata sin resistencia y el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g4",
+    "name": "Puré de espinacas, patata y pescado blanco",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "pescado"
+    ],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Espinacas",
+        "quantity": "Un puñado de hojas frescas (unos 40 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Pescado blanco",
+        "quantity": "1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava bien las hojas de espinaca en agua fría, cambiando el agua un par de veces para arrastrar la tierra.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Cocina el pescado blanco al vapor aparte y, con los dedos limpios, desmenúzalo repasando bien cada trozo en busca de espinas antes de incorporarlo.",
+      "Pon las espinacas, la patata y el pescado blanco en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que las hojas se hayan reducido y estén blandas, un tenedor atraviese la patata sin resistencia y el pescado quede opaco y se separe en láminas.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
+      "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
+    ]
+  },
+  {
+    "id": "g5",
+    "name": "Puré de calabaza y garbanzos cocidos",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g)"
+      },
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Si usas garbanzos de bote, escúrrelos y enjuágalos bien para quitar el exceso de sal.",
+      "Pon la calabaza y los garbanzos cocidos en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que la calabaza se deshaga al pincharla con un tenedor y los garbanzos estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g6",
+    "name": "Puré de zanahoria y judías blancas cocidas",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Judías blancas cocidas",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Escurre y enjuaga bien las judías blancas cocidas.",
+      "Pon la zanahoria y las judías blancas cocidas en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que la zanahoria esté blanda al pinchar con un tenedor y las judías blancas estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g7",
+    "name": "Puré de puerro y boniato",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 28,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Puerro",
+        "quantity": "1/2 puerro (parte blanca y verde clara)"
+      },
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta el puerro por la mitad a lo largo y lávalo bien separando las capas, ya que suele acumular tierra; corta la parte blanca y verde clara en rodajas finas.",
+      "Pela el boniato y córtalo en dados.",
+      "Pon el puerro y el boniato en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 18 minutos, hasta que el puerro esté blando y el boniato se deshaga al pincharlo.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g8",
+    "name": "Puré de brócoli, patata y pechuga de pavo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 28,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Brócoli",
+        "quantity": "3-4 ramilletes pequeños"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa el brócoli en ramilletes pequeños y lávalos bien.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Corta la pechuga de pavo en trozos pequeños, retirando cualquier resto de grasa.",
+      "Pon el brócoli, la patata y la pechuga de pavo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 18 minutos, hasta que el brócoli esté blando al pincharlo con un tenedor, un tenedor atraviese la patata sin resistencia y el pavo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g9",
+    "name": "Puré de coliflor, zanahoria y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Coliflor",
+        "quantity": "4-5 ramilletes pequeños"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa la coliflor en ramilletes pequeños y lávalos bien.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Pon la coliflor, la zanahoria y la pechuga de pollo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que la coliflor esté blanda al pincharla, la zanahoria esté blanda al pinchar con un tenedor y el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g10",
+    "name": "Puré de remolacha cocida, patata y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Remolacha cocida",
+        "quantity": "1/2 remolacha pequeña, cocida"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Si la remolacha ya viene cocida al vacío, pélala (usa guantes: tiñe mucho) y trocéala.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Pon la remolacha cocida, la patata y la pechuga de pollo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que esté caliente, un tenedor atraviese la patata sin resistencia y el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g11",
+    "name": "Puré de pimiento rojo, patata y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Pimiento rojo",
+        "quantity": "1/2 pimiento rojo"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el pimiento, retira las semillas y las partes blancas internas, y córtalo en tiras finas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Pon el pimiento rojo, la patata y la pechuga de pollo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que el pimiento esté blando, un tenedor atraviese la patata sin resistencia y el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g12",
+    "name": "Puré de chirivía, zanahoria y ternera",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 45,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Chirivía",
+        "quantity": "1 chirivía pequeña, pelada"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Ternera",
+        "quantity": "60-70 g para guisar, en trozos pequeños"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la chirivía y córtala en dados.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta la ternera en trozos muy pequeños, retirando nervios o grasa visible.",
+      "Pon la chirivía, la zanahoria y la ternera en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 35 minutos, hasta que la chirivía se deshaga al pincharla, la zanahoria esté blanda al pinchar con un tenedor y la ternera esté muy tierna y se deshaga con un tenedor.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g13",
+    "name": "Puré de espinacas y garbanzos cocidos",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Espinacas",
+        "quantity": "Un puñado de hojas frescas (unos 40 g)"
+      },
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava bien las hojas de espinaca en agua fría, cambiando el agua un par de veces para arrastrar la tierra.",
+      "Si usas garbanzos de bote, escúrrelos y enjuágalos bien para quitar el exceso de sal.",
+      "Pon las espinacas y los garbanzos cocidos en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 5 minutos, hasta que las hojas se hayan reducido y estén blandas y los garbanzos estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g14",
+    "name": "Puré de calabacín y garbanzos cocidos",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 22,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño"
+      },
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Si usas garbanzos de bote, escúrrelos y enjuágalos bien para quitar el exceso de sal.",
+      "Pon el calabacín y los garbanzos cocidos en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 12 minutos, hasta que el calabacín se deshaga al pincharlo y los garbanzos estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g15",
+    "name": "Puré de boniato y judías blancas cocidas",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g)"
+      },
+      {
+        "name": "Judías blancas cocidas",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela el boniato y córtalo en dados.",
+      "Escurre y enjuaga bien las judías blancas cocidas.",
+      "Pon el boniato y las judías blancas cocidas en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que el boniato se deshaga al pincharlo y las judías blancas estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g16",
+    "name": "Puré de brócoli, salmón y patata",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "pescado"
+    ],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Brócoli",
+        "quantity": "3-4 ramilletes pequeños"
+      },
+      {
+        "name": "Salmón",
+        "quantity": "1 lomo pequeño, sin piel ni espinas (unos 60 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa el brócoli en ramilletes pequeños y lávalos bien.",
+      "Cocina el salmón al vapor aparte y, con los dedos limpios, desmenúzalo repasando bien cada trozo en busca de espinas antes de incorporarlo.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Pon el brócoli, el salmón y la patata en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que el brócoli esté blando al pincharlo con un tenedor, el salmón se separe en láminas con facilidad y un tenedor atraviese la patata sin resistencia.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
+      "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
+    ]
+  },
+  {
+    "id": "g17",
+    "name": "Puré de calabaza y pechuga de pavo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 28,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g)"
+      },
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Corta la pechuga de pavo en trozos pequeños, retirando cualquier resto de grasa.",
+      "Pon la calabaza y la pechuga de pavo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 18 minutos, hasta que la calabaza se deshaga al pincharla con un tenedor y el pavo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g18",
+    "name": "Puré de judía verde, merluza y patata",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "pescado"
+    ],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Judía verde",
+        "quantity": "Un puñado (unos 80 g)"
+      },
+      {
+        "name": "Merluza",
+        "quantity": "1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava las judías verdes, retira los extremos y los hilos laterales, y trocéalas.",
+      "Cocina la merluza al vapor aparte y, con los dedos limpios, desmenúzala repasando bien cada trozo en busca de espinas antes de incorporarla.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Pon la judía verde, la merluza y la patata en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que las judías verdes estén blandas, la merluza quede blanca y se separe en láminas y un tenedor atraviese la patata sin resistencia.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
+      "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
+    ]
+  },
+  {
+    "id": "g19",
+    "name": "Puré de coliflor y lentejas rojas",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Coliflor",
+        "quantity": "4-5 ramilletes pequeños"
+      },
+      {
+        "name": "Lentejas rojas",
+        "quantity": "3 cucharadas (unos 40 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa la coliflor en ramilletes pequeños y lávalos bien.",
+      "Enjuaga las lentejas rojas en un colador; se cuecen rápido y no necesitan remojo.",
+      "Pon la coliflor y las lentejas rojas en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que la coliflor esté blanda al pincharla y las lentejas rojas estén completamente deshechas.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g20",
+    "name": "Puré de zanahoria, lentejas y chirivía",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 40,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Lentejas",
+        "quantity": "3 cucharadas soperas secas (unos 40 g)"
+      },
+      {
+        "name": "Chirivía",
+        "quantity": "1 chirivía pequeña, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Lava las lentejas bajo el grifo en un colador hasta que el agua salga clara.",
+      "Pela la chirivía y córtala en dados.",
+      "Pon la zanahoria, las lentejas y la chirivía en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 30 minutos, hasta que la zanahoria esté blanda al pinchar con un tenedor, las lentejas se deshagan al apretarlas entre los dedos y la chirivía se deshaga al pincharla.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g21",
+    "name": "Puré de coliflor y patata",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Coliflor",
+        "quantity": "4-5 ramilletes pequeños"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa la coliflor en ramilletes pequeños y lávalos bien.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Pon la coliflor y la patata en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que la coliflor esté blanda al pincharla y un tenedor atraviese la patata sin resistencia.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g22",
+    "name": "Puré de espinacas, patata y merluza",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "pescado"
+    ],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Espinacas",
+        "quantity": "Un puñado de hojas frescas (unos 40 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Merluza",
+        "quantity": "1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava bien las hojas de espinaca en agua fría, cambiando el agua un par de veces para arrastrar la tierra.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Cocina la merluza al vapor aparte y, con los dedos limpios, desmenúzala repasando bien cada trozo en busca de espinas antes de incorporarla.",
+      "Pon las espinacas, la patata y la merluza en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que las hojas se hayan reducido y estén blandas, un tenedor atraviese la patata sin resistencia y la merluza quede blanca y se separe en láminas.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
+      "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
+    ]
+  },
+  {
+    "id": "g23",
+    "name": "Puré de calabacín y boniato",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño"
+      },
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Pela el boniato y córtalo en dados.",
+      "Pon el calabacín y el boniato en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que el calabacín se deshaga al pincharlo y el boniato se deshaga al pincharlo.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g24",
+    "name": "Puré de zanahoria y lentejas rojas",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Lentejas rojas",
+        "quantity": "3 cucharadas (unos 40 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Enjuaga las lentejas rojas en un colador; se cuecen rápido y no necesitan remojo.",
+      "Pon la zanahoria y las lentejas rojas en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que la zanahoria esté blanda al pinchar con un tenedor y las lentejas rojas estén completamente deshechas.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g25",
+    "name": "Puré de chirivía y guisantes",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Chirivía",
+        "quantity": "1 chirivía pequeña, pelada"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "3 cucharadas (frescos o congelados)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la chirivía y córtala en dados.",
+      "No hace falta descongelar los guisantes antes: se añaden directamente a la cazuela.",
+      "Pon la chirivía y los guisantes en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que la chirivía se deshaga al pincharla y los guisantes estén blandos.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g26",
+    "name": "Puré de judía verde, patata y pechuga de pavo",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 28,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Judía verde",
+        "quantity": "Un puñado (unos 80 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava las judías verdes, retira los extremos y los hilos laterales, y trocéalas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Corta la pechuga de pavo en trozos pequeños, retirando cualquier resto de grasa.",
+      "Pon la judía verde, la patata y la pechuga de pavo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 18 minutos, hasta que las judías verdes estén blandas, un tenedor atraviese la patata sin resistencia y el pavo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g27",
+    "name": "Puré de calabaza y judías blancas cocidas",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g)"
+      },
+      {
+        "name": "Judías blancas cocidas",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Escurre y enjuaga bien las judías blancas cocidas.",
+      "Pon la calabaza y las judías blancas cocidas en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que la calabaza se deshaga al pincharla con un tenedor y las judías blancas estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g28",
+    "name": "Puré de boniato, zanahoria y pechuga de pollo",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 30,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela el boniato y córtalo en dados.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Pon el boniato, la zanahoria y la pechuga de pollo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 20 minutos, hasta que el boniato se deshaga al pincharlo, la zanahoria esté blanda al pinchar con un tenedor y el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g29",
+    "name": "Puré de puerro y judías blancas cocidas",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 28,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Puerro",
+        "quantity": "1/2 puerro (parte blanca y verde clara)"
+      },
+      {
+        "name": "Judías blancas cocidas",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta el puerro por la mitad a lo largo y lávalo bien separando las capas, ya que suele acumular tierra; corta la parte blanca y verde clara en rodajas finas.",
+      "Escurre y enjuaga bien las judías blancas cocidas.",
+      "Pon el puerro y las judías blancas cocidas en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 18 minutos, hasta que el puerro esté blando y las judías blancas estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g30",
+    "name": "Puré de calabaza y puerro",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 28,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g)"
+      },
+      {
+        "name": "Puerro",
+        "quantity": "1/2 puerro (parte blanca y verde clara)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Corta el puerro por la mitad a lo largo y lávalo bien separando las capas, ya que suele acumular tierra; corta la parte blanca y verde clara en rodajas finas.",
+      "Pon la calabaza y el puerro en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 18 minutos, hasta que la calabaza se deshaga al pincharla con un tenedor y el puerro esté blando.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g31",
+    "name": "Puré de coliflor, brócoli y pechuga de pavo",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 28,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Coliflor",
+        "quantity": "4-5 ramilletes pequeños"
+      },
+      {
+        "name": "Brócoli",
+        "quantity": "3-4 ramilletes pequeños"
+      },
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa la coliflor en ramilletes pequeños y lávalos bien.",
+      "Separa el brócoli en ramilletes pequeños y lávalos bien.",
+      "Corta la pechuga de pavo en trozos pequeños, retirando cualquier resto de grasa.",
+      "Pon la coliflor, el brócoli y la pechuga de pavo en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 18 minutos, hasta que la coliflor esté blanda al pincharla, el brócoli esté blando al pincharlo con un tenedor y el pavo esté blanco por dentro, sin ninguna parte rosada.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g32",
+    "name": "Puré de zanahoria y garbanzos cocidos",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 25,
+    "texture": "pure",
+    "foodGroups": [
+      "verduras",
+      "legumbres"
+    ],
+    "ingredients": [
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "4 cucharadas (unos 80 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Colador",
+      "Batidora de mano",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Si usas garbanzos de bote, escúrrelos y enjuágalos bien para quitar el exceso de sal.",
+      "Pon la zanahoria y los garbanzos cocidos en la cazuela y cubre con agua fría sin sal. Lleva a ebullición y baja el fuego para que hierva suave.",
+      "Cuece unos 15 minutos, hasta que la zanahoria esté blanda al pinchar con un tenedor y los garbanzos estén calientes.",
+      "Escurre con el colador, reservando un par de cucharadas del agua de cocción por si necesitas aclarar el puré después.",
+      "Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.",
+      "Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente."
+    ],
+    "tips": [
+      "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g33",
+    "name": "Puré de pera y melocotón",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Melocotón",
+        "quantity": "1-2 unidades, maduras"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
+      "Cuece la pera y el melocotón al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia y el melocotón se deshaga.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g34",
+    "name": "Puré de manzana y ciruela",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Ciruela",
+        "quantity": "2 unidades, maduras"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Lava la ciruela, deshuésala y trocéala.",
+      "Cuece la manzana y la ciruela al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia y la ciruela se deshaga.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g35",
+    "name": "Puré de melocotón y albaricoque",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Melocotón",
+        "quantity": "1-2 unidades, maduras"
+      },
+      {
+        "name": "Albaricoque",
+        "quantity": "3 unidades, maduras"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
+      "Lava el albaricoque, deshuésalo y trocéalo.",
+      "Cuece el melocotón y el albaricoque al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que el melocotón se deshaga y el albaricoque se deshaga.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g36",
+    "name": "Puré de pera y kiwi",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 18,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Kiwi",
+        "quantity": "1 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Pela el kiwi y trocéalo.",
+      "Cuece la pera al vapor (o con un par de cucharadas de agua en una cazuela) unos 8 minutos, hasta que un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Añade el kiwi (no necesita cocción) junto con la fruta ya cocida.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g37",
+    "name": "Puré de manzana y mango",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Cuece la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Añade el mango (no necesita cocción) junto con la fruta ya cocida.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g38",
+    "name": "Puré de ciruela y pera",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 18,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Ciruela",
+        "quantity": "2 unidades, maduras"
+      },
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava la ciruela, deshuésala y trocéala.",
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Cuece la ciruela y la pera al vapor (o con un par de cucharadas de agua en una cazuela) unos 8 minutos, hasta que la ciruela se deshaga y un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g39",
+    "name": "Puré de albaricoque y manzana",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Albaricoque",
+        "quantity": "3 unidades, maduras"
+      },
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava el albaricoque, deshuésalo y trocéalo.",
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Cuece el albaricoque y la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que el albaricoque se deshaga y un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g40",
+    "name": "Puré de melocotón, pera y manzana",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Melocotón",
+        "quantity": "1-2 unidades, maduras"
+      },
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Cuece el melocotón, la pera y la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que el melocotón se deshaga, un cuchillo entre en la fruta sin resistencia y un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g41",
+    "name": "Compota de mango",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g42",
+    "name": "Compota de papaya",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g43",
+    "name": "Puré de aguacate y plátano",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 15,
+    "texture": "pure",
+    "foodGroups": [
+      "grasas",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Aguacate",
+        "quantity": "1/2 unidad, madura"
+      },
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Parte el aguacate maduro por la mitad, retira el hueso con cuidado y extrae la pulpa con una cuchara.",
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=a5tixnZTRdo",
+    "videoTitle": "Papilla de aguacate y plátano para bebés de 8 meses"
+  },
+  {
+    "id": "g44",
+    "name": "Puré de plátano y manzana",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
+      },
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Cuece la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Añade el plátano (no necesita cocción) junto con la fruta ya cocida.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g45",
+    "name": "Puré de kiwi y pera",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 18,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Kiwi",
+        "quantity": "1 unidad, madura"
+      },
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Pela el kiwi y trocéalo.",
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Cuece la pera al vapor (o con un par de cucharadas de agua en una cazuela) unos 8 minutos, hasta que un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Añade el kiwi (no necesita cocción) junto con la fruta ya cocida.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g46",
+    "name": "Puré de arándanos y manzana",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 20,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Arándanos",
+        "quantity": "Un puñado (unos 60 g)"
+      },
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Vaporera (o cazuela con cestillo)",
+      "Batidora de mano (o un tenedor)"
+    ],
+    "steps": [
+      "Lava bien los arándanos y aplástalos ligeramente con un tenedor: enteros pueden ser un riesgo de atragantamiento.",
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Cuece los arándanos y la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que se ablanden y un cuchillo entre en la fruta sin resistencia.",
+      "Retira del fuego y deja templar unos minutos.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g47",
+    "name": "Compota de sandía",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "pure",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Sandía",
+        "quantity": "2 rodajas pequeñas"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Corta la sandía en trozos pequeños, retirando bien todas las pepitas.",
+      "Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.",
+      "Si queda demasiado espesa, añade una cucharadita de agua."
+    ],
+    "tips": [
+      "No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.",
+      "Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes."
+    ]
+  },
+  {
+    "id": "g48",
+    "name": "Yogur con plátano",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g49",
+    "name": "Yogur con melocotón",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Melocotón",
+        "quantity": "1-2 unidades, maduras"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
+      "Cuece el melocotón al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g50",
+    "name": "Yogur con fresas",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Fresas",
+        "quantity": "4-5 unidades, maduras"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g51",
+    "name": "Yogur con mango",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g52",
+    "name": "Yogur con kiwi",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Kiwi",
+        "quantity": "1 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Pela el kiwi y trocéalo.",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g53",
+    "name": "Yogur con arándanos",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Arándanos",
+        "quantity": "Un puñado (unos 60 g)"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Lava bien los arándanos y aplástalos ligeramente con un tenedor: enteros pueden ser un riesgo de atragantamiento.",
+      "Cuece los arándanos al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g54",
+    "name": "Yogur con papaya",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g55",
+    "name": "Yogur con ciruela",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "lacteos"
+    ],
+    "time": 10,
+    "texture": "trocitos",
+    "foodGroups": [
+      "lacteos",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Yogur natural sin azúcar",
+        "quantity": "1 unidad (125 g)"
+      },
+      {
+        "name": "Ciruela",
+        "quantity": "2 unidades, maduras"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo pequeño",
+      "Bol"
+    ],
+    "steps": [
+      "Lava la ciruela, deshuésala y trocéala.",
+      "Cuece la ciruela al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
+      "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
+      "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
+      "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
+    ],
+    "tips": [
+      "Elige siempre yogur natural sin azúcar ni edulcorantes añadidos: los yogures \"para niños\" suelen llevar más azúcar del recomendado.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g56",
+    "name": "Tortitas de quinoa y plátano",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Quinoa",
+        "quantity": "3 cucharadas (unos 40 g)"
+      },
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Batidora (o un tenedor)",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Enjuaga bien la quinoa bajo el grifo para retirar su sabor amargo natural.",
+      "Tritura quinoa, plátano y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes.",
+      "Calienta una sartén antiadherente a fuego bajo sin aceite (o con una gota si tiende a pegarse).",
+      "Vierte pequeñas porciones de masa, una cucharada cada vez, para formar tortitas pequeñas.",
+      "Cocina 2 minutos por un lado hasta que salgan burbujas en la superficie, dale la vuelta con la espátula y cocina 1-2 minutos más por el otro lado.",
+      "Comprueba que el centro esté bien cuajado, sin masa líquida, antes de retirarlas del fuego.",
+      "Deja enfriar sobre un plato y corta en tiras para que tu bebé las pueda coger con la mano."
+    ],
+    "tips": [
+      "Haz tortitas pequeñas, del tamaño de una cuchara sopera, para que se cocinen bien por dentro sin quemarse por fuera.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g57",
+    "name": "Tortitas de avena y manzana",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Avena",
+        "quantity": "2 cucharadas de copos finos"
+      },
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Batidora (o un tenedor)",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Los copos de avena no necesitan cocción: se ablandan al mezclarlos con líquido o fruta.",
+      "Tritura avena, manzana y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes.",
+      "Calienta una sartén antiadherente a fuego bajo sin aceite (o con una gota si tiende a pegarse).",
+      "Vierte pequeñas porciones de masa, una cucharada cada vez, para formar tortitas pequeñas.",
+      "Cocina 2 minutos por un lado hasta que salgan burbujas en la superficie, dale la vuelta con la espátula y cocina 1-2 minutos más por el otro lado.",
+      "Comprueba que el centro esté bien cuajado, sin masa líquida, antes de retirarlas del fuego.",
+      "Deja enfriar sobre un plato y corta en tiras para que tu bebé las pueda coger con la mano."
+    ],
+    "tips": [
+      "Haz tortitas pequeñas, del tamaño de una cuchara sopera, para que se cocinen bien por dentro sin quemarse por fuera.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g58",
+    "name": "Tortitas de avena y pera",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Avena",
+        "quantity": "2 cucharadas de copos finos"
+      },
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Batidora (o un tenedor)",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Los copos de avena no necesitan cocción: se ablandan al mezclarlos con líquido o fruta.",
+      "Tritura avena, pera y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes.",
+      "Calienta una sartén antiadherente a fuego bajo sin aceite (o con una gota si tiende a pegarse).",
+      "Vierte pequeñas porciones de masa, una cucharada cada vez, para formar tortitas pequeñas.",
+      "Cocina 2 minutos por un lado hasta que salgan burbujas en la superficie, dale la vuelta con la espátula y cocina 1-2 minutos más por el otro lado.",
+      "Comprueba que el centro esté bien cuajado, sin masa líquida, antes de retirarlas del fuego.",
+      "Deja enfriar sobre un plato y corta en tiras para que tu bebé las pueda coger con la mano."
+    ],
+    "tips": [
+      "Haz tortitas pequeñas, del tamaño de una cuchara sopera, para que se cocinen bien por dentro sin quemarse por fuera.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g59",
+    "name": "Tortitas de cuscús y plátano",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo",
+      "gluten"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Cuscús",
+        "quantity": "3 cucharadas (unos 30 g)"
+      },
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Batidora (o un tenedor)",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Cubre el cuscús con la misma cantidad de agua o caldo hirviendo y tapa 5 minutos.",
+      "Tritura cuscús, plátano y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes.",
+      "Calienta una sartén antiadherente a fuego bajo sin aceite (o con una gota si tiende a pegarse).",
+      "Vierte pequeñas porciones de masa, una cucharada cada vez, para formar tortitas pequeñas.",
+      "Cocina 2 minutos por un lado hasta que salgan burbujas en la superficie, dale la vuelta con la espátula y cocina 1-2 minutos más por el otro lado.",
+      "Comprueba que el centro esté bien cuajado, sin masa líquida, antes de retirarlas del fuego.",
+      "Deja enfriar sobre un plato y corta en tiras para que tu bebé las pueda coger con la mano."
+    ],
+    "tips": [
+      "Haz tortitas pequeñas, del tamaño de una cuchara sopera, para que se cocinen bien por dentro sin quemarse por fuera.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas.",
+      "Este plato lleva gluten: si es la primera vez que tu bebé lo prueba, empieza con una ración pequeña."
+    ]
+  },
+  {
+    "id": "g60",
+    "name": "Tortitas de quinoa y melocotón",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Quinoa",
+        "quantity": "3 cucharadas (unos 40 g)"
+      },
+      {
+        "name": "Melocotón",
+        "quantity": "1-2 unidades, maduras"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Batidora (o un tenedor)",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Enjuaga bien la quinoa bajo el grifo para retirar su sabor amargo natural.",
+      "Tritura quinoa, melocotón y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes.",
+      "Calienta una sartén antiadherente a fuego bajo sin aceite (o con una gota si tiende a pegarse).",
+      "Vierte pequeñas porciones de masa, una cucharada cada vez, para formar tortitas pequeñas.",
+      "Cocina 2 minutos por un lado hasta que salgan burbujas en la superficie, dale la vuelta con la espátula y cocina 1-2 minutos más por el otro lado.",
+      "Comprueba que el centro esté bien cuajado, sin masa líquida, antes de retirarlas del fuego.",
+      "Deja enfriar sobre un plato y corta en tiras para que tu bebé las pueda coger con la mano."
+    ],
+    "tips": [
+      "Haz tortitas pequeñas, del tamaño de una cuchara sopera, para que se cocinen bien por dentro sin quemarse por fuera.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g61",
+    "name": "Palitos de pan con plátano chafado",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 5,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Pan tierno",
+        "quantity": "1 rebanada, a poder ser integral"
+      },
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Corta el pan en palitos de aproximadamente 1 cm de grosor. Así tu bebé puede sujetarlos bien con el puño.",
+      "Chafa el plátano maduro con un tenedor hasta obtener una crema sin grumos grandes.",
+      "Unta generosamente cada palito de pan con la crema de plátano chafado por todas las caras.",
+      "Sirve enseguida, recién untado."
+    ],
+    "tips": []
+  },
+  {
+    "id": "g62",
+    "name": "Palitos de pan con queso fresco",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "lacteos"
+    ],
+    "time": 5,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "lacteos"
+    ],
+    "ingredients": [
+      {
+        "name": "Pan tierno",
+        "quantity": "1 rebanada, a poder ser integral"
+      },
+      {
+        "name": "Queso fresco tipo Burgos",
+        "quantity": "30 g (un par de cucharadas)"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Corta el pan en palitos de aproximadamente 1 cm de grosor. Así tu bebé puede sujetarlos bien con el puño.",
+      "Escurre bien el queso fresco y chafalo con un tenedor hasta que quede cremoso.",
+      "Unta generosamente cada palito de pan con la crema de queso fresco por todas las caras.",
+      "Sirve enseguida, recién untado."
+    ],
+    "tips": [
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ]
+  },
+  {
+    "id": "g63",
+    "name": "Palitos de pan con aguacate y plátano",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 5,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "grasas",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Pan tierno",
+        "quantity": "1 rebanada, a poder ser integral"
+      },
+      {
+        "name": "Aguacate",
+        "quantity": "1/2 unidad, madura"
+      },
+      {
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Corta el pan en palitos de aproximadamente 1 cm de grosor. Así tu bebé puede sujetarlos bien con el puño.",
+      "Parte el aguacate maduro por la mitad, retira el hueso con cuidado y extrae la pulpa con una cuchara.",
+      "Chafa el aguacate junto con el plátano maduro con un tenedor hasta obtener una crema suave.",
+      "Unta generosamente cada palito de pan con la crema de aguacate y plátano por todas las caras.",
+      "Sirve enseguida, recién untado."
+    ],
+    "tips": []
+  },
+  {
+    "id": "g64",
+    "name": "Palitos de pan con mango chafado",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 5,
+    "texture": "finger",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Pan tierno",
+        "quantity": "1 rebanada, a poder ser integral"
+      },
+      {
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Bol",
+      "Tenedor"
+    ],
+    "steps": [
+      "Corta el pan en palitos de aproximadamente 1 cm de grosor. Así tu bebé puede sujetarlos bien con el puño.",
+      "Chafa la pulpa de mango con un tenedor hasta obtener una crema suave.",
+      "Unta generosamente cada palito de pan con la crema de mango chafado por todas las caras.",
+      "Sirve enseguida, recién untado."
+    ],
+    "tips": []
+  },
+  {
+    "id": "g65",
+    "name": "Tortilla de zanahoria",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada, rallada"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Lava la zanahoria y rállala con un rallador de agujero grueso.",
+      "Pon la zanahoria rallada en un colador o sobre papel de cocina y presiona para quitar el exceso de agua; así la tortilla no quedará blanda.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Mezcla la zanahoria escurrida con el huevo batido.",
+      "Calienta una gota de aceite en una sartén antiadherente a fuego medio-bajo. Vierte la mezcla y extiéndela para formar una tortilla fina.",
+      "Cocina 3-4 minutos por un lado hasta que los bordes estén cuajados, dale la vuelta con ayuda de un plato y cocina 2-3 minutos más por el otro lado, hasta que el centro esté totalmente cuajado, sin huevo líquido.",
+      "Deja templar sobre una tabla y corta en tiras del grosor de un dedo adulto, para que tu bebé pueda sujetarlas con el puño."
+    ],
+    "tips": [
+      "Comprueba siempre que el huevo esté completamente cuajado, sin partes líquidas, antes de servirlo.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g66",
+    "name": "Tortilla de boniato",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g), rallado"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Lava el boniato y rállalo con un rallador de agujero grueso.",
+      "Pon el boniato rallado en un colador o sobre papel de cocina y presiona para quitar el exceso de agua; así la tortilla no quedará blanda.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Mezcla el boniato escurrido con el huevo batido.",
+      "Calienta una gota de aceite en una sartén antiadherente a fuego medio-bajo. Vierte la mezcla y extiéndela para formar una tortilla fina.",
+      "Cocina 3-4 minutos por un lado hasta que los bordes estén cuajados, dale la vuelta con ayuda de un plato y cocina 2-3 minutos más por el otro lado, hasta que el centro esté totalmente cuajado, sin huevo líquido.",
+      "Deja templar sobre una tabla y corta en tiras del grosor de un dedo adulto, para que tu bebé pueda sujetarlas con el puño."
+    ],
+    "tips": [
+      "Comprueba siempre que el huevo esté completamente cuajado, sin partes líquidas, antes de servirlo.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g67",
+    "name": "Tortilla de calabaza",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g), rallada"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Lava la calabaza y rállala con un rallador de agujero grueso.",
+      "Pon la calabaza rallada en un colador o sobre papel de cocina y presiona para quitar el exceso de agua; así la tortilla no quedará blanda.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Mezcla la calabaza escurrida con el huevo batido.",
+      "Calienta una gota de aceite en una sartén antiadherente a fuego medio-bajo. Vierte la mezcla y extiéndela para formar una tortilla fina.",
+      "Cocina 3-4 minutos por un lado hasta que los bordes estén cuajados, dale la vuelta con ayuda de un plato y cocina 2-3 minutos más por el otro lado, hasta que el centro esté totalmente cuajado, sin huevo líquido.",
+      "Deja templar sobre una tabla y corta en tiras del grosor de un dedo adulto, para que tu bebé pueda sujetarlas con el puño."
+    ],
+    "tips": [
+      "Comprueba siempre que el huevo esté completamente cuajado, sin partes líquidas, antes de servirlo.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g68",
+    "name": "Tortilla de remolacha cocida",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo"
+    ],
+    "time": 15,
+    "texture": "finger",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Remolacha cocida",
+        "quantity": "1/2 remolacha pequeña, cocida, rallada"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Bol",
+      "Sartén antiadherente",
+      "Espátula"
+    ],
+    "steps": [
+      "Lava la remolacha cocida y rállala con un rallador de agujero grueso.",
+      "Pon la remolacha cocida rallada en un colador o sobre papel de cocina y presiona para quitar el exceso de agua; así la tortilla no quedará blanda.",
+      "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
+      "Mezcla la remolacha cocida escurrida con el huevo batido.",
+      "Calienta una gota de aceite en una sartén antiadherente a fuego medio-bajo. Vierte la mezcla y extiéndela para formar una tortilla fina.",
+      "Cocina 3-4 minutos por un lado hasta que los bordes estén cuajados, dale la vuelta con ayuda de un plato y cocina 2-3 minutos más por el otro lado, hasta que el centro esté totalmente cuajado, sin huevo líquido.",
+      "Deja templar sobre una tabla y corta en tiras del grosor de un dedo adulto, para que tu bebé pueda sujetarlas con el puño."
+    ],
+    "tips": [
+      "Comprueba siempre que el huevo esté completamente cuajado, sin partes líquidas, antes de servirlo.",
+      "El huevo es un alérgeno frecuente: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas."
+    ]
+  },
+  {
+    "id": "g69",
+    "name": "Quinoa con zanahoria, guisantes y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Quinoa",
+        "quantity": "3 cucharadas (unos 40 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "3 cucharadas (frescos o congelados)"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para el cereal",
+      "Sartén con tapa",
+      "Colador",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Enjuaga bien la quinoa bajo el grifo para retirar su sabor amargo natural.",
+      "Cuece la quinoa en agua sin sal siguiendo el tiempo del paquete (unos 15 minutos). Escurre y reserva.",
+      "Mientras tanto, corta la pechuga de pollo en tiras finas y pela y corta la zanahoria y los guisantes en dados muy pequeños (de menos de 1 cm).",
+      "Calienta un chorrito de aceite en una sartén y saltea la pechuga de pollo a fuego medio 5-6 minutos, removiendo, hasta que el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Añade la zanahoria y los guisantes a la sartén con un par de cucharadas de agua, tapa y cocina hasta que la zanahoria esté blanda al pinchar con un tenedor y los guisantes estén blandos.",
+      "Mezcla la quinoa ya cocida con la pechuga de pollo y las verduras en la sartén y remueve 1-2 minutos a fuego bajo para que se integren los sabores.",
+      "Con un tenedor, separa los granos y aplasta ligeramente las piezas más grandes para que sea fácil de masticar y tragar.",
+      "Deja templar y sirve en trozos pequeños y blandos, comprobando que no haya piezas duras."
+    ],
+    "tips": [
+      "Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera."
+    ],
+    "videoUrl": "https://www.youtube.com/watch?v=eSoUbPtTnAM",
+    "videoTitle": "Quinoa con pollo y verduras"
+  },
+  {
+    "id": "g70",
+    "name": "Arroz con brócoli y pechuga de pavo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "3 cucharadas soperas (unos 40 g)"
+      },
+      {
+        "name": "Brócoli",
+        "quantity": "3-4 ramilletes pequeños"
+      },
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para el cereal",
+      "Sartén con tapa",
+      "Colador",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el arroz bajo el grifo hasta que el agua salga clara.",
+      "Cuece el arroz en agua sin sal siguiendo el tiempo del paquete (unos 18 minutos). Escurre y reserva.",
+      "Mientras tanto, corta la pechuga de pavo en tiras finas y pela y corta el brócoli en dados muy pequeños (de menos de 1 cm).",
+      "Calienta un chorrito de aceite en una sartén y saltea la pechuga de pavo a fuego medio 5-6 minutos, removiendo, hasta que el pavo esté blanco por dentro, sin ninguna parte rosada.",
+      "Añade el brócoli a la sartén con un par de cucharadas de agua, tapa y cocina hasta que el brócoli esté blando al pincharlo con un tenedor.",
+      "Mezcla el arroz ya cocido con la pechuga de pavo y las verduras en la sartén y remueve 1-2 minutos a fuego bajo para que se integren los sabores.",
+      "Con un tenedor, separa los granos y aplasta ligeramente las piezas más grandes para que sea fácil de masticar y tragar.",
+      "Deja templar y sirve en trozos pequeños y blandos, comprobando que no haya piezas duras."
+    ],
+    "tips": [
+      "Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera."
+    ]
+  },
+  {
+    "id": "g71",
+    "name": "Cuscús con calabacín y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Cuscús",
+        "quantity": "3 cucharadas (unos 30 g)"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para el cereal",
+      "Sartén con tapa",
+      "Colador",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Cubre el cuscús con la misma cantidad de agua o caldo hirviendo y tapa 5 minutos.",
+      "Cuece el cuscús en agua sin sal siguiendo el tiempo del paquete (unos 5 minutos). Escurre y reserva.",
+      "Mientras tanto, corta la pechuga de pollo en tiras finas y pela y corta el calabacín en dados muy pequeños (de menos de 1 cm).",
+      "Calienta un chorrito de aceite en una sartén y saltea la pechuga de pollo a fuego medio 5-6 minutos, removiendo, hasta que el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Añade el calabacín a la sartén con un par de cucharadas de agua, tapa y cocina hasta que el calabacín se deshaga al pincharlo.",
+      "Mezcla el cuscús ya cocido con la pechuga de pollo y las verduras en la sartén y remueve 1-2 minutos a fuego bajo para que se integren los sabores.",
+      "Con un tenedor, separa los granos y aplasta ligeramente las piezas más grandes para que sea fácil de masticar y tragar.",
+      "Deja templar y sirve en trozos pequeños y blandos, comprobando que no haya piezas duras."
+    ],
+    "tips": [
+      "Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera.",
+      "Este plato lleva gluten: si es la primera vez que tu bebé lo prueba, empieza con una ración pequeña."
+    ]
+  },
+  {
+    "id": "g72",
+    "name": "Quinoa con judía verde y pechuga de pavo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Quinoa",
+        "quantity": "3 cucharadas (unos 40 g)"
+      },
+      {
+        "name": "Judía verde",
+        "quantity": "Un puñado (unos 80 g)"
+      },
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para el cereal",
+      "Sartén con tapa",
+      "Colador",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Enjuaga bien la quinoa bajo el grifo para retirar su sabor amargo natural.",
+      "Cuece la quinoa en agua sin sal siguiendo el tiempo del paquete (unos 15 minutos). Escurre y reserva.",
+      "Mientras tanto, corta la pechuga de pavo en tiras finas y pela y corta la judía verde en dados muy pequeños (de menos de 1 cm).",
+      "Calienta un chorrito de aceite en una sartén y saltea la pechuga de pavo a fuego medio 5-6 minutos, removiendo, hasta que el pavo esté blanco por dentro, sin ninguna parte rosada.",
+      "Añade la judía verde a la sartén con un par de cucharadas de agua, tapa y cocina hasta que las judías verdes estén blandas.",
+      "Mezcla la quinoa ya cocida con la pechuga de pavo y las verduras en la sartén y remueve 1-2 minutos a fuego bajo para que se integren los sabores.",
+      "Con un tenedor, separa los granos y aplasta ligeramente las piezas más grandes para que sea fácil de masticar y tragar.",
+      "Deja templar y sirve en trozos pequeños y blandos, comprobando que no haya piezas duras."
+    ],
+    "tips": [
+      "Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera."
+    ]
+  },
+  {
+    "id": "g73",
+    "name": "Arroz con zanahoria y ternera",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "3 cucharadas soperas (unos 40 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Ternera",
+        "quantity": "60-70 g para guisar, en trozos pequeños"
+      }
+    ],
+    "utensils": [
+      "Cazuela para el cereal",
+      "Sartén con tapa",
+      "Colador",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el arroz bajo el grifo hasta que el agua salga clara.",
+      "Cuece el arroz en agua sin sal siguiendo el tiempo del paquete (unos 18 minutos). Escurre y reserva.",
+      "Mientras tanto, corta la ternera en tiras finas y pela y corta la zanahoria en dados muy pequeños (de menos de 1 cm).",
+      "Calienta un chorrito de aceite en una sartén y saltea la ternera a fuego medio 5-6 minutos, removiendo, hasta que la ternera esté muy tierna y se deshaga con un tenedor.",
+      "Añade la zanahoria a la sartén con un par de cucharadas de agua, tapa y cocina hasta que la zanahoria esté blanda al pinchar con un tenedor.",
+      "Mezcla el arroz ya cocido con la ternera y las verduras en la sartén y remueve 1-2 minutos a fuego bajo para que se integren los sabores.",
+      "Con un tenedor, separa los granos y aplasta ligeramente las piezas más grandes para que sea fácil de masticar y tragar.",
+      "Deja templar y sirve en trozos pequeños y blandos, comprobando que no haya piezas duras."
+    ],
+    "tips": [
+      "Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera."
+    ]
+  },
+  {
+    "id": "g74",
+    "name": "Pechuga de pollo guisada con zanahoria y patata",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 40,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      }
+    ],
+    "utensils": [
+      "Cazuela u olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta la pechuga de pollo en trozos muy pequeños, del tamaño de un guisante grande, retirando cualquier nervio o grasa visible.",
+      "Calienta un chorrito de aceite de oliva en la cazuela y sofríe la pechuga de pollo a fuego medio 3-4 minutos, removiendo, hasta que cambie de color por fuera.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Añade la zanahoria y la patata a la cazuela y cubre con agua sin sal hasta que todo quede cubierto.",
+      "Tapa y cocina a fuego lento 30 minutos, removiendo de vez en cuando y añadiendo un poco más de agua si se queda seco.",
+      "Comprueba que la pechuga de pollo esté muy tierna deshaciéndose con un tenedor; si aún está dura, dale 10-15 minutos más a fuego bajo.",
+      "Deja templar y, si tu bebé empieza con trocitos, aplasta ligeramente cada pieza con el tenedor para facilitar la masticación."
+    ],
+    "tips": [
+      "Cocinar el guiso muy despacio, a fuego bajo, hace que la carne quede más tierna y fácil de masticar."
+    ]
+  },
+  {
+    "id": "g75",
+    "name": "Pechuga de pavo guisada con calabacín y tomate",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 40,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "1 tomate maduro pequeño"
+      }
+    ],
+    "utensils": [
+      "Cazuela u olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta la pechuga de pavo en trozos muy pequeños, del tamaño de un guisante grande, retirando cualquier nervio o grasa visible.",
+      "Calienta un chorrito de aceite de oliva en la cazuela y sofríe la pechuga de pavo a fuego medio 3-4 minutos, removiendo, hasta que cambie de color por fuera.",
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Añade el calabacín y el tomate a la cazuela y cubre con agua sin sal hasta que todo quede cubierto.",
+      "Tapa y cocina a fuego lento 30 minutos, removiendo de vez en cuando y añadiendo un poco más de agua si se queda seco.",
+      "Comprueba que la pechuga de pavo esté muy tierna deshaciéndose con un tenedor; si aún está dura, dale 10-15 minutos más a fuego bajo.",
+      "Deja templar y, si tu bebé empieza con trocitos, aplasta ligeramente cada pieza con el tenedor para facilitar la masticación."
+    ],
+    "tips": [
+      "Cocinar el guiso muy despacio, a fuego bajo, hace que la carne quede más tierna y fácil de masticar."
+    ]
+  },
+  {
+    "id": "g76",
+    "name": "Ternera guisada con boniato y zanahoria",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 40,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Ternera",
+        "quantity": "60-70 g para guisar, en trozos pequeños"
+      },
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      }
+    ],
+    "utensils": [
+      "Cazuela u olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta la ternera en trozos muy pequeños, del tamaño de un guisante grande, retirando cualquier nervio o grasa visible.",
+      "Calienta un chorrito de aceite de oliva en la cazuela y sofríe la ternera a fuego medio 3-4 minutos, removiendo, hasta que cambie de color por fuera.",
+      "Pela el boniato y córtalo en dados.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Añade el boniato y la zanahoria a la cazuela y cubre con agua sin sal hasta que todo quede cubierto.",
+      "Tapa y cocina a fuego lento 30 minutos, removiendo de vez en cuando y añadiendo un poco más de agua si se queda seco.",
+      "Comprueba que la ternera esté muy tierna deshaciéndose con un tenedor; si aún está dura, dale 10-15 minutos más a fuego bajo.",
+      "Deja templar y, si tu bebé empieza con trocitos, aplasta ligeramente cada pieza con el tenedor para facilitar la masticación."
+    ],
+    "tips": [
+      "Cocinar el guiso muy despacio, a fuego bajo, hace que la carne quede más tierna y fácil de masticar."
+    ]
+  },
+  {
+    "id": "g77",
+    "name": "Pechuga de pollo guisada con judía verde y patata",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 40,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 60 g)"
+      },
+      {
+        "name": "Judía verde",
+        "quantity": "Un puñado (unos 80 g)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      }
+    ],
+    "utensils": [
+      "Cazuela u olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta la pechuga de pollo en trozos muy pequeños, del tamaño de un guisante grande, retirando cualquier nervio o grasa visible.",
+      "Calienta un chorrito de aceite de oliva en la cazuela y sofríe la pechuga de pollo a fuego medio 3-4 minutos, removiendo, hasta que cambie de color por fuera.",
+      "Lava las judías verdes, retira los extremos y los hilos laterales, y trocéalas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Añade la judía verde y la patata a la cazuela y cubre con agua sin sal hasta que todo quede cubierto.",
+      "Tapa y cocina a fuego lento 30 minutos, removiendo de vez en cuando y añadiendo un poco más de agua si se queda seco.",
+      "Comprueba que la pechuga de pollo esté muy tierna deshaciéndose con un tenedor; si aún está dura, dale 10-15 minutos más a fuego bajo.",
+      "Deja templar y, si tu bebé empieza con trocitos, aplasta ligeramente cada pieza con el tenedor para facilitar la masticación."
+    ],
+    "tips": [
+      "Cocinar el guiso muy despacio, a fuego bajo, hace que la carne quede más tierna y fácil de masticar."
+    ]
+  },
+  {
+    "id": "g78",
+    "name": "Sopa de quinoa con zanahoria y puerro",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 20,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Quinoa",
+        "quantity": "3 cucharadas (unos 40 g)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      },
+      {
+        "name": "Puerro",
+        "quantity": "1/2 puerro (parte blanca y verde clara)"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta el puerro por la mitad a lo largo y lávalo bien separando las capas, ya que suele acumular tierra; corta la parte blanca y verde clara en rodajas finas.",
+      "Pon la zanahoria y el puerro en la cazuela y cubre con agua o caldo casero sin sal.",
+      "Lleva a ebullición y cuece 10-12 minutos, hasta que empiecen a ablandarse.",
+      "Añade la quinoa y cuece unos 15 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se pegue.",
+      "Comprueba que tanto la verdura como el cereal estén blandos, sin partes duras.",
+      "Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.",
+      "Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca."
+    ],
+    "tips": [
+      "Los líquidos calientes pueden quemar por dentro aunque el plato parezca templado: remueve y deja reposar un par de minutos más de lo que creas necesario."
+    ]
+  },
+  {
+    "id": "g79",
+    "name": "Sopa de cuscús con calabacín y tomate",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 20,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Cuscús",
+        "quantity": "3 cucharadas (unos 30 g)"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "1 tomate maduro pequeño"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Pon el calabacín y el tomate en la cazuela y cubre con agua o caldo casero sin sal.",
+      "Lleva a ebullición y cuece 10-12 minutos, hasta que empiecen a ablandarse.",
+      "Añade el cuscús y cuece unos 5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se pegue.",
+      "Comprueba que tanto la verdura como el cereal estén blandos, sin partes duras.",
+      "Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.",
+      "Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca."
+    ],
+    "tips": [
+      "Los líquidos calientes pueden quemar por dentro aunque el plato parezca templado: remueve y deja reposar un par de minutos más de lo que creas necesario.",
+      "Este plato lleva gluten: si es la primera vez que tu bebé lo prueba, empieza con una ración pequeña."
+    ]
+  },
+  {
+    "id": "g80",
+    "name": "Sopa de fideos finos con brócoli y zanahoria",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 20,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Fideos finos",
+        "quantity": "Un puñado pequeño (unos 30 g)"
+      },
+      {
+        "name": "Brócoli",
+        "quantity": "3-4 ramilletes pequeños"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Separa el brócoli en ramilletes pequeños y lávalos bien.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Pon el brócoli y la zanahoria en la cazuela y cubre con agua o caldo casero sin sal.",
+      "Lleva a ebullición y cuece 10-12 minutos, hasta que empiecen a ablandarse.",
+      "Añade los fideos finos y cuece unos 5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se pegue.",
+      "Comprueba que tanto la verdura como el cereal estén blandos, sin partes duras.",
+      "Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.",
+      "Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca."
+    ],
+    "tips": [
+      "Los líquidos calientes pueden quemar por dentro aunque el plato parezca templado: remueve y deja reposar un par de minutos más de lo que creas necesario.",
+      "Este plato lleva gluten: si es la primera vez que tu bebé lo prueba, empieza con una ración pequeña."
+    ]
+  },
+  {
+    "id": "g81",
+    "name": "Sopa de fideos finos con guisantes y zanahoria",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 20,
+    "texture": "trocitos",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Fideos finos",
+        "quantity": "Un puñado pequeño (unos 30 g)"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "3 cucharadas (frescos o congelados)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "No hace falta descongelar los guisantes antes: se añaden directamente a la cazuela.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Pon los guisantes y la zanahoria en la cazuela y cubre con agua o caldo casero sin sal.",
+      "Lleva a ebullición y cuece 10-12 minutos, hasta que empiecen a ablandarse.",
+      "Añade los fideos finos y cuece unos 5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se pegue.",
+      "Comprueba que tanto la verdura como el cereal estén blandos, sin partes duras.",
+      "Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.",
+      "Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca."
+    ],
+    "tips": [
+      "Los líquidos calientes pueden quemar por dentro aunque el plato parezca templado: remueve y deja reposar un par de minutos más de lo que creas necesario.",
+      "Este plato lleva gluten: si es la primera vez que tu bebé lo prueba, empieza con una ración pequeña."
+    ]
+  },
+  {
+    "id": "g82",
+    "name": "Pechuga de pavo desmenuzada con puré de boniato",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "1 filete pequeño (unos 80 g)"
+      },
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Dos cazuelas (o una, cociendo por turnos)",
+      "Batidora de mano",
+      "Dos tenedores para desmenuzar"
+    ],
+    "steps": [
+      "Pon la pechuga de pavo entera (o en trozos grandes) en una cazuela y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego y cuece 20-25 minutos, hasta que el pavo esté blanco por dentro, sin ninguna parte rosada.",
+      "Pela el boniato y córtalo en dados.",
+      "Cuece el boniato en otra cazuela con agua sin sal unos 15 minutos, hasta que el boniato se deshaga al pincharlo.",
+      "Escurre el boniato y tritúralo con la batidora junto con el aceite de oliva hasta obtener un puré suave.",
+      "Saca la pechuga de pavo del agua y déjala templar unos minutos para poder manipularla sin quemarte.",
+      "Desmenuza con dos tenedores (o con los dedos limpios) tirando en direcciones opuestas, hasta conseguir hilos finos, sin trozos grandes ni duros.",
+      "Sirve junto al puré de boniato, mezclando un poco si tu bebé aún prefiere texturas más suaves."
+    ],
+    "tips": [
+      "Desmenuzar la carne mientras aún está tibia es mucho más fácil que cuando se enfría del todo."
+    ]
+  },
+  {
+    "id": "g83",
+    "name": "Pechuga de pollo desmenuzada con puré de calabaza",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "1 filete pequeño (unos 80 g)"
+      },
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Dos cazuelas (o una, cociendo por turnos)",
+      "Batidora de mano",
+      "Dos tenedores para desmenuzar"
+    ],
+    "steps": [
+      "Pon la pechuga de pollo entera (o en trozos grandes) en una cazuela y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego y cuece 20-25 minutos, hasta que el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Cuece la calabaza en otra cazuela con agua sin sal unos 15 minutos, hasta que la calabaza se deshaga al pincharla con un tenedor.",
+      "Escurre la calabaza y tritúrala con la batidora junto con el aceite de oliva hasta obtener un puré suave.",
+      "Saca la pechuga de pollo del agua y déjala templar unos minutos para poder manipularla sin quemarte.",
+      "Desmenuza con dos tenedores (o con los dedos limpios) tirando en direcciones opuestas, hasta conseguir hilos finos, sin trozos grandes ni duros.",
+      "Sirve junto al puré de calabaza, mezclando un poco si tu bebé aún prefiere texturas más suaves."
+    ],
+    "tips": [
+      "Desmenuzar la carne mientras aún está tibia es mucho más fácil que cuando se enfría del todo."
+    ]
+  },
+  {
+    "id": "g84",
+    "name": "Ternera desmenuzada con puré de patata",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 30,
+    "texture": "trocitos",
+    "foodGroups": [
+      "proteina",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Ternera",
+        "quantity": "60-70 g para guisar, en trozos pequeños"
+      },
+      {
+        "name": "Patata",
+        "quantity": "1 patata mediana, pelada"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Dos cazuelas (o una, cociendo por turnos)",
+      "Batidora de mano",
+      "Dos tenedores para desmenuzar"
+    ],
+    "steps": [
+      "Pon la ternera entera (o en trozos grandes) en una cazuela y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego y cuece 20-25 minutos, hasta que la ternera esté muy tierna y se deshaga con un tenedor.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Cuece la patata en otra cazuela con agua sin sal unos 15 minutos, hasta que un tenedor atraviese la patata sin resistencia.",
+      "Escurre la patata y tritúrala con la batidora junto con el aceite de oliva hasta obtener un puré suave.",
+      "Saca la ternera del agua y déjala templar unos minutos para poder manipularla sin quemarte.",
+      "Desmenuza con dos tenedores (o con los dedos limpios) tirando en direcciones opuestas, hasta conseguir hilos finos, sin trozos grandes ni duros.",
+      "Sirve junto al puré de patata, mezclando un poco si tu bebé aún prefiere texturas más suaves."
+    ],
+    "tips": [
+      "Desmenuzar la carne mientras aún está tibia es mucho más fácil que cuando se enfría del todo."
+    ]
+  }
+]

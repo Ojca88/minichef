@@ -1,5 +1,5 @@
 import type { AppState, AlergenoFilter, Tiempo, Textura } from '../hooks/useAppState';
-import { AGE_GROUPS, MEAL_LABEL, RECIPES, TEXTURE_LABELS, ALLERGEN_LABELS } from '../data/recipes';
+import { AGE_GROUPS, MEAL_LABEL, TEXTURE_LABELS, ALLERGEN_LABELS } from '../data/recipes';
 import { ChipGroup } from '../components/ChipGroup';
 
 interface RecetarioProps {
@@ -34,7 +34,7 @@ export function Recetario({ state }: RecetarioProps) {
     label: l, checked: recFilters.alergeno === v, onSelect: () => state.setRecFilter('alergeno', v),
   }));
 
-  const filtered = RECIPES.filter((r) => {
+  const filtered = state.recipes.filter((r) => {
     if (r.minAgeIdx > recFilters.ageIdx) return false;
     if (recFilters.textura !== 'todas' && r.texture !== recFilters.textura) return false;
     if (recFilters.tiempo === '15' && r.time > 15) return false;

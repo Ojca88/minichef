@@ -1,34 +1,30 @@
-import type { AppState } from '../hooks/useAppState';
-import { FOOD_GROUPS_LIST, getRecipe, type FoodGroup } from '../data/recipes';
+import type { AppState, WeekState } from '../hooks/useAppState';
+import { FOOD_GROUPS_LIST, getRecipe, type FoodGroup, type Recipe } from '../data/recipes';
 import { AlertIcon } from '../components/Icons';
 
 interface SeguimientoProps {
   state: AppState;
 }
 
-function weekCounts(plan: Record<string, string>, statuses: Record<string, string | null>): Record<FoodGroup, number> {
+function weekCounts(recipes: Recipe[], plan: Record<string, string>, statuses: Record<string, string | null | undefined>): Record<FoodGroup, number> {
   const counts = {} as Record<FoodGroup, number>;
   FOOD_GROUPS_LIST.forEach((g) => { counts[g.key] = 0; });
   Object.keys(plan).forEach((key) => {
     if (!statuses[key]) return;
-    const r = getRecipe(plan[key]);
+    const r = getRecipe(recipes, plan[key]);
     if (r) r.foodGroups.forEach((g) => { counts[g] = (counts[g] || 0) + 1; });
   });
   return counts;
 }
 
-// Historical weeks are illustrative sample data; "Hoy" reflects the live tracked state.
-const WEEKS_MOCK: { label: string; counts: Partial<Record<FoodGroup, number>> }[] = [
-  { label: 'Sem 1', counts: { verduras: 4, frutas: 3, cereales: 2, legumbres: 1, proteina: 3, lacteos: 1, grasas: 1 } },
-  { label: 'Sem 2', counts: { verduras: 3, frutas: 4, cereales: 3, legumbres: 0, proteina: 2, lacteos: 2, grasas: 1 } },
-  { label: 'Sem 3', counts: { verduras: 5, frutas: 2, cereales: 2, legumbres: 2, proteina: 4, lacteos: 0, grasas: 2 } },
-];
-
 export function Seguimiento({ state }: SeguimientoProps) {
-  const liveCounts = weekCounts(state.plan, state.statuses);
+  const liveCounts = weekCounts(state.recipes, state.plan, state.statuses);
   const hasTracked = Object.values(state.statuses).some(Boolean);
 
-  const weeksAll = [...WEEKS_MOCK, { label: 'Hoy', counts: liveCounts }];
+  const weeksAll = state.weeks.map((w: WeekState, i: number) => ({
+    label: `Sem ${i + 1}`,
+    counts: weekCounts(state.recipes, w.plan, w.statuses),
+  }));
   const maxCount = Math.max(1, ...weeksAll.flatMap((w) => Object.values(w.counts) as number[]));
 
   return (
