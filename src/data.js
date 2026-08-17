@@ -7,6 +7,8 @@ export const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 const MEAL_LABELS = { comida: 'Comida', merienda: 'Merienda', cena: 'Cena' };
 const TEXTURE_LABELS = { pure: 'Puré', trocitos: 'Trocitos', finger: 'Finger food' };
 const ALLERGEN_LABELS = { huevo: 'Huevo', lacteos: 'Lácteos', gluten: 'Gluten', pescado: 'Pescado', frutosSecos: 'Frutos secos' };
+const FOOD_GROUP_LABELS = { verduras: 'Verduras', legumbres: 'Legumbres', proteina: 'Proteína animal', cereales: 'Cereales', frutas: 'Frutas', lacteos: 'Lácteos', grasas: 'Grasas saludables' };
+export const FOOD_GROUPS = Object.values(FOOD_GROUP_LABELS);
 
 // El dataset real (150 recetas) vive en recipes.json, generado por scripts/generate-recipes.mjs.
 // Cada receta puede aplicar a varios tipos de comida; aquí se "desdobla" una fila por cada
@@ -20,6 +22,7 @@ export const RECIPES = RAW_RECIPES.flatMap((r) => r.mealTypes.map((mealType) => 
   time: `${r.time} min`,
   texture: TEXTURE_LABELS[r.texture] || r.texture,
   allergens: (r.allergens || []).map((a) => ALLERGEN_LABELS[a] || a),
+  foodGroups: (r.foodGroups || []).map((g) => FOOD_GROUP_LABELS[g] || g),
   ingredients: r.ingredients.map((i) => `${i.name} — ${i.quantity}`),
   steps: r.steps,
   tips: r.tips || [],

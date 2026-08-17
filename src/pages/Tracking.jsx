@@ -1,23 +1,72 @@
-const GROUPS = [
-  { name: 'Verduras', tried: true },
-  { name: 'Frutas', tried: true },
-  { name: 'Cereales', tried: true },
-  { name: 'Proteína animal', tried: true },
-  { name: 'Legumbres', tried: false },
-  { name: 'Lácteos', tried: true },
-];
+import { useMemo } from 'react';
+import { FOOD_GROUPS, recipeById, MEALS } from '../data';
+import { useCloud } from '../CloudSyncContext';
+
+function dateKey(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function currentWeekDates() {
+  const d = new Date();
+  const day = (d.getDay() + 6) % 7; // 0 = lunes
+  d.setDate(d.getDate() - day);
+  d.setHours(0, 0, 0, 0);
+  return Array.from({ length: 7 }, (_, i) => {
+    const day2 = new Date(d);
+    day2.setDate(day2.getDate() + i);
+    return day2;
+  });
+}
 
 export default function Tracking() {
-  const pending = GROUPS.filter(g => !g.tried);
+  const { data } = useCloud();
+  const plans = data.plans || {};
+  const eaten = data.eaten || {};
+
+  const { triedGroups, eatenCount, plannedCount } = useMemo(() => {
+    const tried = new Set();
+    let eatenCount = 0;
+    let plannedCount = 0;
+    currentWeekDates().forEach((d) => {
+      const key = dateKey(d);
+      const dayPlan = plans[key];
+      const dayEaten = eaten[key];
+      MEALS.forEach((meal) => {
+        const value = dayPlan?.[meal];
+        if (!value) return;
+        plannedCount += 1;
+        if (!dayEaten?.[meal]) return;
+        eatenCount += 1;
+        // Los platos puestos a mano no tienen grupos de alimentos conocidos,
+        // así que no suman al desglose (pero sí cuentan como comida marcada).
+        const recipe = typeof value === 'string' ? recipeById(value) : null;
+        recipe?.foodGroups?.forEach((g) => tried.add(g));
+      });
+    });
+    return { triedGroups: tried, eatenCount, plannedCount };
+  }, [plans, eaten]);
+
+  const pending = FOOD_GROUPS.filter(g => !triedGroups.has(g));
 
   return (
     <div style={{ padding: '20px 16px 90px' }}>
       <header style={{ marginBottom: 16 }}>
         <h1 style={{ fontSize: 22 }}>Seguimiento nutricional</h1>
-        <p style={{ fontSize: 13, color: 'var(--ink-muted)', marginTop: 4 }}>Esta semana</p>
+        <p style={{ fontSize: 13, color: 'var(--ink-muted)', marginTop: 4 }}>
+          {plannedCount > 0 ? `${eatenCount} de ${plannedCount} comidas marcadas como comidas esta semana` : 'Todavía no hay menú planificado'}
+        </p>
       </header>
 
-      {pending.length > 0 && (
+      {eatenCount === 0 ? (
+        <div style={{
+          background: 'var(--blue-light)', borderRadius: 'var(--radius-md)', padding: '14px 16px',
+          marginBottom: 18,
+        }}>
+          <p style={{ fontSize: 13, color: '#2E5670', lineHeight: 1.5 }}>
+            Aún no has marcado ninguna comida como comida. Ve al Menú de la semana y toca el círculo ✓ junto a cada plato cuando el bebé se lo haya comido — así este seguimiento reflejará lo real.
+          </p>
+        </div>
+      ) : pending.length > 0 && (
         <div style={{
           background: 'var(--apricot-light)', borderRadius: 'var(--radius-md)', padding: '14px 16px',
           marginBottom: 18, display: 'flex', gap: 10, alignItems: 'flex-start',
@@ -27,29 +76,36 @@ export default function Tracking() {
             <path d="M12 9v5M12 17h.01" stroke="#9A5A20" strokeWidth="1.8" strokeLinecap="round" />
           </svg>
           <p style={{ fontSize: 13, color: '#9A5A20' }}>
-            Esta semana no ha probado {pending.map(g => g.name.toLowerCase()).join(', ')}.
+            Esta semana todavía no ha comido {pending.map(g => g.toLowerCase()).join(', ')}.
           </p>
         </div>
       )}
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {GROUPS.map(g => (
-          <div key={g.name} style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
-            padding: '12px 14px',
-          }}>
-            <span style={{ fontSize: 14 }}>{g.name}</span>
-            <span style={{
-              fontSize: 12, fontWeight: 500, padding: '3px 10px', borderRadius: 999,
-              background: g.tried ? 'var(--sage-light)' : 'var(--apricot-light)',
-              color: g.tried ? 'var(--sage-dark)' : '#9A5A20',
+        {FOOD_GROUPS.map(g => {
+          const tried = triedGroups.has(g);
+          return (
+            <div key={g} style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
+              padding: '12px 14px',
             }}>
-              {g.tried ? 'Probado' : 'Pendiente'}
-            </span>
-          </div>
-        ))}
+              <span style={{ fontSize: 14 }}>{g}</span>
+              <span style={{
+                fontSize: 12, fontWeight: 500, padding: '3px 10px', borderRadius: 999,
+                background: tried ? 'var(--sage-light)' : 'var(--apricot-light)',
+                color: tried ? 'var(--sage-dark)' : '#9A5A20',
+              }}>
+                {tried ? 'Comido' : 'Pendiente'}
+              </span>
+            </div>
+          );
+        })}
       </div>
+
+      <p style={{ fontSize: 11, color: 'var(--ink-muted)', marginTop: 14, lineHeight: 1.5 }}>
+        Solo cuenta lo que has marcado como comido en el Menú de la semana — no lo que estaba simplemente planificado.
+      </p>
     </div>
   );
 }

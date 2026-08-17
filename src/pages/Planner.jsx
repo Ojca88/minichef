@@ -58,11 +58,22 @@ function generateIdsFor(dates, ageIdx) {
   return patch;
 }
 
+// Un valor guardado en plans[fecha][comida] puede ser:
+//  - un string: id de una receta real (buscar con recipeById)
+//  - un objeto { manual: true, name }: plato escrito a mano, sin ficha propia
+// resolveValue() lo convierte siempre en algo con al menos { id?, name, manual? }
+function resolveValue(value, meal, seed, ageIdx) {
+  if (value && typeof value === 'object') return value; // ya es una entrada manual
+  if (typeof value === 'string') return recipeById(value) || pickForSeedAged(meal, seed, ageIdx);
+  return pickForSeedAged(meal, seed, ageIdx);
+}
+
 export default function Planner() {
   const { data: cloudData, save } = useCloud();
   const babyAge = cloudData.babyAge || null;
   const ageIdx = babyAge ? AGE_RANGES.indexOf(babyAge) : null;
   const plans = cloudData.plans || {};
+  const eaten = cloudData.eaten || {};
 
   const [view, setView] = useState('semana');
   const [weekStart, setWeekStart] = useState(() => mondayOf(new Date()));
@@ -71,6 +82,7 @@ export default function Planner() {
     return { year: now.getFullYear(), month: now.getMonth() };
   });
   const [selectedDay, setSelectedDay] = useState(null);
+  const [editingSlot, setEditingSlot] = useState(null); // `${dateKey}:${meal}` o null
 
   const weekDates = useMemo(() => (
     Array.from({ length: 7 }, (_, i) => {
@@ -115,27 +127,46 @@ export default function Planner() {
 
   function getDay(d) {
     const key = dateKey(d);
-    const ids = plans[key];
-    if (ids) {
-      const entry = {};
-      MEALS.forEach((meal) => { entry[meal] = recipeById(ids[meal]) || pickForSeedAged(meal, seedFor(d, 0), ageIdx); });
-      return entry;
-    }
-    // Todavía no ha llegado la sincronización para este día: mostramos algo
-    // de forma determinista mientras tanto (el effect lo persistirá enseguida).
+    const stored = plans[key];
     const entry = {};
-    MEALS.forEach((meal, mi) => { entry[meal] = pickForSeedAged(meal, seedFor(d, mi), ageIdx); });
+    MEALS.forEach((meal, mi) => {
+      entry[meal] = resolveValue(stored?.[meal], meal, seedFor(d, mi), ageIdx);
+    });
     return entry;
+  }
+
+  // Guarda un nuevo valor (id de receta real, o { manual, name }) en un hueco
+  // del plan, y siempre desmarca el "comido" de ese hueco: si el plato cambia,
+  // el check ya no puede seguir refiriéndose a lo que se marcó antes.
+  function setSlot(d, meal, value) {
+    const key = dateKey(d);
+    save(prev => ({
+      ...prev,
+      plans: { ...(prev.plans || {}), [key]: { ...(prev.plans?.[key] || {}), [meal]: value } },
+      eaten: { ...(prev.eaten || {}), [key]: { ...(prev.eaten?.[key] || {}), [meal]: false } },
+    }));
+    setEditingSlot(null);
   }
 
   function regenerate(d, meal) {
     const key = dateKey(d);
-    const current = plans[key] || {};
-    const currentRecipe = current[meal] ? recipeById(current[meal]) : null;
-    const next = randomPick(meal, currentRecipe?.id, ageIdx);
+    const current = plans[key]?.[meal];
+    const currentId = typeof current === 'string' ? current : null;
+    const next = randomPick(meal, currentId, ageIdx);
+    setSlot(d, meal, next.id);
+  }
+
+  function isEaten(d, meal) {
+    return Boolean(eaten[dateKey(d)]?.[meal]);
+  }
+  function toggleEaten(d, meal) {
+    const key = dateKey(d);
     save(prev => ({
       ...prev,
-      plans: { ...(prev.plans || {}), [key]: { ...(prev.plans?.[key] || {}), [meal]: next.id } },
+      eaten: {
+        ...(prev.eaten || {}),
+        [key]: { ...(prev.eaten?.[key] || {}), [meal]: !prev.eaten?.[key]?.[meal] },
+      },
     }));
   }
 
@@ -185,6 +216,7 @@ export default function Planner() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginTop: 14 }}>
             {weekDates.map((d, i) => {
               const entry = getDay(d);
+              const key = dateKey(d);
               return (
                 <div key={i}>
                   <h2 style={{ fontSize: 14, color: 'var(--sage-dark)', marginBottom: 8 }}>
@@ -193,26 +225,97 @@ export default function Planner() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     {MEALS.map(meal => {
                       const recipe = entry[meal];
+                      const done = isEaten(d, meal);
+                      const slotId = `${key}:${meal}`;
+                      const isEditing = editingSlot === slotId;
                       return (
-                        <div key={meal} style={{
-                          background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
-                          padding: '10px 12px', display: 'flex', alignItems: 'center', gap: 10,
-                        }}>
-                          <span style={{ fontSize: 11, color: 'var(--ink-muted)', width: 62, flexShrink: 0 }}>{meal}</span>
-                          <span style={{ fontSize: 13, flex: 1 }}>{recipe.name}</span>
-                          <button
-                            aria-label={`Cambiar sugerencia de ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]}`}
-                            onClick={() => regenerate(d, meal)}
-                            style={{
-                              width: 28, height: 28, borderRadius: '50%', border: '1px solid var(--line)',
-                              background: 'var(--sage-light)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                              flexShrink: 0,
-                            }}
-                          >
-                            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="var(--sage-dark)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </button>
+                        <div key={meal}>
+                          <div style={{
+                            background: done ? 'var(--sage-light)' : 'var(--white)',
+                            border: '1px solid ' + (done ? 'var(--sage)' : 'var(--line)'),
+                            borderRadius: 'var(--radius-md)',
+                            padding: '10px 12px', display: 'flex', alignItems: 'center', gap: 8,
+                          }}>
+                            <button
+                              aria-label={done ? `Desmarcar ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]} como comido` : `Marcar ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]} como comido`}
+                              onClick={() => toggleEaten(d, meal)}
+                              style={{
+                                width: 24, height: 24, borderRadius: '50%', flexShrink: 0,
+                                border: '1.5px solid ' + (done ? 'var(--sage)' : 'var(--line)'),
+                                background: done ? 'var(--sage)' : 'var(--white)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              }}
+                            >
+                              {done && (
+                                <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path d="M5 12l5 5L20 7" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              )}
+                            </button>
+                            <span style={{ fontSize: 11, color: 'var(--ink-muted)', width: 58, flexShrink: 0 }}>{meal}</span>
+                            {recipe.id ? (
+                              <Link
+                                to={`/recetario/${recipe.id}`}
+                                style={{
+                                  fontSize: 13, flex: 1, color: 'var(--ink)', minWidth: 0,
+                                  textDecoration: done ? 'line-through' : 'underline',
+                                  textDecorationColor: 'var(--line)',
+                                }}
+                              >
+                                {recipe.name}
+                              </Link>
+                            ) : (
+                              <span style={{
+                                fontSize: 13, flex: 1, minWidth: 0, color: 'var(--ink)',
+                                textDecoration: done ? 'line-through' : 'none',
+                                display: 'flex', alignItems: 'center', gap: 6,
+                              }}>
+                                {recipe.name}
+                                <span style={{
+                                  fontSize: 9.5, color: 'var(--ink-muted)', background: 'var(--blue-light)',
+                                  borderRadius: 999, padding: '1px 7px', flexShrink: 0,
+                                }}>
+                                  a mano
+                                </span>
+                              </span>
+                            )}
+                            <button
+                              aria-label={`Cambiar sugerencia de ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]}`}
+                              onClick={() => regenerate(d, meal)}
+                              style={{
+                                width: 28, height: 28, borderRadius: '50%', border: '1px solid var(--line)',
+                                background: 'var(--white)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                flexShrink: 0,
+                              }}
+                            >
+                              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="var(--sage-dark)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </button>
+                            <button
+                              aria-label={`Elegir manualmente ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]}`}
+                              onClick={() => setEditingSlot(isEditing ? null : slotId)}
+                              style={{
+                                width: 28, height: 28, borderRadius: '50%',
+                                border: '1px solid ' + (isEditing ? 'var(--sage)' : 'var(--line)'),
+                                background: isEditing ? 'var(--sage)' : 'var(--white)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                flexShrink: 0,
+                              }}
+                            >
+                              <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 20l1-4L16.5 4.5a1.5 1.5 0 0 1 2 0L19.5 5.5a1.5 1.5 0 0 1 0 2L8 19l-4 1Z" fill="none" stroke={isEditing ? 'white' : 'var(--sage-dark)'} strokeWidth="1.7" strokeLinejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                          {isEditing && (
+                            <SlotEditor
+                              meal={meal}
+                              onPick={(id) => setSlot(d, meal, id)}
+                              onManual={(name) => setSlot(d, meal, { manual: true, name })}
+                              onCancel={() => setEditingSlot(null)}
+                            />
+                          )}
                         </div>
                       );
                     })}
@@ -233,6 +336,80 @@ export default function Planner() {
           onNext={() => shiftMonth(1)}
         />
       )}
+    </div>
+  );
+}
+
+function SlotEditor({ meal, onPick, onManual, onCancel }) {
+  const [customName, setCustomName] = useState('');
+  const options = useMemo(
+    () => recipesFor(meal).slice().sort((a, b) => a.name.localeCompare(b.name, 'es')),
+    [meal]
+  );
+
+  function handleManualSubmit() {
+    const name = customName.trim();
+    if (!name) return;
+    onManual(name);
+  }
+
+  return (
+    <div style={{
+      marginTop: 6, background: 'var(--blue-light)', borderRadius: 'var(--radius-md)',
+      padding: '12px', display: 'flex', flexDirection: 'column', gap: 10,
+    }}>
+      <div>
+        <label style={{ fontSize: 11, color: '#2E5670', display: 'block', marginBottom: 5 }}>
+          Elegir una receta concreta
+        </label>
+        <select
+          defaultValue=""
+          onChange={(e) => { if (e.target.value) onPick(e.target.value); }}
+          style={{
+            width: '100%', fontSize: 13, padding: '9px 10px', borderRadius: 'var(--radius-sm)',
+            border: '1px solid var(--line)', background: 'var(--white)', color: 'var(--ink)',
+          }}
+        >
+          <option value="" disabled>Selecciona una receta de {meal.toLowerCase()}...</option>
+          {options.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
+        </select>
+      </div>
+
+      <div>
+        <label style={{ fontSize: 11, color: '#2E5670', display: 'block', marginBottom: 5 }}>
+          ¿No está en la lista? Escríbelo a mano
+        </label>
+        <div style={{ display: 'flex', gap: 6 }}>
+          <input
+            type="text"
+            value={customName}
+            onChange={(e) => setCustomName(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleManualSubmit()}
+            placeholder="Nombre del plato"
+            style={{
+              flex: 1, fontSize: 13, padding: '9px 10px', borderRadius: 'var(--radius-sm)',
+              border: '1px solid var(--line)', background: 'var(--white)', color: 'var(--ink)',
+              fontFamily: 'var(--font-body)',
+            }}
+          />
+          <button
+            onClick={handleManualSubmit}
+            style={{
+              fontSize: 12, fontWeight: 600, padding: '0 14px', borderRadius: 'var(--radius-sm)',
+              border: 'none', background: 'var(--sage)', color: 'var(--white)', flexShrink: 0,
+            }}
+          >
+            Usar
+          </button>
+        </div>
+      </div>
+
+      <button
+        onClick={onCancel}
+        style={{ alignSelf: 'flex-end', fontSize: 12, color: '#2E5670', background: 'none', border: 'none', textDecoration: 'underline' }}
+      >
+        Cancelar
+      </button>
     </div>
   );
 }
@@ -324,13 +501,22 @@ function MonthView({ monthCursor, monthDays, getDay, selectedDay, onSelectDay, o
             {selectedDay.getDate()} de {MONTH_NAMES[monthCursor.month]}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {MEALS.map(meal => (
-              <div key={meal} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: MEAL_DOT[meal], flexShrink: 0 }} />
-                <span style={{ fontSize: 11, color: 'var(--ink-muted)', width: 60, flexShrink: 0 }}>{meal}</span>
-                <span style={{ fontSize: 13 }}>{selectedEntry[meal].name}</span>
-              </div>
-            ))}
+            {MEALS.map(meal => {
+              const recipe = selectedEntry[meal];
+              return (
+                <div key={meal} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: MEAL_DOT[meal], flexShrink: 0 }} />
+                  <span style={{ fontSize: 11, color: 'var(--ink-muted)', width: 60, flexShrink: 0 }}>{meal}</span>
+                  {recipe.id ? (
+                    <Link to={`/recetario/${recipe.id}`} style={{ fontSize: 13, color: 'var(--ink)', textDecoration: 'underline', textDecorationColor: 'var(--line)' }}>
+                      {recipe.name}
+                    </Link>
+                  ) : (
+                    <span style={{ fontSize: 13, color: 'var(--ink)' }}>{recipe.name}</span>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

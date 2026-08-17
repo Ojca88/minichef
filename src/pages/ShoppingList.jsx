@@ -29,6 +29,10 @@ export default function ShoppingList() {
   const { data, save } = useCloud();
   const items = data.shoppingItems || DEFAULT_ITEMS;
   const [draft, setDraft] = useState('');
+  const [open, setOpen] = useState({ manual: true, menu: true });
+
+  const manualItems = items.filter(i => i.manual);
+  const menuItems = items.filter(i => !i.manual);
 
   function setItems(updater) {
     save(prev => ({
@@ -66,8 +70,11 @@ export default function ShoppingList() {
       const entry = plans[dateKey(d)];
       if (!entry) return;
       MEALS.forEach((meal) => {
-        const recipe = entry[meal] ? recipeById(entry[meal]) : null;
-        recipe?.ingredients.forEach((ing) => names.add(ing));
+        const value = entry[meal];
+        // Los platos puestos a mano (sin ficha en la base de datos) no tienen
+        // ingredientes conocidos, así que simplemente se saltan aquí.
+        const recipe = typeof value === 'string' ? recipeById(value) : null;
+        recipe?.ingredients?.forEach((ing) => names.add(ing));
       });
     });
     setItems(prev => {
@@ -76,6 +83,16 @@ export default function ShoppingList() {
         .map(name => ({ id: nextId(), name, checked: false, manual: false }));
       return [...toAdd, ...prev];
     });
+    setOpen(prev => ({ ...prev, menu: true }));
+  }
+
+  // Revierte lo generado desde el menú, sin tocar nada añadido a mano.
+  function clearMenuItems() {
+    setItems(prev => prev.filter(i => i.manual));
+  }
+
+  function toggleGroup(key) {
+    setOpen(prev => ({ ...prev, [key]: !prev[key] }));
   }
 
   return (
@@ -85,19 +102,37 @@ export default function ShoppingList() {
         <p style={{ fontSize: 13, color: 'var(--ink-muted)', marginTop: 4 }}>Compartida con tu hogar</p>
       </header>
 
-      <button
-        onClick={addFromWeekMenu}
-        style={{
-          width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-          fontSize: 13, fontWeight: 500, color: 'var(--sage-dark)', background: 'var(--sage-light)',
-          border: 'none', borderRadius: 'var(--radius-md)', padding: '11px 0', marginBottom: 14,
-        }}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3.5 5h17M3.5 9h17M3.5 13h17M3.5 17h9" stroke="var(--sage-dark)" strokeWidth="1.8" strokeLinecap="round" />
-        </svg>
-        Añadir ingredientes del menú de esta semana
-      </button>
+      <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
+        <button
+          onClick={addFromWeekMenu}
+          style={{
+            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+            fontSize: 13, fontWeight: 500, color: 'var(--sage-dark)', background: 'var(--sage-light)',
+            border: 'none', borderRadius: 'var(--radius-md)', padding: '11px 8px',
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style={{ flexShrink: 0 }}>
+            <path d="M3.5 5h17M3.5 9h17M3.5 13h17M3.5 17h9" stroke="var(--sage-dark)" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+          Añadir del menú
+        </button>
+        {menuItems.length > 0 && (
+          <button
+            onClick={clearMenuItems}
+            aria-label="Quitar todos los ingredientes del menú, dejando solo lo añadido a mano"
+            style={{
+              flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+              fontSize: 13, fontWeight: 500, color: '#9A5A20', background: 'var(--apricot-light)',
+              border: 'none', borderRadius: 'var(--radius-md)', padding: '11px 12px',
+            }}
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="#9A5A20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Revertir
+          </button>
+        )}
+      </div>
 
       <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
         <input
@@ -127,55 +162,105 @@ export default function ShoppingList() {
         </button>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {items.length === 0 && (
-          <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Tu lista está vacía. Añade el primer artículo arriba.</p>
-        )}
-        {items.map(item => (
-          <div key={item.id} style={{
-            display: 'flex', alignItems: 'center', gap: 12,
-            background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
-            padding: '12px 14px',
+      {items.length === 0 ? (
+        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Tu lista está vacía. Añade el primer artículo arriba.</p>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <ItemGroup
+            title="Añadidos por mí"
+            items={manualItems}
+            isOpen={open.manual}
+            onToggleGroup={() => toggleGroup('manual')}
+            onToggleItem={toggle}
+            onRemoveItem={removeItem}
+            emptyText="Nada añadido a mano todavía."
+          />
+          <ItemGroup
+            title="Del menú semanal"
+            items={menuItems}
+            isOpen={open.menu}
+            onToggleGroup={() => toggleGroup('menu')}
+            onToggleItem={toggle}
+            onRemoveItem={removeItem}
+            emptyText="Pulsa 'Añadir del menú' para traer los ingredientes de esta semana."
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ItemGroup({ title, items, isOpen, onToggleGroup, onToggleItem, onRemoveItem, emptyText }) {
+  return (
+    <div style={{
+      background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
+      overflow: 'hidden',
+    }}>
+      <button
+        onClick={onToggleGroup}
+        aria-expanded={isOpen}
+        style={{
+          width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          padding: '14px 16px', border: 'none', background: 'transparent', textAlign: 'left',
+        }}
+      >
+        <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600 }}>{title}</span>
+          <span style={{
+            fontSize: 11, color: 'var(--ink-muted)', background: 'var(--sage-light)',
+            borderRadius: 999, padding: '2px 8px',
           }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, cursor: 'pointer' }}>
-              <input
-                type="checkbox"
-                checked={item.checked}
-                onChange={() => toggle(item.id)}
-                style={{ width: 18, height: 18, accentColor: 'var(--sage)', flexShrink: 0 }}
-              />
-              <span style={{
-                fontSize: 14,
-                textDecoration: item.checked ? 'line-through' : 'none',
-                color: item.checked ? 'var(--ink-muted)' : 'var(--ink)',
-              }}>
-                {item.name}
-              </span>
-              {item.manual && (
+            {items.length}
+          </span>
+        </span>
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"
+          style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform .15s' }}>
+          <path d="M6 9l6 6 6-6" fill="none" stroke="var(--ink-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {isOpen && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '0 12px 12px' }}>
+          {items.length === 0 && (
+            <p style={{ fontSize: 13, color: 'var(--ink-muted)', padding: '0 4px 4px' }}>{emptyText}</p>
+          )}
+          {items.map(item => (
+            <div key={item.id} style={{
+              display: 'flex', alignItems: 'center', gap: 12,
+              background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
+              padding: '12px 14px',
+            }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, cursor: 'pointer' }}>
+                <input
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() => onToggleItem(item.id)}
+                  style={{ width: 18, height: 18, accentColor: 'var(--sage)', flexShrink: 0 }}
+                />
                 <span style={{
-                  fontSize: 10, color: 'var(--ink-muted)', background: 'var(--blue-light)',
-                  borderRadius: 999, padding: '2px 8px', flexShrink: 0,
+                  fontSize: 14,
+                  textDecoration: item.checked ? 'line-through' : 'none',
+                  color: item.checked ? 'var(--ink-muted)' : 'var(--ink)',
                 }}>
-                  Añadido
+                  {item.name}
                 </span>
-              )}
-            </label>
-            <button
-              onClick={() => removeItem(item.id)}
-              aria-label={`Quitar ${item.name} de la lista`}
-              style={{
-                width: 26, height: 26, flexShrink: 0, borderRadius: '50%', border: 'none',
-                background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'var(--ink-muted)',
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-        ))}
-      </div>
+              </label>
+              <button
+                onClick={() => onRemoveItem(item.id)}
+                aria-label={`Quitar ${item.name} de la lista`}
+                style={{
+                  width: 26, height: 26, flexShrink: 0, borderRadius: '50%', border: 'none',
+                  background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: 'var(--ink-muted)',
+                }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
