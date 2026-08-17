@@ -1,5 +1,7 @@
-import { useState, useMemo } from 'react';
-import { MEALS, recipesFor, pickForSeed, buildMonthPlan } from '../data';
+import { useState, useMemo, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { MEALS, recipesFor, recipeById, seededRandom, AGE_RANGES } from '../data';
+import { useCloud } from '../CloudSyncContext';
 
 const WEEKDAY_LABELS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 const MONTH_NAMES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -17,51 +19,58 @@ function mondayOf(date) {
   return d;
 }
 
-function randomPick(meal, excludeId) {
-  const options = recipesFor(meal).filter(r => r.id !== excludeId);
-  const pool = options.length ? options : recipesFor(meal);
-  return pool[Math.floor(Math.random() * pool.length)];
+// Devuelve solo las recetas aptas para la edad del bebé (si se ha configurado);
+// si el filtro deja el grupo vacío, cae de vuelta al total para no romper el plan.
+function poolFor(meal, ageIdx) {
+  const all = recipesFor(meal);
+  if (ageIdx === null || ageIdx === undefined) return all;
+  const filtered = all.filter(r => r.ageIdx <= ageIdx);
+  return filtered.length ? filtered : all;
+}
+
+function randomPick(meal, excludeId, ageIdx) {
+  const pool = poolFor(meal, ageIdx);
+  const options = pool.filter(r => r.id !== excludeId);
+  const finalPool = options.length ? options : pool;
+  return finalPool[Math.floor(Math.random() * finalPool.length)];
+}
+
+function pickForSeedAged(meal, seed, ageIdx) {
+  const pool = poolFor(meal, ageIdx);
+  const idx = Math.floor(seededRandom(seed) * pool.length);
+  return pool[idx];
+}
+
+function seedFor(d, mi) {
+  return d.getFullYear() * 1000 + d.getMonth() * 40 + d.getDate() * 3 + mi;
+}
+
+// Genera, para un conjunto de fechas, solo los ids de receta (no el objeto completo)
+// — es lo único que se guarda y sincroniza en la nube.
+function generateIdsFor(dates, ageIdx) {
+  const patch = {};
+  dates.forEach((d) => {
+    const key = dateKey(d);
+    const entry = {};
+    MEALS.forEach((meal, mi) => { entry[meal] = pickForSeedAged(meal, seedFor(d, mi), ageIdx).id; });
+    patch[key] = entry;
+  });
+  return patch;
 }
 
 export default function Planner() {
+  const { data: cloudData, save } = useCloud();
+  const babyAge = cloudData.babyAge || null;
+  const ageIdx = babyAge ? AGE_RANGES.indexOf(babyAge) : null;
+  const plans = cloudData.plans || {};
+
   const [view, setView] = useState('semana');
   const [weekStart, setWeekStart] = useState(() => mondayOf(new Date()));
   const [monthCursor, setMonthCursor] = useState(() => {
     const now = new Date();
     return { year: now.getFullYear(), month: now.getMonth() };
   });
-  const [plans, setPlans] = useState(() => ({
-    ...keyByYearMonth(monthCursor.year, monthCursor.month),
-  }));
   const [selectedDay, setSelectedDay] = useState(null);
-
-  function keyByYearMonth(year, month) {
-    return buildMonthPlan(year, month);
-  }
-
-  function ensureMonth(year, month) {
-    const has = Object.keys(plans).some(k => k.startsWith(`${year}-${String(month + 1).padStart(2, '0')}`));
-    if (!has) {
-      setPlans(prev => ({ ...prev, ...buildMonthPlan(year, month) }));
-    }
-  }
-
-  function getDay(d) {
-    const key = dateKey(d);
-    if (plans[key]) return plans[key];
-    const seed = d.getFullYear() * 1000 + d.getMonth() * 40 + d.getDate() * 3;
-    const entry = {};
-    MEALS.forEach((meal, mi) => { entry[meal] = pickForSeed(meal, seed + mi); });
-    return entry;
-  }
-
-  function regenerate(d, meal) {
-    const key = dateKey(d);
-    setPlans(prev => {
-      const current = prev[key] || getDay(d);
-      return { ...prev, [key]: { ...current, [meal]: randomPick(meal, current[meal].id) } };
-    });
-  }
 
   const weekDates = useMemo(() => (
     Array.from({ length: 7 }, (_, i) => {
@@ -70,23 +79,6 @@ export default function Planner() {
       return d;
     })
   ), [weekStart]);
-
-  function shiftWeek(delta) {
-    const d = new Date(weekStart);
-    d.setDate(d.getDate() + delta * 7);
-    setWeekStart(d);
-    ensureMonth(d.getFullYear(), d.getMonth());
-  }
-
-  function shiftMonth(delta) {
-    let { year, month } = monthCursor;
-    month += delta;
-    if (month < 0) { month = 11; year -= 1; }
-    if (month > 11) { month = 0; year += 1; }
-    setMonthCursor({ year, month });
-    setSelectedDay(null);
-    ensureMonth(year, month);
-  }
 
   const monthDays = useMemo(() => {
     const { year, month } = monthCursor;
@@ -98,10 +90,80 @@ export default function Planner() {
     return cells;
   }, [monthCursor]);
 
+  // Rellena en la nube (solo ids) los días visibles que todavía no existan.
+  // No pisa nada que ya se haya generado o cambiado a mano antes.
+  function ensureDates(dates) {
+    const missing = dates.filter(d => !plans[dateKey(d)]);
+    if (!missing.length) return;
+    const patch = generateIdsFor(missing, ageIdx);
+    save(prev => ({ ...prev, plans: { ...(prev.plans || {}), ...patch } }));
+  }
+
+  useEffect(() => { ensureDates(weekDates); }, [weekDates, cloudData.plans]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { ensureDates(monthDays.filter(Boolean)); }, [monthDays, cloudData.plans]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Si cambia la edad del bebé, regeneramos (esta vez sí sobrescribiendo) el
+  // rango visible para que las sugerencias vuelvan a ser acordes a la nueva edad.
+  const firstRun = useRef(true);
+  useEffect(() => {
+    if (firstRun.current) { firstRun.current = false; return; }
+    const dates = view === 'semana' ? weekDates : monthDays.filter(Boolean);
+    const patch = generateIdsFor(dates, ageIdx);
+    save(prev => ({ ...prev, plans: { ...(prev.plans || {}), ...patch } }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [babyAge]);
+
+  function getDay(d) {
+    const key = dateKey(d);
+    const ids = plans[key];
+    if (ids) {
+      const entry = {};
+      MEALS.forEach((meal) => { entry[meal] = recipeById(ids[meal]) || pickForSeedAged(meal, seedFor(d, 0), ageIdx); });
+      return entry;
+    }
+    // Todavía no ha llegado la sincronización para este día: mostramos algo
+    // de forma determinista mientras tanto (el effect lo persistirá enseguida).
+    const entry = {};
+    MEALS.forEach((meal, mi) => { entry[meal] = pickForSeedAged(meal, seedFor(d, mi), ageIdx); });
+    return entry;
+  }
+
+  function regenerate(d, meal) {
+    const key = dateKey(d);
+    const current = plans[key] || {};
+    const currentRecipe = current[meal] ? recipeById(current[meal]) : null;
+    const next = randomPick(meal, currentRecipe?.id, ageIdx);
+    save(prev => ({
+      ...prev,
+      plans: { ...(prev.plans || {}), [key]: { ...(prev.plans?.[key] || {}), [meal]: next.id } },
+    }));
+  }
+
+  function shiftWeek(delta) {
+    const d = new Date(weekStart);
+    d.setDate(d.getDate() + delta * 7);
+    setWeekStart(d);
+  }
+
+  function shiftMonth(delta) {
+    let { year, month } = monthCursor;
+    month += delta;
+    if (month < 0) { month = 11; year -= 1; }
+    if (month > 11) { month = 0; year += 1; }
+    setMonthCursor({ year, month });
+    setSelectedDay(null);
+  }
+
   return (
     <div style={{ padding: '20px 16px 90px' }}>
       <header style={{ marginBottom: 14 }}>
-        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Bebé de 22 meses</p>
+        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>
+          {babyAge ? `Bebé de ${babyAge}` : (
+            <Link to="/" style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>
+              Configura la edad del bebé en Inicio
+            </Link>
+          )}
+        </p>
         <h1 style={{ fontSize: 22 }}>Menú</h1>
       </header>
 
@@ -122,7 +184,7 @@ export default function Planner() {
           <WeekSwitcher weekDates={weekDates} onPrev={() => shiftWeek(-1)} onNext={() => shiftWeek(1)} />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginTop: 14 }}>
             {weekDates.map((d, i) => {
-              const entry = plans[dateKey(d)] || getDay(d);
+              const entry = getDay(d);
               return (
                 <div key={i}>
                   <h2 style={{ fontSize: 14, color: 'var(--sage-dark)', marginBottom: 8 }}>
@@ -165,7 +227,6 @@ export default function Planner() {
           monthCursor={monthCursor}
           monthDays={monthDays}
           getDay={getDay}
-          plans={plans}
           selectedDay={selectedDay}
           onSelectDay={setSelectedDay}
           onPrev={() => shiftMonth(-1)}
@@ -202,7 +263,7 @@ function IconButton({ onClick, dir, label }) {
   );
 }
 
-function MonthView({ monthCursor, monthDays, getDay, plans, selectedDay, onSelectDay, onPrev, onNext }) {
+function MonthView({ monthCursor, monthDays, getDay, selectedDay, onSelectDay, onPrev, onNext }) {
   const today = dateKey(new Date());
   const selectedEntry = selectedDay ? getDay(selectedDay) : null;
 

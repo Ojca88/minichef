@@ -72,7 +72,7 @@ function FilterRow({ label, value, options, onChange }) {
   return (
     <div>
       <p style={{ fontSize: 12, color: 'var(--ink-muted)', marginBottom: 6 }}>{label}</p>
-      <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
+      <div data-swipe-ignore style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
         {options.map(opt => (
           <button
             key={opt}

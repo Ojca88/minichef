@@ -1,16 +1,23 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RECIPES, formatTodayLong, formatUpdatedAt } from '../data';
+import { RECIPES, AGE_RANGES, formatTodayLong, formatUpdatedAt } from '../data';
+import { useCloud } from '../CloudSyncContext';
 import RecipeCard from '../components/RecipeCard';
+import SyncPanel from '../components/SyncPanel';
 
 /* global __LAST_COMMIT_DATE__ */
 
 export default function Home() {
   const navigate = useNavigate();
   const [suggestion, setSuggestion] = useState(null);
+  const cloud = useCloud();
+  const babyAge = cloud.data.babyAge || null;
+  const ageIdx = babyAge ? AGE_RANGES.indexOf(babyAge) : null;
 
   function generar() {
-    const pick = RECIPES[Math.floor(Math.random() * RECIPES.length)];
+    const pool = ageIdx === null ? RECIPES : RECIPES.filter(r => r.ageIdx <= ageIdx);
+    const source = pool.length ? pool : RECIPES;
+    const pick = source[Math.floor(Math.random() * source.length)];
     setSuggestion(pick);
   }
 
@@ -23,6 +30,26 @@ export default function Home() {
           {formatUpdatedAt(typeof __LAST_COMMIT_DATE__ !== 'undefined' ? __LAST_COMMIT_DATE__ : null)}
         </p>
       </header>
+
+      <div style={{ marginBottom: 20 }}>
+        <p style={{ fontSize: 12, color: 'var(--ink-muted)', marginBottom: 6 }}>Edad del bebé</p>
+        <div data-swipe-ignore style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
+          {AGE_RANGES.map(opt => (
+            <button
+              key={opt}
+              onClick={() => cloud.save({ babyAge: opt })}
+              style={{
+                flexShrink: 0, fontSize: 12, fontWeight: 500, padding: '7px 14px', borderRadius: 999,
+                border: '1px solid ' + (babyAge === opt ? 'var(--sage)' : 'var(--line)'),
+                background: babyAge === opt ? 'var(--sage)' : 'var(--white)',
+                color: babyAge === opt ? 'var(--white)' : 'var(--ink)',
+              }}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <button
         onClick={generar}
@@ -49,12 +76,14 @@ export default function Home() {
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
         <NavCard title="Planificador" subtitle="Menú de la semana" color="apricot" onClick={() => navigate('/planificador')} />
         <NavCard title="Recetario" subtitle="Filtra por edad" color="blue" onClick={() => navigate('/recetario')} />
         <NavCard title="Seguimiento" subtitle="Grupos de alimentos" color="sage" onClick={() => navigate('/seguimiento')} />
         <NavCard title="Compra" subtitle="Desde tu menú" color="apricot" onClick={() => navigate('/lista-compra')} />
       </div>
+
+      <SyncPanel />
     </div>
   );
 }

@@ -32,6 +32,11 @@ export function recipesFor(meal) {
   return RECIPES.filter(r => r.meal === meal);
 }
 
+const RECIPES_BY_ID = new Map(RECIPES.map(r => [r.id, r]));
+export function recipeById(id) {
+  return RECIPES_BY_ID.get(id) || null;
+}
+
 export function seededRandom(seed) {
   let x = Math.sin(seed) * 10000;
   return x - Math.floor(x);
