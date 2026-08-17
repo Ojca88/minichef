@@ -18,7 +18,6 @@ export default function RecipeCard({ recipe, showMeal = false }) {
       tabIndex={0}
       onClick={() => navigate(`/recetario/${recipe.id}`)}
       onKeyDown={(e) => e.key === 'Enter' && navigate(`/recetario/${recipe.id}`)}
-      className="card-interactive"
       style={{
         background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
         padding: '14px 16px', display: 'flex', flexDirection: 'column', gap: 8, cursor: 'pointer',
@@ -29,7 +28,6 @@ export default function RecipeCard({ recipe, showMeal = false }) {
         <button
           aria-label={`Escuchar receta ${recipe.name}`}
           onClick={(e) => { e.stopPropagation(); speak(recipe.name); }}
-          className="icon-btn"
           style={{
             flexShrink: 0, width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--line)',
             background: 'var(--sage-light)', display: 'flex', alignItems: 'center', justifyContent: 'center',

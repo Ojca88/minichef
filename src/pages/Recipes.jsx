@@ -1,50 +1,80 @@
 import { useState } from 'react';
-import { AGE_RANGES, MEALS, TEXTURES, RECIPES } from '../data';
+import { AGE_RANGES, MEALS, TEXTURES, CATEGORIES, RECIPES } from '../data';
 import RecipeCard from '../components/RecipeCard';
+
+const SEASON_OPTIONS = ['Todas', 'Invierno', 'Verano'];
 
 export default function Recipes() {
   const [age, setAge] = useState('Todas');
   const [texture, setTexture] = useState('Todas');
+  const [season, setSeason] = useState('Todas');
+  const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState({ Comida: true, Merienda: false, Cena: false });
 
   function toggle(meal) {
     setOpen(prev => ({ ...prev, [meal]: !prev[meal] }));
   }
 
+  function toggleCategory(cat) {
+    setCategories(prev => prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]);
+  }
+
   return (
-    <div style={{ paddingBottom: 90 }}>
-      <header style={{
-        padding: '22px 16px 26px', marginBottom: 18,
-        background: 'var(--gradient-blue-bold)',
-        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
-        boxShadow: 'var(--shadow-blue-bold)',
-      }}>
-        <h1 style={{ fontSize: 26, color: 'var(--white)' }}>Recetario</h1>
+    <div style={{ padding: '20px 16px 90px' }}>
+      <header style={{ marginBottom: 16 }}>
+        <h1 style={{ fontSize: 22 }}>Recetario</h1>
       </header>
 
-      <div style={{ padding: '0 16px' }}>
-        <FilterRow label="Edad" value={age} options={['Todas', ...AGE_RANGES]} onChange={setAge} />
-        <div style={{ height: 12 }} />
-        <FilterRow label="Textura" value={texture} options={['Todas', ...TEXTURES]} onChange={setTexture} />
+      <FilterRow label="Edad" value={age} options={['Todas', ...AGE_RANGES]} onChange={setAge} />
+      <div style={{ height: 12 }} />
+      <FilterRow label="Textura" value={texture} options={['Todas', ...TEXTURES]} onChange={setTexture} />
+      <div style={{ height: 12 }} />
+      <FilterRow label="Temporada" value={season} options={SEASON_OPTIONS} onChange={setSeason} />
+      <div style={{ height: 12 }} />
+      <div>
+        <p style={{ fontSize: 12, color: 'var(--ink-muted)', marginBottom: 6 }}>Tipo de plato</p>
+        <div data-swipe-ignore style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
+          {CATEGORIES.map(opt => {
+            const active = categories.includes(opt);
+            return (
+              <button
+                key={opt}
+                onClick={() => toggleCategory(opt)}
+                aria-pressed={active}
+                style={{
+                  flexShrink: 0, fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
+                  border: '1px solid ' + (active ? 'var(--sage)' : 'var(--line)'),
+                  background: active ? 'var(--sage)' : 'var(--white)',
+                  color: active ? 'var(--white)' : 'var(--ink)',
+                }}
+              >
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
         {MEALS.map(meal => {
           const ageIdx = AGE_RANGES.indexOf(age);
+          const seasonKey = season === 'Invierno' ? 'invierno' : season === 'Verano' ? 'verano' : null;
           const items = RECIPES.filter(r =>
             r.meal === meal &&
             (age === 'Todas' || r.ageIdx <= ageIdx) &&
-            (texture === 'Todas' || r.texture === texture)
+            (texture === 'Todas' || r.texture === texture) &&
+            (!seasonKey || r.season === seasonKey || r.season === 'ambas') &&
+            (categories.length === 0 || categories.some(c => r.categories.includes(c)))
           );
           const isOpen = open[meal];
           return (
-            <div key={meal} className="card" style={{
+            <div key={meal} style={{
               background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
               overflow: 'hidden',
             }}>
               <button
                 onClick={() => toggle(meal)}
                 aria-expanded={isOpen}
-                className="pressable"
                 style={{
                   width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   padding: '14px 16px', border: 'none', background: 'transparent', textAlign: 'left',
@@ -77,7 +107,6 @@ export default function Recipes() {
             </div>
           );
         })}
-        </div>
       </div>
     </div>
   );
@@ -92,11 +121,10 @@ function FilterRow({ label, value, options, onChange }) {
           <button
             key={opt}
             onClick={() => onChange(opt)}
-            className="chip"
             style={{
               flexShrink: 0, fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
               border: '1px solid ' + (value === opt ? 'var(--sage)' : 'var(--line)'),
-              background: value === opt ? 'var(--gradient-sage)' : 'var(--white)',
+              background: value === opt ? 'var(--sage)' : 'var(--white)',
               color: value === opt ? 'var(--white)' : 'var(--ink)',
             }}
           >

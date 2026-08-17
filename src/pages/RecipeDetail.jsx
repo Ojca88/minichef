@@ -27,7 +27,7 @@ export default function RecipeDetail() {
 
   return (
     <div style={{ padding: '20px 16px 40px' }}>
-      <button onClick={() => navigate(-1)} className="pressable" style={{
+      <button onClick={() => navigate(-1)} style={{
         border: 'none', background: 'none', display: 'flex', alignItems: 'center', gap: 4,
         fontSize: 13, color: 'var(--ink-muted)', marginBottom: 14, padding: 0,
       }}>
@@ -42,11 +42,9 @@ export default function RecipeDetail() {
         <button
           aria-label="Escuchar receta completa"
           onClick={() => speak(fullText)}
-          className="pressable"
           style={{
             flexShrink: 0, width: 38, height: 38, borderRadius: '50%', border: 'none',
-            background: 'var(--gradient-sage)', boxShadow: 'var(--shadow-sage)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}
         >
           <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
@@ -68,7 +66,6 @@ export default function RecipeDetail() {
         href={recipe.videoUrl || youtubeSearchUrl(recipe.name)}
         target="_blank"
         rel="noopener noreferrer"
-        className="card-interactive"
         style={{
           display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 500,
           color: '#C4302B', background: '#FDEDED', border: '1px solid #F6D2D0',
@@ -107,7 +104,6 @@ export default function RecipeDetail() {
             {recipe.tips.map((tip, i) => (
               <div key={i} style={{
                 fontSize: 13, lineHeight: 1.5, color: 'var(--sage-dark)', background: 'var(--sage-light)',
-                border: '1px solid rgba(78, 107, 84, 0.18)',
                 borderRadius: 'var(--radius-md)', padding: '10px 12px',
               }}>
                 {tip}

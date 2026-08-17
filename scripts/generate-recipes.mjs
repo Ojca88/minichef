@@ -8,7 +8,7 @@ import { writeFileSync } from 'node:fs';
 // 1. The 21 original hand-written recipes (unchanged, full quality)
 // ---------------------------------------------------------------------------
 const HANDWRITTEN = [
-  { id: 'r1', name: 'Puré de calabaza y patata', mealTypes: ['comida'], minAgeIdx: 0, allergens: [], time: 20, texture: 'pure', foodGroups: ['verduras'],
+  { id: 'r1', name: 'Puré de calabaza y patata', mealTypes: ['comida'], minAgeIdx: 0, allergens: [], time: 20, texture: 'pure', season: 'invierno', foodGroups: ['verduras'],
     ingredients: [
       { name: 'Calabaza', quantity: '1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g)' },
       { name: 'Patata', quantity: '1 patata mediana, pelada (unos 150 g)' },
@@ -29,7 +29,7 @@ const HANDWRITTEN = [
       'Si es la primera vez que tu bebé prueba la calabaza, ofrécela sola 2-3 días antes de mezclarla con otros alimentos nuevos, para poder identificar posibles reacciones.',
     ],
   },
-  { id: 'r2', name: 'Lentejas con verduras', mealTypes: ['comida'], minAgeIdx: 1, allergens: [], time: 35, texture: 'pure', foodGroups: ['legumbres', 'verduras'],
+  { id: 'r2', name: 'Lentejas con verduras', mealTypes: ['comida'], minAgeIdx: 1, allergens: [], time: 35, texture: 'pure', season: 'invierno', foodGroups: ['legumbres', 'verduras'],
     ingredients: [
       { name: 'Lentejas', quantity: '3 cucharadas soperas secas (unos 40 g)' },
       { name: 'Zanahoria', quantity: '1/2 zanahoria, pelada' },
@@ -49,7 +49,7 @@ const HANDWRITTEN = [
     ],
     tips: ['Las legumbres cocidas y trituradas se congelan muy bien: guarda raciones individuales para los días con poco tiempo.'],
   },
-  { id: 'r3', name: 'Crema de calabacín y pollo', mealTypes: ['comida'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', foodGroups: ['verduras', 'proteina'],
+  { id: 'r3', name: 'Crema de calabacín y pollo', mealTypes: ['comida'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', season: 'invierno', foodGroups: ['verduras', 'proteina'],
     ingredients: [
       { name: 'Calabacín', quantity: '1/2 calabacín pequeño' },
       { name: 'Pechuga de pollo', quantity: '1 filete pequeño (unos 60 g)' },
@@ -67,7 +67,7 @@ const HANDWRITTEN = [
     ],
     tips: ['Comprueba siempre que el pollo esté completamente cocido, sin ninguna parte rosada, antes de triturarlo.'],
   },
-  { id: 'r4', name: 'Arroz con verduras y pollo', mealTypes: ['comida'], minAgeIdx: 2, allergens: [], time: 30, texture: 'trocitos', foodGroups: ['cereales', 'verduras', 'proteina'],
+  { id: 'r4', name: 'Arroz con verduras y pollo', mealTypes: ['comida'], minAgeIdx: 2, allergens: [], time: 30, texture: 'trocitos', season: 'ambas', foodGroups: ['cereales', 'verduras', 'proteina'],
     ingredients: [
       { name: 'Arroz', quantity: '3 cucharadas soperas (unos 40 g)' },
       { name: 'Zanahoria', quantity: '1/2 zanahoria pequeña, en dados' },
@@ -86,7 +86,7 @@ const HANDWRITTEN = [
     ],
     tips: ['Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera.'],
   },
-  { id: 'r5', name: 'Puré de garbanzos y zanahoria', mealTypes: ['comida'], minAgeIdx: 1, allergens: [], time: 35, texture: 'pure', foodGroups: ['legumbres', 'verduras'],
+  { id: 'r5', name: 'Puré de garbanzos y zanahoria', mealTypes: ['comida'], minAgeIdx: 1, allergens: [], time: 35, texture: 'pure', season: 'invierno', foodGroups: ['legumbres', 'verduras'],
     ingredients: [
       { name: 'Garbanzos cocidos', quantity: '4 cucharadas (unos 80 g)' },
       { name: 'Zanahoria', quantity: '1/2 zanahoria, pelada' },
@@ -104,7 +104,7 @@ const HANDWRITTEN = [
     ],
     tips: ['La piel de los garbanzos puede quedar en trocitos pequeños tras triturar: si tu bebé es muy pequeño, pasa el puré por un colador fino para eliminarla.'],
   },
-  { id: 'r6', name: 'Merluza con puré de patata y brócoli', mealTypes: ['comida'], minAgeIdx: 1, allergens: ['pescado'], time: 25, texture: 'pure', foodGroups: ['proteina', 'verduras'],
+  { id: 'r6', name: 'Merluza con puré de patata y brócoli', mealTypes: ['comida'], minAgeIdx: 1, allergens: ['pescado'], time: 25, texture: 'pure', season: 'invierno', foodGroups: ['proteina', 'verduras'],
     ingredients: [
       { name: 'Merluza', quantity: '1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)' },
       { name: 'Patata', quantity: '1 patata mediana, pelada' },
@@ -123,7 +123,7 @@ const HANDWRITTEN = [
     ],
     tips: ['El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo en pequeña cantidad por la mañana, para poder observar cómo reacciona durante el día.'],
   },
-  { id: 'r7', name: 'Ternera guisada con verduras', mealTypes: ['comida'], minAgeIdx: 2, allergens: [], time: 40, texture: 'trocitos', foodGroups: ['proteina', 'verduras'],
+  { id: 'r7', name: 'Ternera guisada con verduras', mealTypes: ['comida'], minAgeIdx: 2, allergens: [], time: 40, texture: 'trocitos', season: 'invierno', foodGroups: ['proteina', 'verduras'],
     ingredients: [
       { name: 'Ternera', quantity: '60-70 g para guisar, en trozos pequeños' },
       { name: 'Zanahoria', quantity: '1/2 zanahoria, pelada' },
@@ -142,7 +142,7 @@ const HANDWRITTEN = [
     ],
     tips: ['La ternera guisada muy despacio queda más tierna: si tienes tiempo, cocínala 45-50 minutos a fuego muy bajo para que se deshaga con facilidad.'],
   },
-  { id: 'r8', name: 'Tortilla de calabacín', mealTypes: ['comida'], minAgeIdx: 2, allergens: ['huevo'], time: 15, texture: 'finger', foodGroups: ['proteina', 'verduras'],
+  { id: 'r8', name: 'Tortilla de calabacín', mealTypes: ['comida'], minAgeIdx: 2, allergens: ['huevo'], time: 15, texture: 'finger', season: 'ambas', foodGroups: ['proteina', 'verduras'],
     ingredients: [
       { name: 'Huevo', quantity: '1 unidad' },
       { name: 'Calabacín', quantity: '1/2 calabacín pequeño, rallado' },
@@ -163,7 +163,7 @@ const HANDWRITTEN = [
       'El huevo es un alérgeno frecuente: si es la primera vez, ofrece un trozo pequeño y observa a tu bebé durante las horas siguientes.',
     ],
   },
-  { id: 'r9', name: 'Puré de lentejas rojas con calabaza', mealTypes: ['comida'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', foodGroups: ['legumbres', 'verduras'],
+  { id: 'r9', name: 'Puré de lentejas rojas con calabaza', mealTypes: ['comida'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', season: 'invierno', foodGroups: ['legumbres', 'verduras'],
     ingredients: [
       { name: 'Lentejas rojas', quantity: '3 cucharadas soperas (unos 40 g)' },
       { name: 'Calabaza', quantity: '1/4 de calabaza pequeña, pelada y sin pepitas' },
@@ -181,26 +181,25 @@ const HANDWRITTEN = [
     ],
     tips: ['Las lentejas rojas se deshacen solas al cocer, así que este puré suele quedar muy cremoso sin apenas necesidad de triturar.'],
   },
-  { id: 'r10', name: 'Plátano chafado con copos de avena', mealTypes: ['merienda'], minAgeIdx: 0, allergens: [], time: 5, texture: 'pure', foodGroups: ['frutas', 'cereales'],
+  { id: 'r10', name: 'Bastones de plátano con avena', mealTypes: ['merienda'], minAgeIdx: 0, allergens: [], time: 5, texture: 'finger', season: 'ambas', foodGroups: ['frutas', 'cereales'],
     ingredients: [
       { name: 'Plátano', quantity: '1 unidad, bien maduro' },
-      { name: 'Copos de avena finos', quantity: '1 cucharada' },
+      { name: 'Copos de avena finos', quantity: '2 cucharadas, molidos' },
     ],
-    utensils: ['Bol', 'Tenedor'],
+    utensils: ['Tabla y cuchillo', 'Plato hondo'],
     steps: [
-      'Elige un plátano bien maduro, con alguna mancha marrón en la piel: es más dulce y fácil de chafar.',
-      'Pela el plátano y ponlo en un bol.',
-      'Chafa con un tenedor hasta obtener una pasta sin grumos grandes.',
-      'Añade los copos de avena finos poco a poco, removiendo, hasta que se integren y la mezcla espese ligeramente.',
-      'Deja reposar 2-3 minutos: la avena absorbe algo de humedad y la textura queda más suave.',
-      'Remueve una última vez antes de servir; si queda muy espeso, añade unas gotas de agua para aligerar.',
+      'Elige un plátano bien maduro, con alguna mancha marrón en la piel: es más dulce y más fácil de sujetar sin resbalar.',
+      'Muele los copos de avena unos segundos en un molinillo o batidora hasta obtener un polvo fino, y extiéndelos en un plato hondo.',
+      'Pela el plátano y córtalo por la mitad a lo largo, y luego cada mitad en 2-3 bastones, según el tamaño de la mano de tu bebé.',
+      'Reboza cada bastón de plátano por el polvo de avena, presionando un poco para que se pegue bien por todas las caras.',
+      'Sirve enseguida: la avena ayuda a que el plátano no resbale tanto entre los dedos del bebé.',
     ],
     tips: [
       'No necesita cocción, así que es ideal para cuando tienes poco tiempo.',
-      'Si usas copos de avena normales (no finos), tritúralos unos segundos en un molinillo para que sean más fáciles de digerir.',
+      'Si tu bebé todavía no controla bien la pinza, corta los bastones más gruesos: son más fáciles de sujetar con el puño entero.',
     ],
   },
-  { id: 'r11', name: 'Yogur natural con fruta', mealTypes: ['merienda'], minAgeIdx: 1, allergens: ['lacteos'], time: 5, texture: 'trocitos', foodGroups: ['lacteos', 'frutas'],
+  { id: 'r11', name: 'Yogur natural con fruta', mealTypes: ['merienda'], minAgeIdx: 1, allergens: ['lacteos'], time: 5, texture: 'trocitos', season: 'verano', foodGroups: ['lacteos', 'frutas'],
     ingredients: [
       { name: 'Yogur natural sin azúcar', quantity: '1 unidad (125 g)' },
       { name: 'Pera o manzana', quantity: '1/2 unidad, madura' },
@@ -218,7 +217,7 @@ const HANDWRITTEN = [
       'El yogur es lácteo: si es la primera vez que tu bebé prueba lácteos de vaca, empieza con una cantidad pequeña.',
     ],
   },
-  { id: 'r12', name: 'Tortitas de avena y plátano', mealTypes: ['merienda'], minAgeIdx: 2, allergens: ['huevo'], time: 15, texture: 'finger', foodGroups: ['cereales', 'frutas'],
+  { id: 'r12', name: 'Tortitas de avena y plátano', mealTypes: ['merienda'], minAgeIdx: 2, allergens: ['huevo'], time: 15, texture: 'finger', season: 'ambas', foodGroups: ['cereales', 'frutas'],
     ingredients: [
       { name: 'Avena', quantity: '3 cucharadas (unos 30 g)' },
       { name: 'Plátano', quantity: '1 unidad, madura' },
@@ -239,26 +238,25 @@ const HANDWRITTEN = [
       'Este plato lleva huevo: si es la primera vez que lo prueba, ofrece una cantidad pequeña y observa a tu bebé un par de horas.',
     ],
   },
-  { id: 'r13', name: 'Puré de manzana y pera', mealTypes: ['merienda'], minAgeIdx: 0, allergens: [], time: 15, texture: 'pure', foodGroups: ['frutas'],
+  { id: 'r13', name: 'Manzana y pera en trozos', mealTypes: ['merienda'], minAgeIdx: 0, allergens: [], time: 15, texture: 'trocitos', season: 'ambas', foodGroups: ['frutas'],
     ingredients: [
       { name: 'Manzana', quantity: '1 unidad' },
       { name: 'Pera', quantity: '1 unidad' },
     ],
-    utensils: ['Vaporera (o cazuela con cestillo)', 'Batidora de mano (o un tenedor)'],
+    utensils: ['Vaporera (o cazuela con cestillo)', 'Tabla y cuchillo'],
     steps: [
-      'Lava, pela y descorazona la manzana y la pera. Córtalas en trozos de tamaño similar para que se cuezan por igual.',
+      'Lava, pela y descorazona la manzana y la pera. Córtalas en trozos pequeños de tamaño similar para que se cuezan por igual.',
       'Colócalas en una vaporera o en una cazuela con un dedo de agua.',
-      'Cuece al vapor unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia.',
+      'Cuece al vapor unos 8-10 minutos, hasta que un cuchillo entre en la fruta sin resistencia pero sin que se deshaga.',
       'Retira del fuego y deja templar unos minutos.',
-      'Tritura con la batidora (o chafa con un tenedor si prefieres una textura más rústica) hasta obtener una compota fina.',
-      'Si queda demasiado espesa, añade una cucharadita del agua de cocción reservada.',
+      'Corta en trozos pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo (si tu bebé ya mastica bien, también puedes ofrecerla cruda, en gajos finos, sin cocer).',
     ],
     tips: [
       'No hace falta añadir azúcar: la fruta cocida ya tiene un sabor dulce natural.',
-      'Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes.',
+      'Se conserva bien en la nevera 2 días en un recipiente cerrado.',
     ],
   },
-  { id: 'r14', name: 'Palitos de pan con aguacate', mealTypes: ['merienda'], minAgeIdx: 2, allergens: ['gluten'], time: 5, texture: 'finger', foodGroups: ['cereales', 'grasas'],
+  { id: 'r14', name: 'Palitos de pan con aguacate', mealTypes: ['comida'], minAgeIdx: 2, allergens: ['gluten'], time: 5, texture: 'finger', season: 'ambas', foodGroups: ['cereales', 'grasas'],
     ingredients: [
       { name: 'Pan tierno', quantity: '1 rebanada, a poder ser integral' },
       { name: 'Aguacate', quantity: '1/2 unidad, madura' },
@@ -276,20 +274,19 @@ const HANDWRITTEN = [
       'Este plato lleva gluten (el pan): si es la primera vez que lo prueba, empieza con una cantidad pequeña.',
     ],
   },
-  { id: 'r15', name: 'Compota de melocotón', mealTypes: ['merienda'], minAgeIdx: 0, allergens: [], time: 15, texture: 'pure', foodGroups: ['frutas'],
+  { id: 'r15', name: 'Melocotón en trozos', mealTypes: ['merienda'], minAgeIdx: 0, allergens: [], time: 12, texture: 'trocitos', season: 'verano', foodGroups: ['frutas'],
     ingredients: [{ name: 'Melocotón', quantity: '1-2 unidades, maduras' }],
-    utensils: ['Cazuela', 'Batidora de mano (o un tenedor)'],
+    utensils: ['Cazuela', 'Tabla y cuchillo'],
     steps: [
       'Lava el melocotón. Puedes escaldarlo unos segundos en agua hirviendo y pasarlo después por agua fría: así la piel se retira mucho más fácil.',
-      'Pela, deshuesa y corta el melocotón en trozos.',
-      'Ponlo en la cazuela con un par de cucharadas de agua (la fruta suelta líquido al cocerse, no hace falta cubrirla del todo).',
-      'Cuece a fuego bajo 10 minutos, removiendo de vez en cuando, hasta que los trozos estén blandos y se deshagan con facilidad.',
-      'Retira del fuego y deja templar.',
-      'Tritura con la batidora o chafa con un tenedor hasta lograr una compota suave y sin trozos.',
+      'Pela, deshuesa y corta el melocotón en trozos pequeños y blandos, en forma de bastón o media luna.',
+      'Si está muy maduro y blando, puedes servirlo directamente crudo, sin cocción.',
+      'Si está algo duro, ponlo en la cazuela con un par de cucharadas de agua y cuece a fuego bajo 5-6 minutos, removiendo de vez en cuando, hasta que ceda al pincharlo pero sin deshacerse.',
+      'Retira del fuego y deja templar antes de servir.',
     ],
-    tips: ['Si el melocotón está muy maduro y dulce, puedes saltarte la cocción y triturarlo directamente en crudo.'],
+    tips: ['Si el melocotón está muy maduro y dulce, sírvelo crudo directamente: es más rico en sabor y textura que cocido.'],
   },
-  { id: 'r16', name: 'Crema de puerro y patata', mealTypes: ['cena'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', foodGroups: ['verduras'],
+  { id: 'r16', name: 'Crema de puerro y patata', mealTypes: ['cena'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', season: 'invierno', foodGroups: ['verduras'],
     ingredients: [
       { name: 'Puerro', quantity: '1/2 unidad (parte blanca y verde clara)' },
       { name: 'Patata', quantity: '1 patata mediana, pelada' },
@@ -307,7 +304,7 @@ const HANDWRITTEN = [
     ],
     tips: ['Congela en raciones pequeñas: esta crema aguanta bien hasta 1 mes en el congelador.'],
   },
-  { id: 'r17', name: 'Puré de brócoli y pescado blanco', mealTypes: ['cena'], minAgeIdx: 1, allergens: ['pescado'], time: 20, texture: 'pure', foodGroups: ['verduras', 'proteina'],
+  { id: 'r17', name: 'Puré de brócoli y pescado blanco', mealTypes: ['cena'], minAgeIdx: 1, allergens: ['pescado'], time: 20, texture: 'pure', season: 'invierno', foodGroups: ['verduras', 'proteina'],
     ingredients: [
       { name: 'Brócoli', quantity: '3-4 ramilletes pequeños' },
       { name: 'Pescado blanco', quantity: '1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)' },
@@ -328,7 +325,7 @@ const HANDWRITTEN = [
       'El pescado es un alérgeno frecuente: introdúcelo poco a poco y por la mañana, para poder observar cómo reacciona.',
     ],
   },
-  { id: 'r18', name: 'Sopa de fideos con verduras', mealTypes: ['cena'], minAgeIdx: 2, allergens: ['gluten'], time: 20, texture: 'trocitos', foodGroups: ['cereales', 'verduras'],
+  { id: 'r18', name: 'Sopa de fideos con verduras', mealTypes: ['cena'], minAgeIdx: 2, allergens: ['gluten'], time: 20, texture: 'trocitos', season: 'invierno', foodGroups: ['cereales', 'verduras'],
     ingredients: [
       { name: 'Fideos finos', quantity: 'Un puñado pequeño (unos 30 g)' },
       { name: 'Zanahoria', quantity: '1/2 zanahoria, en dados pequeños' },
@@ -349,7 +346,7 @@ const HANDWRITTEN = [
       'Los fideos llevan gluten: si es la primera vez que tu bebé lo prueba, empieza con una ración pequeña.',
     ],
   },
-  { id: 'r19', name: 'Tortilla francesa con calabacín', mealTypes: ['cena'], minAgeIdx: 2, allergens: ['huevo'], time: 10, texture: 'finger', foodGroups: ['proteina', 'verduras'],
+  { id: 'r19', name: 'Tortilla francesa con calabacín', mealTypes: ['cena'], minAgeIdx: 2, allergens: ['huevo'], time: 10, texture: 'finger', season: 'ambas', foodGroups: ['proteina', 'verduras'],
     ingredients: [
       { name: 'Huevo', quantity: '1 unidad' },
       { name: 'Calabacín', quantity: '1/2 calabacín pequeño, rallado' },
@@ -369,7 +366,7 @@ const HANDWRITTEN = [
       'Este plato lleva huevo: si es la primera vez que lo prueba, ofrece una cantidad pequeña y obsérvalo durante las horas siguientes.',
     ],
   },
-  { id: 'r20', name: 'Puré de boniato y guisantes', mealTypes: ['cena'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', foodGroups: ['verduras', 'legumbres'],
+  { id: 'r20', name: 'Puré de boniato y guisantes', mealTypes: ['cena'], minAgeIdx: 0, allergens: [], time: 25, texture: 'pure', season: 'invierno', foodGroups: ['verduras', 'legumbres'],
     ingredients: [
       { name: 'Boniato', quantity: '1 unidad pequeña (unos 150 g)' },
       { name: 'Guisantes', quantity: '3 cucharadas (frescos o congelados)' },
@@ -387,7 +384,7 @@ const HANDWRITTEN = [
     ],
     tips: ['El boniato es naturalmente dulce, así que este puré suele gustar mucho a los bebés que empiezan con la alimentación complementaria.'],
   },
-  { id: 'r21', name: 'Pollo desmenuzado con puré de zanahoria', mealTypes: ['cena'], minAgeIdx: 1, allergens: [], time: 30, texture: 'trocitos', foodGroups: ['proteina', 'verduras'],
+  { id: 'r21', name: 'Pollo desmenuzado con puré de zanahoria', mealTypes: ['cena'], minAgeIdx: 1, allergens: [], time: 30, texture: 'trocitos', season: 'invierno', foodGroups: ['proteina', 'verduras'],
     ingredients: [
       { name: 'Pechuga de pollo', quantity: '1 filete (unos 80 g)' },
       { name: 'Zanahoria', quantity: '1 unidad, pelada' },
@@ -455,13 +452,13 @@ const ING = {
   panTierno: { name: 'Pan tierno', group: 'cereales', minAge: 2, allergens: ['gluten'], quantity: '1 rebanada, a poder ser integral', prep: 'Corta el pan en palitos de aproximadamente 1 cm de grosor.', rawOk: true, doneCue: '' },
   avena: { name: 'Avena', group: 'cereales', minAge: 0, allergens: [], quantity: '2 cucharadas de copos finos', prep: 'Los copos de avena no necesitan cocción: se ablandan al mezclarlos con líquido o fruta.', rawOk: true, doneCue: '' },
   // proteinas
-  pollo: { name: 'Pechuga de pollo', group: 'proteina', minAge: 0, allergens: [], quantity: '1 filete pequeño (unos 60 g)', prep: 'Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.', cookTime: 20, doneCue: 'el pollo esté blanco por dentro, sin ninguna parte rosada' },
-  pavo: { name: 'Pechuga de pavo', group: 'proteina', minAge: 1, allergens: [], quantity: '1 filete pequeño (unos 60 g)', prep: 'Corta la pechuga de pavo en trozos pequeños, retirando cualquier resto de grasa.', cookTime: 18, doneCue: 'el pavo esté blanco por dentro, sin ninguna parte rosada' },
-  ternera: { name: 'Ternera', group: 'proteina', minAge: 2, allergens: [], quantity: '60-70 g para guisar, en trozos pequeños', prep: 'Corta la ternera en trozos muy pequeños, retirando nervios o grasa visible.', cookTime: 35, doneCue: 'la ternera esté muy tierna y se deshaga con un tenedor' },
-  merluza: { name: 'Merluza', group: 'proteina', minAge: 1, allergens: ['pescado'], quantity: '1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)', prep: 'Cocina la merluza al vapor aparte y, con los dedos limpios, desmenúzala repasando bien cada trozo en busca de espinas antes de incorporarla.', cookTime: 7, doneCue: 'la merluza quede blanca y se separe en láminas' },
-  pescadoBlanco: { name: 'Pescado blanco', group: 'proteina', minAge: 1, allergens: ['pescado'], quantity: '1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)', prep: 'Cocina el pescado blanco al vapor aparte y, con los dedos limpios, desmenúzalo repasando bien cada trozo en busca de espinas antes de incorporarlo.', cookTime: 7, doneCue: 'el pescado quede opaco y se separe en láminas' },
-  salmon: { name: 'Salmón', group: 'proteina', minAge: 1, allergens: ['pescado'], quantity: '1 lomo pequeño, sin piel ni espinas (unos 60 g)', prep: 'Cocina el salmón al vapor aparte y, con los dedos limpios, desmenúzalo repasando bien cada trozo en busca de espinas antes de incorporarlo.', cookTime: 8, doneCue: 'el salmón se separe en láminas con facilidad' },
-  huevo: { name: 'Huevo', group: 'proteina', minAge: 2, allergens: ['huevo'], quantity: '1 unidad', prep: 'Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.', rawOk: true, doneCue: '' },
+  pollo: { name: 'Pechuga de pollo', group: 'proteina', category: 'carne', minAge: 0, allergens: [], quantity: '1 filete pequeño (unos 60 g)', prep: 'Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.', cookTime: 20, doneCue: 'el pollo esté blanco por dentro, sin ninguna parte rosada' },
+  pavo: { name: 'Pechuga de pavo', group: 'proteina', category: 'carne', minAge: 1, allergens: [], quantity: '1 filete pequeño (unos 60 g)', prep: 'Corta la pechuga de pavo en trozos pequeños, retirando cualquier resto de grasa.', cookTime: 18, doneCue: 'el pavo esté blanco por dentro, sin ninguna parte rosada' },
+  ternera: { name: 'Ternera', group: 'proteina', category: 'carne', minAge: 2, allergens: [], quantity: '60-70 g para guisar, en trozos pequeños', prep: 'Corta la ternera en trozos muy pequeños, retirando nervios o grasa visible.', cookTime: 35, doneCue: 'la ternera esté muy tierna y se deshaga con un tenedor' },
+  merluza: { name: 'Merluza', group: 'proteina', category: 'pescado', minAge: 1, allergens: ['pescado'], quantity: '1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)', prep: 'Cocina la merluza al vapor aparte y, con los dedos limpios, desmenúzala repasando bien cada trozo en busca de espinas antes de incorporarla.', cookTime: 7, doneCue: 'la merluza quede blanca y se separe en láminas' },
+  pescadoBlanco: { name: 'Pescado blanco', group: 'proteina', category: 'pescado', minAge: 1, allergens: ['pescado'], quantity: '1 lomo pequeño, sin piel ni espinas visibles (unos 60 g)', prep: 'Cocina el pescado blanco al vapor aparte y, con los dedos limpios, desmenúzalo repasando bien cada trozo en busca de espinas antes de incorporarlo.', cookTime: 7, doneCue: 'el pescado quede opaco y se separe en láminas' },
+  salmon: { name: 'Salmón', group: 'proteina', category: 'pescado', minAge: 1, allergens: ['pescado'], quantity: '1 lomo pequeño, sin piel ni espinas (unos 60 g)', prep: 'Cocina el salmón al vapor aparte y, con los dedos limpios, desmenúzalo repasando bien cada trozo en busca de espinas antes de incorporarlo.', cookTime: 8, doneCue: 'el salmón se separe en láminas con facilidad' },
+  huevo: { name: 'Huevo', group: 'proteina', category: 'huevo', minAge: 2, allergens: ['huevo'], quantity: '1 unidad', prep: 'Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.', rawOk: true, doneCue: '' },
   // lacteos
   yogur: { name: 'Yogur natural sin azúcar', group: 'lacteos', minAge: 1, allergens: ['lacteos'], quantity: '1 unidad (125 g)', prep: 'Usa yogur natural sin azúcar ni edulcorantes añadidos.', rawOk: true, doneCue: '' },
   quesoFresco: { name: 'Queso fresco tipo Burgos', group: 'lacteos', minAge: 2, allergens: ['lacteos'], quantity: '30 g (un par de cucharadas)', prep: 'Escurre bien el queso fresco y chafalo con un tenedor.', rawOk: true, doneCue: '' },
@@ -534,17 +531,23 @@ function pureHervido({ mealType, items, extraTip }) {
     'Tritura con la batidora junto con el aceite de oliva, añadiendo agua reservada hasta lograr una crema suave y sin grumos.',
     'Deja templar y comprueba la temperatura antes de servir: debe estar tibio, nunca caliente.',
   ];
+  const hasProtein = items.some((i) => i.group === 'proteina' || i.group === 'legumbres');
+  const hasCarb = items.some((i) => i.group === 'cereales');
+  const balanceTip = !hasCarb
+    ? 'Este puré aporta sobre todo verdura' + (hasProtein ? ' y proteína' : '') + '; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.'
+    : null;
   return {
     id: nextId(),
     name: `Puré de ${joinNatural(names).toLowerCase()}`,
-    mealTypes: [mealType], minAgeIdx, allergens, time: maxCook + 10, texture: 'pure', foodGroups,
+    mealTypes: [mealType], minAgeIdx, allergens, time: maxCook + 10, texture: 'pure', season: 'invierno', foodGroups,
     ingredients, utensils: ['Cazuela', 'Colador', 'Batidora de mano', 'Tabla y cuchillo'],
     steps,
-    tips: buildTipsFor(items, [extraTip || 'Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.']),
+    tips: buildTipsFor(items, [extraTip || 'Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.', ...(balanceTip ? [balanceTip] : [])]),
   };
 }
 
 // ---- pure_fruta: fruit-only puré, cooked and/or raw ----
+// ---- fruta_trozos: fruit cut into small soft pieces, no blending (sweet, no purée) ----
 function pureFruta({ items }) {
   const names = items.map((i) => i.name);
   const ingredients = items.map((i) => ({ name: i.name, quantity: i.quantity }));
@@ -554,22 +557,21 @@ function pureFruta({ items }) {
   const maxCook = cookItems.length ? Math.max(...cookItems.map((i) => i.cookTime)) : 0;
   const steps = [...items.map((i) => i.prep)];
   if (cookItems.length) {
-    steps.push(`Cuece ${artNames(cookItems)} al vapor (o con un par de cucharadas de agua en una cazuela) unos ${maxCook} minutos, hasta que ${combineDoneCues(cookItems)}.`);
-    steps.push('Retira del fuego y deja templar unos minutos.');
+    steps.push(`Cuece ${artNames(cookItems)} al vapor (o con un par de cucharadas de agua en una cazuela) unos ${maxCook} minutos, hasta que ${combineDoneCues(cookItems)}. Debe quedar blanda pero entera, sin deshacerse del todo.`);
+    steps.push('Retira del fuego y deja templar.');
   }
-  if (rawItems.length && cookItems.length) {
-    steps.push(`Añade ${artNames(rawItems)} (no necesita cocción) junto con la fruta ya cocida.`);
+  if (rawItems.length) {
+    steps.push(`Corta ${cookItems.length ? 'también' : ''} ${artNames(rawItems)} en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.`.replace('  ', ' '));
   }
-  steps.push('Tritura con la batidora o chafa con un tenedor hasta obtener una compota fina y sin trozos.');
-  steps.push('Si queda demasiado espesa, añade una cucharadita de agua.');
+  steps.push('Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas).');
   const single = items.length === 1;
   return {
     id: nextId(),
-    name: single ? `Compota de ${names[0].toLowerCase()}` : `Puré de ${joinNatural(names).toLowerCase()}`,
-    mealTypes: ['merienda'], minAgeIdx, allergens: [], time: (maxCook || 5) + 10, texture: 'pure', foodGroups: unique(items.map((i) => i.group)),
-    ingredients, utensils: cookItems.length ? ['Vaporera (o cazuela con cestillo)', 'Batidora de mano (o un tenedor)'] : ['Bol', 'Tenedor'],
+    name: single ? `${names[0]} en trozos` : `${joinNatural(names)} en trozos`,
+    mealTypes: ['merienda'], minAgeIdx, allergens: [], time: (maxCook || 3) + 8, texture: 'trocitos', season: 'verano', foodGroups: unique(items.map((i) => i.group)),
+    ingredients, utensils: cookItems.length ? ['Vaporera (o cazuela con cestillo)', 'Tabla y cuchillo'] : ['Tabla y cuchillo'],
     steps,
-    tips: ['No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.', 'Se conserva bien en la nevera 2 días en un recipiente cerrado, o congelada hasta 1 mes.'],
+    tips: ['No hace falta añadir azúcar: la fruta ya tiene un sabor dulce natural.', 'Elige piezas maduras y blandas: se cortan mejor y son más fáciles de manejar para el bebé.', 'Se conserva bien en la nevera 2 días en un recipiente cerrado.'],
   };
 }
 
@@ -590,7 +592,7 @@ function yogurFruta({ items }) {
   return {
     id: nextId(),
     name: `Yogur con ${joinNatural(fruitNames).toLowerCase()}`,
-    mealTypes: ['merienda'], minAgeIdx: Math.max(1, ...items.map((i) => i.minAge)), allergens: ['lacteos'], time: 10, texture: 'trocitos',
+    mealTypes: ['merienda'], minAgeIdx: Math.max(1, ...items.map((i) => i.minAge)), allergens: ['lacteos'], time: 10, texture: 'trocitos', season: 'verano',
     foodGroups: unique(['lacteos', ...items.map((i) => i.group)]),
     ingredients, utensils: ['Tabla y cuchillo pequeño', 'Bol'],
     steps,
@@ -604,7 +606,7 @@ function tortitas({ cereal, fruit }) {
   return {
     id: nextId(),
     name: `Tortitas de ${cereal.name.toLowerCase()} y ${fruit.name.toLowerCase()}`,
-    mealTypes: ['merienda'], minAgeIdx: 2, allergens: unique(['huevo', ...(cereal.allergens || [])]), time: 15, texture: 'finger',
+    mealTypes: ['merienda'], minAgeIdx: 2, allergens: unique(['huevo', ...(cereal.allergens || [])]), time: 15, texture: 'finger', season: 'ambas',
     foodGroups: unique([cereal.group, fruit.group]),
     ingredients, utensils: ['Batidora (o un tenedor)', 'Bol', 'Sartén antiadherente', 'Espátula'],
     steps: [
@@ -623,12 +625,12 @@ function tortitas({ cereal, fruit }) {
 }
 
 // ---- palitos_untables: bread sticks + a mashable spread ----
-function palitosUntables({ spreadName, spreadItems, prepSteps }) {
+function palitosUntables({ spreadName, spreadItems, prepSteps, mealType = 'merienda' }) {
   const ingredients = [{ name: ING.panTierno.name, quantity: ING.panTierno.quantity }, ...spreadItems.map((i) => ({ name: i.name, quantity: i.quantity }))];
   return {
     id: nextId(),
     name: `Palitos de pan con ${spreadName.toLowerCase()}`,
-    mealTypes: ['merienda'], minAgeIdx: 2, allergens: unique(['gluten', ...spreadItems.flatMap((i) => i.allergens || [])]), time: 5, texture: 'finger',
+    mealTypes: [mealType], minAgeIdx: 2, allergens: unique(['gluten', ...spreadItems.flatMap((i) => i.allergens || [])]), time: 5, texture: 'finger', season: 'ambas',
     foodGroups: unique(['cereales', ...spreadItems.map((i) => i.group)]),
     ingredients, utensils: ['Tabla y cuchillo', 'Bol', 'Tenedor'],
     steps: [
@@ -642,12 +644,23 @@ function palitosUntables({ spreadName, spreadItems, prepSteps }) {
 }
 
 // ---- tortilla_finger: egg + grated vegetable ----
+// ---------------------------------------------------------------------------
+// Cantidades por proporción de plato equilibrado: mitad verdura, un cuarto
+// proteína, un cuarto hidratos. Son cantidades orientativas por ración de
+// bebé, no un cálculo nutricional clínico.
+// ---------------------------------------------------------------------------
+function vegQty(count) {
+  return count <= 1 ? '100 g aprox. (mitad del plato)' : `50 g aprox. cada una (mitad del plato entre las ${count === 2 ? 'dos' : count})`;
+}
+const PROTEIN_QTY = '50 g aprox. (un cuarto del plato)';
+const CARB_QTY_RAW = '50 g aprox. en crudo (un cuarto del plato)';
+
 function tortillaFinger({ mealType, veg }) {
   const ingredients = [{ name: ING.huevo.name, quantity: ING.huevo.quantity }, { name: veg.name, quantity: `${veg.quantity}, rallad${veg.adjSuffix}` }];
   return {
     id: nextId(),
     name: `Tortilla de ${veg.name.toLowerCase()}`,
-    mealTypes: [mealType], minAgeIdx: Math.max(2, veg.minAge), allergens: unique(['huevo', ...(veg.allergens || [])]), time: 15, texture: 'finger',
+    mealTypes: [mealType], minAgeIdx: Math.max(2, veg.minAge), allergens: unique(['huevo', ...(veg.allergens || [])]), time: 15, texture: 'finger', season: 'ambas',
     foodGroups: unique(['proteina', veg.group]),
     ingredients, utensils: ['Rallador', 'Bol', 'Sartén antiadherente', 'Espátula'],
     steps: [
@@ -665,12 +678,16 @@ function tortillaFinger({ mealType, veg }) {
 
 // ---- salteado_cereal: cereal + protein + vegetable(s), sautéed & chopped ----
 function salteadoCereal({ cereal, protein, veggies }) {
-  const ingredients = [{ name: cereal.name, quantity: cereal.quantity }, ...veggies.map((v) => ({ name: v.name, quantity: v.quantity })), { name: protein.name, quantity: protein.quantity }];
+  const ingredients = [
+    { name: cereal.name, quantity: CARB_QTY_RAW },
+    ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
+    { name: protein.name, quantity: PROTEIN_QTY },
+  ];
   const allergens = unique([...(cereal.allergens || []), ...(protein.allergens || []), ...veggies.flatMap((v) => v.allergens || [])]);
   return {
     id: nextId(),
     name: `${cereal.name} con ${joinNatural([...veggies.map((v) => v.name.toLowerCase()), protein.name.toLowerCase()])}`,
-    mealTypes: ['comida'], minAgeIdx: Math.max(2, cereal.minAge, protein.minAge, ...veggies.map((v) => v.minAge)), allergens, time: 30, texture: 'trocitos',
+    mealTypes: ['comida'], minAgeIdx: Math.max(2, cereal.minAge, protein.minAge, ...veggies.map((v) => v.minAge)), allergens, time: 30, texture: 'trocitos', season: 'invierno',
     foodGroups: unique([cereal.group, protein.group, ...veggies.map((v) => v.group)]),
     ingredients, utensils: ['Cazuela para el cereal', 'Sartén con tapa', 'Colador', 'Tabla y cuchillo'],
     steps: [
@@ -683,74 +700,98 @@ function salteadoCereal({ cereal, protein, veggies }) {
       'Con un tenedor, separa los granos y aplasta ligeramente las piezas más grandes para que sea fácil de masticar y tragar.',
       'Deja templar y sirve en trozos pequeños y blandos, comprobando que no haya piezas duras.',
     ],
-    tips: buildTipsFor([cereal, protein, ...veggies], ['Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera.']),
+    tips: buildTipsFor([cereal, protein, ...veggies], ['Si tu bebé todavía no mastica bien, puedes triturar ligeramente la mezcla con un tenedor en vez de dejarla entera.', 'Plato ya equilibrado: mitad verdura, un cuarto de proteína y un cuarto de cereal.']),
   };
 }
 
 // ---- guiso_trocitos: meat + 2 vegetables, slow stew ----
 function guisoTrocitos({ mealType, protein, veggies }) {
-  const ingredients = [{ name: protein.name, quantity: protein.quantity }, ...veggies.map((v) => ({ name: v.name, quantity: v.quantity }))];
+  // Un guiso solo con verdura + proteína no tiene hidrato: si ninguna de las
+  // verduras ya es patata/boniato, añadimos patata (clásico en un guiso) para
+  // que el plato quede completo con su cuarto de hidratos.
+  const hasCarb = veggies.some((v) => v === ING.patata || v === ING.boniato);
+  const carb = hasCarb ? null : ING.patata;
+  const allVeg = carb ? [...veggies, carb] : veggies;
+  const ingredients = [
+    { name: protein.name, quantity: PROTEIN_QTY },
+    ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
+    ...(carb ? [{ name: carb.name, quantity: CARB_QTY_RAW }] : []),
+  ];
   return {
     id: nextId(),
     name: `${protein.name} guisad${protein.adjSuffix} con ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`,
-    mealTypes: [mealType], minAgeIdx: Math.max(2, protein.minAge, ...veggies.map((v) => v.minAge)), allergens: unique([...(protein.allergens || []), ...veggies.flatMap((v) => v.allergens || [])]), time: 40, texture: 'trocitos',
-    foodGroups: unique([protein.group, ...veggies.map((v) => v.group)]),
+    mealTypes: [mealType], minAgeIdx: Math.max(2, protein.minAge, ...allVeg.map((v) => v.minAge)), allergens: unique([...(protein.allergens || []), ...allVeg.flatMap((v) => v.allergens || [])]), time: 40, texture: 'trocitos', season: 'invierno',
+    foodGroups: unique([protein.group, ...veggies.map((v) => v.group), ...(carb ? [carb.group] : [])]),
     ingredients, utensils: ['Cazuela u olla', 'Tabla y cuchillo'],
     steps: [
       `Corta ${artName(protein)} en trozos muy pequeños, del tamaño de un guisante grande, retirando cualquier nervio o grasa visible.`,
       `Calienta un chorrito de aceite de oliva en la cazuela y sofríe ${artName(protein)} a fuego medio 3-4 minutos, removiendo, hasta que cambie de color por fuera.`,
       ...veggies.map((v) => v.prep),
-      `Añade ${artNames(veggies)} a la cazuela y cubre con agua sin sal hasta que todo quede cubierto.`,
+      ...(carb ? [carb.prep] : []),
+      `Añade ${artNames(allVeg)} a la cazuela y cubre con agua sin sal hasta que todo quede cubierto.`,
       'Tapa y cocina a fuego lento 30 minutos, removiendo de vez en cuando y añadiendo un poco más de agua si se queda seco.',
       `Comprueba que ${artName(protein)} esté muy tiern${protein.adjSuffix} deshaciéndose con un tenedor; si aún está dur${protein.adjSuffix}, dale 10-15 minutos más a fuego bajo.`,
       'Deja templar y, si tu bebé empieza con trocitos, aplasta ligeramente cada pieza con el tenedor para facilitar la masticación.',
     ],
-    tips: buildTipsFor([protein, ...veggies], ['Cocinar el guiso muy despacio, a fuego bajo, hace que la carne quede más tierna y fácil de masticar.']),
+    tips: buildTipsFor([protein, ...allVeg], ['Cocinar el guiso muy despacio, a fuego bajo, hace que la carne quede más tierna y fácil de masticar.', 'Plato ya equilibrado: mitad verdura, un cuarto de proteína y un cuarto de hidratos (patata).']),
   };
 }
 
-// ---- sopa_trocitos: broth + starch + vegetables ----
+// ---- sopa_trocitos: broth + starch + vegetables + shredded chicken (protein) ----
 function sopaTrocitos({ starch, veggies }) {
-  const ingredients = [{ name: starch.name, quantity: starch.quantity }, ...veggies.map((v) => ({ name: v.name, quantity: v.quantity }))];
+  const ingredients = [
+    { name: ING.pollo.name, quantity: PROTEIN_QTY },
+    ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
+    { name: starch.name, quantity: CARB_QTY_RAW },
+  ];
   return {
     id: nextId(),
-    name: `Sopa de ${starch.name.toLowerCase()} con ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`,
-    mealTypes: ['cena'], minAgeIdx: Math.max(2, starch.minAge, ...veggies.map((v) => v.minAge)), allergens: unique([...(starch.allergens || []), ...veggies.flatMap((v) => v.allergens || [])]), time: 20, texture: 'trocitos',
-    foodGroups: unique([starch.group, ...veggies.map((v) => v.group)]),
-    ingredients, utensils: ['Cazuela', 'Tabla y cuchillo'],
+    name: `Sopa de ${starch.name.toLowerCase()} con pollo y ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`,
+    mealTypes: ['cena'], minAgeIdx: Math.max(2, starch.minAge, ING.pollo.minAge, ...veggies.map((v) => v.minAge)), allergens: unique([...(starch.allergens || []), ...veggies.flatMap((v) => v.allergens || [])]), time: 30, texture: 'trocitos', season: 'invierno',
+    foodGroups: unique([starch.group, 'proteina', ...veggies.map((v) => v.group)]),
+    ingredients, utensils: ['Cazuela', 'Dos tenedores para desmenuzar', 'Tabla y cuchillo'],
     steps: [
+      `Pon ${artName(ING.pollo)} en la cazuela y cubre con agua sin sal. Lleva a ebullición y cuece 15-18 minutos, hasta que ${ING.pollo.doneCue}. Saca el pollo y reserva el caldo de cocción.`,
+      `Desmenuza ${artName(ING.pollo)} en hebras finas con dos tenedores en cuanto puedas manipularlo sin quemarte.`,
       ...veggies.map((v) => v.prep),
-      `Pon ${artNames(veggies)} en la cazuela y cubre con agua o caldo casero sin sal.`,
-      `Lleva a ebullición y cuece 10-12 minutos, hasta que empiecen a ablandarse.`,
-      `Añade ${artName(starch)} y cuece unos ${starch.cookTime || 5} minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se pegue.`,
+      `Pon ${artNames(veggies)} en el mismo caldo de cocción (añade más agua si hace falta) y cuece 10-12 minutos, hasta que empiecen a ablandarse.`,
+      `Añade ${artName(starch)} y el pollo desmenuzado, y cuece unos ${starch.cookTime || 5} minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se pegue.`,
       'Comprueba que tanto la verdura como el cereal estén blandos, sin partes duras.',
       'Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.',
       'Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca.',
     ],
-    tips: buildTipsFor([starch, ...veggies], ['Los líquidos calientes pueden quemar por dentro aunque el plato parezca templado: remueve y deja reposar un par de minutos más de lo que creas necesario.']),
+    tips: buildTipsFor([starch, ...veggies], ['Los líquidos calientes pueden quemar por dentro aunque el plato parezca templado: remueve y deja reposar un par de minutos más de lo que creas necesario.', 'Plato ya equilibrado: mitad verdura, un cuarto de pollo y un cuarto de cereal.']),
   };
 }
 
-// ---- desmenuzado: shredded meat + vegetable purée served together ----
+// ---- desmenuzado: shredded meat + vegetable (+ starch) purée served together ----
 function desmenuzado({ protein, veg }) {
-  const ingredients = [{ name: protein.name, quantity: protein.quantity.replace('60 g', '80 g') }, { name: veg.name, quantity: veg.quantity }, ACEITE];
+  const isVegStarchy = veg === ING.patata || veg === ING.boniato;
+  const carb = isVegStarchy ? null : ING.patata;
+  const pureItems = carb ? [veg, carb] : [veg];
+  const ingredients = [
+    { name: protein.name, quantity: PROTEIN_QTY },
+    { name: veg.name, quantity: vegQty(1) },
+    ...(carb ? [{ name: carb.name, quantity: CARB_QTY_RAW }] : []),
+    ACEITE,
+  ];
   return {
     id: nextId(),
-    name: `${protein.name} desmenuzad${protein.adjSuffix} con puré de ${veg.name.toLowerCase()}`,
-    mealTypes: ['cena'], minAgeIdx: Math.max(1, protein.minAge, veg.minAge), allergens: unique([...(protein.allergens || []), ...(veg.allergens || [])]), time: 30, texture: 'trocitos',
-    foodGroups: unique([protein.group, veg.group]),
+    name: `${protein.name} desmenuzad${protein.adjSuffix} con puré de ${joinNatural(pureItems.map((i) => i.name.toLowerCase()))}`,
+    mealTypes: ['cena'], minAgeIdx: Math.max(1, protein.minAge, veg.minAge), allergens: unique([...(protein.allergens || []), ...pureItems.flatMap((i) => i.allergens || [])]), time: 30, texture: 'trocitos', season: 'invierno',
+    foodGroups: unique([protein.group, ...pureItems.map((i) => i.group)]),
     ingredients, utensils: ['Dos cazuelas (o una, cociendo por turnos)', 'Batidora de mano', 'Dos tenedores para desmenuzar'],
     steps: [
       `Pon ${artName(protein)} enter${protein.adjSuffix} (o en trozos grandes) en una cazuela y cubre con agua sin sal.`,
       `Lleva a ebullición, baja el fuego y cuece 20-25 minutos, hasta que ${protein.doneCue}.`,
-      veg.prep,
-      `Cuece ${artName(veg)} en otra cazuela con agua sin sal unos ${veg.cookTime} minutos, hasta que ${veg.doneCue}.`,
-      `Escurre ${artName(veg)} y tritúra${veg.pronoun} con la batidora junto con el aceite de oliva hasta obtener un puré suave.`,
+      ...pureItems.map((i) => i.prep),
+      `Cuece ${artNames(pureItems)} en otra cazuela con agua sin sal unos ${Math.max(...pureItems.map((i) => i.cookTime))} minutos, hasta que ${combineDoneCues(pureItems)}.`,
+      `Escurre ${artNames(pureItems)} y tritura con la batidora junto con el aceite de oliva hasta obtener un puré suave.`,
       `Saca ${artName(protein)} del agua y déja${protein.pronoun} templar unos minutos para poder manipular${protein.pronoun} sin quemarte.`,
       'Desmenuza con dos tenedores (o con los dedos limpios) tirando en direcciones opuestas, hasta conseguir hilos finos, sin trozos grandes ni duros.',
-      `Sirve junto al puré de ${veg.name.toLowerCase()}, mezclando un poco si tu bebé aún prefiere texturas más suaves.`,
+      `Sirve junto al puré, mezclando un poco si tu bebé aún prefiere texturas más suaves.`,
     ],
-    tips: buildTipsFor([protein, veg], ['Desmenuzar la carne mientras aún está tibia es mucho más fácil que cuando se enfría del todo.']),
+    tips: buildTipsFor([protein, ...pureItems], ['Desmenuzar la carne mientras aún está tibia es mucho más fácil que cuando se enfría del todo.', 'Plato ya equilibrado: mitad verdura, un cuarto de proteína y un cuarto de hidratos.']),
   };
 }
 
@@ -827,7 +868,7 @@ const generated = [];
 
 // palitos_untables — merienda
 generated.push(palitosUntables({ spreadName: 'plátano chafado', spreadItems: [ING.platano], prepSteps: ['Chafa el plátano maduro con un tenedor hasta obtener una crema sin grumos grandes.'] }));
-generated.push(palitosUntables({ spreadName: 'queso fresco', spreadItems: [ING.quesoFresco], prepSteps: ['Escurre bien el queso fresco y chafalo con un tenedor hasta que quede cremoso.'] }));
+generated.push(palitosUntables({ spreadName: 'queso fresco', spreadItems: [ING.quesoFresco], prepSteps: ['Escurre bien el queso fresco y chafalo con un tenedor hasta que quede cremoso.'], mealType: 'comida' }));
 generated.push(palitosUntables({ spreadName: 'aguacate y plátano', spreadItems: [ING.aguacate, ING.platano], prepSteps: [ING.aguacate.prep, 'Chafa el aguacate junto con el plátano maduro con un tenedor hasta obtener una crema suave.'] }));
 generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.mango], prepSteps: ['Chafa la pulpa de mango con un tenedor hasta obtener una crema suave.'] }));
 
@@ -942,7 +983,29 @@ const VIDEO_LINKS = {
   g69: { videoUrl: 'https://www.youtube.com/watch?v=eSoUbPtTnAM', videoTitle: 'Quinoa con pollo y verduras' },
 };
 
-const ALL = [...HANDWRITTEN, ...generated].map((r) => (VIDEO_LINKS[r.id] ? { ...r, ...VIDEO_LINKS[r.id] } : r));
+// Categoría de "tipo de plato" (carne / pescado / huevo / legumbres / lácteos /
+// vegetariano), calculada a partir de los ingredientes reales de cada receta
+// — así funciona igual para las recetas escritas a mano y las generadas.
+function computeCategories(recipe) {
+  const text = recipe.ingredients.map((i) => i.name.toLowerCase()).join(' | ');
+  const cats = [];
+  const hasCarne = /\b(pollo|pavo|ternera)\b/.test(text);
+  const hasPescado = /\b(merluza|pescado|salm[oó]n)\b/.test(text) || (recipe.allergens || []).includes('pescado');
+  const hasHuevo = /\bhuevo\b/.test(text) || (recipe.allergens || []).includes('huevo');
+  const hasLegumbre = (recipe.foodGroups || []).includes('legumbres');
+  const hasLacteo = (recipe.foodGroups || []).includes('lacteos');
+  if (hasCarne) cats.push('carne');
+  if (hasPescado) cats.push('pescado');
+  if (hasHuevo) cats.push('huevo');
+  if (hasLegumbre) cats.push('legumbres');
+  if (hasLacteo) cats.push('lacteos');
+  if (!hasCarne && !hasPescado) cats.push('vegetariano');
+  return cats;
+}
+
+const ALL = [...HANDWRITTEN, ...generated]
+  .map((r) => (VIDEO_LINKS[r.id] ? { ...r, ...VIDEO_LINKS[r.id] } : r))
+  .map((r) => ({ ...r, categories: computeCategories(r) }));
 
 // sanity checks
 const ids = new Set();

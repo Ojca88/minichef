@@ -10,6 +10,10 @@ const ALLERGEN_LABELS = { huevo: 'Huevo', lacteos: 'Lácteos', gluten: 'Gluten',
 const FOOD_GROUP_LABELS = { verduras: 'Verduras', legumbres: 'Legumbres', proteina: 'Proteína animal', cereales: 'Cereales', frutas: 'Frutas', lacteos: 'Lácteos', grasas: 'Grasas saludables' };
 export const FOOD_GROUPS = Object.values(FOOD_GROUP_LABELS);
 export const TEXTURES = Object.values(TEXTURE_LABELS);
+const SEASON_LABELS = { invierno: 'Invierno', verano: 'Verano', ambas: 'Todo el año' };
+export const SEASONS = ['invierno', 'verano']; // opciones seleccionables por el usuario
+const CATEGORY_LABELS = { carne: 'Carne', pescado: 'Pescado', huevo: 'Huevo', legumbres: 'Legumbres', lacteos: 'Lácteos', vegetariano: 'Vegetariano' };
+export const CATEGORIES = Object.values(CATEGORY_LABELS);
 
 // El dataset real (150 recetas) vive en recipes.json, generado por scripts/generate-recipes.mjs.
 // Cada receta puede aplicar a varios tipos de comida; aquí se "desdobla" una fila por cada
@@ -22,6 +26,9 @@ export const RECIPES = RAW_RECIPES.flatMap((r) => r.mealTypes.map((mealType) => 
   ageIdx: r.minAgeIdx,
   time: `${r.time} min`,
   texture: TEXTURE_LABELS[r.texture] || r.texture,
+  season: r.season || 'ambas',
+  seasonLabel: SEASON_LABELS[r.season] || 'Todo el año',
+  categories: (r.categories || []).map((c) => CATEGORY_LABELS[c] || c),
   allergens: (r.allergens || []).map((a) => ALLERGEN_LABELS[a] || a),
   foodGroups: (r.foodGroups || []).map((g) => FOOD_GROUP_LABELS[g] || g),
   ingredients: r.ingredients.map((i) => `${i.name} — ${i.quantity}`),

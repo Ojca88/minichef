@@ -19,24 +19,32 @@ function mondayOf(date) {
   return d;
 }
 
-// Devuelve solo las recetas aptas para la edad del bebé (si se ha configurado);
-// si el filtro deja el grupo vacío, cae de vuelta al total para no romper el plan.
-function poolFor(meal, ageIdx) {
+// Devuelve solo las recetas aptas para la edad del bebé y la temporada elegida
+// (si se han configurado); si el filtro deja el grupo vacío, cae de vuelta a
+// un filtro más laxo para no romper el plan.
+function poolFor(meal, ageIdx, season) {
   const all = recipesFor(meal);
-  if (ageIdx === null || ageIdx === undefined) return all;
-  const filtered = all.filter(r => r.ageIdx <= ageIdx);
-  return filtered.length ? filtered : all;
+  let pool = all;
+  if (ageIdx !== null && ageIdx !== undefined) {
+    const byAge = pool.filter(r => r.ageIdx <= ageIdx);
+    if (byAge.length) pool = byAge;
+  }
+  if (season) {
+    const bySeason = pool.filter(r => r.season === season || r.season === 'ambas');
+    if (bySeason.length) pool = bySeason;
+  }
+  return pool.length ? pool : all;
 }
 
-function randomPick(meal, excludeId, ageIdx) {
-  const pool = poolFor(meal, ageIdx);
+function randomPick(meal, excludeId, ageIdx, season) {
+  const pool = poolFor(meal, ageIdx, season);
   const options = pool.filter(r => r.id !== excludeId);
   const finalPool = options.length ? options : pool;
   return finalPool[Math.floor(Math.random() * finalPool.length)];
 }
 
-function pickForSeedAged(meal, seed, ageIdx) {
-  const pool = poolFor(meal, ageIdx);
+function pickForSeedAged(meal, seed, ageIdx, season) {
+  const pool = poolFor(meal, ageIdx, season);
   const idx = Math.floor(seededRandom(seed) * pool.length);
   return pool[idx];
 }
@@ -47,12 +55,12 @@ function seedFor(d, mi) {
 
 // Genera, para un conjunto de fechas, solo los ids de receta (no el objeto completo)
 // — es lo único que se guarda y sincroniza en la nube.
-function generateIdsFor(dates, ageIdx) {
+function generateIdsFor(dates, ageIdx, season) {
   const patch = {};
   dates.forEach((d) => {
     const key = dateKey(d);
     const entry = {};
-    MEALS.forEach((meal, mi) => { entry[meal] = pickForSeedAged(meal, seedFor(d, mi), ageIdx).id; });
+    MEALS.forEach((meal, mi) => { entry[meal] = pickForSeedAged(meal, seedFor(d, mi), ageIdx, season).id; });
     patch[key] = entry;
   });
   return patch;
@@ -62,16 +70,17 @@ function generateIdsFor(dates, ageIdx) {
 //  - un string: id de una receta real (buscar con recipeById)
 //  - un objeto { manual: true, name }: plato escrito a mano, sin ficha propia
 // resolveValue() lo convierte siempre en algo con al menos { id?, name, manual? }
-function resolveValue(value, meal, seed, ageIdx) {
+function resolveValue(value, meal, seed, ageIdx, season) {
   if (value && typeof value === 'object') return value; // ya es una entrada manual
-  if (typeof value === 'string') return recipeById(value) || pickForSeedAged(meal, seed, ageIdx);
-  return pickForSeedAged(meal, seed, ageIdx);
+  if (typeof value === 'string') return recipeById(value) || pickForSeedAged(meal, seed, ageIdx, season);
+  return pickForSeedAged(meal, seed, ageIdx, season);
 }
 
 export default function Planner() {
   const { data: cloudData, save } = useCloud();
   const babyAge = cloudData.babyAge || null;
   const ageIdx = babyAge ? AGE_RANGES.indexOf(babyAge) : null;
+  const season = cloudData.season || null;
   const plans = cloudData.plans || {};
   const eaten = cloudData.eaten || {};
 
@@ -107,30 +116,30 @@ export default function Planner() {
   function ensureDates(dates) {
     const missing = dates.filter(d => !plans[dateKey(d)]);
     if (!missing.length) return;
-    const patch = generateIdsFor(missing, ageIdx);
+    const patch = generateIdsFor(missing, ageIdx, season);
     save(prev => ({ ...prev, plans: { ...(prev.plans || {}), ...patch } }));
   }
 
   useEffect(() => { ensureDates(weekDates); }, [weekDates, cloudData.plans]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { ensureDates(monthDays.filter(Boolean)); }, [monthDays, cloudData.plans]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Si cambia la edad del bebé, regeneramos (esta vez sí sobrescribiendo) el
-  // rango visible para que las sugerencias vuelvan a ser acordes a la nueva edad.
+  // Si cambia la edad del bebé o la temporada, regeneramos (esta vez sí
+  // sobrescribiendo) el rango visible para que las sugerencias se ajusten.
   const firstRun = useRef(true);
   useEffect(() => {
     if (firstRun.current) { firstRun.current = false; return; }
     const dates = view === 'semana' ? weekDates : monthDays.filter(Boolean);
-    const patch = generateIdsFor(dates, ageIdx);
+    const patch = generateIdsFor(dates, ageIdx, season);
     save(prev => ({ ...prev, plans: { ...(prev.plans || {}), ...patch } }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [babyAge]);
+  }, [babyAge, season]);
 
   function getDay(d) {
     const key = dateKey(d);
     const stored = plans[key];
     const entry = {};
     MEALS.forEach((meal, mi) => {
-      entry[meal] = resolveValue(stored?.[meal], meal, seedFor(d, mi), ageIdx);
+      entry[meal] = resolveValue(stored?.[meal], meal, seedFor(d, mi), ageIdx, season);
     });
     return entry;
   }
@@ -152,7 +161,7 @@ export default function Planner() {
     const key = dateKey(d);
     const current = plans[key]?.[meal];
     const currentId = typeof current === 'string' ? current : null;
-    const next = randomPick(meal, currentId, ageIdx);
+    const next = randomPick(meal, currentId, ageIdx, season);
     setSlot(d, meal, next.id);
   }
 
@@ -186,35 +195,24 @@ export default function Planner() {
   }
 
   return (
-    <div style={{ paddingBottom: 90 }}>
-      <header style={{
-        padding: '22px 16px 26px', marginBottom: 18,
-        background: 'var(--gradient-apricot-bold)',
-        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
-        boxShadow: 'var(--shadow-apricot-bold)',
-      }}>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)' }}>
+    <div style={{ padding: '20px 16px 90px' }}>
+      <header style={{ marginBottom: 14 }}>
+        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>
           {babyAge ? `Bebé de ${babyAge}` : (
-            <Link to="/" style={{ color: 'var(--white)', textDecoration: 'underline' }}>
+            <Link to="/" style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>
               Configura la edad del bebé en Inicio
             </Link>
           )}
         </p>
-        <h1 style={{ fontSize: 26, color: 'var(--white)' }}>Menú</h1>
+        <h1 style={{ fontSize: 22 }}>Menú</h1>
       </header>
 
-      <div style={{ padding: '0 16px' }}>
-      <div style={{
-        display: 'flex', gap: 4, marginBottom: 18, background: 'var(--sage-light)',
-        borderRadius: 999, padding: 4,
-      }}>
+      <div style={{ display: 'flex', gap: 6, marginBottom: 18 }}>
         {['semana', 'mes'].map(v => (
-          <button key={v} onClick={() => setView(v)} className="pressable" style={{
-            flex: 1, padding: '8px 0', borderRadius: 999, border: 'none',
-            background: view === v ? 'var(--white)' : 'transparent',
-            boxShadow: view === v ? 'var(--shadow-sm)' : 'none',
-            color: view === v ? 'var(--sage-dark)' : 'var(--ink-muted)',
-            fontSize: 13, fontWeight: 600, textTransform: 'capitalize',
+          <button key={v} onClick={() => setView(v)} style={{
+            flex: 1, padding: '9px 0', borderRadius: 999, border: '1px solid ' + (view === v ? 'var(--sage)' : 'var(--line)'),
+            background: view === v ? 'var(--sage)' : 'var(--white)', color: view === v ? 'var(--white)' : 'var(--ink)',
+            fontSize: 13, fontWeight: 500, textTransform: 'capitalize',
           }}>
             {v}
           </button>
@@ -241,7 +239,7 @@ export default function Planner() {
                       const isEditing = editingSlot === slotId;
                       return (
                         <div key={meal}>
-                          <div className="card" style={{
+                          <div style={{
                             background: done ? 'var(--sage-light)' : 'var(--white)',
                             border: '1px solid ' + (done ? 'var(--sage)' : 'var(--line)'),
                             borderRadius: 'var(--radius-md)',
@@ -250,11 +248,10 @@ export default function Planner() {
                             <button
                               aria-label={done ? `Desmarcar ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]} como comido` : `Marcar ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]} como comido`}
                               onClick={() => toggleEaten(d, meal)}
-                              className="pressable"
                               style={{
                                 width: 24, height: 24, borderRadius: '50%', flexShrink: 0,
                                 border: '1.5px solid ' + (done ? 'var(--sage)' : 'var(--line)'),
-                                background: done ? 'var(--gradient-sage)' : 'var(--white)',
+                                background: done ? 'var(--sage)' : 'var(--white)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                               }}
                             >
@@ -294,7 +291,6 @@ export default function Planner() {
                             <button
                               aria-label={`Cambiar sugerencia de ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]}`}
                               onClick={() => regenerate(d, meal)}
-                              className="icon-btn"
                               style={{
                                 width: 28, height: 28, borderRadius: '50%', border: '1px solid var(--line)',
                                 background: 'var(--white)', display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -308,11 +304,10 @@ export default function Planner() {
                             <button
                               aria-label={`Elegir manualmente ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]}`}
                               onClick={() => setEditingSlot(isEditing ? null : slotId)}
-                              className="pressable"
                               style={{
                                 width: 28, height: 28, borderRadius: '50%',
                                 border: '1px solid ' + (isEditing ? 'var(--sage)' : 'var(--line)'),
-                                background: isEditing ? 'var(--gradient-sage)' : 'var(--white)',
+                                background: isEditing ? 'var(--sage)' : 'var(--white)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 flexShrink: 0,
                               }}
@@ -350,7 +345,6 @@ export default function Planner() {
           onNext={() => shiftMonth(1)}
         />
       )}
-      </div>
     </div>
   );
 }
@@ -370,10 +364,9 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
   }
 
   return (
-    <div className="card" style={{
+    <div style={{
       marginTop: 6, background: 'var(--blue-light)', borderRadius: 'var(--radius-md)',
       padding: '12px', display: 'flex', flexDirection: 'column', gap: 10,
-      border: '1px solid rgba(46, 86, 112, 0.16)',
     }}>
       <div>
         <label style={{ fontSize: 11, color: '#2E5670', display: 'block', marginBottom: 5 }}>
@@ -384,11 +377,10 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
             <button
               key={t}
               onClick={() => setTextureFilter(t)}
-              className="chip"
               style={{
                 fontSize: 11.5, fontWeight: 500, padding: '5px 11px', borderRadius: 999,
                 border: '1px solid ' + (textureFilter === t ? 'var(--sage)' : 'var(--line)'),
-                background: textureFilter === t ? 'var(--gradient-sage)' : 'var(--white)',
+                background: textureFilter === t ? 'var(--sage)' : 'var(--white)',
                 color: textureFilter === t ? 'var(--white)' : 'var(--ink)',
               }}
             >
@@ -435,10 +427,9 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
           />
           <button
             onClick={handleManualSubmit}
-            className="pressable"
             style={{
               fontSize: 12, fontWeight: 600, padding: '0 14px', borderRadius: 'var(--radius-sm)',
-              border: 'none', background: 'var(--gradient-sage)', color: 'var(--white)', flexShrink: 0,
+              border: 'none', background: 'var(--sage)', color: 'var(--white)', flexShrink: 0,
             }}
           >
             Usar
@@ -471,7 +462,7 @@ function WeekSwitcher({ weekDates, onPrev, onNext }) {
 
 function IconButton({ onClick, dir, label }) {
   return (
-    <button aria-label={label} onClick={onClick} className="icon-btn" style={{
+    <button aria-label={label} onClick={onClick} style={{
       width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--line)', background: 'var(--white)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
     }}>
@@ -516,13 +507,11 @@ function MonthView({ monthCursor, monthDays, getDay, selectedDay, onSelectDay, o
             <button
               key={i}
               onClick={() => onSelectDay(d)}
-              className="pressable"
               style={{
                 aspectRatio: '1', borderRadius: 10, display: 'flex', flexDirection: 'column',
                 alignItems: 'center', justifyContent: 'center', gap: 3, padding: 2,
                 border: isSelected ? '1.5px solid var(--sage)' : isToday ? '1px solid var(--apricot)' : '1px solid var(--line)',
                 background: isSelected ? 'var(--sage-light)' : 'var(--white)',
-                boxShadow: isSelected ? 'var(--shadow-sm)' : 'none',
               }}
             >
               <span style={{ fontSize: 12, fontWeight: isToday ? 700 : 500 }}>{d.getDate()}</span>
@@ -537,7 +526,7 @@ function MonthView({ monthCursor, monthDays, getDay, selectedDay, onSelectDay, o
       </div>
 
       {selectedEntry && (
-        <div className="card" style={{
+        <div style={{
           marginTop: 16, background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
           padding: '14px 16px',
         }}>
