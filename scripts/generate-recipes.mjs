@@ -505,8 +505,23 @@ function combineDoneCues(items) {
   if (!cues.length) return 'todo esté bien cocido y blando';
   return joinNatural(cues);
 }
-let genCounter = 0;
-function nextId() { genCounter += 1; return `g${genCounter}`; }
+// IDs estables: antes se numeraban por orden de aparición en este archivo
+// (g1, g2, g3...), lo que hacía que un mismo id apuntara a un plato distinto
+// cada vez que se añadía o reordenaba una combinación en el script — y con
+// ello, que los menús ya guardados en la nube de la app mostraran platos
+// equivocados tras cada actualización. Ahora el id se deriva del propio
+// contenido (nombre + tipo de comida), así que solo cambia si el plato en sí
+// cambia.
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // quita acentos
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+function stableId(name, mealType) {
+  return `g-${slugify(mealType)}-${slugify(name)}`;
+}
 
 function buildTipsFor(items, extra) {
   const allergens = unique(items.flatMap((i) => i.allergens || []));
@@ -536,9 +551,10 @@ function pureHervido({ mealType, items, extraTip }) {
   const balanceTip = !hasCarb
     ? 'Este puré aporta sobre todo verdura' + (hasProtein ? ' y proteína' : '') + '; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.'
     : null;
+  const name = `Puré de ${joinNatural(names).toLowerCase()}`;
   return {
-    id: nextId(),
-    name: `Puré de ${joinNatural(names).toLowerCase()}`,
+    id: stableId(name, mealType),
+    name,
     mealTypes: [mealType], minAgeIdx, allergens, time: maxCook + 10, texture: 'pure', season: 'invierno', foodGroups,
     ingredients, utensils: ['Cazuela', 'Colador', 'Batidora de mano', 'Tabla y cuchillo'],
     steps,
@@ -565,9 +581,10 @@ function pureFruta({ items }) {
   }
   steps.push('Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas).');
   const single = items.length === 1;
+  const name = single ? `${names[0]} en trozos` : `${joinNatural(names)} en trozos`;
   return {
-    id: nextId(),
-    name: single ? `${names[0]} en trozos` : `${joinNatural(names)} en trozos`,
+    id: stableId(name, 'merienda'),
+    name,
     mealTypes: ['merienda'], minAgeIdx, allergens: [], time: (maxCook || 3) + 8, texture: 'trocitos', season: 'verano', foodGroups: unique(items.map((i) => i.group)),
     ingredients, utensils: cookItems.length ? ['Vaporera (o cazuela con cestillo)', 'Tabla y cuchillo'] : ['Tabla y cuchillo'],
     steps,
@@ -589,9 +606,10 @@ function yogurFruta({ items }) {
   steps.push('Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.');
   steps.push('Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.');
   steps.push('Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío.');
+  const name = `Yogur con ${joinNatural(fruitNames).toLowerCase()}`;
   return {
-    id: nextId(),
-    name: `Yogur con ${joinNatural(fruitNames).toLowerCase()}`,
+    id: stableId(name, 'merienda'),
+    name,
     mealTypes: ['merienda'], minAgeIdx: Math.max(1, ...items.map((i) => i.minAge)), allergens: ['lacteos'], time: 10, texture: 'trocitos', season: 'verano',
     foodGroups: unique(['lacteos', ...items.map((i) => i.group)]),
     ingredients, utensils: ['Tabla y cuchillo pequeño', 'Bol'],
@@ -603,9 +621,10 @@ function yogurFruta({ items }) {
 // ---- tortitas: cereal + fruit + egg, small pancakes cut into strips ----
 function tortitas({ cereal, fruit }) {
   const ingredients = [{ name: cereal.name, quantity: cereal.quantity }, { name: fruit.name, quantity: fruit.quantity }, { name: ING.huevo.name, quantity: ING.huevo.quantity }];
+  const name = `Tortitas de ${cereal.name.toLowerCase()} y ${fruit.name.toLowerCase()}`;
   return {
-    id: nextId(),
-    name: `Tortitas de ${cereal.name.toLowerCase()} y ${fruit.name.toLowerCase()}`,
+    id: stableId(name, 'merienda'),
+    name,
     mealTypes: ['merienda'], minAgeIdx: 2, allergens: unique(['huevo', ...(cereal.allergens || [])]), time: 15, texture: 'finger', season: 'ambas',
     foodGroups: unique([cereal.group, fruit.group]),
     ingredients, utensils: ['Batidora (o un tenedor)', 'Bol', 'Sartén antiadherente', 'Espátula'],
@@ -627,9 +646,10 @@ function tortitas({ cereal, fruit }) {
 // ---- palitos_untables: bread sticks + a mashable spread ----
 function palitosUntables({ spreadName, spreadItems, prepSteps, mealType = 'merienda' }) {
   const ingredients = [{ name: ING.panTierno.name, quantity: ING.panTierno.quantity }, ...spreadItems.map((i) => ({ name: i.name, quantity: i.quantity }))];
+  const name = `Palitos de pan con ${spreadName.toLowerCase()}`;
   return {
-    id: nextId(),
-    name: `Palitos de pan con ${spreadName.toLowerCase()}`,
+    id: stableId(name, mealType),
+    name,
     mealTypes: [mealType], minAgeIdx: 2, allergens: unique(['gluten', ...spreadItems.flatMap((i) => i.allergens || [])]), time: 5, texture: 'finger', season: 'ambas',
     foodGroups: unique(['cereales', ...spreadItems.map((i) => i.group)]),
     ingredients, utensils: ['Tabla y cuchillo', 'Bol', 'Tenedor'],
@@ -657,9 +677,10 @@ const CARB_QTY_RAW = '50 g aprox. en crudo (un cuarto del plato)';
 
 function tortillaFinger({ mealType, veg }) {
   const ingredients = [{ name: ING.huevo.name, quantity: ING.huevo.quantity }, { name: veg.name, quantity: `${veg.quantity}, rallad${veg.adjSuffix}` }];
+  const name = `Tortilla de ${veg.name.toLowerCase()}`;
   return {
-    id: nextId(),
-    name: `Tortilla de ${veg.name.toLowerCase()}`,
+    id: stableId(name, mealType),
+    name,
     mealTypes: [mealType], minAgeIdx: Math.max(2, veg.minAge), allergens: unique(['huevo', ...(veg.allergens || [])]), time: 15, texture: 'finger', season: 'ambas',
     foodGroups: unique(['proteina', veg.group]),
     ingredients, utensils: ['Rallador', 'Bol', 'Sartén antiadherente', 'Espátula'],
@@ -684,9 +705,10 @@ function salteadoCereal({ cereal, protein, veggies }) {
     { name: protein.name, quantity: PROTEIN_QTY },
   ];
   const allergens = unique([...(cereal.allergens || []), ...(protein.allergens || []), ...veggies.flatMap((v) => v.allergens || [])]);
+  const name = `${cereal.name} con ${joinNatural([...veggies.map((v) => v.name.toLowerCase()), protein.name.toLowerCase()])}`;
   return {
-    id: nextId(),
-    name: `${cereal.name} con ${joinNatural([...veggies.map((v) => v.name.toLowerCase()), protein.name.toLowerCase()])}`,
+    id: stableId(name, 'comida'),
+    name,
     mealTypes: ['comida'], minAgeIdx: Math.max(2, cereal.minAge, protein.minAge, ...veggies.map((v) => v.minAge)), allergens, time: 30, texture: 'trocitos', season: 'invierno',
     foodGroups: unique([cereal.group, protein.group, ...veggies.map((v) => v.group)]),
     ingredients, utensils: ['Cazuela para el cereal', 'Sartén con tapa', 'Colador', 'Tabla y cuchillo'],
@@ -717,9 +739,10 @@ function guisoTrocitos({ mealType, protein, veggies }) {
     ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
     ...(carb ? [{ name: carb.name, quantity: CARB_QTY_RAW }] : []),
   ];
+  const name = `${protein.name} guisad${protein.adjSuffix} con ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`;
   return {
-    id: nextId(),
-    name: `${protein.name} guisad${protein.adjSuffix} con ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`,
+    id: stableId(name, mealType),
+    name,
     mealTypes: [mealType], minAgeIdx: Math.max(2, protein.minAge, ...allVeg.map((v) => v.minAge)), allergens: unique([...(protein.allergens || []), ...allVeg.flatMap((v) => v.allergens || [])]), time: 40, texture: 'trocitos', season: 'invierno',
     foodGroups: unique([protein.group, ...veggies.map((v) => v.group), ...(carb ? [carb.group] : [])]),
     ingredients, utensils: ['Cazuela u olla', 'Tabla y cuchillo'],
@@ -744,9 +767,10 @@ function sopaTrocitos({ starch, veggies }) {
     ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
     { name: starch.name, quantity: CARB_QTY_RAW },
   ];
+  const name = `Sopa de ${starch.name.toLowerCase()} con pollo y ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`;
   return {
-    id: nextId(),
-    name: `Sopa de ${starch.name.toLowerCase()} con pollo y ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`,
+    id: stableId(name, 'cena'),
+    name,
     mealTypes: ['cena'], minAgeIdx: Math.max(2, starch.minAge, ING.pollo.minAge, ...veggies.map((v) => v.minAge)), allergens: unique([...(starch.allergens || []), ...veggies.flatMap((v) => v.allergens || [])]), time: 30, texture: 'trocitos', season: 'invierno',
     foodGroups: unique([starch.group, 'proteina', ...veggies.map((v) => v.group)]),
     ingredients, utensils: ['Cazuela', 'Dos tenedores para desmenuzar', 'Tabla y cuchillo'],
@@ -775,9 +799,10 @@ function desmenuzado({ protein, veg }) {
     ...(carb ? [{ name: carb.name, quantity: CARB_QTY_RAW }] : []),
     ACEITE,
   ];
+  const name = `${protein.name} desmenuzad${protein.adjSuffix} con puré de ${joinNatural(pureItems.map((i) => i.name.toLowerCase()))}`;
   return {
-    id: nextId(),
-    name: `${protein.name} desmenuzad${protein.adjSuffix} con puré de ${joinNatural(pureItems.map((i) => i.name.toLowerCase()))}`,
+    id: stableId(name, 'cena'),
+    name,
     mealTypes: ['cena'], minAgeIdx: Math.max(1, protein.minAge, veg.minAge), allergens: unique([...(protein.allergens || []), ...pureItems.flatMap((i) => i.allergens || [])]), time: 30, texture: 'trocitos', season: 'invierno',
     foodGroups: unique([protein.group, ...pureItems.map((i) => i.group)]),
     ingredients, utensils: ['Dos cazuelas (o una, cociendo por turnos)', 'Batidora de mano', 'Dos tenedores para desmenuzar'],

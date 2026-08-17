@@ -69,8 +69,18 @@ export function generateIdsFor(dates, ageIdx, season) {
 //  - un string: id de una receta real (buscar con recipeById)
 //  - un objeto { manual: true, name }: plato escrito a mano, sin ficha propia
 // resolveValue() lo convierte siempre en algo con al menos { id?, name, manual? }
+//
+// Red de seguridad: si el id guardado ya no existe, o existe pero ahora
+// pertenece a otro tipo de comida (por ejemplo, si un cambio pasado en el
+// recetario reordenó los ids y un hueco de "Cena" quedó apuntando a algo que
+// hoy es una merienda), se descarta y se genera una sugerencia nueva y
+// correcta para ese hueco, en vez de mostrar el plato equivocado.
 export function resolveValue(value, meal, seed, ageIdx, season) {
   if (value && typeof value === 'object') return value; // ya es una entrada manual
-  if (typeof value === 'string') return recipeById(value) || pickForSeedAged(meal, seed, ageIdx, season);
+  if (typeof value === 'string') {
+    const found = recipeById(value);
+    if (found && found.meal === meal) return found;
+    return pickForSeedAged(meal, seed, ageIdx, season);
+  }
   return pickForSeedAged(meal, seed, ageIdx, season);
 }
