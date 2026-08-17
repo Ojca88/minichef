@@ -186,18 +186,24 @@ export default function Planner() {
   }
 
   return (
-    <div style={{ padding: '20px 16px 90px' }}>
-      <header style={{ marginBottom: 14 }}>
-        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>
+    <div style={{ paddingBottom: 90 }}>
+      <header style={{
+        padding: '22px 16px 26px', marginBottom: 18,
+        background: 'var(--gradient-apricot-bold)',
+        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
+        boxShadow: 'var(--shadow-apricot-bold)',
+      }}>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)' }}>
           {babyAge ? `Bebé de ${babyAge}` : (
-            <Link to="/" style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>
+            <Link to="/" style={{ color: 'var(--white)', textDecoration: 'underline' }}>
               Configura la edad del bebé en Inicio
             </Link>
           )}
         </p>
-        <h1 style={{ fontSize: 22 }}>Menú</h1>
+        <h1 style={{ fontSize: 26, color: 'var(--white)' }}>Menú</h1>
       </header>
 
+      <div style={{ padding: '0 16px' }}>
       <div style={{
         display: 'flex', gap: 4, marginBottom: 18, background: 'var(--sage-light)',
         borderRadius: 999, padding: 4,
@@ -344,6 +350,7 @@ export default function Planner() {
           onNext={() => shiftMonth(1)}
         />
       )}
+      </div>
     </div>
   );
 }

@@ -12,16 +12,22 @@ export default function Recipes() {
   }
 
   return (
-    <div style={{ padding: '20px 16px 90px' }}>
-      <header style={{ marginBottom: 16 }}>
-        <h1 style={{ fontSize: 22 }}>Recetario</h1>
+    <div style={{ paddingBottom: 90 }}>
+      <header style={{
+        padding: '22px 16px 26px', marginBottom: 18,
+        background: 'var(--gradient-blue-bold)',
+        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
+        boxShadow: 'var(--shadow-blue-bold)',
+      }}>
+        <h1 style={{ fontSize: 26, color: 'var(--white)' }}>Recetario</h1>
       </header>
 
-      <FilterRow label="Edad" value={age} options={['Todas', ...AGE_RANGES]} onChange={setAge} />
-      <div style={{ height: 12 }} />
-      <FilterRow label="Textura" value={texture} options={['Todas', ...TEXTURES]} onChange={setTexture} />
+      <div style={{ padding: '0 16px' }}>
+        <FilterRow label="Edad" value={age} options={['Todas', ...AGE_RANGES]} onChange={setAge} />
+        <div style={{ height: 12 }} />
+        <FilterRow label="Textura" value={texture} options={['Todas', ...TEXTURES]} onChange={setTexture} />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
         {MEALS.map(meal => {
           const ageIdx = AGE_RANGES.indexOf(age);
           const items = RECIPES.filter(r =>
@@ -71,6 +77,7 @@ export default function Recipes() {
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );

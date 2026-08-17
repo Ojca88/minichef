@@ -96,12 +96,18 @@ export default function ShoppingList() {
   }
 
   return (
-    <div style={{ padding: '20px 16px 90px' }}>
-      <header style={{ marginBottom: 16 }}>
-        <h1 style={{ fontSize: 22 }}>Lista de la compra</h1>
-        <p style={{ fontSize: 13, color: 'var(--ink-muted)', marginTop: 4 }}>Compartida con tu hogar</p>
+    <div style={{ paddingBottom: 90 }}>
+      <header style={{
+        padding: '22px 16px 26px', marginBottom: 18,
+        background: 'var(--gradient-apricot-bold)',
+        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
+        boxShadow: 'var(--shadow-apricot-bold)',
+      }}>
+        <h1 style={{ fontSize: 26, color: 'var(--white)' }}>Lista de la compra</h1>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', marginTop: 4 }}>Compartida con tu hogar</p>
       </header>
 
+      <div style={{ padding: '0 16px' }}>
       <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
         <button
           onClick={addFromWeekMenu}
@@ -190,6 +196,7 @@ export default function ShoppingList() {
           />
         </div>
       )}
+      </div>
     </div>
   );
 }

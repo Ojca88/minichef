@@ -22,20 +22,23 @@ export default function Home() {
   }
 
   return (
-    <div style={{ padding: '20px 20px 90px' }}>
+    <div style={{ paddingBottom: 90 }}>
       <header style={{
-        marginBottom: 20, padding: '16px 18px', margin: '-4px -18px 20px',
-        background: 'radial-gradient(120% 160% at 0% 0%, var(--sage-light) 0%, transparent 60%)',
-        borderRadius: 'var(--radius-lg)',
+        padding: '22px 20px 28px', marginBottom: 24,
+        background: 'var(--gradient-hero-bold)',
+        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
+        boxShadow: 'var(--shadow-lg)',
       }}>
-        <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Hola 👋 · {formatTodayLong()}</p>
-        <h1 style={{ fontSize: 25 }}>¿Qué le damos hoy?</h1>
-        <p style={{ fontSize: 11, color: 'var(--ink-muted)', marginTop: 4 }}>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>Hola 👋 · {formatTodayLong()}</p>
+        <h1 style={{ fontSize: 34, lineHeight: 1.05, color: 'var(--white)', marginTop: 4, letterSpacing: -0.5 }}>
+          ¿Qué le damos hoy?
+        </h1>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.75)', marginTop: 6 }}>
           {formatUpdatedAt(typeof __LAST_COMMIT_DATE__ !== 'undefined' ? __LAST_COMMIT_DATE__ : null)}
         </p>
       </header>
 
-      <div style={{ marginBottom: 20 }}>
+      <div style={{ padding: '0 20px', marginBottom: 20 }}>
         <p style={{ fontSize: 12, color: 'var(--ink-muted)', marginBottom: 6 }}>Edad del bebé</p>
         <div data-swipe-ignore style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
           {AGE_RANGES.map(opt => (
@@ -56,41 +59,43 @@ export default function Home() {
         </div>
       </div>
 
-      <button
-        onClick={generar}
-        className="pressable"
-        style={{
-          width: '100%', background: 'var(--gradient-sage)', color: 'var(--white)', border: 'none',
-          borderRadius: 'var(--radius-lg)', padding: '18px 20px', textAlign: 'left',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16,
-          boxShadow: 'var(--shadow-sage)',
-        }}
-      >
-        <span>
-          <span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 600 }}>
-            Sugerencia rápida
+      <div style={{ padding: '0 20px' }}>
+        <button
+          onClick={generar}
+          className="pressable"
+          style={{
+            width: '100%', background: 'var(--gradient-sage-bold)', color: 'var(--white)', border: 'none',
+            borderRadius: 'var(--radius-lg)', padding: '18px 20px', textAlign: 'left',
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16,
+            boxShadow: 'var(--shadow-sage)',
+          }}
+        >
+          <span>
+            <span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: 17, fontWeight: 600 }}>
+              Sugerencia rápida
+            </span>
+            <span style={{ fontSize: 13, opacity: 0.85 }}>Toca para generar una idea</span>
           </span>
-          <span style={{ fontSize: 13, opacity: 0.85 }}>Toca para generar una idea</span>
-        </span>
-        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
 
-      {suggestion && (
-        <div style={{ marginBottom: 20 }}>
-          <RecipeCard recipe={suggestion} showMeal />
+        {suggestion && (
+          <div style={{ marginBottom: 20 }}>
+            <RecipeCard recipe={suggestion} showMeal />
+          </div>
+        )}
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
+          <NavCard title="Planificador" subtitle="Menú de la semana" color="apricot" icon="calendar" onClick={() => navigate('/planificador')} />
+          <NavCard title="Recetario" subtitle="Filtra por edad" color="blue" icon="book" onClick={() => navigate('/recetario')} />
+          <NavCard title="Seguimiento" subtitle="Grupos de alimentos" color="sage" icon="leaf" onClick={() => navigate('/seguimiento')} />
+          <NavCard title="Compra" subtitle="Desde tu menú" color="apricot" icon="cart" onClick={() => navigate('/lista-compra')} />
         </div>
-      )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
-        <NavCard title="Planificador" subtitle="Menú de la semana" color="apricot" icon="calendar" onClick={() => navigate('/planificador')} />
-        <NavCard title="Recetario" subtitle="Filtra por edad" color="blue" icon="book" onClick={() => navigate('/recetario')} />
-        <NavCard title="Seguimiento" subtitle="Grupos de alimentos" color="sage" icon="leaf" onClick={() => navigate('/seguimiento')} />
-        <NavCard title="Compra" subtitle="Desde tu menú" color="apricot" icon="cart" onClick={() => navigate('/lista-compra')} />
+        <SyncPanel />
       </div>
-
-      <SyncPanel />
     </div>
   );
 }
@@ -104,24 +109,25 @@ const NAV_CARD_ICONS = {
 
 function NavCard({ title, subtitle, color, icon, onClick }) {
   const theme = {
-    apricot: { bg: 'var(--apricot-light)', fg: '#9A5A20' },
-    blue: { bg: 'var(--blue-light)', fg: '#2E5670' },
-    sage: { bg: 'var(--sage-light)', fg: 'var(--sage-dark)' },
+    apricot: { bg: 'var(--gradient-apricot-bold)', shadow: 'var(--shadow-apricot-bold)' },
+    blue: { bg: 'var(--gradient-blue-bold)', shadow: 'var(--shadow-blue-bold)' },
+    sage: { bg: 'var(--gradient-sage-bold)', shadow: 'var(--shadow-sage)' },
   }[color];
   return (
     <button onClick={onClick} className="card-interactive" style={{
-      background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)', padding: '16px',
-      textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 8, minHeight: 96,
+      background: theme.bg, border: 'none', borderRadius: 'var(--radius-lg)', padding: '18px 16px',
+      textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 10, minHeight: 104,
+      boxShadow: theme.shadow, color: 'var(--white)',
     }}>
       <span style={{
-        width: 34, height: 34, borderRadius: '50%', background: theme.bg, color: theme.fg,
+        width: 34, height: 34, borderRadius: '50%', background: 'rgba(255,255,255,0.22)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
       }}>
         <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">{NAV_CARD_ICONS[icon]}</svg>
       </span>
       <span>
-        <span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600 }}>{title}</span>
-        <span style={{ fontSize: 12, color: 'var(--ink-muted)' }}>{subtitle}</span>
+        <span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 600 }}>{title}</span>
+        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.8)' }}>{subtitle}</span>
       </span>
     </button>
   );

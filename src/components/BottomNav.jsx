@@ -32,8 +32,9 @@ export default function BottomNav() {
           <NavLink key={item.to} to={item.to} end={item.to === '/'} className="pressable" style={({ isActive }) => ({
             flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3,
             padding: '7px 0', borderRadius: 'var(--radius-md)',
-            color: isActive ? 'var(--sage-dark)' : 'var(--ink-muted)',
-            background: isActive ? 'var(--sage-light)' : 'transparent',
+            color: isActive ? 'var(--white)' : 'var(--ink-muted)',
+            background: isActive ? 'var(--gradient-sage-bold)' : 'transparent',
+            boxShadow: isActive ? 'var(--shadow-sage)' : 'none',
           })}>
             <svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true">{ICONS[item.icon]}</svg>
             <span style={{ fontSize: 10.5, fontWeight: 500 }}>{item.label}</span>

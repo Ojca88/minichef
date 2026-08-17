@@ -49,14 +49,20 @@ export default function Tracking() {
   const pending = FOOD_GROUPS.filter(g => !triedGroups.has(g));
 
   return (
-    <div style={{ padding: '20px 16px 90px' }}>
-      <header style={{ marginBottom: 16 }}>
-        <h1 style={{ fontSize: 22 }}>Seguimiento nutricional</h1>
-        <p style={{ fontSize: 13, color: 'var(--ink-muted)', marginTop: 4 }}>
+    <div style={{ paddingBottom: 90 }}>
+      <header style={{
+        padding: '22px 16px 26px', marginBottom: 18,
+        background: 'var(--gradient-sage-bold)',
+        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
+        boxShadow: 'var(--shadow-sage)',
+      }}>
+        <h1 style={{ fontSize: 26, color: 'var(--white)' }}>Seguimiento nutricional</h1>
+        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', marginTop: 4 }}>
           {plannedCount > 0 ? `${eatenCount} de ${plannedCount} comidas marcadas como comidas esta semana` : 'Todavía no hay menú planificado'}
         </p>
       </header>
 
+      <div style={{ padding: '0 16px' }}>
       {eatenCount === 0 ? (
         <div className="card" style={{
           background: 'var(--blue-light)', borderRadius: 'var(--radius-md)', padding: '14px 16px',
@@ -107,6 +113,7 @@ export default function Tracking() {
       <p style={{ fontSize: 11, color: 'var(--ink-muted)', marginTop: 14, lineHeight: 1.5 }}>
         Solo cuenta lo que has marcado como comido en el Menú de la semana — no lo que estaba simplemente planificado.
       </p>
+      </div>
     </div>
   );
 }

@@ -31,6 +31,16 @@
   --gradient-apricot: linear-gradient(135deg, #F5BD8A 0%, var(--apricot) 100%);
   --gradient-blue: linear-gradient(135deg, #7CA6C2 0%, var(--blue) 100%);
 
+  /* Variantes "bold" para la exploración de bloques de color más disruptiva:
+     mismos tonos base, más saturación/contraste. */
+  --gradient-hero-bold: linear-gradient(135deg, #FFAE5C 0%, #F0A868 25%, #6B8F71 65%, #3F5C45 100%);
+  --gradient-sage-bold: linear-gradient(135deg, #8FBB97 0%, #4E6B54 100%);
+  --gradient-apricot-bold: linear-gradient(135deg, #FFC98A 0%, #DB7F2E 100%);
+  --gradient-blue-bold: linear-gradient(135deg, #8FC0E0 0%, #35617F 100%);
+
+  --shadow-apricot-bold: 0 8px 20px rgba(219, 127, 46, 0.35);
+  --shadow-blue-bold: 0 8px 20px rgba(53, 97, 127, 0.32);
+
   --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
