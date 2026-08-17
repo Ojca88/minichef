@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { MEALS, recipesFor, recipeById, seededRandom, AGE_RANGES } from '../data';
+import { MEALS, recipesFor, recipeById, seededRandom, AGE_RANGES, TEXTURES } from '../data';
 import { useCloud } from '../CloudSyncContext';
 
 const WEEKDAY_LABELS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
@@ -342,10 +342,11 @@ export default function Planner() {
 
 function SlotEditor({ meal, onPick, onManual, onCancel }) {
   const [customName, setCustomName] = useState('');
-  const options = useMemo(
-    () => recipesFor(meal).slice().sort((a, b) => a.name.localeCompare(b.name, 'es')),
-    [meal]
-  );
+  const [textureFilter, setTextureFilter] = useState('Todas');
+  const options = useMemo(() => {
+    const base = recipesFor(meal).slice().sort((a, b) => a.name.localeCompare(b.name, 'es'));
+    return textureFilter === 'Todas' ? base : base.filter(r => r.texture === textureFilter);
+  }, [meal, textureFilter]);
 
   function handleManualSubmit() {
     const name = customName.trim();
@@ -360,6 +361,28 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
     }}>
       <div>
         <label style={{ fontSize: 11, color: '#2E5670', display: 'block', marginBottom: 5 }}>
+          Textura
+        </label>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+          {['Todas', ...TEXTURES].map(t => (
+            <button
+              key={t}
+              onClick={() => setTextureFilter(t)}
+              style={{
+                fontSize: 11.5, fontWeight: 500, padding: '5px 11px', borderRadius: 999,
+                border: '1px solid ' + (textureFilter === t ? 'var(--sage)' : 'var(--line)'),
+                background: textureFilter === t ? 'var(--sage)' : 'var(--white)',
+                color: textureFilter === t ? 'var(--white)' : 'var(--ink)',
+              }}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label style={{ fontSize: 11, color: '#2E5670', display: 'block', marginBottom: 5 }}>
           Elegir una receta concreta
         </label>
         <select
@@ -372,6 +395,7 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
         >
           <option value="" disabled>Selecciona una receta de {meal.toLowerCase()}...</option>
           {options.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
+          {options.length === 0 && <option value="" disabled>Sin recetas con esta textura</option>}
         </select>
       </div>
 

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { AGE_RANGES, MEALS, RECIPES } from '../data';
+import { AGE_RANGES, MEALS, TEXTURES, RECIPES } from '../data';
 import RecipeCard from '../components/RecipeCard';
 
 export default function Recipes() {
   const [age, setAge] = useState('Todas');
+  const [texture, setTexture] = useState('Todas');
   const [open, setOpen] = useState({ Comida: true, Merienda: false, Cena: false });
 
   function toggle(meal) {
@@ -17,11 +18,17 @@ export default function Recipes() {
       </header>
 
       <FilterRow label="Edad" value={age} options={['Todas', ...AGE_RANGES]} onChange={setAge} />
+      <div style={{ height: 12 }} />
+      <FilterRow label="Textura" value={texture} options={['Todas', ...TEXTURES]} onChange={setTexture} />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 18 }}>
         {MEALS.map(meal => {
           const ageIdx = AGE_RANGES.indexOf(age);
-          const items = RECIPES.filter(r => r.meal === meal && (age === 'Todas' || r.ageIdx <= ageIdx));
+          const items = RECIPES.filter(r =>
+            r.meal === meal &&
+            (age === 'Todas' || r.ageIdx <= ageIdx) &&
+            (texture === 'Todas' || r.texture === texture)
+          );
           const isOpen = open[meal];
           return (
             <div key={meal} style={{

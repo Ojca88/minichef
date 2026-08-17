@@ -9,6 +9,7 @@ const TEXTURE_LABELS = { pure: 'Puré', trocitos: 'Trocitos', finger: 'Finger fo
 const ALLERGEN_LABELS = { huevo: 'Huevo', lacteos: 'Lácteos', gluten: 'Gluten', pescado: 'Pescado', frutosSecos: 'Frutos secos' };
 const FOOD_GROUP_LABELS = { verduras: 'Verduras', legumbres: 'Legumbres', proteina: 'Proteína animal', cereales: 'Cereales', frutas: 'Frutas', lacteos: 'Lácteos', grasas: 'Grasas saludables' };
 export const FOOD_GROUPS = Object.values(FOOD_GROUP_LABELS);
+export const TEXTURES = Object.values(TEXTURE_LABELS);
 
 // El dataset real (150 recetas) vive en recipes.json, generado por scripts/generate-recipes.mjs.
 // Cada receta puede aplicar a varios tipos de comida; aquí se "desdobla" una fila por cada
