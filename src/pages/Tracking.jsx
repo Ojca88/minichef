@@ -58,18 +58,19 @@ export default function Tracking() {
       </header>
 
       {eatenCount === 0 ? (
-        <div style={{
+        <div className="card" style={{
           background: 'var(--blue-light)', borderRadius: 'var(--radius-md)', padding: '14px 16px',
-          marginBottom: 18,
+          marginBottom: 18, border: '1px solid rgba(46, 86, 112, 0.16)',
         }}>
           <p style={{ fontSize: 13, color: '#2E5670', lineHeight: 1.5 }}>
             Aún no has marcado ninguna comida como comida. Ve al Menú de la semana y toca el círculo ✓ junto a cada plato cuando el bebé se lo haya comido — así este seguimiento reflejará lo real.
           </p>
         </div>
       ) : pending.length > 0 && (
-        <div style={{
+        <div className="card" style={{
           background: 'var(--apricot-light)', borderRadius: 'var(--radius-md)', padding: '14px 16px',
           marginBottom: 18, display: 'flex', gap: 10, alignItems: 'flex-start',
+          border: '1px solid rgba(154, 90, 32, 0.16)',
         }}>
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style={{ flexShrink: 0, marginTop: 1 }}>
             <path d="M12 3 2 20h20L12 3Z" fill="none" stroke="#9A5A20" strokeWidth="1.8" strokeLinejoin="round" />
@@ -85,7 +86,7 @@ export default function Tracking() {
         {FOOD_GROUPS.map(g => {
           const tried = triedGroups.has(g);
           return (
-            <div key={g} style={{
+            <div key={g} className="card" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
               padding: '12px 14px',
@@ -93,8 +94,8 @@ export default function Tracking() {
               <span style={{ fontSize: 14 }}>{g}</span>
               <span style={{
                 fontSize: 12, fontWeight: 500, padding: '3px 10px', borderRadius: 999,
-                background: tried ? 'var(--sage-light)' : 'var(--apricot-light)',
-                color: tried ? 'var(--sage-dark)' : '#9A5A20',
+                background: tried ? 'var(--gradient-sage)' : 'var(--apricot-light)',
+                color: tried ? 'var(--white)' : '#9A5A20',
               }}>
                 {tried ? 'Comido' : 'Pendiente'}
               </span>

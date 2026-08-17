@@ -23,9 +23,13 @@ export default function Home() {
 
   return (
     <div style={{ padding: '20px 20px 90px' }}>
-      <header style={{ marginBottom: 20 }}>
+      <header style={{
+        marginBottom: 20, padding: '16px 18px', margin: '-4px -18px 20px',
+        background: 'radial-gradient(120% 160% at 0% 0%, var(--sage-light) 0%, transparent 60%)',
+        borderRadius: 'var(--radius-lg)',
+      }}>
         <p style={{ fontSize: 13, color: 'var(--ink-muted)' }}>Hola 👋 · {formatTodayLong()}</p>
-        <h1 style={{ fontSize: 24 }}>¿Qué le damos hoy?</h1>
+        <h1 style={{ fontSize: 25 }}>¿Qué le damos hoy?</h1>
         <p style={{ fontSize: 11, color: 'var(--ink-muted)', marginTop: 4 }}>
           {formatUpdatedAt(typeof __LAST_COMMIT_DATE__ !== 'undefined' ? __LAST_COMMIT_DATE__ : null)}
         </p>
@@ -38,10 +42,11 @@ export default function Home() {
             <button
               key={opt}
               onClick={() => cloud.save({ babyAge: opt })}
+              className="chip"
               style={{
                 flexShrink: 0, fontSize: 12, fontWeight: 500, padding: '7px 14px', borderRadius: 999,
                 border: '1px solid ' + (babyAge === opt ? 'var(--sage)' : 'var(--line)'),
-                background: babyAge === opt ? 'var(--sage)' : 'var(--white)',
+                background: babyAge === opt ? 'var(--gradient-sage)' : 'var(--white)',
                 color: babyAge === opt ? 'var(--white)' : 'var(--ink)',
               }}
             >
@@ -53,10 +58,12 @@ export default function Home() {
 
       <button
         onClick={generar}
+        className="pressable"
         style={{
-          width: '100%', background: 'var(--sage)', color: 'var(--white)', border: 'none',
+          width: '100%', background: 'var(--gradient-sage)', color: 'var(--white)', border: 'none',
           borderRadius: 'var(--radius-lg)', padding: '18px 20px', textAlign: 'left',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16,
+          boxShadow: 'var(--shadow-sage)',
         }}
       >
         <span>
@@ -77,10 +84,10 @@ export default function Home() {
       )}
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
-        <NavCard title="Planificador" subtitle="Menú de la semana" color="apricot" onClick={() => navigate('/planificador')} />
-        <NavCard title="Recetario" subtitle="Filtra por edad" color="blue" onClick={() => navigate('/recetario')} />
-        <NavCard title="Seguimiento" subtitle="Grupos de alimentos" color="sage" onClick={() => navigate('/seguimiento')} />
-        <NavCard title="Compra" subtitle="Desde tu menú" color="apricot" onClick={() => navigate('/lista-compra')} />
+        <NavCard title="Planificador" subtitle="Menú de la semana" color="apricot" icon="calendar" onClick={() => navigate('/planificador')} />
+        <NavCard title="Recetario" subtitle="Filtra por edad" color="blue" icon="book" onClick={() => navigate('/recetario')} />
+        <NavCard title="Seguimiento" subtitle="Grupos de alimentos" color="sage" icon="leaf" onClick={() => navigate('/seguimiento')} />
+        <NavCard title="Compra" subtitle="Desde tu menú" color="apricot" icon="cart" onClick={() => navigate('/lista-compra')} />
       </div>
 
       <SyncPanel />
@@ -88,15 +95,34 @@ export default function Home() {
   );
 }
 
-function NavCard({ title, subtitle, color, onClick }) {
-  const bg = { apricot: 'var(--apricot-light)', blue: 'var(--blue-light)', sage: 'var(--sage-light)' }[color];
+const NAV_CARD_ICONS = {
+  calendar: <><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" strokeWidth="1.8" /><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></>,
+  book: <path d="M4 4.5c2.5-1 5.5-1 8 0v15c-2.5-1-5.5-1-8 0v-15ZM20 4.5c-2.5-1-5.5-1-8 0v15c2.5-1 5.5-1 8 0v-15Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />,
+  leaf: <path d="M5 19c-1-6 2-13 14-14 1 12-6 15-14 14Zm0 0c3-3 6-6 10-9" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />,
+  cart: <><circle cx="9" cy="20" r="1.4" fill="currentColor" /><circle cx="17" cy="20" r="1.4" fill="currentColor" /><path d="M3 4h2l2.2 11.2a1.8 1.8 0 0 0 1.78 1.5h7.6a1.8 1.8 0 0 0 1.77-1.46L20 8H6.2" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></>,
+};
+
+function NavCard({ title, subtitle, color, icon, onClick }) {
+  const theme = {
+    apricot: { bg: 'var(--apricot-light)', fg: '#9A5A20' },
+    blue: { bg: 'var(--blue-light)', fg: '#2E5670' },
+    sage: { bg: 'var(--sage-light)', fg: 'var(--sage-dark)' },
+  }[color];
   return (
-    <button onClick={onClick} style={{
-      background: bg, border: 'none', borderRadius: 'var(--radius-md)', padding: '16px',
-      textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 4, minHeight: 90,
+    <button onClick={onClick} className="card-interactive" style={{
+      background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)', padding: '16px',
+      textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 8, minHeight: 96,
     }}>
-      <span style={{ fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600 }}>{title}</span>
-      <span style={{ fontSize: 12, color: 'var(--ink-muted)' }}>{subtitle}</span>
+      <span style={{
+        width: 34, height: 34, borderRadius: '50%', background: theme.bg, color: theme.fg,
+        display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+      }}>
+        <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">{NAV_CARD_ICONS[icon]}</svg>
+      </span>
+      <span>
+        <span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600 }}>{title}</span>
+        <span style={{ fontSize: 12, color: 'var(--ink-muted)' }}>{subtitle}</span>
+      </span>
     </button>
   );
 }

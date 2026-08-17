@@ -105,6 +105,7 @@ export default function ShoppingList() {
       <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
         <button
           onClick={addFromWeekMenu}
+          className="pressable"
           style={{
             flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
             fontSize: 13, fontWeight: 500, color: 'var(--sage-dark)', background: 'var(--sage-light)',
@@ -120,6 +121,7 @@ export default function ShoppingList() {
           <button
             onClick={clearMenuItems}
             aria-label="Quitar todos los ingredientes del menú, dejando solo lo añadido a mano"
+            className="pressable"
             style={{
               flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
               fontSize: 13, fontWeight: 500, color: '#9A5A20', background: 'var(--apricot-light)',
@@ -151,9 +153,11 @@ export default function ShoppingList() {
         <button
           onClick={addItem}
           aria-label="Añadir a la lista"
+          className="pressable"
           style={{
             width: 44, height: 44, flexShrink: 0, borderRadius: 'var(--radius-md)', border: 'none',
-            background: 'var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'var(--gradient-sage)', boxShadow: 'var(--shadow-sage)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
@@ -192,13 +196,14 @@ export default function ShoppingList() {
 
 function ItemGroup({ title, items, isOpen, onToggleGroup, onToggleItem, onRemoveItem, emptyText }) {
   return (
-    <div style={{
+    <div className="card" style={{
       background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
       overflow: 'hidden',
     }}>
       <button
         onClick={onToggleGroup}
         aria-expanded={isOpen}
+        className="pressable"
         style={{
           width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           padding: '14px 16px', border: 'none', background: 'transparent', textAlign: 'left',
@@ -224,7 +229,7 @@ function ItemGroup({ title, items, isOpen, onToggleGroup, onToggleItem, onRemove
             <p style={{ fontSize: 13, color: 'var(--ink-muted)', padding: '0 4px 4px' }}>{emptyText}</p>
           )}
           {items.map(item => (
-            <div key={item.id} style={{
+            <div key={item.id} className="card" style={{
               display: 'flex', alignItems: 'center', gap: 12,
               background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
               padding: '12px 14px',
@@ -247,6 +252,7 @@ function ItemGroup({ title, items, isOpen, onToggleGroup, onToggleItem, onRemove
               <button
                 onClick={() => onRemoveItem(item.id)}
                 aria-label={`Quitar ${item.name} de la lista`}
+                className="icon-btn"
                 style={{
                   width: 26, height: 26, flexShrink: 0, borderRadius: '50%', border: 'none',
                   background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center',

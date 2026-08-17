@@ -198,12 +198,17 @@ export default function Planner() {
         <h1 style={{ fontSize: 22 }}>Menú</h1>
       </header>
 
-      <div style={{ display: 'flex', gap: 6, marginBottom: 18 }}>
+      <div style={{
+        display: 'flex', gap: 4, marginBottom: 18, background: 'var(--sage-light)',
+        borderRadius: 999, padding: 4,
+      }}>
         {['semana', 'mes'].map(v => (
-          <button key={v} onClick={() => setView(v)} style={{
-            flex: 1, padding: '9px 0', borderRadius: 999, border: '1px solid ' + (view === v ? 'var(--sage)' : 'var(--line)'),
-            background: view === v ? 'var(--sage)' : 'var(--white)', color: view === v ? 'var(--white)' : 'var(--ink)',
-            fontSize: 13, fontWeight: 500, textTransform: 'capitalize',
+          <button key={v} onClick={() => setView(v)} className="pressable" style={{
+            flex: 1, padding: '8px 0', borderRadius: 999, border: 'none',
+            background: view === v ? 'var(--white)' : 'transparent',
+            boxShadow: view === v ? 'var(--shadow-sm)' : 'none',
+            color: view === v ? 'var(--sage-dark)' : 'var(--ink-muted)',
+            fontSize: 13, fontWeight: 600, textTransform: 'capitalize',
           }}>
             {v}
           </button>
@@ -230,7 +235,7 @@ export default function Planner() {
                       const isEditing = editingSlot === slotId;
                       return (
                         <div key={meal}>
-                          <div style={{
+                          <div className="card" style={{
                             background: done ? 'var(--sage-light)' : 'var(--white)',
                             border: '1px solid ' + (done ? 'var(--sage)' : 'var(--line)'),
                             borderRadius: 'var(--radius-md)',
@@ -239,10 +244,11 @@ export default function Planner() {
                             <button
                               aria-label={done ? `Desmarcar ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]} como comido` : `Marcar ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]} como comido`}
                               onClick={() => toggleEaten(d, meal)}
+                              className="pressable"
                               style={{
                                 width: 24, height: 24, borderRadius: '50%', flexShrink: 0,
                                 border: '1.5px solid ' + (done ? 'var(--sage)' : 'var(--line)'),
-                                background: done ? 'var(--sage)' : 'var(--white)',
+                                background: done ? 'var(--gradient-sage)' : 'var(--white)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                               }}
                             >
@@ -282,6 +288,7 @@ export default function Planner() {
                             <button
                               aria-label={`Cambiar sugerencia de ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]}`}
                               onClick={() => regenerate(d, meal)}
+                              className="icon-btn"
                               style={{
                                 width: 28, height: 28, borderRadius: '50%', border: '1px solid var(--line)',
                                 background: 'var(--white)', display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -295,10 +302,11 @@ export default function Planner() {
                             <button
                               aria-label={`Elegir manualmente ${meal.toLowerCase()} del ${WEEKDAY_LABELS[i]}`}
                               onClick={() => setEditingSlot(isEditing ? null : slotId)}
+                              className="pressable"
                               style={{
                                 width: 28, height: 28, borderRadius: '50%',
                                 border: '1px solid ' + (isEditing ? 'var(--sage)' : 'var(--line)'),
-                                background: isEditing ? 'var(--sage)' : 'var(--white)',
+                                background: isEditing ? 'var(--gradient-sage)' : 'var(--white)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 flexShrink: 0,
                               }}
@@ -355,9 +363,10 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
   }
 
   return (
-    <div style={{
+    <div className="card" style={{
       marginTop: 6, background: 'var(--blue-light)', borderRadius: 'var(--radius-md)',
       padding: '12px', display: 'flex', flexDirection: 'column', gap: 10,
+      border: '1px solid rgba(46, 86, 112, 0.16)',
     }}>
       <div>
         <label style={{ fontSize: 11, color: '#2E5670', display: 'block', marginBottom: 5 }}>
@@ -368,10 +377,11 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
             <button
               key={t}
               onClick={() => setTextureFilter(t)}
+              className="chip"
               style={{
                 fontSize: 11.5, fontWeight: 500, padding: '5px 11px', borderRadius: 999,
                 border: '1px solid ' + (textureFilter === t ? 'var(--sage)' : 'var(--line)'),
-                background: textureFilter === t ? 'var(--sage)' : 'var(--white)',
+                background: textureFilter === t ? 'var(--gradient-sage)' : 'var(--white)',
                 color: textureFilter === t ? 'var(--white)' : 'var(--ink)',
               }}
             >
@@ -418,9 +428,10 @@ function SlotEditor({ meal, onPick, onManual, onCancel }) {
           />
           <button
             onClick={handleManualSubmit}
+            className="pressable"
             style={{
               fontSize: 12, fontWeight: 600, padding: '0 14px', borderRadius: 'var(--radius-sm)',
-              border: 'none', background: 'var(--sage)', color: 'var(--white)', flexShrink: 0,
+              border: 'none', background: 'var(--gradient-sage)', color: 'var(--white)', flexShrink: 0,
             }}
           >
             Usar
@@ -453,7 +464,7 @@ function WeekSwitcher({ weekDates, onPrev, onNext }) {
 
 function IconButton({ onClick, dir, label }) {
   return (
-    <button aria-label={label} onClick={onClick} style={{
+    <button aria-label={label} onClick={onClick} className="icon-btn" style={{
       width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--line)', background: 'var(--white)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
     }}>
@@ -498,11 +509,13 @@ function MonthView({ monthCursor, monthDays, getDay, selectedDay, onSelectDay, o
             <button
               key={i}
               onClick={() => onSelectDay(d)}
+              className="pressable"
               style={{
                 aspectRatio: '1', borderRadius: 10, display: 'flex', flexDirection: 'column',
                 alignItems: 'center', justifyContent: 'center', gap: 3, padding: 2,
                 border: isSelected ? '1.5px solid var(--sage)' : isToday ? '1px solid var(--apricot)' : '1px solid var(--line)',
                 background: isSelected ? 'var(--sage-light)' : 'var(--white)',
+                boxShadow: isSelected ? 'var(--shadow-sm)' : 'none',
               }}
             >
               <span style={{ fontSize: 12, fontWeight: isToday ? 700 : 500 }}>{d.getDate()}</span>
@@ -517,7 +530,7 @@ function MonthView({ monthCursor, monthDays, getDay, selectedDay, onSelectDay, o
       </div>
 
       {selectedEntry && (
-        <div style={{
+        <div className="card" style={{
           marginTop: 16, background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
           padding: '14px 16px',
         }}>

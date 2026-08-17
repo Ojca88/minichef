@@ -31,13 +31,14 @@ export default function Recipes() {
           );
           const isOpen = open[meal];
           return (
-            <div key={meal} style={{
+            <div key={meal} className="card" style={{
               background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
               overflow: 'hidden',
             }}>
               <button
                 onClick={() => toggle(meal)}
                 aria-expanded={isOpen}
+                className="pressable"
                 style={{
                   width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   padding: '14px 16px', border: 'none', background: 'transparent', textAlign: 'left',
@@ -84,10 +85,11 @@ function FilterRow({ label, value, options, onChange }) {
           <button
             key={opt}
             onClick={() => onChange(opt)}
+            className="chip"
             style={{
               flexShrink: 0, fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
               border: '1px solid ' + (value === opt ? 'var(--sage)' : 'var(--line)'),
-              background: value === opt ? 'var(--sage)' : 'var(--white)',
+              background: value === opt ? 'var(--gradient-sage)' : 'var(--white)',
               color: value === opt ? 'var(--white)' : 'var(--ink)',
             }}
           >
