@@ -67,9 +67,11 @@ export default function SyncPanel() {
           </p>
           <button
             onClick={handleCreate}
+            className="pressable"
             style={{
               width: '100%', padding: '11px 0', borderRadius: 'var(--radius-md)', border: 'none',
-              background: 'var(--sage)', color: 'var(--white)', fontSize: 13, fontWeight: 600,
+              background: 'var(--gradient-sage)', color: 'var(--white)', fontSize: 13, fontWeight: 600,
+              boxShadow: 'var(--shadow-sage)',
             }}
           >
             Crear código para mi familia
@@ -89,6 +91,7 @@ export default function SyncPanel() {
             />
             <button
               onClick={handleJoin}
+              className="pressable"
               style={{
                 padding: '0 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--sage)',
                 background: 'var(--white)', color: 'var(--sage-dark)', fontSize: 13, fontWeight: 600,
@@ -104,14 +107,16 @@ export default function SyncPanel() {
         <>
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            background: 'var(--sage-light)', borderRadius: 'var(--radius-md)', padding: '12px 14px',
+            background: 'var(--gradient-sage)', borderRadius: 'var(--radius-md)', padding: '12px 14px',
+            boxShadow: 'var(--shadow-sage)',
           }}>
-            <span style={{ fontSize: 20, fontWeight: 700, letterSpacing: 3, color: 'var(--sage-dark)' }}>
+            <span style={{ fontSize: 20, fontWeight: 700, letterSpacing: 3, color: 'var(--white)' }}>
               {cloud.code}
             </span>
             <button
               onClick={handleCopy}
               aria-label="Copiar código"
+              className="pressable"
               style={{
                 width: 34, height: 34, borderRadius: '50%', border: 'none', background: 'var(--white)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',

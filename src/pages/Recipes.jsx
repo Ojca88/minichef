@@ -20,11 +20,17 @@ export default function Recipes() {
   }
 
   return (
-    <div style={{ padding: '20px 16px 90px' }}>
-      <header style={{ marginBottom: 16 }}>
-        <h1 style={{ fontSize: 22 }}>Recetario</h1>
+    <div style={{ paddingBottom: 90 }}>
+      <header style={{
+        padding: '22px 16px 26px', marginBottom: 18,
+        background: 'var(--gradient-blue-bold)',
+        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
+        boxShadow: 'var(--shadow-blue-bold)',
+      }}>
+        <h1 style={{ fontSize: 26, color: 'var(--white)' }}>Recetario</h1>
       </header>
 
+      <div style={{ padding: '0 16px' }}>
       <FilterRow label="Edad" value={age} options={['Todas', ...AGE_RANGES]} onChange={setAge} />
       <div style={{ height: 12 }} />
       <FilterRow label="Textura" value={texture} options={['Todas', ...TEXTURES]} onChange={setTexture} />
@@ -37,10 +43,11 @@ export default function Recipes() {
           <button
             onClick={() => setCategories([])}
             aria-pressed={categories.length === 0}
+            className="chip"
             style={{
               fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
               border: '1px solid ' + (categories.length === 0 ? 'var(--sage)' : 'var(--line)'),
-              background: categories.length === 0 ? 'var(--sage)' : 'var(--white)',
+              background: categories.length === 0 ? 'var(--gradient-sage)' : 'var(--white)',
               color: categories.length === 0 ? 'var(--white)' : 'var(--ink)',
             }}
           >
@@ -53,10 +60,11 @@ export default function Recipes() {
                 key={opt}
                 onClick={() => toggleCategory(opt)}
                 aria-pressed={active}
+                className="chip"
                 style={{
                   fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
                   border: '1px solid ' + (active ? 'var(--sage)' : 'var(--line)'),
-                  background: active ? 'var(--sage)' : 'var(--white)',
+                  background: active ? 'var(--gradient-sage)' : 'var(--white)',
                   color: active ? 'var(--white)' : 'var(--ink)',
                 }}
               >
@@ -80,13 +88,14 @@ export default function Recipes() {
           );
           const isOpen = open[meal];
           return (
-            <div key={meal} style={{
+            <div key={meal} className="card" style={{
               background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
               overflow: 'hidden',
             }}>
               <button
                 onClick={() => toggle(meal)}
                 aria-expanded={isOpen}
+                className="pressable"
                 style={{
                   width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                   padding: '14px 16px', border: 'none', background: 'transparent', textAlign: 'left',
@@ -119,6 +128,7 @@ export default function Recipes() {
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );
@@ -133,10 +143,11 @@ function FilterRow({ label, value, options, onChange }) {
           <button
             key={opt}
             onClick={() => onChange(opt)}
+            className="chip"
             style={{
               flexShrink: 0, fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
               border: '1px solid ' + (value === opt ? 'var(--sage)' : 'var(--line)'),
-              background: value === opt ? 'var(--sage)' : 'var(--white)',
+              background: value === opt ? 'var(--gradient-sage)' : 'var(--white)',
               color: value === opt ? 'var(--white)' : 'var(--ink)',
             }}
           >
