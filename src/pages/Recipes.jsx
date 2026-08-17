@@ -9,7 +9,7 @@ export default function Recipes() {
   const [texture, setTexture] = useState('Todas');
   const [season, setSeason] = useState('Todas');
   const [categories, setCategories] = useState([]);
-  const [open, setOpen] = useState({ Comida: true, Merienda: false, Cena: false });
+  const [open, setOpen] = useState({ Comida: false, Merienda: false, Cena: false });
 
   function toggle(meal) {
     setOpen(prev => ({ ...prev, [meal]: !prev[meal] }));
