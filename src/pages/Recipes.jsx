@@ -33,7 +33,19 @@ export default function Recipes() {
       <div style={{ height: 12 }} />
       <div>
         <p style={{ fontSize: 12, color: 'var(--ink-muted)', marginBottom: 6 }}>Tipo de plato</p>
-        <div data-swipe-ignore style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+          <button
+            onClick={() => setCategories([])}
+            aria-pressed={categories.length === 0}
+            style={{
+              fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
+              border: '1px solid ' + (categories.length === 0 ? 'var(--sage)' : 'var(--line)'),
+              background: categories.length === 0 ? 'var(--sage)' : 'var(--white)',
+              color: categories.length === 0 ? 'var(--white)' : 'var(--ink)',
+            }}
+          >
+            Todas
+          </button>
           {CATEGORIES.map(opt => {
             const active = categories.includes(opt);
             return (
@@ -42,7 +54,7 @@ export default function Recipes() {
                 onClick={() => toggleCategory(opt)}
                 aria-pressed={active}
                 style={{
-                  flexShrink: 0, fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
+                  fontSize: 12, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
                   border: '1px solid ' + (active ? 'var(--sage)' : 'var(--line)'),
                   background: active ? 'var(--sage)' : 'var(--white)',
                   color: active ? 'var(--white)' : 'var(--ink)',
