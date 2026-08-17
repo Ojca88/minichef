@@ -18,21 +18,29 @@ const ICONS = {
 
 export default function BottomNav() {
   return (
-    <nav style={{
+    <div style={{
       position: 'sticky', bottom: 0, left: 0, right: 0,
-      display: 'flex', background: 'var(--white)',
-      borderTop: '1px solid var(--line)', padding: '8px 2px calc(8px + env(safe-area-inset-bottom))',
+      padding: '0 10px calc(10px + env(safe-area-inset-bottom))',
       zIndex: 10,
     }}>
-      {ITEMS.map(item => (
-        <NavLink key={item.to} to={item.to} end={item.to === '/'} style={({ isActive }) => ({
-          flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3,
-          padding: '4px 0', color: isActive ? 'var(--sage-dark)' : 'var(--ink-muted)',
-        })}>
-          <svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true">{ICONS[item.icon]}</svg>
-          <span style={{ fontSize: 10.5, fontWeight: 500 }}>{item.label}</span>
-        </NavLink>
-      ))}
-    </nav>
+      <nav className="card" style={{
+        display: 'flex', background: 'var(--white)',
+        border: '1px solid var(--line)', borderRadius: 'var(--radius-xl)',
+        padding: '6px', boxShadow: 'var(--shadow-lg)',
+      }}>
+        {ITEMS.map(item => (
+          <NavLink key={item.to} to={item.to} end={item.to === '/'} className="pressable" style={({ isActive }) => ({
+            flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3,
+            padding: '7px 0', borderRadius: 'var(--radius-md)',
+            color: isActive ? 'var(--white)' : 'var(--ink-muted)',
+            background: isActive ? 'var(--gradient-sage-bold)' : 'transparent',
+            boxShadow: isActive ? 'var(--shadow-sage)' : 'none',
+          })}>
+            <svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true">{ICONS[item.icon]}</svg>
+            <span style={{ fontSize: 10.5, fontWeight: 500 }}>{item.label}</span>
+          </NavLink>
+        ))}
+      </nav>
+    </div>
   );
 }

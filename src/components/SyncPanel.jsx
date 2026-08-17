@@ -41,7 +41,7 @@ export default function SyncPanel() {
   }
 
   return (
-    <div style={{
+    <div className="card" style={{
       background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
       padding: '16px', display: 'flex', flexDirection: 'column', gap: 12,
     }}>
