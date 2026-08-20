@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useCloud } from '../CloudSyncContext';
 import { recipeById } from '../data';
 
@@ -8,28 +8,62 @@ function nextId() {
 
 const DEFAULT_ITEMS = [];
 const MEALS = ['Comida', 'Merienda', 'Cena'];
+const MONTH_NAMES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
 function dateKey(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-function currentWeekDates() {
-  const d = new Date();
-  const day = (d.getDay() + 6) % 7; // 0 = lunes
-  d.setDate(d.getDate() - day);
-  d.setHours(0, 0, 0, 0);
-  return Array.from({ length: 7 }, (_, i) => {
-    const day2 = new Date(d);
-    day2.setDate(day2.getDate() + i);
-    return day2;
-  });
+// Parte el mes en tramos de 7 días (1-7, 8-14, 15-21, 22-28, 29-fin) para
+// poder elegir "la compra de la semana 1", "de la 2", etc. No están alineados
+// a lunes-domingo a propósito: para hacer la compra, lo intuitivo es pensar
+// en "los primeros 7 días del mes", no en semanas naturales que empiezan a
+// mitad de mes.
+function buildWeeksOfMonth(year, month) {
+  const totalDays = new Date(year, month + 1, 0).getDate();
+  const weeks = [];
+  for (let start = 1; start <= totalDays; start += 7) {
+    const end = Math.min(start + 6, totalDays);
+    const dates = [];
+    for (let d = start; d <= end; d++) dates.push(new Date(year, month, d));
+    weeks.push({ label: `Semana ${weeks.length + 1}`, rangeLabel: start === end ? `${start}` : `${start}-${end}`, dates });
+  }
+  return weeks;
 }
 
 export default function ShoppingList() {
-  const { data, save } = useCloud();
+  const { data, save, user } = useCloud();
   const items = data.shoppingItems || DEFAULT_ITEMS;
   const [draft, setDraft] = useState('');
   const [open, setOpen] = useState({ manual: true, menu: true });
+  const [monthCursor, setMonthCursor] = useState(() => {
+    const now = new Date();
+    return { year: now.getFullYear(), month: now.getMonth() };
+  });
+  const [selectedWeeks, setSelectedWeeks] = useState(() => new Set());
+
+  const weeks = useMemo(() => buildWeeksOfMonth(monthCursor.year, monthCursor.month), [monthCursor]);
+
+  function shiftMonth(delta) {
+    let { year, month } = monthCursor;
+    month += delta;
+    if (month < 0) { month = 11; year -= 1; }
+    if (month > 11) { month = 0; year += 1; }
+    setMonthCursor({ year, month });
+    setSelectedWeeks(new Set());
+  }
+
+  function toggleWeek(i) {
+    setSelectedWeeks(prev => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i); else next.add(i);
+      return next;
+    });
+  }
+
+  function toggleAllWeeks() {
+    setSelectedWeeks(prev => (prev.size === weeks.length ? new Set() : new Set(weeks.map((_, i) => i))));
+  }
 
   const manualItems = items.filter(i => i.manual);
   const menuItems = items.filter(i => !i.manual);
@@ -52,7 +86,8 @@ export default function ShoppingList() {
   function addItem() {
     const name = draft.trim();
     if (!name) return;
-    setItems(prev => [{ id: nextId(), name, checked: false, manual: true }, ...prev]);
+    const addedBy = user ? { name: user.name, avatar: user.avatar } : null;
+    setItems(prev => [{ id: nextId(), name, checked: false, manual: true, addedBy }, ...prev]);
     setDraft('');
   }
 
@@ -63,24 +98,28 @@ export default function ShoppingList() {
     }
   }
 
-  function addFromWeekMenu() {
+  function addFromSelectedWeeks() {
+    if (selectedWeeks.size === 0) return;
     const plans = data.plans || {};
     const names = new Set();
-    currentWeekDates().forEach((d) => {
-      const entry = plans[dateKey(d)];
-      if (!entry) return;
-      MEALS.forEach((meal) => {
-        const value = entry[meal];
-        // Los platos puestos a mano (sin ficha en la base de datos) no tienen
-        // ingredientes conocidos, así que simplemente se saltan aquí.
-        const recipe = typeof value === 'string' ? recipeById(value) : null;
-        recipe?.ingredients?.forEach((ing) => names.add(ing));
+    selectedWeeks.forEach((weekIdx) => {
+      weeks[weekIdx]?.dates.forEach((d) => {
+        const entry = plans[dateKey(d)];
+        if (!entry) return;
+        MEALS.forEach((meal) => {
+          const value = entry[meal];
+          // Los platos puestos a mano (sin ficha en la base de datos) no tienen
+          // ingredientes conocidos, así que simplemente se saltan aquí.
+          const recipe = typeof value === 'string' ? recipeById(value) : null;
+          recipe?.ingredients?.forEach((ing) => names.add(ing));
+        });
       });
     });
     setItems(prev => {
       const existing = new Set(prev.map(i => i.name));
+      const addedBy = user ? { name: user.name, avatar: user.avatar } : null;
       const toAdd = Array.from(names).filter(n => !existing.has(n))
-        .map(name => ({ id: nextId(), name, checked: false, manual: false }));
+        .map(name => ({ id: nextId(), name, checked: false, manual: false, addedBy }));
       return [...toAdd, ...prev];
     });
     setOpen(prev => ({ ...prev, menu: true }));
@@ -108,38 +147,92 @@ export default function ShoppingList() {
       </header>
 
       <div style={{ padding: '0 16px' }}>
-      <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
-        <button
-          onClick={addFromWeekMenu}
-          className="pressable"
-          style={{
-            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-            fontSize: 13, fontWeight: 500, color: 'var(--sage-dark)', background: 'var(--sage-light)',
-            border: 'none', borderRadius: 'var(--radius-md)', padding: '11px 8px',
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style={{ flexShrink: 0 }}>
-            <path d="M3.5 5h17M3.5 9h17M3.5 13h17M3.5 17h9" stroke="var(--sage-dark)" strokeWidth="1.8" strokeLinecap="round" />
-          </svg>
-          Añadir del menú
-        </button>
-        {menuItems.length > 0 && (
+      <div className="card" style={{
+        background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
+        padding: '14px', marginBottom: 14,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+          <IconButton onClick={() => shiftMonth(-1)} dir="left" label="Mes anterior" />
+          <span style={{ fontSize: 13, fontWeight: 600, textTransform: 'capitalize' }}>
+            {MONTH_NAMES[monthCursor.month]} {monthCursor.year}
+          </span>
+          <IconButton onClick={() => shiftMonth(1)} dir="right" label="Mes siguiente" />
+        </div>
+
+        <p style={{ fontSize: 11, color: 'var(--ink-muted)', marginBottom: 8 }}>
+          Elige qué semanas quieres comprar
+        </p>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 12 }}>
+          {weeks.map((w, i) => {
+            const active = selectedWeeks.has(i);
+            return (
+              <button
+                key={i}
+                onClick={() => toggleWeek(i)}
+                aria-pressed={active}
+                className="pressable"
+                style={{
+                  fontSize: 12, fontWeight: 500, padding: '7px 12px', borderRadius: 999,
+                  border: '1px solid ' + (active ? 'var(--sage)' : 'var(--line)'),
+                  background: active ? 'var(--gradient-sage)' : 'var(--white)',
+                  color: active ? 'var(--white)' : 'var(--ink)',
+                }}
+              >
+                {w.label} <span style={{ opacity: 0.8 }}>({w.rangeLabel})</span>
+              </button>
+            );
+          })}
           <button
-            onClick={clearMenuItems}
-            aria-label="Quitar todos los ingredientes del menú, dejando solo lo añadido a mano"
+            onClick={toggleAllWeeks}
             className="pressable"
             style={{
-              flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
-              fontSize: 13, fontWeight: 500, color: '#9A5A20', background: 'var(--apricot-light)',
-              border: 'none', borderRadius: 'var(--radius-md)', padding: '11px 12px',
+              fontSize: 12, fontWeight: 500, padding: '7px 12px', borderRadius: 999,
+              border: '1px solid var(--blue)',
+              background: selectedWeeks.size === weeks.length ? 'var(--gradient-blue)' : 'var(--blue-light)',
+              color: selectedWeeks.size === weeks.length ? 'var(--white)' : '#2E5670',
             }}
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="#9A5A20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Revertir
+            Todo el mes
           </button>
-        )}
+        </div>
+
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button
+            onClick={addFromSelectedWeeks}
+            disabled={selectedWeeks.size === 0}
+            className="pressable"
+            style={{
+              flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+              fontSize: 13, fontWeight: 500, color: 'var(--sage-dark)',
+              background: selectedWeeks.size === 0 ? 'var(--sage-light)' : 'var(--sage-light)',
+              opacity: selectedWeeks.size === 0 ? 0.5 : 1,
+              border: 'none', borderRadius: 'var(--radius-md)', padding: '11px 8px',
+              cursor: selectedWeeks.size === 0 ? 'not-allowed' : 'pointer',
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style={{ flexShrink: 0 }}>
+              <path d="M3.5 5h17M3.5 9h17M3.5 13h17M3.5 17h9" stroke="var(--sage-dark)" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+            Añadir {selectedWeeks.size > 0 ? `(${selectedWeeks.size} semana${selectedWeeks.size > 1 ? 's' : ''})` : ''}
+          </button>
+          {menuItems.length > 0 && (
+            <button
+              onClick={clearMenuItems}
+              aria-label="Quitar todos los ingredientes del menú, dejando solo lo añadido a mano"
+              className="pressable"
+              style={{
+                flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                fontSize: 13, fontWeight: 500, color: '#9A5A20', background: 'var(--apricot-light)',
+                border: 'none', borderRadius: 'var(--radius-md)', padding: '11px 12px',
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7M17 3v4h-4M7 21v-4h4" fill="none" stroke="#9A5A20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Revertir
+            </button>
+          )}
+        </div>
       </div>
 
       <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
@@ -192,12 +285,25 @@ export default function ShoppingList() {
             onToggleGroup={() => toggleGroup('menu')}
             onToggleItem={toggle}
             onRemoveItem={removeItem}
-            emptyText="Pulsa 'Añadir del menú' para traer los ingredientes de esta semana."
+            emptyText="Elige una o varias semanas arriba y pulsa 'Añadir' para traer sus ingredientes."
           />
         </div>
       )}
       </div>
     </div>
+  );
+}
+
+function IconButton({ onClick, dir, label }) {
+  return (
+    <button aria-label={label} onClick={onClick} className="pressable" style={{
+      width: 30, height: 30, borderRadius: '50%', border: '1px solid var(--line)', background: 'var(--white)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+    }}>
+      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+        <path d={dir === 'left' ? 'M15 5 8 12l7 7' : 'M9 5l7 7-7 7'} fill="none" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
   );
 }
 
@@ -241,7 +347,7 @@ function ItemGroup({ title, items, isOpen, onToggleGroup, onToggleItem, onRemove
               background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
               padding: '12px 14px',
             }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, cursor: 'pointer' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: 12, flex: 1, cursor: 'pointer', minWidth: 0 }}>
                 <input
                   type="checkbox"
                   checked={item.checked}
@@ -249,12 +355,25 @@ function ItemGroup({ title, items, isOpen, onToggleGroup, onToggleItem, onRemove
                   style={{ width: 18, height: 18, accentColor: 'var(--sage)', flexShrink: 0 }}
                 />
                 <span style={{
-                  fontSize: 14,
+                  fontSize: 14, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
                   textDecoration: item.checked ? 'line-through' : 'none',
                   color: item.checked ? 'var(--ink-muted)' : 'var(--ink)',
                 }}>
                   {item.name}
                 </span>
+                {item.addedBy && (
+                  item.addedBy.avatar ? (
+                    <img src={item.addedBy.avatar} alt="" title={`Añadido por ${item.addedBy.name}`} width={16} height={16} style={{ borderRadius: '50%', flexShrink: 0 }} />
+                  ) : (
+                    <span title={`Añadido por ${item.addedBy.name}`} style={{
+                      width: 16, height: 16, borderRadius: '50%', flexShrink: 0, background: 'var(--sage-light)',
+                      color: 'var(--sage-dark)', fontSize: 8.5, fontWeight: 700,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      {item.addedBy.name.charAt(0).toUpperCase()}
+                    </span>
+                  )
+                )}
               </label>
               <button
                 onClick={() => onRemoveItem(item.id)}

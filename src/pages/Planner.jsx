@@ -9,7 +9,7 @@ const MONTH_NAMES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'jul
 const MEAL_DOT = { Comida: 'var(--sage)', Merienda: 'var(--apricot)', Cena: 'var(--blue)' };
 
 export default function Planner() {
-  const { data: cloudData, save } = useCloud();
+  const { data: cloudData, save, user } = useCloud();
   const babyAge = cloudData.babyAge || null;
   const ageIdx = babyAge ? AGE_RANGES.indexOf(babyAge) : null;
   const season = cloudData.season || null;
@@ -97,16 +97,27 @@ export default function Planner() {
     setSlot(d, meal, next.id);
   }
 
+  // El valor guardado puede ser un boolean antiguo (de antes de tener login)
+  // o un objeto { done, by } con quién lo marcó. isEaten/eatenBy funcionan
+  // con ambos formatos para no romper menús ya guardados.
   function isEaten(d, meal) {
-    return Boolean(eaten[dateKey(d)]?.[meal]);
+    const v = eaten[dateKey(d)]?.[meal];
+    if (typeof v === 'boolean') return v;
+    return Boolean(v?.done);
+  }
+  function eatenBy(d, meal) {
+    const v = eaten[dateKey(d)]?.[meal];
+    return (v && typeof v === 'object' && v.by) || null;
   }
   function toggleEaten(d, meal) {
     const key = dateKey(d);
+    const next = !isEaten(d, meal);
+    const by = next && user ? { name: user.name, avatar: user.avatar } : null;
     save(prev => ({
       ...prev,
       eaten: {
         ...(prev.eaten || {}),
-        [key]: { ...(prev.eaten?.[key] || {}), [meal]: !prev.eaten?.[key]?.[meal] },
+        [key]: { ...(prev.eaten?.[key] || {}), [meal]: { done: next, by } },
       },
     }));
   }
@@ -205,6 +216,9 @@ export default function Planner() {
                                 </svg>
                               )}
                             </button>
+                            {done && eatenBy(d, meal) && (
+                              <AvatarBadge person={eatenBy(d, meal)} />
+                            )}
                             <span style={{ fontSize: 11, color: 'var(--ink-muted)', width: 58, flexShrink: 0 }}>{meal}</span>
                             {recipe.id ? (
                               <Link
@@ -407,6 +421,29 @@ function WeekSwitcher({ weekDates, onPrev, onNext }) {
       <span style={{ fontSize: 13, fontWeight: 500 }}>{label}</span>
       <IconButton onClick={onNext} dir="right" label="Semana siguiente" />
     </div>
+  );
+}
+
+function AvatarBadge({ person }) {
+  return person.avatar ? (
+    <img
+      src={person.avatar}
+      alt={person.name}
+      title={`Marcado por ${person.name}`}
+      width={18} height={18}
+      style={{ borderRadius: '50%', flexShrink: 0 }}
+    />
+  ) : (
+    <span
+      title={`Marcado por ${person.name}`}
+      style={{
+        width: 18, height: 18, borderRadius: '50%', flexShrink: 0,
+        background: 'var(--sage)', color: 'var(--white)', fontSize: 9, fontWeight: 700,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}
+    >
+      {person.name.charAt(0).toUpperCase()}
+    </span>
   );
 }
 

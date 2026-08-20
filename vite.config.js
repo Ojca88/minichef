@@ -17,4 +17,9 @@ export default defineConfig({
   define: {
     __LAST_COMMIT_DATE__: JSON.stringify(getLastCommitDate()),
   },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test-setup.js'],
+    globals: true,
+  },
 })

@@ -8,6 +8,7 @@ import Recipes from './pages/Recipes';
 import RecipeDetail from './pages/RecipeDetail';
 import Tracking from './pages/Tracking';
 import ShoppingList from './pages/ShoppingList';
+import Privacy from './pages/Privacy';
 
 function AppShell() {
   const swipe = useSwipeNav();
@@ -21,6 +22,7 @@ function AppShell() {
           <Route path="/recetario/:id" element={<RecipeDetail />} />
           <Route path="/seguimiento" element={<Tracking />} />
           <Route path="/lista-compra" element={<ShoppingList />} />
+          <Route path="/privacidad" element={<Privacy />} />
         </Routes>
       </div>
       <BottomNav />

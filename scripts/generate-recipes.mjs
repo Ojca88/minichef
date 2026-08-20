@@ -325,18 +325,20 @@ const HANDWRITTEN = [
       'El pescado es un alérgeno frecuente: introdúcelo poco a poco y por la mañana, para poder observar cómo reacciona.',
     ],
   },
-  { id: 'r18', name: 'Sopa de fideos con verduras', mealTypes: ['cena'], minAgeIdx: 2, allergens: ['gluten'], time: 20, texture: 'trocitos', season: 'invierno', foodGroups: ['cereales', 'verduras'],
+  { id: 'r18', name: 'Sopa de fideos con pollo y verduras', mealTypes: ['cena'], minAgeIdx: 2, allergens: ['gluten'], time: 25, texture: 'trocitos', season: 'invierno', foodGroups: ['cereales', 'verduras', 'proteina'],
     ingredients: [
-      { name: 'Fideos finos', quantity: 'Un puñado pequeño (unos 30 g)' },
-      { name: 'Zanahoria', quantity: '1/2 zanahoria, en dados pequeños' },
-      { name: 'Calabacín', quantity: '1/2 calabacín pequeño, en dados pequeños' },
+      { name: 'Pechuga de pollo', quantity: '50 g aprox. (un cuarto del plato)' },
+      { name: 'Fideos finos', quantity: '50 g aprox. en crudo (un cuarto del plato)' },
+      { name: 'Zanahoria', quantity: '50 g aprox., en dados pequeños' },
+      { name: 'Calabacín', quantity: '50 g aprox., en dados pequeños' },
     ],
-    utensils: ['Cazuela', 'Tabla y cuchillo'],
+    utensils: ['Cazuela', 'Dos tenedores para desmenuzar', 'Tabla y cuchillo'],
     steps: [
+      'Pon la pechuga de pollo en la cazuela y cubre con agua sin sal. Lleva a ebullición y cuece 15-18 minutos, hasta que esté blanca por dentro. Saca el pollo y reserva el caldo de cocción.',
+      'Desmenuza el pollo en hebras finas con dos tenedores en cuanto puedas manipularlo sin quemarte.',
       'Pela la zanahoria y córtala en dados muy pequeños. Lava el calabacín y córtalo también en dados pequeños.',
-      'Pon las verduras en la cazuela y cubre con agua o caldo casero sin sal.',
-      'Lleva a ebullición y cuece 10-12 minutos, hasta que la zanahoria empiece a ablandarse.',
-      'Añade los fideos finos y cuece 4-5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se peguen.',
+      'Pon las verduras en el mismo caldo de cocción (añade más agua si hace falta) y cuece 10-12 minutos, hasta que la zanahoria empiece a ablandarse.',
+      'Añade los fideos finos y el pollo desmenuzado, y cuece 4-5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se peguen.',
       'Comprueba que tanto la verdura como los fideos estén blandos, sin partes duras.',
       'Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.',
       'Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca.',
@@ -549,7 +551,7 @@ function pureHervido({ mealType, items, extraTip }) {
   const hasProtein = items.some((i) => i.group === 'proteina' || i.group === 'legumbres');
   const hasCarb = items.some((i) => i.group === 'cereales');
   const balanceTip = !hasCarb
-    ? 'Este puré aporta sobre todo verdura' + (hasProtein ? ' y proteína' : '') + '; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.'
+    ? 'Este puré aporta sobre todo verdura' + (hasProtein ? ' y proteína' : '') + '; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.'
     : null;
   const name = `Puré de ${joinNatural(names).toLowerCase()}`;
   return {
@@ -820,6 +822,255 @@ function desmenuzado({ protein, veg }) {
   };
 }
 
+// ---- croquetas_horno: baked (not fried) vegetable croquettes ----
+function croquetasHorno({ mealType, veg, cheese = false }) {
+  const base = [ING.patata, veg];
+  const withCheese = cheese ? [...base, ING.quesoFresco] : base;
+  const name = `Croquetas de ${veg.name.toLowerCase()} al horno` + (cheese ? ' con queso' : '');
+  return {
+    id: stableId(name, mealType),
+    name,
+    mealTypes: [mealType], minAgeIdx: Math.max(2, ...withCheese.map((i) => i.minAge)),
+    allergens: unique(['gluten', 'huevo', ...withCheese.flatMap((i) => i.allergens || [])]),
+    time: 45, texture: 'finger', season: 'invierno',
+    foodGroups: unique(['cereales', ...withCheese.map((i) => i.group)]),
+    ingredients: [
+      { name: ING.patata.name, quantity: vegQty(1) },
+      { name: veg.name, quantity: vegQty(2) },
+      ...(cheese ? [{ name: ING.quesoFresco.name, quantity: '30 g' }] : []),
+      { name: ING.huevo.name, quantity: '1 unidad, batida (para rebozar)' },
+      { name: 'Pan rallado', quantity: '4 cucharadas (para rebozar)' },
+    ],
+    utensils: ['Cazuela', 'Tenedor para chafar', 'Bandeja de horno', 'Papel de horno'],
+    steps: [
+      ING.patata.prep,
+      veg.prep,
+      `Cuece ${artName(ING.patata)} y ${artName(veg)} juntas en agua sin sal unos ${Math.max(ING.patata.cookTime, veg.cookTime)} minutos, hasta que ${combineDoneCues([ING.patata, veg])}.`,
+      `Escurre bien y chafa con un tenedor hasta obtener un puré espeso (con menos líquido que un puré normal, para que luego se pueda moldear).`,
+      cheese ? `Mezcla con ${artName(ING.quesoFresco)} chafado.` : 'Deja templar la mezcla unos minutos.',
+      'Con las manos húmedas, forma croquetas pequeñas y alargadas, del tamaño de un dedo — fáciles de coger para tu bebé.',
+      'Pasa cada croqueta por huevo batido y luego por pan rallado, presionando un poco para que se pegue bien.',
+      'Coloca las croquetas en una bandeja con papel de horno, con un chorrito de aceite de oliva por encima.',
+      'Hornea a 200°C unos 15-18 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas por fuera.',
+      'Deja templar antes de servir: por dentro retienen mucho calor.',
+    ],
+    tips: buildTipsFor(withCheese, ['Al hornearlas en vez de freírlas, llevan mucho menos aceite — perfectas para que las coja el bebé con la mano.', 'Se pueden dejar formadas (sin hornear) en la nevera de un día para otro, o congeladas ya rebozadas.']),
+  };
+}
+
+// ---- albondigas: meatballs in homemade tomato sauce ----
+function albondigas({ protein, mealType = 'comida' }) {
+  const name = `Albóndigas de ${protein.name.toLowerCase()} con tomate casero`;
+  return {
+    id: stableId(name, mealType),
+    name,
+    mealTypes: [mealType], minAgeIdx: Math.max(2, protein.minAge),
+    allergens: unique(['gluten', ...(protein.allergens || [])]),
+    time: 40, texture: 'finger', season: 'invierno',
+    foodGroups: unique([protein.group, 'verduras', 'cereales']),
+    ingredients: [
+      { name: protein.name + ' picada', quantity: PROTEIN_QTY },
+      { name: ING.panTierno.name, quantity: '1/2 rebanada, sin corteza, remojada en un poco de leche o agua' },
+      { name: ING.tomate.name, quantity: '3 unidades maduras (para la salsa)' },
+      { name: ING.zanahoria.name, quantity: '1/2 unidad (para la salsa)' },
+    ],
+    utensils: ['Bol', 'Sartén con tapa', 'Batidora de mano'],
+    steps: [
+      'Remoja el pan sin corteza en un par de cucharadas de leche o agua hasta que se ablande, y escúrrelo un poco.',
+      `Mezcla en un bol ${artName(protein)} pícada con el pan remojado, amasando bien con las manos hasta que quede una masa homogénea.`,
+      'Forma bolitas pequeñas, del tamaño de una nuez, presionando bien para que no se deshagan al cocinar.',
+      ING.tomate.prep,
+      ING.zanahoria.prep,
+      `Sofríe ${artName(ING.zanahoria)} en una sartén con un chorrito de aceite 3-4 minutos, añade ${artName(ING.tomate)} troceado y cocina a fuego bajo 15 minutos, hasta que se deshaga.`,
+      'Tritura la salsa con la batidora hasta que quede fina, sin sal ni azúcar añadidos.',
+      'Añade las albóndigas a la salsa, tapa y cocina a fuego bajo 12-15 minutos, dándoles la vuelta a mitad de cocción, hasta que estén bien hechas por dentro.',
+      'Parte una albóndiga por la mitad para comprobar que no quede nada crudo en el centro.',
+      'Deja templar antes de servir, aplastando un poco cada albóndiga si tu bebé aún prefiere trozos más blandos.',
+    ],
+    tips: ['Las albóndigas y la salsa se congelan muy bien por separado, hasta 2 meses.', 'Plato ya equilibrado: la salsa aporta la mitad de verdura, la carne el cuarto de proteína y el pan remojado ayuda con el cuarto de hidratos.'],
+  };
+}
+
+// ---- tortitas_saladas: savoury vegetable fritters, pan-cooked with little oil ----
+function tortitasSaladas({ veg, mealType = 'comida' }) {
+  const name = `Tortitas saladas de ${veg.name.toLowerCase()}`;
+  return {
+    id: stableId(name, mealType),
+    name,
+    mealTypes: [mealType], minAgeIdx: Math.max(2, veg.minAge),
+    allergens: unique(['huevo', 'gluten', ...(veg.allergens || [])]),
+    time: 25, texture: 'finger', season: 'ambas',
+    foodGroups: unique([veg.group, 'cereales']),
+    ingredients: [
+      { name: veg.name, quantity: `${veg.quantity}, rallad${veg.adjSuffix}` },
+      { name: ING.huevo.name, quantity: '1 unidad' },
+      { name: ING.avena.name, quantity: '3 cucharadas (o harina)' },
+    ],
+    utensils: ['Rallador', 'Colador', 'Bol', 'Sartén antiadherente'],
+    steps: [
+      `Lava ${artName(veg)} y rálla${veg.pronoun} con un rallador de agujero grueso.`,
+      `Pon ${artName(veg)} rallad${veg.adjSuffix} en un colador y presiona bien para quitar el exceso de agua — así las tortitas no quedarán aguadas.`,
+      `Mezcla ${artName(veg)} escurrid${veg.adjSuffix} con el huevo batido y la avena hasta obtener una masa espesa que se sostenga.`,
+      'Calienta una sartén antiadherente con un chorrito de aceite de oliva a fuego medio-bajo.',
+      'Con una cuchara, forma montoncitos pequeños y aplánalos un poco con el dorso de la cuchara.',
+      'Cocina 3-4 minutos por cada lado, hasta que estén doradas y firmes al tacto.',
+      'Deja templar sobre papel de cocina para quitar el exceso de aceite antes de servir.',
+    ],
+    tips: buildTipsFor([veg], ['Corta cada tortita en tiras antes de servir: son más fáciles de coger que una pieza redonda entera.']),
+  };
+}
+
+// ---- arroz_meloso: creamy rice with vegetables and broth ----
+function arrozMeloso({ veggies, protein }) {
+  const allItems = protein ? [...veggies, protein] : veggies;
+  const name = `Arroz meloso con ${joinNatural(allItems.map((i) => i.name.toLowerCase()))}`;
+  return {
+    id: stableId(name, 'comida'),
+    name,
+    mealTypes: ['comida'], minAgeIdx: Math.max(1, ING.arroz.minAge, ...allItems.map((i) => i.minAge)),
+    allergens: unique(allItems.flatMap((i) => i.allergens || [])),
+    time: 35, texture: 'trocitos', season: 'invierno',
+    foodGroups: unique(['cereales', ...allItems.map((i) => i.group)]),
+    ingredients: [
+      { name: ING.arroz.name, quantity: CARB_QTY_RAW },
+      ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
+      ...(protein ? [{ name: protein.name, quantity: PROTEIN_QTY }] : []),
+    ],
+    utensils: ['Cazuela'],
+    steps: [
+      ...veggies.map((v) => v.prep),
+      ...(protein ? [protein.prep] : []),
+      `Sofríe ${artNames(veggies)}${protein ? ` junto con ${artName(protein)}` : ''} en la cazuela con un chorrito de aceite de oliva, 4-5 minutos.`,
+      `Añade ${artName(ING.arroz)} y remueve 1 minuto para que se impregne bien.`,
+      'Cubre con agua o caldo casero sin sal (el doble de cantidad que de arroz) y lleva a ebullición.',
+      'Baja el fuego y cocina 16-18 minutos sin tapar, removiendo de vez en cuando y añadiendo más líquido si se seca demasiado — debe quedar con textura cremosa, ni caldoso ni seco.',
+      'Comprueba que el arroz y el resto de ingredientes estén blandos antes de retirar del fuego.',
+      'Deja templar unos minutos antes de servir.',
+    ],
+    tips: ['El punto "meloso" (con algo de caldo ligado, no seco) hace que sea más fácil de comer con las manos o con cuchara que un arroz suelto.', 'Plato ya equilibrado: mitad verdura, un cuarto de cereal y un cuarto de proteína.'],
+  };
+}
+
+// ---- potaje_legumbres: slow-cooked legume stew with vegetables (vegetarian) ----
+function potajeLegumbres({ legumbre, veggies }) {
+  const allItems = [legumbre, ...veggies, ING.patata];
+  const name = `Potaje de ${legumbre.name.toLowerCase()} con ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`;
+  return {
+    id: stableId(name, 'comida'),
+    name,
+    mealTypes: ['comida'], minAgeIdx: Math.max(1, ...allItems.map((i) => i.minAge)),
+    allergens: unique(allItems.flatMap((i) => i.allergens || [])),
+    time: 50, texture: 'trocitos', season: 'invierno',
+    foodGroups: unique(['legumbres', ...veggies.map((v) => v.group), 'verduras']),
+    ingredients: [
+      { name: legumbre.name, quantity: PROTEIN_QTY },
+      ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
+      { name: ING.patata.name, quantity: CARB_QTY_RAW },
+    ],
+    utensils: ['Olla', 'Tabla y cuchillo'],
+    steps: [
+      ...veggies.map((v) => v.prep),
+      ING.patata.prep,
+      `Sofríe ${artNames(veggies)} en la olla con un chorrito de aceite de oliva 5 minutos.`,
+      `Añade ${artName(legumbre)}, ${artName(ING.patata)} y cubre con agua sin sal.`,
+      'Lleva a ebullición, baja el fuego, tapa y cocina a fuego lento 30-35 minutos, hasta que todo esté muy tierno.',
+      'Aplasta un poco de patata contra las paredes de la olla con el cucharón: esto espesa el caldo de forma natural, sin necesidad de nada más.',
+      'Deja templar y sirve en trozos pequeños y blandos, aplastando alguna pieza más grande si hace falta.',
+    ],
+    tips: buildTipsFor(allItems, ['El potaje mejora de un día para otro: si te sobra, guárdalo en la nevera y caliéntalo al día siguiente.', 'Plato ya equilibrado: la legumbre aporta la proteína, la patata el cuarto de hidratos y las verduras la mitad del plato.']),
+  };
+}
+
+// ---- pasta_salsa: pasta with a hidden-vegetable tomato sauce ----
+function pastaSalsa({ veggies, protein }) {
+  const saucItems = protein ? [...veggies, protein] : veggies;
+  const name = `Pasta con salsa de ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}` + (protein ? ` y ${protein.name.toLowerCase()}` : '');
+  return {
+    id: stableId(name, 'comida'),
+    name,
+    mealTypes: ['comida'], minAgeIdx: Math.max(2, ...saucItems.map((i) => i.minAge)),
+    allergens: unique(['gluten', ...saucItems.flatMap((i) => i.allergens || [])]),
+    time: 30, texture: 'trocitos', season: 'ambas',
+    foodGroups: unique(['cereales', ...saucItems.map((i) => i.group)]),
+    ingredients: [
+      { name: 'Pasta pequeña (tipo estrellitas o macarrones)', quantity: CARB_QTY_RAW },
+      { name: ING.tomate.name, quantity: '2 unidades maduras' },
+      ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
+      ...(protein ? [{ name: protein.name, quantity: PROTEIN_QTY }] : []),
+    ],
+    utensils: ['Cazuela para la pasta', 'Sartén', 'Batidora de mano'],
+    steps: [
+      'Cuece la pasta en agua sin sal siguiendo el tiempo del paquete, hasta que esté muy blanda (un poco más de lo habitual). Escurre y reserva.',
+      ING.tomate.prep,
+      ...veggies.map((v) => v.prep),
+      ...(protein ? [protein.prep] : []),
+      `Sofríe ${artNames(veggies)}${protein ? ` y ${artName(protein)}` : ''} en la sartén con un chorrito de aceite 5 minutos.`,
+      `Añade ${artName(ING.tomate)} troceado y cocina a fuego bajo 12-15 minutos, hasta que se deshaga.`,
+      'Tritura la salsa con la batidora hasta que quede fina — así la verdura queda "escondida" y no se nota a simple vista.',
+      'Mezcla la pasta con la salsa y remueve bien para que quede toda cubierta.',
+      'Deja templar y corta los trozos más grandes de pasta si hace falta.',
+    ],
+    tips: ['Ideal para las etapas en las que el bebé rechaza ver trozos de verdura: aquí van triturados dentro de la salsa, pero la nutrición es la misma.', 'La salsa se puede preparar de más y congelar en porciones.'],
+  };
+}
+
+// ---- ensalada_templada: warm legume + vegetable salad (not fully cold) ----
+function ensaladaTemplada({ legumbre, veggies }) {
+  const allItems = [legumbre, ...veggies];
+  const name = `Ensalada templada de ${legumbre.name.toLowerCase()} con ${joinNatural(veggies.map((v) => v.name.toLowerCase()))}`;
+  return {
+    id: stableId(name, 'comida'),
+    name,
+    mealTypes: ['comida'], minAgeIdx: Math.max(1, ...allItems.map((i) => i.minAge)),
+    allergens: unique(allItems.flatMap((i) => i.allergens || [])),
+    time: 20, texture: 'trocitos', season: 'verano',
+    foodGroups: unique(['legumbres', ...veggies.map((v) => v.group), 'grasas']),
+    ingredients: [
+      { name: legumbre.name, quantity: PROTEIN_QTY },
+      ...veggies.map((v) => ({ name: v.name, quantity: vegQty(veggies.length) })),
+      ACEITE,
+    ],
+    utensils: ['Cazuela (si alguna verdura necesita cocción)', 'Tabla y cuchillo', 'Bol'],
+    steps: [
+      ...veggies.filter((v) => !v.rawOk).map((v) => v.prep),
+      ...(veggies.some((v) => !v.rawOk)
+        ? [`Cuece ${artNames(veggies.filter((v) => !v.rawOk))} al vapor unos ${Math.max(...veggies.filter((v) => !v.rawOk).map((v) => v.cookTime))} minutos, hasta que ${combineDoneCues(veggies.filter((v) => !v.rawOk))}.`]
+        : []),
+      ...veggies.filter((v) => v.rawOk).map((v) => v.prep),
+      `En un bol, mezcla ${artName(legumbre)} con las verduras templadas (recién cocidas, no frías de nevera) y un chorrito de aceite de oliva.`,
+      'Remueve bien y corta cualquier pieza que quede demasiado grande para el bebé.',
+      'Sirve templada, ni caliente ni fría de nevera: es más agradable y segura en boca.',
+    ],
+    tips: ['Servirla templada (no fría de la nevera) suele ser mejor aceptado por los bebés que un plato frío de verdad.', 'Plato ya equilibrado: mitad verdura, y la legumbre aporta a la vez proteína e hidratos.'],
+  };
+}
+
+// ---- brochetas_blandas: skewer-style presentation WITHOUT an actual stick (choking-safety) ----
+function brochetasBlandas({ items, mealType = 'merienda', season = 'verano' }) {
+  const name = `"Brocheta" blanda de ${joinNatural(items.map((i) => i.name.toLowerCase()))}`;
+  return {
+    id: stableId(name, mealType),
+    name,
+    mealTypes: [mealType], minAgeIdx: Math.max(1, ...items.map((i) => i.minAge)),
+    allergens: unique(items.flatMap((i) => i.allergens || [])),
+    time: 15, texture: 'finger', season,
+    foodGroups: unique(items.map((i) => i.group)),
+    ingredients: items.map((i) => ({ name: i.name, quantity: vegQty(items.length) })),
+    utensils: ['Tabla y cuchillo', 'Cazuela (para lo que necesite cocción)'],
+    steps: [
+      ...items.filter((i) => !i.rawOk).map((i) => i.prep),
+      ...(items.some((i) => !i.rawOk)
+        ? [`Cuece ${artNames(items.filter((i) => !i.rawOk))} al vapor unos ${Math.max(...items.filter((i) => !i.rawOk).map((i) => i.cookTime))} minutos, hasta que ${combineDoneCues(items.filter((i) => !i.rawOk))}.`]
+        : []),
+      ...items.filter((i) => i.rawOk).map((i) => i.prep),
+      'Corta cada ingrediente en bastones o tiras del mismo grosor, del tamaño de un dedo.',
+      'Coloca los trozos en el plato en fila, alternando colores, imitando el aspecto de una brocheta.',
+      'No uses un palito ni pincho real: para bebés es un riesgo de atragantamiento o herida — el efecto visual basta sin necesidad de ensartarlos de verdad.',
+    ],
+    tips: ['La gracia de este plato es visual: piezas de colores en fila, para que resulte más apetecible sin ningún riesgo añadido.', 'Perfecto para ir dejando que el bebé se autoalimente, pieza a pieza.'],
+  };
+}
+
 // ---------------------------------------------------------------------------
 // 3. Explicit, hand-picked combinations (realistic pairings, not random)
 // ---------------------------------------------------------------------------
@@ -977,6 +1228,66 @@ generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.
   ['pollo', 'patata'], ['pavo', 'calabaza'], ['ternera', 'chirivia'],
   ['pollo', 'boniato'], ['pavo', 'patata'], ['ternera', 'zanahoria']]
   .forEach(([protein, veg]) => generated.push(desmenuzado({ protein: ING[protein], veg: ING[veg] })));
+
+// croquetas_horno — comida/cena
+[
+  { mealType: 'comida', veg: 'zanahoria' }, { mealType: 'cena', veg: 'calabacin' },
+  { mealType: 'comida', veg: 'espinacas', cheese: true }, { mealType: 'cena', veg: 'boniato' },
+  { mealType: 'comida', veg: 'brocoli', cheese: true }, { mealType: 'cena', veg: 'calabaza' },
+].forEach(({ mealType, veg, cheese }) => generated.push(croquetasHorno({ mealType, veg: ING[veg], cheese })));
+
+// albondigas — comida/cena
+[
+  { protein: 'pollo', mealType: 'comida' }, { protein: 'pavo', mealType: 'cena' },
+  { protein: 'ternera', mealType: 'comida' },
+].forEach(({ protein, mealType }) => generated.push(albondigas({ protein: ING[protein], mealType })));
+
+// tortitas_saladas — comida/cena
+[
+  { veg: 'calabacin', mealType: 'comida' }, { veg: 'zanahoria', mealType: 'cena' },
+  { veg: 'boniato', mealType: 'comida' }, { veg: 'calabaza', mealType: 'cena' },
+].forEach(({ veg, mealType }) => generated.push(tortitasSaladas({ veg: ING[veg], mealType })));
+
+// arroz_meloso — comida
+[
+  { veggies: ['zanahoria', 'guisantes'], protein: 'pollo' },
+  { veggies: ['calabacin', 'tomate'], protein: 'merluza' },
+  { veggies: ['brocoli', 'zanahoria'], protein: 'pavo' },
+  { veggies: ['pimientoRojo', 'guisantes'], protein: 'pollo' },
+  { veggies: ['calabaza'], protein: 'ternera' },
+].forEach(({ veggies, protein }) => generated.push(arrozMeloso({ veggies: veggies.map((v) => ING[v]), protein: protein ? ING[protein] : null })));
+
+// potaje_legumbres — comida (vegetariano)
+[
+  { legumbre: 'garbanzos', veggies: ['zanahoria', 'puerro'] },
+  { legumbre: 'lentejas', veggies: ['calabaza', 'zanahoria'] },
+  { legumbre: 'judiasBlancas', veggies: ['puerro', 'zanahoria'] },
+  { legumbre: 'garbanzos', veggies: ['espinacas'] },
+].forEach(({ legumbre, veggies }) => generated.push(potajeLegumbres({ legumbre: ING[legumbre], veggies: veggies.map((v) => ING[v]) })));
+
+// pasta_salsa — comida
+[
+  { veggies: ['zanahoria', 'calabacin'], protein: null },
+  { veggies: ['pimientoRojo', 'zanahoria'], protein: 'pollo' },
+  { veggies: ['calabacin'], protein: 'ternera' },
+  { veggies: ['zanahoria', 'guisantes'], protein: null },
+].forEach(({ veggies, protein }) => generated.push(pastaSalsa({ veggies: veggies.map((v) => ING[v]), protein: protein ? ING[protein] : null })));
+
+// ensalada_templada — comida, verano (solo legumbres que vienen ya cocidas
+// de bote/tarro — garbanzos y judías blancas — nunca legumbre seca sin cocer)
+[
+  { legumbre: 'garbanzos', veggies: ['tomate', 'pimientoRojo'] },
+  { legumbre: 'judiasBlancas', veggies: ['zanahoria', 'guisantes'] },
+  { legumbre: 'garbanzos', veggies: ['tomate'] },
+].forEach(({ legumbre, veggies }) => generated.push(ensaladaTemplada({ legumbre: ING[legumbre], veggies: veggies.map((v) => ING[v]) })));
+
+// brochetas_blandas — merienda (verano) y comida (ambas)
+[
+  { items: ['sandia', 'melocoton'], mealType: 'merienda', season: 'verano' },
+  { items: ['platano', 'fresas'], mealType: 'merienda', season: 'verano' },
+  { items: ['kiwi', 'mango'], mealType: 'merienda', season: 'verano' },
+  { items: ['calabacin', 'zanahoria', 'pollo'], mealType: 'comida', season: 'ambas' },
+].forEach(({ items, mealType, season }) => generated.push(brochetasBlandas({ items: items.map((k) => ING[k]), mealType, season })));
 
 // ---------------------------------------------------------------------------
 // 4. Assemble, sanity-check, write

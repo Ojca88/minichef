@@ -6,6 +6,13 @@ function dateKey(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
+// El valor guardado puede ser un boolean antiguo (de antes del login con
+// atribución) o un objeto { done, by }. Aquí solo nos interesa si está hecho.
+function isMealEaten(value) {
+  if (typeof value === 'boolean') return value;
+  return Boolean(value?.done);
+}
+
 function currentWeekDates() {
   const d = new Date();
   const day = (d.getDay() + 6) % 7; // 0 = lunes
@@ -35,7 +42,7 @@ export default function Tracking() {
         const value = dayPlan?.[meal];
         if (!value) return;
         plannedCount += 1;
-        if (!dayEaten?.[meal]) return;
+        if (!isMealEaten(dayEaten?.[meal])) return;
         eatenCount += 1;
         // Los platos puestos a mano no tienen grupos de alimentos conocidos,
         // así que no suman al desglose (pero sí cuentan como comida marcada).

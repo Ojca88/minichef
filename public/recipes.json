@@ -891,7 +891,7 @@
   },
   {
     "id": "r18",
-    "name": "Sopa de fideos con verduras",
+    "name": "Sopa de fideos con pollo y verduras",
     "mealTypes": [
       "cena"
     ],
@@ -899,36 +899,43 @@
     "allergens": [
       "gluten"
     ],
-    "time": 20,
+    "time": 25,
     "texture": "trocitos",
     "season": "invierno",
     "foodGroups": [
       "cereales",
-      "verduras"
+      "verduras",
+      "proteina"
     ],
     "ingredients": [
       {
+        "name": "Pechuga de pollo",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
         "name": "Fideos finos",
-        "quantity": "Un puñado pequeño (unos 30 g)"
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
       },
       {
         "name": "Zanahoria",
-        "quantity": "1/2 zanahoria, en dados pequeños"
+        "quantity": "50 g aprox., en dados pequeños"
       },
       {
         "name": "Calabacín",
-        "quantity": "1/2 calabacín pequeño, en dados pequeños"
+        "quantity": "50 g aprox., en dados pequeños"
       }
     ],
     "utensils": [
       "Cazuela",
+      "Dos tenedores para desmenuzar",
       "Tabla y cuchillo"
     ],
     "steps": [
+      "Pon la pechuga de pollo en la cazuela y cubre con agua sin sal. Lleva a ebullición y cuece 15-18 minutos, hasta que esté blanca por dentro. Saca el pollo y reserva el caldo de cocción.",
+      "Desmenuza el pollo en hebras finas con dos tenedores en cuanto puedas manipularlo sin quemarte.",
       "Pela la zanahoria y córtala en dados muy pequeños. Lava el calabacín y córtalo también en dados pequeños.",
-      "Pon las verduras en la cazuela y cubre con agua o caldo casero sin sal.",
-      "Lleva a ebullición y cuece 10-12 minutos, hasta que la zanahoria empiece a ablandarse.",
-      "Añade los fideos finos y cuece 4-5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se peguen.",
+      "Pon las verduras en el mismo caldo de cocción (añade más agua si hace falta) y cuece 10-12 minutos, hasta que la zanahoria empiece a ablandarse.",
+      "Añade los fideos finos y el pollo desmenuzado, y cuece 4-5 minutos más (o el tiempo que indique el paquete), removiendo de vez en cuando para que no se peguen.",
       "Comprueba que tanto la verdura como los fideos estén blandos, sin partes duras.",
       "Retira del fuego y deja templar unos minutos: la sopa retiene mucho calor y puede quemar aunque parezca templada por fuera.",
       "Antes de servir, remueve bien y comprueba la temperatura tocando una cucharada con el labio o la muñeca."
@@ -940,7 +947,7 @@
     "videoUrl": "https://www.youtube.com/watch?v=qsjsXk2Qbhg",
     "videoTitle": "Sopa de fideos con verduras para niños",
     "categories": [
-      "vegetariano"
+      "carne"
     ]
   },
   {
@@ -1147,7 +1154,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -1198,7 +1205,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -1255,7 +1262,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -1314,7 +1321,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -1367,7 +1374,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -1420,7 +1427,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -1472,7 +1479,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -1529,7 +1536,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -1586,7 +1593,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -1643,7 +1650,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -1700,7 +1707,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -1757,7 +1764,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -1809,7 +1816,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -1862,7 +1869,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -1915,7 +1922,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -1975,7 +1982,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -2028,7 +2035,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2087,7 +2094,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -2140,7 +2147,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -2198,7 +2205,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -2256,7 +2263,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2313,7 +2320,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2370,7 +2377,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -2428,7 +2435,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2485,7 +2492,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2542,7 +2549,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2601,7 +2608,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -2659,7 +2666,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2710,7 +2717,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -2761,7 +2768,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -2818,7 +2825,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -2877,7 +2884,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -2935,7 +2942,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -2988,7 +2995,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3046,7 +3053,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -3097,7 +3104,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -3155,7 +3162,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne",
@@ -3208,7 +3215,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3266,7 +3273,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3324,7 +3331,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -3381,7 +3388,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -3438,7 +3445,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3490,7 +3497,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -3547,7 +3554,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -3604,7 +3611,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -3661,7 +3668,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3719,7 +3726,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3772,7 +3779,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3832,7 +3839,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -3890,7 +3897,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -3942,7 +3949,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -3994,7 +4001,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -4053,7 +4060,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -4105,7 +4112,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -4157,7 +4164,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -4209,7 +4216,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -4266,7 +4273,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -4318,7 +4325,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -4376,7 +4383,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -4428,7 +4435,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -4480,7 +4487,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -4537,7 +4544,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -4589,7 +4596,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -4647,7 +4654,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -4704,7 +4711,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -4755,7 +4762,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -4812,7 +4819,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -4871,7 +4878,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -4929,7 +4936,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -4980,7 +4987,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -5031,7 +5038,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -5090,7 +5097,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -5148,7 +5155,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -5200,7 +5207,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -5258,7 +5265,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -5309,7 +5316,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -5366,7 +5373,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -5424,7 +5431,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne",
@@ -5484,7 +5491,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado.",
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos.",
       "El pescado es un alérgeno frecuente: si es la primera vez que lo prueba, ofrécelo por la mañana y en poca cantidad, para poder observar cómo reacciona."
     ],
     "categories": [
@@ -5536,7 +5543,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -5587,7 +5594,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "vegetariano"
@@ -5644,7 +5651,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -5696,7 +5703,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -5754,7 +5761,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne"
@@ -5806,7 +5813,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "legumbres",
@@ -5865,7 +5872,7 @@
     ],
     "tips": [
       "Puedes preparar el doble de cantidad y congelar el resto en cubiteras; se conserva bien hasta 1 mes.",
-      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para completar el cuarto de hidratos de un plato equilibrado."
+      "Este puré aporta sobre todo verdura y proteína; acompáñalo con un poco de pan, arroz o patata al lado para que el plato quede completo con su ración de hidratos."
     ],
     "categories": [
       "carne",
@@ -13492,6 +13499,1885 @@
     "tips": [
       "Desmenuzar la carne mientras aún está tibia es mucho más fácil que cuando se enfría del todo.",
       "Plato ya equilibrado: mitad verdura, un cuarto de proteína y un cuarto de hidratos."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-croquetas-de-zanahoria-al-horno",
+    "name": "Croquetas de zanahoria al horno",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "huevo"
+    ],
+    "time": 45,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Patata",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad, batida (para rebozar)"
+      },
+      {
+        "name": "Pan rallado",
+        "quantity": "4 cucharadas (para rebozar)"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tenedor para chafar",
+      "Bandeja de horno",
+      "Papel de horno"
+    ],
+    "steps": [
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Cuece la patata y la zanahoria juntas en agua sin sal unos 15 minutos, hasta que un tenedor atraviese la patata sin resistencia y la zanahoria esté blanda al pinchar con un tenedor.",
+      "Escurre bien y chafa con un tenedor hasta obtener un puré espeso (con menos líquido que un puré normal, para que luego se pueda moldear).",
+      "Deja templar la mezcla unos minutos.",
+      "Con las manos húmedas, forma croquetas pequeñas y alargadas, del tamaño de un dedo — fáciles de coger para tu bebé.",
+      "Pasa cada croqueta por huevo batido y luego por pan rallado, presionando un poco para que se pegue bien.",
+      "Coloca las croquetas en una bandeja con papel de horno, con un chorrito de aceite de oliva por encima.",
+      "Hornea a 200°C unos 15-18 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas por fuera.",
+      "Deja templar antes de servir: por dentro retienen mucho calor."
+    ],
+    "tips": [
+      "Al hornearlas en vez de freírlas, llevan mucho menos aceite — perfectas para que las coja el bebé con la mano.",
+      "Se pueden dejar formadas (sin hornear) en la nevera de un día para otro, o congeladas ya rebozadas."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-cena-croquetas-de-calabacin-al-horno",
+    "name": "Croquetas de calabacín al horno",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "huevo"
+    ],
+    "time": 45,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Patata",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad, batida (para rebozar)"
+      },
+      {
+        "name": "Pan rallado",
+        "quantity": "4 cucharadas (para rebozar)"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tenedor para chafar",
+      "Bandeja de horno",
+      "Papel de horno"
+    ],
+    "steps": [
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Cuece la patata y el calabacín juntas en agua sin sal unos 15 minutos, hasta que un tenedor atraviese la patata sin resistencia y el calabacín se deshaga al pincharlo.",
+      "Escurre bien y chafa con un tenedor hasta obtener un puré espeso (con menos líquido que un puré normal, para que luego se pueda moldear).",
+      "Deja templar la mezcla unos minutos.",
+      "Con las manos húmedas, forma croquetas pequeñas y alargadas, del tamaño de un dedo — fáciles de coger para tu bebé.",
+      "Pasa cada croqueta por huevo batido y luego por pan rallado, presionando un poco para que se pegue bien.",
+      "Coloca las croquetas en una bandeja con papel de horno, con un chorrito de aceite de oliva por encima.",
+      "Hornea a 200°C unos 15-18 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas por fuera.",
+      "Deja templar antes de servir: por dentro retienen mucho calor."
+    ],
+    "tips": [
+      "Al hornearlas en vez de freírlas, llevan mucho menos aceite — perfectas para que las coja el bebé con la mano.",
+      "Se pueden dejar formadas (sin hornear) en la nevera de un día para otro, o congeladas ya rebozadas."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-croquetas-de-espinacas-al-horno-con-queso",
+    "name": "Croquetas de espinacas al horno con queso",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "huevo",
+      "lacteos"
+    ],
+    "time": 45,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "lacteos"
+    ],
+    "ingredients": [
+      {
+        "name": "Patata",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Espinacas",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Queso fresco tipo Burgos",
+        "quantity": "30 g"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad, batida (para rebozar)"
+      },
+      {
+        "name": "Pan rallado",
+        "quantity": "4 cucharadas (para rebozar)"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tenedor para chafar",
+      "Bandeja de horno",
+      "Papel de horno"
+    ],
+    "steps": [
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Lava bien las hojas de espinaca en agua fría, cambiando el agua un par de veces para arrastrar la tierra.",
+      "Cuece la patata y las espinacas juntas en agua sin sal unos 15 minutos, hasta que un tenedor atraviese la patata sin resistencia y las hojas se hayan reducido y estén blandas.",
+      "Escurre bien y chafa con un tenedor hasta obtener un puré espeso (con menos líquido que un puré normal, para que luego se pueda moldear).",
+      "Mezcla con el queso fresco tipo burgos chafado.",
+      "Con las manos húmedas, forma croquetas pequeñas y alargadas, del tamaño de un dedo — fáciles de coger para tu bebé.",
+      "Pasa cada croqueta por huevo batido y luego por pan rallado, presionando un poco para que se pegue bien.",
+      "Coloca las croquetas en una bandeja con papel de horno, con un chorrito de aceite de oliva por encima.",
+      "Hornea a 200°C unos 15-18 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas por fuera.",
+      "Deja templar antes de servir: por dentro retienen mucho calor."
+    ],
+    "tips": [
+      "Al hornearlas en vez de freírlas, llevan mucho menos aceite — perfectas para que las coja el bebé con la mano.",
+      "Se pueden dejar formadas (sin hornear) en la nevera de un día para otro, o congeladas ya rebozadas.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ],
+    "categories": [
+      "huevo",
+      "lacteos",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-cena-croquetas-de-boniato-al-horno",
+    "name": "Croquetas de boniato al horno",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "huevo"
+    ],
+    "time": 45,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Patata",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Boniato",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad, batida (para rebozar)"
+      },
+      {
+        "name": "Pan rallado",
+        "quantity": "4 cucharadas (para rebozar)"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tenedor para chafar",
+      "Bandeja de horno",
+      "Papel de horno"
+    ],
+    "steps": [
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Pela el boniato y córtalo en dados.",
+      "Cuece la patata y el boniato juntas en agua sin sal unos 15 minutos, hasta que un tenedor atraviese la patata sin resistencia y el boniato se deshaga al pincharlo.",
+      "Escurre bien y chafa con un tenedor hasta obtener un puré espeso (con menos líquido que un puré normal, para que luego se pueda moldear).",
+      "Deja templar la mezcla unos minutos.",
+      "Con las manos húmedas, forma croquetas pequeñas y alargadas, del tamaño de un dedo — fáciles de coger para tu bebé.",
+      "Pasa cada croqueta por huevo batido y luego por pan rallado, presionando un poco para que se pegue bien.",
+      "Coloca las croquetas en una bandeja con papel de horno, con un chorrito de aceite de oliva por encima.",
+      "Hornea a 200°C unos 15-18 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas por fuera.",
+      "Deja templar antes de servir: por dentro retienen mucho calor."
+    ],
+    "tips": [
+      "Al hornearlas en vez de freírlas, llevan mucho menos aceite — perfectas para que las coja el bebé con la mano.",
+      "Se pueden dejar formadas (sin hornear) en la nevera de un día para otro, o congeladas ya rebozadas."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-croquetas-de-brocoli-al-horno-con-queso",
+    "name": "Croquetas de brócoli al horno con queso",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "huevo",
+      "lacteos"
+    ],
+    "time": 45,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "lacteos"
+    ],
+    "ingredients": [
+      {
+        "name": "Patata",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Brócoli",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Queso fresco tipo Burgos",
+        "quantity": "30 g"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad, batida (para rebozar)"
+      },
+      {
+        "name": "Pan rallado",
+        "quantity": "4 cucharadas (para rebozar)"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tenedor para chafar",
+      "Bandeja de horno",
+      "Papel de horno"
+    ],
+    "steps": [
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Separa el brócoli en ramilletes pequeños y lávalos bien.",
+      "Cuece la patata y el brócoli juntas en agua sin sal unos 15 minutos, hasta que un tenedor atraviese la patata sin resistencia y el brócoli esté blando al pincharlo con un tenedor.",
+      "Escurre bien y chafa con un tenedor hasta obtener un puré espeso (con menos líquido que un puré normal, para que luego se pueda moldear).",
+      "Mezcla con el queso fresco tipo burgos chafado.",
+      "Con las manos húmedas, forma croquetas pequeñas y alargadas, del tamaño de un dedo — fáciles de coger para tu bebé.",
+      "Pasa cada croqueta por huevo batido y luego por pan rallado, presionando un poco para que se pegue bien.",
+      "Coloca las croquetas en una bandeja con papel de horno, con un chorrito de aceite de oliva por encima.",
+      "Hornea a 200°C unos 15-18 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas por fuera.",
+      "Deja templar antes de servir: por dentro retienen mucho calor."
+    ],
+    "tips": [
+      "Al hornearlas en vez de freírlas, llevan mucho menos aceite — perfectas para que las coja el bebé con la mano.",
+      "Se pueden dejar formadas (sin hornear) en la nevera de un día para otro, o congeladas ya rebozadas.",
+      "Este plato lleva lácteos: si es la primera vez que tu bebé los prueba, empieza con una cantidad pequeña."
+    ],
+    "categories": [
+      "huevo",
+      "lacteos",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-cena-croquetas-de-calabaza-al-horno",
+    "name": "Croquetas de calabaza al horno",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "huevo"
+    ],
+    "time": 45,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Patata",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Calabaza",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad, batida (para rebozar)"
+      },
+      {
+        "name": "Pan rallado",
+        "quantity": "4 cucharadas (para rebozar)"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Tenedor para chafar",
+      "Bandeja de horno",
+      "Papel de horno"
+    ],
+    "steps": [
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Cuece la patata y la calabaza juntas en agua sin sal unos 15 minutos, hasta que un tenedor atraviese la patata sin resistencia y la calabaza se deshaga al pincharla con un tenedor.",
+      "Escurre bien y chafa con un tenedor hasta obtener un puré espeso (con menos líquido que un puré normal, para que luego se pueda moldear).",
+      "Deja templar la mezcla unos minutos.",
+      "Con las manos húmedas, forma croquetas pequeñas y alargadas, del tamaño de un dedo — fáciles de coger para tu bebé.",
+      "Pasa cada croqueta por huevo batido y luego por pan rallado, presionando un poco para que se pegue bien.",
+      "Coloca las croquetas en una bandeja con papel de horno, con un chorrito de aceite de oliva por encima.",
+      "Hornea a 200°C unos 15-18 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas por fuera.",
+      "Deja templar antes de servir: por dentro retienen mucho calor."
+    ],
+    "tips": [
+      "Al hornearlas en vez de freírlas, llevan mucho menos aceite — perfectas para que las coja el bebé con la mano.",
+      "Se pueden dejar formadas (sin hornear) en la nevera de un día para otro, o congeladas ya rebozadas."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-albondigas-de-pechuga-de-pollo-con-tomate-casero",
+    "name": "Albóndigas de pechuga de pollo con tomate casero",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 40,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "proteina",
+      "verduras",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pollo picada",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Pan tierno",
+        "quantity": "1/2 rebanada, sin corteza, remojada en un poco de leche o agua"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "3 unidades maduras (para la salsa)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 unidad (para la salsa)"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Sartén con tapa",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Remoja el pan sin corteza en un par de cucharadas de leche o agua hasta que se ablande, y escúrrelo un poco.",
+      "Mezcla en un bol la pechuga de pollo pícada con el pan remojado, amasando bien con las manos hasta que quede una masa homogénea.",
+      "Forma bolitas pequeñas, del tamaño de una nuez, presionando bien para que no se deshagan al cocinar.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Sofríe la zanahoria en una sartén con un chorrito de aceite 3-4 minutos, añade el tomate troceado y cocina a fuego bajo 15 minutos, hasta que se deshaga.",
+      "Tritura la salsa con la batidora hasta que quede fina, sin sal ni azúcar añadidos.",
+      "Añade las albóndigas a la salsa, tapa y cocina a fuego bajo 12-15 minutos, dándoles la vuelta a mitad de cocción, hasta que estén bien hechas por dentro.",
+      "Parte una albóndiga por la mitad para comprobar que no quede nada crudo en el centro.",
+      "Deja templar antes de servir, aplastando un poco cada albóndiga si tu bebé aún prefiere trozos más blandos."
+    ],
+    "tips": [
+      "Las albóndigas y la salsa se congelan muy bien por separado, hasta 2 meses.",
+      "Plato ya equilibrado: la salsa aporta la mitad de verdura, la carne el cuarto de proteína y el pan remojado ayuda con el cuarto de hidratos."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-cena-albondigas-de-pechuga-de-pavo-con-tomate-casero",
+    "name": "Albóndigas de pechuga de pavo con tomate casero",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 40,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "proteina",
+      "verduras",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Pechuga de pavo picada",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Pan tierno",
+        "quantity": "1/2 rebanada, sin corteza, remojada en un poco de leche o agua"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "3 unidades maduras (para la salsa)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 unidad (para la salsa)"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Sartén con tapa",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Remoja el pan sin corteza en un par de cucharadas de leche o agua hasta que se ablande, y escúrrelo un poco.",
+      "Mezcla en un bol la pechuga de pavo pícada con el pan remojado, amasando bien con las manos hasta que quede una masa homogénea.",
+      "Forma bolitas pequeñas, del tamaño de una nuez, presionando bien para que no se deshagan al cocinar.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Sofríe la zanahoria en una sartén con un chorrito de aceite 3-4 minutos, añade el tomate troceado y cocina a fuego bajo 15 minutos, hasta que se deshaga.",
+      "Tritura la salsa con la batidora hasta que quede fina, sin sal ni azúcar añadidos.",
+      "Añade las albóndigas a la salsa, tapa y cocina a fuego bajo 12-15 minutos, dándoles la vuelta a mitad de cocción, hasta que estén bien hechas por dentro.",
+      "Parte una albóndiga por la mitad para comprobar que no quede nada crudo en el centro.",
+      "Deja templar antes de servir, aplastando un poco cada albóndiga si tu bebé aún prefiere trozos más blandos."
+    ],
+    "tips": [
+      "Las albóndigas y la salsa se congelan muy bien por separado, hasta 2 meses.",
+      "Plato ya equilibrado: la salsa aporta la mitad de verdura, la carne el cuarto de proteína y el pan remojado ayuda con el cuarto de hidratos."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-albondigas-de-ternera-con-tomate-casero",
+    "name": "Albóndigas de ternera con tomate casero",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 40,
+    "texture": "finger",
+    "season": "invierno",
+    "foodGroups": [
+      "proteina",
+      "verduras",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Ternera picada",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Pan tierno",
+        "quantity": "1/2 rebanada, sin corteza, remojada en un poco de leche o agua"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "3 unidades maduras (para la salsa)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "1/2 unidad (para la salsa)"
+      }
+    ],
+    "utensils": [
+      "Bol",
+      "Sartén con tapa",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Remoja el pan sin corteza en un par de cucharadas de leche o agua hasta que se ablande, y escúrrelo un poco.",
+      "Mezcla en un bol la ternera pícada con el pan remojado, amasando bien con las manos hasta que quede una masa homogénea.",
+      "Forma bolitas pequeñas, del tamaño de una nuez, presionando bien para que no se deshagan al cocinar.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Sofríe la zanahoria en una sartén con un chorrito de aceite 3-4 minutos, añade el tomate troceado y cocina a fuego bajo 15 minutos, hasta que se deshaga.",
+      "Tritura la salsa con la batidora hasta que quede fina, sin sal ni azúcar añadidos.",
+      "Añade las albóndigas a la salsa, tapa y cocina a fuego bajo 12-15 minutos, dándoles la vuelta a mitad de cocción, hasta que estén bien hechas por dentro.",
+      "Parte una albóndiga por la mitad para comprobar que no quede nada crudo en el centro.",
+      "Deja templar antes de servir, aplastando un poco cada albóndiga si tu bebé aún prefiere trozos más blandos."
+    ],
+    "tips": [
+      "Las albóndigas y la salsa se congelan muy bien por separado, hasta 2 meses.",
+      "Plato ya equilibrado: la salsa aporta la mitad de verdura, la carne el cuarto de proteína y el pan remojado ayuda con el cuarto de hidratos."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-tortitas-saladas-de-calabacin",
+    "name": "Tortitas saladas de calabacín",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo",
+      "gluten"
+    ],
+    "time": 25,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "verduras",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabacín",
+        "quantity": "1/2 calabacín pequeño, rallado"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Avena",
+        "quantity": "3 cucharadas (o harina)"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Colador",
+      "Bol",
+      "Sartén antiadherente"
+    ],
+    "steps": [
+      "Lava el calabacín y rállalo con un rallador de agujero grueso.",
+      "Pon el calabacín rallado en un colador y presiona bien para quitar el exceso de agua — así las tortitas no quedarán aguadas.",
+      "Mezcla el calabacín escurrido con el huevo batido y la avena hasta obtener una masa espesa que se sostenga.",
+      "Calienta una sartén antiadherente con un chorrito de aceite de oliva a fuego medio-bajo.",
+      "Con una cuchara, forma montoncitos pequeños y aplánalos un poco con el dorso de la cuchara.",
+      "Cocina 3-4 minutos por cada lado, hasta que estén doradas y firmes al tacto.",
+      "Deja templar sobre papel de cocina para quitar el exceso de aceite antes de servir."
+    ],
+    "tips": [
+      "Corta cada tortita en tiras antes de servir: son más fáciles de coger que una pieza redonda entera."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-cena-tortitas-saladas-de-zanahoria",
+    "name": "Tortitas saladas de zanahoria",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo",
+      "gluten"
+    ],
+    "time": 25,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "verduras",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Zanahoria",
+        "quantity": "1 zanahoria, pelada, rallada"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Avena",
+        "quantity": "3 cucharadas (o harina)"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Colador",
+      "Bol",
+      "Sartén antiadherente"
+    ],
+    "steps": [
+      "Lava la zanahoria y rállala con un rallador de agujero grueso.",
+      "Pon la zanahoria rallada en un colador y presiona bien para quitar el exceso de agua — así las tortitas no quedarán aguadas.",
+      "Mezcla la zanahoria escurrida con el huevo batido y la avena hasta obtener una masa espesa que se sostenga.",
+      "Calienta una sartén antiadherente con un chorrito de aceite de oliva a fuego medio-bajo.",
+      "Con una cuchara, forma montoncitos pequeños y aplánalos un poco con el dorso de la cuchara.",
+      "Cocina 3-4 minutos por cada lado, hasta que estén doradas y firmes al tacto.",
+      "Deja templar sobre papel de cocina para quitar el exceso de aceite antes de servir."
+    ],
+    "tips": [
+      "Corta cada tortita en tiras antes de servir: son más fáciles de coger que una pieza redonda entera."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-tortitas-saladas-de-boniato",
+    "name": "Tortitas saladas de boniato",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo",
+      "gluten"
+    ],
+    "time": 25,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "verduras",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Boniato",
+        "quantity": "1 boniato pequeño (unos 150 g), rallado"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Avena",
+        "quantity": "3 cucharadas (o harina)"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Colador",
+      "Bol",
+      "Sartén antiadherente"
+    ],
+    "steps": [
+      "Lava el boniato y rállalo con un rallador de agujero grueso.",
+      "Pon el boniato rallado en un colador y presiona bien para quitar el exceso de agua — así las tortitas no quedarán aguadas.",
+      "Mezcla el boniato escurrido con el huevo batido y la avena hasta obtener una masa espesa que se sostenga.",
+      "Calienta una sartén antiadherente con un chorrito de aceite de oliva a fuego medio-bajo.",
+      "Con una cuchara, forma montoncitos pequeños y aplánalos un poco con el dorso de la cuchara.",
+      "Cocina 3-4 minutos por cada lado, hasta que estén doradas y firmes al tacto.",
+      "Deja templar sobre papel de cocina para quitar el exceso de aceite antes de servir."
+    ],
+    "tips": [
+      "Corta cada tortita en tiras antes de servir: son más fáciles de coger que una pieza redonda entera."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-cena-tortitas-saladas-de-calabaza",
+    "name": "Tortitas saladas de calabaza",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "huevo",
+      "gluten"
+    ],
+    "time": 25,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "verduras",
+      "cereales"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabaza",
+        "quantity": "1/4 de calabaza pequeña, pelada y sin pepitas (unos 200 g), rallada"
+      },
+      {
+        "name": "Huevo",
+        "quantity": "1 unidad"
+      },
+      {
+        "name": "Avena",
+        "quantity": "3 cucharadas (o harina)"
+      }
+    ],
+    "utensils": [
+      "Rallador",
+      "Colador",
+      "Bol",
+      "Sartén antiadherente"
+    ],
+    "steps": [
+      "Lava la calabaza y rállala con un rallador de agujero grueso.",
+      "Pon la calabaza rallada en un colador y presiona bien para quitar el exceso de agua — así las tortitas no quedarán aguadas.",
+      "Mezcla la calabaza escurrida con el huevo batido y la avena hasta obtener una masa espesa que se sostenga.",
+      "Calienta una sartén antiadherente con un chorrito de aceite de oliva a fuego medio-bajo.",
+      "Con una cuchara, forma montoncitos pequeños y aplánalos un poco con el dorso de la cuchara.",
+      "Cocina 3-4 minutos por cada lado, hasta que estén doradas y firmes al tacto.",
+      "Deja templar sobre papel de cocina para quitar el exceso de aceite antes de servir."
+    ],
+    "tips": [
+      "Corta cada tortita en tiras antes de servir: son más fáciles de coger que una pieza redonda entera."
+    ],
+    "categories": [
+      "huevo",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-arroz-meloso-con-zanahoria-guisantes-y-pechuga-de-pollo",
+    "name": "Arroz meloso con zanahoria, guisantes y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 35,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Cazuela"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "No hace falta descongelar los guisantes antes: se añaden directamente a la cazuela.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Sofríe la zanahoria y los guisantes junto con la pechuga de pollo en la cazuela con un chorrito de aceite de oliva, 4-5 minutos.",
+      "Añade el arroz y remueve 1 minuto para que se impregne bien.",
+      "Cubre con agua o caldo casero sin sal (el doble de cantidad que de arroz) y lleva a ebullición.",
+      "Baja el fuego y cocina 16-18 minutos sin tapar, removiendo de vez en cuando y añadiendo más líquido si se seca demasiado — debe quedar con textura cremosa, ni caldoso ni seco.",
+      "Comprueba que el arroz y el resto de ingredientes estén blandos antes de retirar del fuego.",
+      "Deja templar unos minutos antes de servir."
+    ],
+    "tips": [
+      "El punto \"meloso\" (con algo de caldo ligado, no seco) hace que sea más fácil de comer con las manos o con cuchara que un arroz suelto.",
+      "Plato ya equilibrado: mitad verdura, un cuarto de cereal y un cuarto de proteína."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-arroz-meloso-con-calabacin-tomate-y-merluza",
+    "name": "Arroz meloso con calabacín, tomate y merluza",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [
+      "pescado"
+    ],
+    "time": 35,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Merluza",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Cazuela"
+    ],
+    "steps": [
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Cocina la merluza al vapor aparte y, con los dedos limpios, desmenúzala repasando bien cada trozo en busca de espinas antes de incorporarla.",
+      "Sofríe el calabacín y el tomate junto con la merluza en la cazuela con un chorrito de aceite de oliva, 4-5 minutos.",
+      "Añade el arroz y remueve 1 minuto para que se impregne bien.",
+      "Cubre con agua o caldo casero sin sal (el doble de cantidad que de arroz) y lleva a ebullición.",
+      "Baja el fuego y cocina 16-18 minutos sin tapar, removiendo de vez en cuando y añadiendo más líquido si se seca demasiado — debe quedar con textura cremosa, ni caldoso ni seco.",
+      "Comprueba que el arroz y el resto de ingredientes estén blandos antes de retirar del fuego.",
+      "Deja templar unos minutos antes de servir."
+    ],
+    "tips": [
+      "El punto \"meloso\" (con algo de caldo ligado, no seco) hace que sea más fácil de comer con las manos o con cuchara que un arroz suelto.",
+      "Plato ya equilibrado: mitad verdura, un cuarto de cereal y un cuarto de proteína."
+    ],
+    "categories": [
+      "pescado"
+    ]
+  },
+  {
+    "id": "g-comida-arroz-meloso-con-brocoli-zanahoria-y-pechuga-de-pavo",
+    "name": "Arroz meloso con brócoli, zanahoria y pechuga de pavo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 35,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Brócoli",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Pechuga de pavo",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Cazuela"
+    ],
+    "steps": [
+      "Separa el brócoli en ramilletes pequeños y lávalos bien.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta la pechuga de pavo en trozos pequeños, retirando cualquier resto de grasa.",
+      "Sofríe el brócoli y la zanahoria junto con la pechuga de pavo en la cazuela con un chorrito de aceite de oliva, 4-5 minutos.",
+      "Añade el arroz y remueve 1 minuto para que se impregne bien.",
+      "Cubre con agua o caldo casero sin sal (el doble de cantidad que de arroz) y lleva a ebullición.",
+      "Baja el fuego y cocina 16-18 minutos sin tapar, removiendo de vez en cuando y añadiendo más líquido si se seca demasiado — debe quedar con textura cremosa, ni caldoso ni seco.",
+      "Comprueba que el arroz y el resto de ingredientes estén blandos antes de retirar del fuego.",
+      "Deja templar unos minutos antes de servir."
+    ],
+    "tips": [
+      "El punto \"meloso\" (con algo de caldo ligado, no seco) hace que sea más fácil de comer con las manos o con cuchara que un arroz suelto.",
+      "Plato ya equilibrado: mitad verdura, un cuarto de cereal y un cuarto de proteína."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-arroz-meloso-con-pimiento-rojo-guisantes-y-pechuga-de-pollo",
+    "name": "Arroz meloso con pimiento rojo, guisantes y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 35,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Pimiento rojo",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Cazuela"
+    ],
+    "steps": [
+      "Lava el pimiento, retira las semillas y las partes blancas internas, y córtalo en tiras finas.",
+      "No hace falta descongelar los guisantes antes: se añaden directamente a la cazuela.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Sofríe el pimiento rojo y los guisantes junto con la pechuga de pollo en la cazuela con un chorrito de aceite de oliva, 4-5 minutos.",
+      "Añade el arroz y remueve 1 minuto para que se impregne bien.",
+      "Cubre con agua o caldo casero sin sal (el doble de cantidad que de arroz) y lleva a ebullición.",
+      "Baja el fuego y cocina 16-18 minutos sin tapar, removiendo de vez en cuando y añadiendo más líquido si se seca demasiado — debe quedar con textura cremosa, ni caldoso ni seco.",
+      "Comprueba que el arroz y el resto de ingredientes estén blandos antes de retirar del fuego.",
+      "Deja templar unos minutos antes de servir."
+    ],
+    "tips": [
+      "El punto \"meloso\" (con algo de caldo ligado, no seco) hace que sea más fácil de comer con las manos o con cuchara que un arroz suelto.",
+      "Plato ya equilibrado: mitad verdura, un cuarto de cereal y un cuarto de proteína."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-arroz-meloso-con-calabaza-y-ternera",
+    "name": "Arroz meloso con calabaza y ternera",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 35,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Calabaza",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Ternera",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Cazuela"
+    ],
+    "steps": [
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Corta la ternera en trozos muy pequeños, retirando nervios o grasa visible.",
+      "Sofríe la calabaza junto con la ternera en la cazuela con un chorrito de aceite de oliva, 4-5 minutos.",
+      "Añade el arroz y remueve 1 minuto para que se impregne bien.",
+      "Cubre con agua o caldo casero sin sal (el doble de cantidad que de arroz) y lleva a ebullición.",
+      "Baja el fuego y cocina 16-18 minutos sin tapar, removiendo de vez en cuando y añadiendo más líquido si se seca demasiado — debe quedar con textura cremosa, ni caldoso ni seco.",
+      "Comprueba que el arroz y el resto de ingredientes estén blandos antes de retirar del fuego.",
+      "Deja templar unos minutos antes de servir."
+    ],
+    "tips": [
+      "El punto \"meloso\" (con algo de caldo ligado, no seco) hace que sea más fácil de comer con las manos o con cuchara que un arroz suelto.",
+      "Plato ya equilibrado: mitad verdura, un cuarto de cereal y un cuarto de proteína."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-potaje-de-garbanzos-cocidos-con-zanahoria-y-puerro",
+    "name": "Potaje de garbanzos cocidos con zanahoria y puerro",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 50,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "legumbres",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Puerro",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta el puerro por la mitad a lo largo y lávalo bien separando las capas, ya que suele acumular tierra; corta la parte blanca y verde clara en rodajas finas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Sofríe la zanahoria y el puerro en la olla con un chorrito de aceite de oliva 5 minutos.",
+      "Añade los garbanzos cocidos, la patata y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego, tapa y cocina a fuego lento 30-35 minutos, hasta que todo esté muy tierno.",
+      "Aplasta un poco de patata contra las paredes de la olla con el cucharón: esto espesa el caldo de forma natural, sin necesidad de nada más.",
+      "Deja templar y sirve en trozos pequeños y blandos, aplastando alguna pieza más grande si hace falta."
+    ],
+    "tips": [
+      "El potaje mejora de un día para otro: si te sobra, guárdalo en la nevera y caliéntalo al día siguiente.",
+      "Plato ya equilibrado: la legumbre aporta la proteína, la patata el cuarto de hidratos y las verduras la mitad del plato."
+    ],
+    "categories": [
+      "legumbres",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-potaje-de-lentejas-con-calabaza-y-zanahoria",
+    "name": "Potaje de lentejas con calabaza y zanahoria",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 50,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "legumbres",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Lentejas",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Calabaza",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Pela la calabaza, retira las pepitas con una cuchara y córtala en dados de 2 cm.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Sofríe la calabaza y la zanahoria en la olla con un chorrito de aceite de oliva 5 minutos.",
+      "Añade las lentejas, la patata y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego, tapa y cocina a fuego lento 30-35 minutos, hasta que todo esté muy tierno.",
+      "Aplasta un poco de patata contra las paredes de la olla con el cucharón: esto espesa el caldo de forma natural, sin necesidad de nada más.",
+      "Deja templar y sirve en trozos pequeños y blandos, aplastando alguna pieza más grande si hace falta."
+    ],
+    "tips": [
+      "El potaje mejora de un día para otro: si te sobra, guárdalo en la nevera y caliéntalo al día siguiente.",
+      "Plato ya equilibrado: la legumbre aporta la proteína, la patata el cuarto de hidratos y las verduras la mitad del plato."
+    ],
+    "categories": [
+      "legumbres",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-potaje-de-judias-blancas-cocidas-con-puerro-y-zanahoria",
+    "name": "Potaje de judías blancas cocidas con puerro y zanahoria",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 50,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "legumbres",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Judías blancas cocidas",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Puerro",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta el puerro por la mitad a lo largo y lávalo bien separando las capas, ya que suele acumular tierra; corta la parte blanca y verde clara en rodajas finas.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Sofríe el puerro y la zanahoria en la olla con un chorrito de aceite de oliva 5 minutos.",
+      "Añade las judías blancas cocidas, la patata y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego, tapa y cocina a fuego lento 30-35 minutos, hasta que todo esté muy tierno.",
+      "Aplasta un poco de patata contra las paredes de la olla con el cucharón: esto espesa el caldo de forma natural, sin necesidad de nada más.",
+      "Deja templar y sirve en trozos pequeños y blandos, aplastando alguna pieza más grande si hace falta."
+    ],
+    "tips": [
+      "El potaje mejora de un día para otro: si te sobra, guárdalo en la nevera y caliéntalo al día siguiente.",
+      "Plato ya equilibrado: la legumbre aporta la proteína, la patata el cuarto de hidratos y las verduras la mitad del plato."
+    ],
+    "categories": [
+      "legumbres",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-potaje-de-garbanzos-cocidos-con-espinacas",
+    "name": "Potaje de garbanzos cocidos con espinacas",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 50,
+    "texture": "trocitos",
+    "season": "invierno",
+    "foodGroups": [
+      "legumbres",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Espinacas",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Patata",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Olla",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava bien las hojas de espinaca en agua fría, cambiando el agua un par de veces para arrastrar la tierra.",
+      "Pela la patata y córtala en dados de 2 cm.",
+      "Sofríe las espinacas en la olla con un chorrito de aceite de oliva 5 minutos.",
+      "Añade los garbanzos cocidos, la patata y cubre con agua sin sal.",
+      "Lleva a ebullición, baja el fuego, tapa y cocina a fuego lento 30-35 minutos, hasta que todo esté muy tierno.",
+      "Aplasta un poco de patata contra las paredes de la olla con el cucharón: esto espesa el caldo de forma natural, sin necesidad de nada más.",
+      "Deja templar y sirve en trozos pequeños y blandos, aplastando alguna pieza más grande si hace falta."
+    ],
+    "tips": [
+      "El potaje mejora de un día para otro: si te sobra, guárdalo en la nevera y caliéntalo al día siguiente.",
+      "Plato ya equilibrado: la legumbre aporta la proteína, la patata el cuarto de hidratos y las verduras la mitad del plato."
+    ],
+    "categories": [
+      "legumbres",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-pasta-con-salsa-de-zanahoria-y-calabacin",
+    "name": "Pasta con salsa de zanahoria y calabacín",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 30,
+    "texture": "trocitos",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta pequeña (tipo estrellitas o macarrones)",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "2 unidades maduras"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para la pasta",
+      "Sartén",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Cuece la pasta en agua sin sal siguiendo el tiempo del paquete, hasta que esté muy blanda (un poco más de lo habitual). Escurre y reserva.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Sofríe la zanahoria y el calabacín en la sartén con un chorrito de aceite 5 minutos.",
+      "Añade el tomate troceado y cocina a fuego bajo 12-15 minutos, hasta que se deshaga.",
+      "Tritura la salsa con la batidora hasta que quede fina — así la verdura queda \"escondida\" y no se nota a simple vista.",
+      "Mezcla la pasta con la salsa y remueve bien para que quede toda cubierta.",
+      "Deja templar y corta los trozos más grandes de pasta si hace falta."
+    ],
+    "tips": [
+      "Ideal para las etapas en las que el bebé rechaza ver trozos de verdura: aquí van triturados dentro de la salsa, pero la nutrición es la misma.",
+      "La salsa se puede preparar de más y congelar en porciones."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-pasta-con-salsa-de-pimiento-rojo-y-zanahoria-y-pechuga-de-pollo",
+    "name": "Pasta con salsa de pimiento rojo y zanahoria y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 30,
+    "texture": "trocitos",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta pequeña (tipo estrellitas o macarrones)",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "2 unidades maduras"
+      },
+      {
+        "name": "Pimiento rojo",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para la pasta",
+      "Sartén",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Cuece la pasta en agua sin sal siguiendo el tiempo del paquete, hasta que esté muy blanda (un poco más de lo habitual). Escurre y reserva.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Lava el pimiento, retira las semillas y las partes blancas internas, y córtalo en tiras finas.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Sofríe el pimiento rojo y la zanahoria y la pechuga de pollo en la sartén con un chorrito de aceite 5 minutos.",
+      "Añade el tomate troceado y cocina a fuego bajo 12-15 minutos, hasta que se deshaga.",
+      "Tritura la salsa con la batidora hasta que quede fina — así la verdura queda \"escondida\" y no se nota a simple vista.",
+      "Mezcla la pasta con la salsa y remueve bien para que quede toda cubierta.",
+      "Deja templar y corta los trozos más grandes de pasta si hace falta."
+    ],
+    "tips": [
+      "Ideal para las etapas en las que el bebé rechaza ver trozos de verdura: aquí van triturados dentro de la salsa, pero la nutrición es la misma.",
+      "La salsa se puede preparar de más y congelar en porciones."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-pasta-con-salsa-de-calabacin-y-ternera",
+    "name": "Pasta con salsa de calabacín y ternera",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 30,
+    "texture": "trocitos",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta pequeña (tipo estrellitas o macarrones)",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "2 unidades maduras"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Ternera",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para la pasta",
+      "Sartén",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Cuece la pasta en agua sin sal siguiendo el tiempo del paquete, hasta que esté muy blanda (un poco más de lo habitual). Escurre y reserva.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Corta la ternera en trozos muy pequeños, retirando nervios o grasa visible.",
+      "Sofríe el calabacín y la ternera en la sartén con un chorrito de aceite 5 minutos.",
+      "Añade el tomate troceado y cocina a fuego bajo 12-15 minutos, hasta que se deshaga.",
+      "Tritura la salsa con la batidora hasta que quede fina — así la verdura queda \"escondida\" y no se nota a simple vista.",
+      "Mezcla la pasta con la salsa y remueve bien para que quede toda cubierta.",
+      "Deja templar y corta los trozos más grandes de pasta si hace falta."
+    ],
+    "tips": [
+      "Ideal para las etapas en las que el bebé rechaza ver trozos de verdura: aquí van triturados dentro de la salsa, pero la nutrición es la misma.",
+      "La salsa se puede preparar de más y congelar en porciones."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-pasta-con-salsa-de-zanahoria-y-guisantes",
+    "name": "Pasta con salsa de zanahoria y guisantes",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 30,
+    "texture": "trocitos",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Pasta pequeña (tipo estrellitas o macarrones)",
+        "quantity": "50 g aprox. en crudo (un cuarto del plato)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "2 unidades maduras"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Cazuela para la pasta",
+      "Sartén",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Cuece la pasta en agua sin sal siguiendo el tiempo del paquete, hasta que esté muy blanda (un poco más de lo habitual). Escurre y reserva.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "No hace falta descongelar los guisantes antes: se añaden directamente a la cazuela.",
+      "Sofríe la zanahoria y los guisantes en la sartén con un chorrito de aceite 5 minutos.",
+      "Añade el tomate troceado y cocina a fuego bajo 12-15 minutos, hasta que se deshaga.",
+      "Tritura la salsa con la batidora hasta que quede fina — así la verdura queda \"escondida\" y no se nota a simple vista.",
+      "Mezcla la pasta con la salsa y remueve bien para que quede toda cubierta.",
+      "Deja templar y corta los trozos más grandes de pasta si hace falta."
+    ],
+    "tips": [
+      "Ideal para las etapas en las que el bebé rechaza ver trozos de verdura: aquí van triturados dentro de la salsa, pero la nutrición es la misma.",
+      "La salsa se puede preparar de más y congelar en porciones."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-ensalada-templada-de-garbanzos-cocidos-con-tomate-y-pimiento-rojo",
+    "name": "Ensalada templada de garbanzos cocidos con tomate y pimiento rojo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [],
+    "time": 20,
+    "texture": "trocitos",
+    "season": "verano",
+    "foodGroups": [
+      "legumbres",
+      "verduras",
+      "grasas"
+    ],
+    "ingredients": [
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Pimiento rojo",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela (si alguna verdura necesita cocción)",
+      "Tabla y cuchillo",
+      "Bol"
+    ],
+    "steps": [
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Lava el pimiento, retira las semillas y las partes blancas internas, y córtalo en tiras finas.",
+      "Cuece el tomate y el pimiento rojo al vapor unos 10 minutos, hasta que el tomate se deshaga y el pimiento esté blando.",
+      "En un bol, mezcla los garbanzos cocidos con las verduras templadas (recién cocidas, no frías de nevera) y un chorrito de aceite de oliva.",
+      "Remueve bien y corta cualquier pieza que quede demasiado grande para el bebé.",
+      "Sirve templada, ni caliente ni fría de nevera: es más agradable y segura en boca."
+    ],
+    "tips": [
+      "Servirla templada (no fría de la nevera) suele ser mejor aceptado por los bebés que un plato frío de verdad.",
+      "Plato ya equilibrado: mitad verdura, y la legumbre aporta a la vez proteína e hidratos."
+    ],
+    "categories": [
+      "legumbres",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-ensalada-templada-de-judias-blancas-cocidas-con-zanahoria-y-guisantes",
+    "name": "Ensalada templada de judías blancas cocidas con zanahoria y guisantes",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 20,
+    "texture": "trocitos",
+    "season": "verano",
+    "foodGroups": [
+      "legumbres",
+      "verduras",
+      "grasas"
+    ],
+    "ingredients": [
+      {
+        "name": "Judías blancas cocidas",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Guisantes",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela (si alguna verdura necesita cocción)",
+      "Tabla y cuchillo",
+      "Bol"
+    ],
+    "steps": [
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "No hace falta descongelar los guisantes antes: se añaden directamente a la cazuela.",
+      "Cuece la zanahoria y los guisantes al vapor unos 15 minutos, hasta que la zanahoria esté blanda al pinchar con un tenedor y los guisantes estén blandos.",
+      "En un bol, mezcla las judías blancas cocidas con las verduras templadas (recién cocidas, no frías de nevera) y un chorrito de aceite de oliva.",
+      "Remueve bien y corta cualquier pieza que quede demasiado grande para el bebé.",
+      "Sirve templada, ni caliente ni fría de nevera: es más agradable y segura en boca."
+    ],
+    "tips": [
+      "Servirla templada (no fría de la nevera) suele ser mejor aceptado por los bebés que un plato frío de verdad.",
+      "Plato ya equilibrado: mitad verdura, y la legumbre aporta a la vez proteína e hidratos."
+    ],
+    "categories": [
+      "legumbres",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-ensalada-templada-de-garbanzos-cocidos-con-tomate",
+    "name": "Ensalada templada de garbanzos cocidos con tomate",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 20,
+    "texture": "trocitos",
+    "season": "verano",
+    "foodGroups": [
+      "legumbres",
+      "verduras",
+      "grasas"
+    ],
+    "ingredients": [
+      {
+        "name": "Garbanzos cocidos",
+        "quantity": "50 g aprox. (un cuarto del plato)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "100 g aprox. (mitad del plato)"
+      },
+      {
+        "name": "Aceite de oliva virgen extra",
+        "quantity": "1 cucharadita"
+      }
+    ],
+    "utensils": [
+      "Cazuela (si alguna verdura necesita cocción)",
+      "Tabla y cuchillo",
+      "Bol"
+    ],
+    "steps": [
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Cuece el tomate al vapor unos 8 minutos, hasta que el tomate se deshaga.",
+      "En un bol, mezcla los garbanzos cocidos con las verduras templadas (recién cocidas, no frías de nevera) y un chorrito de aceite de oliva.",
+      "Remueve bien y corta cualquier pieza que quede demasiado grande para el bebé.",
+      "Sirve templada, ni caliente ni fría de nevera: es más agradable y segura en boca."
+    ],
+    "tips": [
+      "Servirla templada (no fría de la nevera) suele ser mejor aceptado por los bebés que un plato frío de verdad.",
+      "Plato ya equilibrado: mitad verdura, y la legumbre aporta a la vez proteína e hidratos."
+    ],
+    "categories": [
+      "legumbres",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-merienda-brocheta-blanda-de-sandia-y-melocoton",
+    "name": "\"Brocheta\" blanda de sandía y melocotón",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "finger",
+    "season": "verano",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Sandía",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Melocotón",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Cazuela (para lo que necesite cocción)"
+    ],
+    "steps": [
+      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
+      "Cuece el melocotón al vapor unos 10 minutos, hasta que el melocotón se deshaga.",
+      "Corta la sandía en trozos pequeños, retirando bien todas las pepitas.",
+      "Corta cada ingrediente en bastones o tiras del mismo grosor, del tamaño de un dedo.",
+      "Coloca los trozos en el plato en fila, alternando colores, imitando el aspecto de una brocheta.",
+      "No uses un palito ni pincho real: para bebés es un riesgo de atragantamiento o herida — el efecto visual basta sin necesidad de ensartarlos de verdad."
+    ],
+    "tips": [
+      "La gracia de este plato es visual: piezas de colores en fila, para que resulte más apetecible sin ningún riesgo añadido.",
+      "Perfecto para ir dejando que el bebé se autoalimente, pieza a pieza."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-merienda-brocheta-blanda-de-platano-y-fresas",
+    "name": "\"Brocheta\" blanda de plátano y fresas",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "finger",
+    "season": "verano",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Plátano",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Fresas",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Cazuela (para lo que necesite cocción)"
+    ],
+    "steps": [
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
+      "Corta cada ingrediente en bastones o tiras del mismo grosor, del tamaño de un dedo.",
+      "Coloca los trozos en el plato en fila, alternando colores, imitando el aspecto de una brocheta.",
+      "No uses un palito ni pincho real: para bebés es un riesgo de atragantamiento o herida — el efecto visual basta sin necesidad de ensartarlos de verdad."
+    ],
+    "tips": [
+      "La gracia de este plato es visual: piezas de colores en fila, para que resulte más apetecible sin ningún riesgo añadido.",
+      "Perfecto para ir dejando que el bebé se autoalimente, pieza a pieza."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-merienda-brocheta-blanda-de-kiwi-y-mango",
+    "name": "\"Brocheta\" blanda de kiwi y mango",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "finger",
+    "season": "verano",
+    "foodGroups": [
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Kiwi",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Mango",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Cazuela (para lo que necesite cocción)"
+    ],
+    "steps": [
+      "Pela el kiwi y trocéalo.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Corta cada ingrediente en bastones o tiras del mismo grosor, del tamaño de un dedo.",
+      "Coloca los trozos en el plato en fila, alternando colores, imitando el aspecto de una brocheta.",
+      "No uses un palito ni pincho real: para bebés es un riesgo de atragantamiento o herida — el efecto visual basta sin necesidad de ensartarlos de verdad."
+    ],
+    "tips": [
+      "La gracia de este plato es visual: piezas de colores en fila, para que resulte más apetecible sin ningún riesgo añadido.",
+      "Perfecto para ir dejando que el bebé se autoalimente, pieza a pieza."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-brocheta-blanda-de-calabacin-zanahoria-y-pechuga-de-pollo",
+    "name": "\"Brocheta\" blanda de calabacín, zanahoria y pechuga de pollo",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 1,
+    "allergens": [],
+    "time": 15,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "verduras",
+      "proteina"
+    ],
+    "ingredients": [
+      {
+        "name": "Calabacín",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las 3)"
+      },
+      {
+        "name": "Zanahoria",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las 3)"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las 3)"
+      }
+    ],
+    "utensils": [
+      "Tabla y cuchillo",
+      "Cazuela (para lo que necesite cocción)"
+    ],
+    "steps": [
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Pela la zanahoria y córtala en rodajas finas.",
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Cuece el calabacín, la zanahoria y la pechuga de pollo al vapor unos 20 minutos, hasta que el calabacín se deshaga al pincharlo, la zanahoria esté blanda al pinchar con un tenedor y el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Corta cada ingrediente en bastones o tiras del mismo grosor, del tamaño de un dedo.",
+      "Coloca los trozos en el plato en fila, alternando colores, imitando el aspecto de una brocheta.",
+      "No uses un palito ni pincho real: para bebés es un riesgo de atragantamiento o herida — el efecto visual basta sin necesidad de ensartarlos de verdad."
+    ],
+    "tips": [
+      "La gracia de este plato es visual: piezas de colores en fila, para que resulte más apetecible sin ningún riesgo añadido.",
+      "Perfecto para ir dejando que el bebé se autoalimente, pieza a pieza."
     ],
     "categories": [
       "carne"

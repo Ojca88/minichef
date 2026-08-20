@@ -60,6 +60,52 @@ export default function SyncPanel() {
         </p>
       )}
 
+      {cloud.isSupabaseConfigured && !cloud.authLoading && (
+        cloud.user ? (
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+              {cloud.user.avatar ? (
+                <img src={cloud.user.avatar} alt="" width={28} height={28} style={{ borderRadius: '50%', flexShrink: 0 }} />
+              ) : (
+                <span style={{
+                  width: 28, height: 28, borderRadius: '50%', background: 'var(--sage-light)', color: 'var(--sage-dark)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, flexShrink: 0,
+                }}>
+                  {cloud.user.name.charAt(0).toUpperCase()}
+                </span>
+              )}
+              <span style={{ fontSize: 13, fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {cloud.user.name}
+              </span>
+            </div>
+            <button
+              onClick={cloud.signOut}
+              style={{ fontSize: 12, color: 'var(--ink-muted)', background: 'none', border: 'none', textDecoration: 'underline', flexShrink: 0 }}
+            >
+              Cerrar sesión
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={cloud.signInWithGoogle}
+            className="pressable"
+            style={{
+              width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+              padding: '10px 0', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)',
+              background: 'var(--white)', fontSize: 13, fontWeight: 600, color: 'var(--ink)',
+            }}
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M23.5 12.3c0-.85-.08-1.66-.22-2.45H12v4.63h6.46c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.56-5.17 3.56-8.8Z" />
+              <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.9l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.13 0-5.78-2.11-6.73-4.96H1.26v3.1C3.24 21.3 7.3 24 12 24Z" />
+              <path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29v-3.1H1.26A11.98 11.98 0 0 0 0 12c0 1.93.47 3.76 1.26 5.39l4.01-3.1Z" />
+              <path fill="#EA4335" d="M12 4.75c1.76 0 3.34.6 4.58 1.79l3.44-3.44C17.95 1.19 15.24 0 12 0 7.3 0 3.24 2.7 1.26 6.61l4.01 3.1C6.22 6.86 8.87 4.75 12 4.75Z" />
+            </svg>
+            Continuar con Google
+          </button>
+        )
+      )}
+
       {cloud.isSupabaseConfigured && !cloud.code && (
         <>
           <p style={{ fontSize: 12, color: 'var(--ink-muted)', lineHeight: 1.5 }}>

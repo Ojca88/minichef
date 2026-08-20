@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { RECIPES, AGE_RANGES, formatTodayLong, formatUpdatedAt } from '../data';
 import { useCloud } from '../CloudSyncContext';
 import RecipeCard from '../components/RecipeCard';
@@ -132,6 +132,12 @@ export default function Home() {
         </div>
 
         <SyncPanel />
+
+        <p style={{ textAlign: 'center', marginTop: 18, fontSize: 12 }}>
+          <Link to="/privacidad" style={{ color: 'var(--ink-muted)', textDecoration: 'underline' }}>
+            Política de privacidad
+          </Link>
+        </p>
       </div>
     </div>
   );

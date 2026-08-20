@@ -33,6 +33,21 @@ function writeLocalFallback(data) {
   try { localStorage.setItem(LOCAL_FALLBACK_KEY, JSON.stringify(data)); } catch { /* no-op */ }
 }
 
+// A partir de la sesión de Supabase Auth, extrae { id, name, avatar, email }
+// de la forma más robusta posible (Google no siempre rellena los mismos
+// campos de user_metadata).
+function profileFromSession(session) {
+  if (!session?.user) return null;
+  const u = session.user;
+  const meta = u.user_metadata || {};
+  return {
+    id: u.id,
+    name: meta.full_name || meta.name || u.email || 'Sin nombre',
+    avatar: meta.avatar_url || meta.picture || null,
+    email: u.email || null,
+  };
+}
+
 const CloudSyncContext = createContext(null);
 
 export function CloudSyncProvider({ children }) {
@@ -41,8 +56,80 @@ export function CloudSyncProvider({ children }) {
   // status: 'offline' (sin Supabase configurado), 'no-code' (configurado pero sin código
   // todavía), 'loading', 'synced', 'error'
   const [status, setStatus] = useState(isSupabaseConfigured ? 'loading' : 'offline');
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(isSupabaseConfigured);
   const channelRef = useRef(null);
 
+  // --- Sesión de Google / Supabase Auth ---------------------------------
+  useEffect(() => {
+    if (!isSupabaseConfigured) { setAuthLoading(false); return undefined; }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(profileFromSession(session));
+      setAuthLoading(false);
+    });
+
+    const { data: sub } = supabase.auth.onAuthStateChange(async (event, session) => {
+      const profile = profileFromSession(session);
+      setUser(profile);
+      if (event === 'SIGNED_IN' && profile) {
+        await linkAccountToHousehold(profile);
+      }
+    });
+
+    return () => sub.subscription.unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Al iniciar sesión: si esta cuenta de Google ya estaba vinculada a un
+  // hogar, se usa ese. Si no, y ya había un código activo en este
+  // dispositivo (uso anónimo previo), se vincula ese código a la cuenta
+  // para no perder los datos. Si tampoco había código, se crea un hogar
+  // nuevo y se vincula directamente.
+  async function linkAccountToHousehold(profile) {
+    const { data: existingLink } = await supabase
+      .from('user_households')
+      .select('code')
+      .eq('user_id', profile.id)
+      .maybeSingle();
+
+    if (existingLink?.code) {
+      setStoredCode(existingLink.code);
+      setCode(existingLink.code);
+      return;
+    }
+
+    const targetCode = code || randomCode();
+    if (!code) {
+      await supabase.from('households').insert({ code: targetCode, data }).select().maybeSingle();
+    }
+    await supabase.from('user_households').upsert({
+      user_id: profile.id,
+      code: targetCode,
+      display_name: profile.name,
+      avatar_url: profile.avatar,
+    });
+    setStoredCode(targetCode);
+    setCode(targetCode);
+  }
+
+  const signInWithGoogle = useCallback(async () => {
+    if (!isSupabaseConfigured) return;
+    await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin },
+    });
+  }, []);
+
+  const signOut = useCallback(async () => {
+    if (!isSupabaseConfigured) return;
+    await supabase.auth.signOut();
+    setUser(null);
+    // El código de hogar se queda tal cual: cerrar sesión de Google no te
+    // saca de tu hogar, solo deja de identificarte como "tú" al marcar cosas.
+  }, []);
+
+  // --- Sincronización del hogar (código de 6 letras) ---------------------
   useEffect(() => {
     if (!isSupabaseConfigured) { setStatus('offline'); return undefined; }
     if (!code) { setStatus('no-code'); return undefined; }
@@ -94,25 +181,38 @@ export function CloudSyncProvider({ children }) {
     if (isSupabaseConfigured) {
       const { error } = await supabase.from('households').insert({ code: newCode, data });
       if (error) { setStatus('error'); return null; }
+      if (user) {
+        await supabase.from('user_households').upsert({
+          user_id: user.id, code: newCode, display_name: user.name, avatar_url: user.avatar,
+        });
+      }
     }
     setStoredCode(newCode);
     setCode(newCode);
     return newCode;
-  }, [data]);
+  }, [data, user]);
 
-  const joinHousehold = useCallback((inputCode) => {
+  const joinHousehold = useCallback(async (inputCode) => {
     const clean = inputCode.trim().toUpperCase();
     if (!clean) return;
     setStoredCode(clean);
     setCode(clean);
-  }, []);
+    if (isSupabaseConfigured && user) {
+      await supabase.from('user_households').upsert({
+        user_id: user.id, code: clean, display_name: user.name, avatar_url: user.avatar,
+      });
+    }
+  }, [user]);
 
   const leaveHousehold = useCallback(() => {
     setStoredCode(null);
     setCode(null);
   }, []);
 
-  const value = { code, data, status, save, createHousehold, joinHousehold, leaveHousehold, isSupabaseConfigured };
+  const value = {
+    code, data, status, save, createHousehold, joinHousehold, leaveHousehold, isSupabaseConfigured,
+    user, authLoading, signInWithGoogle, signOut,
+  };
   return <CloudSyncContext.Provider value={value}>{children}</CloudSyncContext.Provider>;
 }
 
