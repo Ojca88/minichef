@@ -123,13 +123,13 @@ export function CloudSyncProvider({ children }) {
 
   const createHousehold = useCallback(async (name) => {
     const { data: h, error } = await supabase.rpc('create_household', { household_name: name || 'Mi hogar' });
-    if (error) { setStatus('error'); return null; }
+    if (error) { setStatus('error'); return { error: error.message }; }
     setHousehold(h);
     setData(h.data || {});
     writeLocalFallback(h.data || {});
     setStatus('synced');
     loadMembers(h.id);
-    return h;
+    return { household: h };
   }, []);
 
   const joinHousehold = useCallback(async (code) => {

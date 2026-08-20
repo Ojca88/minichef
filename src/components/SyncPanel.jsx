@@ -24,13 +24,19 @@ export default function SyncPanel() {
   const [nameInput, setNameInput] = useState('');
   const [joinInput, setJoinInput] = useState('');
   const [joinError, setJoinError] = useState('');
+  const [createError, setCreateError] = useState('');
   const [copied, setCopied] = useState(false);
   const [showMembers, setShowMembers] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState('');
   const [showDeleteBox, setShowDeleteBox] = useState(false);
 
   async function handleCreate() {
-    await cloud.createHousehold(nameInput.trim() || 'Mi hogar');
+    setCreateError('');
+    const result = await cloud.createHousehold(nameInput.trim() || 'Mi hogar');
+    if (result?.error) {
+      setCreateError(result.error);
+      return;
+    }
     setNameInput('');
   }
 
@@ -158,6 +164,7 @@ export default function SyncPanel() {
           >
             Crear mi hogar
           </button>
+          {createError && <p style={{ fontSize: 12, color: '#C4302B' }}>{createError}</p>}
           <div style={{ display: 'flex', gap: 8 }}>
             <input
               type="text"
