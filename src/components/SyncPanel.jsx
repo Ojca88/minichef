@@ -3,7 +3,8 @@ import { useCloud } from '../CloudSyncContext';
 
 const STATUS_LABEL = {
   offline: 'Guardado solo en este dispositivo',
-  'no-code': 'Sin sincronizar todavía',
+  'no-household': 'Sin hogar todavía',
+  authenticating: 'Conectando...',
   loading: 'Cargando...',
   synced: 'Sincronizado',
   error: 'Error al sincronizar',
@@ -11,7 +12,8 @@ const STATUS_LABEL = {
 
 const STATUS_COLOR = {
   offline: 'var(--ink-muted)',
-  'no-code': 'var(--ink-muted)',
+  'no-household': 'var(--ink-muted)',
+  authenticating: 'var(--apricot)',
   loading: 'var(--apricot)',
   synced: 'var(--sage-dark)',
   error: '#C4302B',
@@ -19,16 +21,27 @@ const STATUS_COLOR = {
 
 export default function SyncPanel() {
   const cloud = useCloud();
+  const [nameInput, setNameInput] = useState('');
   const [joinInput, setJoinInput] = useState('');
+  const [joinError, setJoinError] = useState('');
   const [copied, setCopied] = useState(false);
+  const [showMembers, setShowMembers] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState('');
+  const [showDeleteBox, setShowDeleteBox] = useState(false);
 
   async function handleCreate() {
-    await cloud.createHousehold();
+    await cloud.createHousehold(nameInput.trim() || 'Mi hogar');
+    setNameInput('');
   }
 
-  function handleJoin() {
+  async function handleJoin() {
     if (!joinInput.trim()) return;
-    cloud.joinHousehold(joinInput);
+    setJoinError('');
+    const result = await cloud.joinHousehold(joinInput);
+    if (result?.error) {
+      setJoinError(result.error === 'CODIGO_INVALIDO' ? 'Ese código no existe. Revísalo e inténtalo de nuevo.' : 'No se pudo unir. Inténtalo de nuevo.');
+      return;
+    }
     setJoinInput('');
   }
 
@@ -40,6 +53,13 @@ export default function SyncPanel() {
     });
   }
 
+  async function handleDelete() {
+    const ok = await cloud.deleteHousehold(confirmDelete);
+    if (ok) { setShowDeleteBox(false); setConfirmDelete(''); }
+  }
+
+  const isOwner = cloud.members.find((m) => m.user_id === cloud.user?.id)?.role === 'owner';
+
   return (
     <div className="card" style={{
       background: 'var(--white)', border: '1px solid var(--line)', borderRadius: 'var(--radius-md)',
@@ -50,7 +70,7 @@ export default function SyncPanel() {
           <path d="M6.5 16.5A4.5 4.5 0 0 1 7 7.6a6 6 0 0 1 11.4 2A4 4 0 0 1 17.5 17H7c-.2 0-.3 0-.5-.1Z" fill="none" stroke="var(--sage-dark)" strokeWidth="1.8" strokeLinejoin="round" />
         </svg>
         <span style={{ fontFamily: 'var(--font-display)', fontSize: 15, fontWeight: 600 }}>
-          Sincronización familiar
+          {cloud.household ? cloud.household.name : 'Mi hogar'}
         </span>
       </div>
 
@@ -61,7 +81,7 @@ export default function SyncPanel() {
       )}
 
       {cloud.isSupabaseConfigured && !cloud.authLoading && (
-        cloud.user ? (
+        cloud.user && !cloud.user.isAnonymous ? (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
               {cloud.user.avatar ? (
@@ -86,31 +106,47 @@ export default function SyncPanel() {
             </button>
           </div>
         ) : (
-          <button
-            onClick={cloud.signInWithGoogle}
-            className="pressable"
-            style={{
-              width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-              padding: '10px 0', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)',
-              background: 'var(--white)', fontSize: 13, fontWeight: 600, color: 'var(--ink)',
-            }}
-          >
-            <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="#4285F4" d="M23.5 12.3c0-.85-.08-1.66-.22-2.45H12v4.63h6.46c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.56-5.17 3.56-8.8Z" />
-              <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.9l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.13 0-5.78-2.11-6.73-4.96H1.26v3.1C3.24 21.3 7.3 24 12 24Z" />
-              <path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29v-3.1H1.26A11.98 11.98 0 0 0 0 12c0 1.93.47 3.76 1.26 5.39l4.01-3.1Z" />
-              <path fill="#EA4335" d="M12 4.75c1.76 0 3.34.6 4.58 1.79l3.44-3.44C17.95 1.19 15.24 0 12 0 7.3 0 3.24 2.7 1.26 6.61l4.01 3.1C6.22 6.86 8.87 4.75 12 4.75Z" />
-            </svg>
-            Continuar con Google
-          </button>
+          <>
+            <button
+              onClick={cloud.signInWithGoogle}
+              className="pressable"
+              style={{
+                width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                padding: '10px 0', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)',
+                background: 'var(--white)', fontSize: 13, fontWeight: 600, color: 'var(--ink)',
+              }}
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M23.5 12.3c0-.85-.08-1.66-.22-2.45H12v4.63h6.46c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.56-5.17 3.56-8.8Z" />
+                <path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.9l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.13 0-5.78-2.11-6.73-4.96H1.26v3.1C3.24 21.3 7.3 24 12 24Z" />
+                <path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29v-3.1H1.26A11.98 11.98 0 0 0 0 12c0 1.93.47 3.76 1.26 5.39l4.01-3.1Z" />
+                <path fill="#EA4335" d="M12 4.75c1.76 0 3.34.6 4.58 1.79l3.44-3.44C17.95 1.19 15.24 0 12 0 7.3 0 3.24 2.7 1.26 6.61l4.01 3.1C6.22 6.86 8.87 4.75 12 4.75Z" />
+              </svg>
+              Continuar con Google
+            </button>
+            {cloud.household && (
+              <p style={{ fontSize: 11, color: 'var(--ink-muted)', lineHeight: 1.5 }}>
+                Vincula tu cuenta de Google para entrar directamente en este hogar la próxima vez, sin escribir el código.
+              </p>
+            )}
+          </>
         )
       )}
 
-      {cloud.isSupabaseConfigured && !cloud.code && (
+      {cloud.isSupabaseConfigured && !cloud.household && cloud.status !== 'authenticating' && (
         <>
           <p style={{ fontSize: 12, color: 'var(--ink-muted)', lineHeight: 1.5 }}>
-            Crea un código para tu familia y compártelo en otro dispositivo, o introduce uno que ya tengas.
+            Crea un hogar para tu familia y comparte su código, o introduce uno que ya tengas.
           </p>
+          <input
+            type="text"
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
+            placeholder="Nombre del hogar (ej. Familia García)"
+            style={{
+              fontSize: 13, padding: '10px 12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)',
+            }}
+          />
           <button
             onClick={handleCreate}
             className="pressable"
@@ -120,13 +156,13 @@ export default function SyncPanel() {
               boxShadow: 'var(--shadow-sage)',
             }}
           >
-            Crear código para mi familia
+            Crear mi hogar
           </button>
           <div style={{ display: 'flex', gap: 8 }}>
             <input
               type="text"
               value={joinInput}
-              onChange={(e) => setJoinInput(e.target.value.toUpperCase())}
+              onChange={(e) => { setJoinInput(e.target.value.toUpperCase()); setJoinError(''); }}
               onKeyDown={(e) => e.key === 'Enter' && handleJoin()}
               placeholder="Código de 6 letras"
               maxLength={6}
@@ -146,10 +182,11 @@ export default function SyncPanel() {
               Unirme
             </button>
           </div>
+          {joinError && <p style={{ fontSize: 12, color: '#C4302B' }}>{joinError}</p>}
         </>
       )}
 
-      {cloud.isSupabaseConfigured && cloud.code && (
+      {cloud.isSupabaseConfigured && cloud.household && (
         <>
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -181,8 +218,45 @@ export default function SyncPanel() {
             </button>
           </div>
           <p style={{ fontSize: 12, color: 'var(--ink-muted)', lineHeight: 1.5 }}>
-            Introduce este código en la app desde otro dispositivo para compartir el menú, la lista de la compra y el seguimiento.
+            Este código sirve para unirse una vez — a partir de ahí, cada persona ya forma parte del hogar aunque el código cambie.
           </p>
+
+          <button
+            onClick={() => setShowMembers((v) => !v)}
+            style={{ fontSize: 12, color: 'var(--sage-dark)', background: 'none', border: 'none', textAlign: 'left', fontWeight: 600 }}
+          >
+            {showMembers ? '▾' : '▸'} Miembros ({cloud.members.length})
+          </button>
+          {showMembers && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {cloud.members.map((m) => (
+                <div key={m.user_id} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+                  {m.profiles?.avatar_url ? (
+                    <img src={m.profiles.avatar_url} alt="" width={20} height={20} style={{ borderRadius: '50%' }} />
+                  ) : (
+                    <span style={{
+                      width: 20, height: 20, borderRadius: '50%', background: 'var(--sage-light)', color: 'var(--sage-dark)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 700,
+                    }}>
+                      {(m.profiles?.display_name || '?').charAt(0).toUpperCase()}
+                    </span>
+                  )}
+                  <span>{m.profiles?.display_name || 'Invitado'}</span>
+                  {m.role === 'owner' && <span style={{ color: 'var(--ink-muted)' }}>· propietario</span>}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {isOwner && (
+            <button
+              onClick={cloud.regenerateCode}
+              style={{ fontSize: 12, color: 'var(--ink-muted)', background: 'none', border: 'none', textAlign: 'left', textDecoration: 'underline' }}
+            >
+              Regenerar código (el actual dejará de funcionar)
+            </button>
+          )}
+
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: STATUS_COLOR[cloud.status] }}>
               <span style={{ width: 7, height: 7, borderRadius: '50%', background: STATUS_COLOR[cloud.status] }} />
@@ -192,9 +266,55 @@ export default function SyncPanel() {
               onClick={cloud.leaveHousehold}
               style={{ fontSize: 12, color: 'var(--ink-muted)', background: 'none', border: 'none', textDecoration: 'underline' }}
             >
-              Salir de este código
+              Salir de este hogar
             </button>
           </div>
+
+          {isOwner && (
+            <div style={{ borderTop: '1px solid var(--line)', paddingTop: 10, marginTop: 4 }}>
+              {!showDeleteBox ? (
+                <button
+                  onClick={() => setShowDeleteBox(true)}
+                  style={{ fontSize: 12, color: '#C4302B', background: 'none', border: 'none', textDecoration: 'underline' }}
+                >
+                  Eliminar este hogar
+                </button>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <p style={{ fontSize: 12, color: '#9A5A20', lineHeight: 1.5 }}>
+                    Esto borra el menú, la lista de la compra y el seguimiento de todos los miembros, sin vuelta atrás.
+                    Escribe <strong>{cloud.household.name}</strong> para confirmar.
+                  </p>
+                  <input
+                    type="text"
+                    value={confirmDelete}
+                    onChange={(e) => setConfirmDelete(e.target.value)}
+                    placeholder={cloud.household.name}
+                    style={{ fontSize: 13, padding: '9px 10px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)' }}
+                  />
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <button
+                      onClick={handleDelete}
+                      disabled={confirmDelete !== cloud.household.name}
+                      style={{
+                        flex: 1, fontSize: 12, fontWeight: 600, padding: '9px 0', borderRadius: 'var(--radius-sm)', border: 'none',
+                        background: confirmDelete === cloud.household.name ? '#C4302B' : 'var(--line)',
+                        color: 'white', opacity: confirmDelete === cloud.household.name ? 1 : 0.6,
+                      }}
+                    >
+                      Eliminar definitivamente
+                    </button>
+                    <button
+                      onClick={() => { setShowDeleteBox(false); setConfirmDelete(''); }}
+                      style={{ fontSize: 12, padding: '9px 12px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)', background: 'white' }}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </>
       )}
     </div>

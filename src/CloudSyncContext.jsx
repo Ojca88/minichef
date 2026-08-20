@@ -1,26 +1,7 @@
 import { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
 import { supabase, isSupabaseConfigured } from './supabaseClient';
 
-const CODE_KEY = 'minichef:household-code';
 const LOCAL_FALLBACK_KEY = 'minichef:local-data';
-const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // sin caracteres ambiguos (0/O, 1/I...)
-
-function randomCode() {
-  let code = '';
-  for (let i = 0; i < 6; i++) code += CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)];
-  return code;
-}
-
-function getStoredCode() {
-  try { return localStorage.getItem(CODE_KEY) || null; } catch { return null; }
-}
-
-function setStoredCode(code) {
-  try {
-    if (code) localStorage.setItem(CODE_KEY, code);
-    else localStorage.removeItem(CODE_KEY);
-  } catch { /* localStorage no disponible: se ignora */ }
-}
 
 function readLocalFallback() {
   try {
@@ -33,185 +14,207 @@ function writeLocalFallback(data) {
   try { localStorage.setItem(LOCAL_FALLBACK_KEY, JSON.stringify(data)); } catch { /* no-op */ }
 }
 
-// A partir de la sesión de Supabase Auth, extrae { id, name, avatar, email }
-// de la forma más robusta posible (Google no siempre rellena los mismos
-// campos de user_metadata).
+// A partir de la sesión de Supabase Auth, extrae { id, name, avatar, email,
+// isAnonymous } de la forma más robusta posible.
 function profileFromSession(session) {
   if (!session?.user) return null;
   const u = session.user;
   const meta = u.user_metadata || {};
   return {
     id: u.id,
-    name: meta.full_name || meta.name || u.email || 'Sin nombre',
+    name: meta.full_name || meta.name || u.email || 'Invitado',
     avatar: meta.avatar_url || meta.picture || null,
     email: u.email || null,
+    isAnonymous: Boolean(u.is_anonymous),
   };
 }
 
 const CloudSyncContext = createContext(null);
 
 export function CloudSyncProvider({ children }) {
-  const [code, setCode] = useState(getStoredCode);
+  const [household, setHousehold] = useState(null); // { id, name, invite_code, data, ... } | null
+  const [members, setMembers] = useState([]); // [{ user_id, role, profiles: {...} }]
   const [data, setData] = useState(readLocalFallback);
-  // status: 'offline' (sin Supabase configurado), 'no-code' (configurado pero sin código
-  // todavía), 'loading', 'synced', 'error'
-  const [status, setStatus] = useState(isSupabaseConfigured ? 'loading' : 'offline');
+  // status: 'offline' | 'authenticating' | 'no-household' | 'loading' | 'synced' | 'error'
+  const [status, setStatus] = useState(isSupabaseConfigured ? 'authenticating' : 'offline');
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(isSupabaseConfigured);
   const channelRef = useRef(null);
 
-  // --- Sesión de Google / Supabase Auth ---------------------------------
+  // --- Sesión: en cuanto la app arranca, si no hay sesión de ningún tipo,
+  // creamos una sesión anónima real de Supabase. Así TODO el mundo tiene un
+  // auth.uid() de verdad desde el primer segundo, y las políticas RLS
+  // pueden aplicarse siempre igual, sin excepciones para "gente sin cuenta".
   useEffect(() => {
     if (!isSupabaseConfigured) { setAuthLoading(false); return undefined; }
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(profileFromSession(session));
-      setAuthLoading(false);
-    });
-
-    const { data: sub } = supabase.auth.onAuthStateChange(async (event, session) => {
-      const profile = profileFromSession(session);
-      setUser(profile);
-      if (event === 'SIGNED_IN' && profile) {
-        await linkAccountToHousehold(profile);
+    async function ensureSession() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        const { error } = await supabase.auth.signInAnonymously();
+        if (error) { setStatus('error'); setAuthLoading(false); return; }
       }
+      const { data: { session: finalSession } } = await supabase.auth.getSession();
+      setUser(profileFromSession(finalSession));
+      setAuthLoading(false);
+    }
+    ensureSession();
+
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(profileFromSession(session));
     });
 
     return () => sub.subscription.unsubscribe();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Al iniciar sesión: si esta cuenta de Google ya estaba vinculada a un
-  // hogar, se usa ese. Si no, y ya había un código activo en este
-  // dispositivo (uso anónimo previo), se vincula ese código a la cuenta
-  // para no perder los datos. Si tampoco había código, se crea un hogar
-  // nuevo y se vincula directamente.
-  async function linkAccountToHousehold(profile) {
-    const { data: existingLink } = await supabase
-      .from('user_households')
-      .select('code')
-      .eq('user_id', profile.id)
-      .maybeSingle();
+  // --- Cargar el hogar del usuario actual en cuanto sabemos quién es ------
+  const loadHousehold = useCallback(async () => {
+    if (!isSupabaseConfigured || !user) return;
+    setStatus('loading');
+    const { data: h, error } = await supabase.rpc('my_household').maybeSingle();
+    if (error) { setStatus('error'); return; }
+    if (!h) { setHousehold(null); setStatus('no-household'); return; }
+    setHousehold(h);
+    setData(h.data || {});
+    writeLocalFallback(h.data || {});
+    setStatus('synced');
+    loadMembers(h.id);
+  }, [user]);
 
-    if (existingLink?.code) {
-      setStoredCode(existingLink.code);
-      setCode(existingLink.code);
-      return;
-    }
-
-    const targetCode = code || randomCode();
-    if (!code) {
-      await supabase.from('households').insert({ code: targetCode, data }).select().maybeSingle();
-    }
-    await supabase.from('user_households').upsert({
-      user_id: profile.id,
-      code: targetCode,
-      display_name: profile.name,
-      avatar_url: profile.avatar,
-    });
-    setStoredCode(targetCode);
-    setCode(targetCode);
+  async function loadMembers(householdId) {
+    const { data: rows } = await supabase
+      .from('household_members')
+      .select('user_id, role, profiles(display_name, avatar_url)')
+      .eq('household_id', householdId);
+    setMembers(rows || []);
   }
 
-  const signInWithGoogle = useCallback(async () => {
-    if (!isSupabaseConfigured) return;
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: window.location.origin },
-    });
-  }, []);
+  useEffect(() => { if (user) loadHousehold(); }, [user, loadHousehold]);
 
-  const signOut = useCallback(async () => {
-    if (!isSupabaseConfigured) return;
-    await supabase.auth.signOut();
-    setUser(null);
-    // El código de hogar se queda tal cual: cerrar sesión de Google no te
-    // saca de tu hogar, solo deja de identificarte como "tú" al marcar cosas.
-  }, []);
-
-  // --- Sincronización del hogar (código de 6 letras) ---------------------
+  // --- Suscripción en tiempo real a los cambios del hogar activo ----------
   useEffect(() => {
-    if (!isSupabaseConfigured) { setStatus('offline'); return undefined; }
-    if (!code) { setStatus('no-code'); return undefined; }
-
-    let cancelled = false;
-    setStatus('loading');
-
-    supabase.from('households').select('data').eq('code', code).maybeSingle()
-      .then(({ data: row, error }) => {
-        if (cancelled) return;
-        if (error) { setStatus('error'); return; }
-        if (row) {
-          setData(row.data || {});
-          writeLocalFallback(row.data || {});
-        }
-        setStatus('synced');
-      });
+    if (!isSupabaseConfigured || !household?.id) return undefined;
 
     const channel = supabase
-      .channel(`household:${code}`)
-      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'households', filter: `code=eq.${code}` }, (payload) => {
+      .channel(`household:${household.id}`)
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'households', filter: `id=eq.${household.id}` }, (payload) => {
         setData(payload.new.data || {});
         writeLocalFallback(payload.new.data || {});
       })
       .subscribe();
     channelRef.current = channel;
 
-    return () => {
-      cancelled = true;
-      if (channelRef.current) supabase.removeChannel(channelRef.current);
-    };
-  }, [code]);
+    return () => { if (channelRef.current) supabase.removeChannel(channelRef.current); };
+  }, [household?.id]);
 
   const save = useCallback((updater) => {
     setData((prev) => {
       const next = typeof updater === 'function' ? updater(prev) : { ...prev, ...updater };
       writeLocalFallback(next);
-      if (isSupabaseConfigured && code) {
+      if (isSupabaseConfigured && household?.id) {
         supabase.from('households')
-          .upsert({ code, data: next, updated_at: new Date().toISOString() })
+          .update({ data: next, updated_at: new Date().toISOString() })
+          .eq('id', household.id)
           .then(({ error }) => setStatus(error ? 'error' : 'synced'));
       }
       return next;
     });
-  }, [code]);
+  }, [household?.id]);
 
-  const createHousehold = useCallback(async () => {
-    const newCode = randomCode();
-    if (isSupabaseConfigured) {
-      const { error } = await supabase.from('households').insert({ code: newCode, data });
-      if (error) { setStatus('error'); return null; }
-      if (user) {
-        await supabase.from('user_households').upsert({
-          user_id: user.id, code: newCode, display_name: user.name, avatar_url: user.avatar,
-        });
-      }
-    }
-    setStoredCode(newCode);
-    setCode(newCode);
+  const createHousehold = useCallback(async (name) => {
+    const { data: h, error } = await supabase.rpc('create_household', { household_name: name || 'Mi hogar' });
+    if (error) { setStatus('error'); return null; }
+    setHousehold(h);
+    setData(h.data || {});
+    writeLocalFallback(h.data || {});
+    setStatus('synced');
+    loadMembers(h.id);
+    return h;
+  }, []);
+
+  const joinHousehold = useCallback(async (code) => {
+    const { data: h, error } = await supabase.rpc('join_household', { code });
+    if (error) return { error: error.message?.includes('CODIGO_INVALIDO') ? 'CODIGO_INVALIDO' : error.message };
+    setHousehold(h);
+    setData(h.data || {});
+    writeLocalFallback(h.data || {});
+    setStatus('synced');
+    loadMembers(h.id);
+    return { household: h };
+  }, []);
+
+  const leaveHousehold = useCallback(async () => {
+    if (!household?.id) return;
+    await supabase.rpc('leave_household', { target_household: household.id });
+    setHousehold(null);
+    setMembers([]);
+    setStatus('no-household');
+  }, [household?.id]);
+
+  const regenerateCode = useCallback(async () => {
+    if (!household?.id) return null;
+    const { data: newCode, error } = await supabase.rpc('regenerate_invite_code', { target_household: household.id });
+    if (error) return null;
+    setHousehold((h) => (h ? { ...h, invite_code: newCode } : h));
     return newCode;
-  }, [data, user]);
+  }, [household?.id]);
 
-  const joinHousehold = useCallback(async (inputCode) => {
-    const clean = inputCode.trim().toUpperCase();
-    if (!clean) return;
-    setStoredCode(clean);
-    setCode(clean);
-    if (isSupabaseConfigured && user) {
-      await supabase.from('user_households').upsert({
-        user_id: user.id, code: clean, display_name: user.name, avatar_url: user.avatar,
+  const transferOwnership = useCallback(async (newOwnerId) => {
+    if (!household?.id) return false;
+    const { error } = await supabase.rpc('transfer_household_ownership', {
+      target_household: household.id, new_owner: newOwnerId,
+    });
+    if (!error) loadMembers(household.id);
+    return !error;
+  }, [household?.id]);
+
+  const deleteHousehold = useCallback(async (confirmName) => {
+    if (!household?.id) return false;
+    const { error } = await supabase.rpc('delete_household', {
+      target_household: household.id, confirm_name: confirmName,
+    });
+    if (error) return false;
+    setHousehold(null);
+    setMembers([]);
+    setStatus('no-household');
+    return true;
+  }, [household?.id]);
+
+  // --- Vincular la sesión anónima actual a una cuenta de Google -----------
+  // Si esa cuenta de Google ya existía de antes (otro dispositivo), la
+  // vinculación falla (Supabase no permite que una identidad pertenezca a
+  // dos usuarios); en ese caso cerramos la sesión anónima y hacemos un login
+  // normal, que te llevará a tu cuenta y hogar reales de siempre.
+  const signInWithGoogle = useCallback(async () => {
+    if (!isSupabaseConfigured) return;
+    const { error } = await supabase.auth.linkIdentity({
+      provider: 'google',
+      options: { redirectTo: window.location.origin },
+    });
+    if (error) {
+      await supabase.auth.signOut();
+      await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.origin },
       });
     }
-  }, [user]);
+  }, []);
 
-  const leaveHousehold = useCallback(() => {
-    setStoredCode(null);
-    setCode(null);
+  const signOut = useCallback(async () => {
+    if (!isSupabaseConfigured) return;
+    await supabase.auth.signOut();
+    setHousehold(null);
+    setMembers([]);
+    // Al cerrar sesión, se crea automáticamente una sesión anónima nueva la
+    // próxima vez que se cargue la app (ver ensureSession arriba).
   }, []);
 
   const value = {
-    code, data, status, save, createHousehold, joinHousehold, leaveHousehold, isSupabaseConfigured,
-    user, authLoading, signInWithGoogle, signOut,
+    household, members, data, status, save,
+    createHousehold, joinHousehold, leaveHousehold, regenerateCode, transferOwnership, deleteHousehold,
+    isSupabaseConfigured, user, authLoading, signInWithGoogle, signOut,
+    // Compat: código de invitación con el mismo nombre que usaba el resto de la app.
+    code: household?.invite_code || null,
   };
   return <CloudSyncContext.Provider value={value}>{children}</CloudSyncContext.Provider>;
 }
