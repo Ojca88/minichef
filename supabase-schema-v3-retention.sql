@@ -38,8 +38,8 @@ select cron.schedule(
   '0 3 * * *',
   $$
   select net.http_post(
-    url := 'https://TU_PROJECT_REF.supabase.co/functions/v1/cleanup-inactive-users',
-    headers := jsonb_build_object('x-cron-secret', 'TU_CRON_SECRET'),
+    url := 'https:/eeqfxxxjpltcbqyrwfpc.supabase.co/functions/v1/cleanup-inactive-users',
+    headers := jsonb_build_object('x-cron-secret', 'e9c2300cb952e79253c43e0b1d55d38e15053b42034c6597cb8ee38fad947812'),
     body := '{}'::jsonb
   );
   $$
