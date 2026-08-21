@@ -313,8 +313,16 @@ begin
 end;
 $$;
 
-create or replace function public.my_household()
-returns households
+-- NOTA sobre esta función: devuelve "setof households" (no "households" a
+-- secas) a propósito. Con "returns households" (una sola fila), si la
+-- consulta no encuentra ningún hogar, Postgres no devuelve "nada": devuelve
+-- UNA fila con todos los campos en null (id incluido) — un fallo sutil que
+-- hacía que la app mostrara una tarjeta de hogar "fantasma" vacía en vez de
+-- la pantalla de "crear/unirse". Con "setof" se comporta como una consulta
+-- normal: 0 filas si no hay hogar, 1 fila si lo hay.
+drop function if exists public.my_household();
+create function public.my_household()
+returns setof households
 language sql security definer stable set search_path = public
 as $$
   select h.* from households h

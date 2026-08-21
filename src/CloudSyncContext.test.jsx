@@ -10,7 +10,7 @@ import { CloudSyncProvider, useCloud } from './CloudSyncContext';
 // contexto llama a las funciones correctas, en el orden correcto, y
 // reacciona bien a sus respuestas (incluidos los errores).
 // ---------------------------------------------------------------------------
-const { mockAuth, mockRpc, mockFrom, mockChannel } = vi.hoisted(() => ({
+const { mockAuth, mockRpc, mockFrom, mockChannel, mockInvoke } = vi.hoisted(() => ({
   mockAuth: {
     getSession: vi.fn(),
     signInAnonymously: vi.fn(),
@@ -22,6 +22,7 @@ const { mockAuth, mockRpc, mockFrom, mockChannel } = vi.hoisted(() => ({
   mockRpc: vi.fn(),
   mockFrom: vi.fn(),
   mockChannel: vi.fn(() => ({ on: vi.fn().mockReturnThis(), subscribe: vi.fn().mockReturnThis() })),
+  mockInvoke: vi.fn(),
 }));
 
 vi.mock('./supabaseClient', () => ({
@@ -32,6 +33,7 @@ vi.mock('./supabaseClient', () => ({
     from: (...args) => mockFrom(...args),
     channel: (...args) => mockChannel(...args),
     removeChannel: vi.fn(),
+    functions: { invoke: (...args) => mockInvoke(...args) },
   },
 }));
 
@@ -59,6 +61,8 @@ function TestConsumer() {
         const r = await cloud.joinHousehold('MALCOD');
         window.__lastJoinResult = r;
       }}>unirme</button>
+      <button onClick={async () => { window.__lastRemoveResult = await cloud.removeMember('otro-user'); }}>expulsar</button>
+      <button onClick={async () => { window.__lastDeleteAccountResult = await cloud.deleteMyAccount({}); }}>eliminar-cuenta</button>
     </div>
   );
 }
@@ -163,5 +167,64 @@ describe('CloudSyncContext — unirse a un hogar', () => {
     await waitFor(() => expect(window.__lastJoinResult).toEqual({ error: 'CODIGO_INVALIDO' }));
     // La app no debe quedarse en un hogar a medias tras un código inválido.
     expect(screen.getByTestId('household')).toHaveTextContent('sin-hogar');
+  });
+});
+
+describe('CloudSyncContext — expulsar a un miembro', () => {
+  it('borra la fila de household_members del miembro indicado, dentro del hogar activo', async () => {
+    const mockDelete = vi.fn().mockReturnThis();
+    const mockEq = vi.fn().mockReturnThis();
+    mockAuth.getSession.mockResolvedValue({ data: { session: anonSession() } });
+    mockRpc.mockImplementation((fn) => {
+      if (fn === 'my_household') return { maybeSingle: () => Promise.resolve({ data: { id: 'h1', invite_code: 'K7P4XM' }, error: null }) };
+      return Promise.resolve({ data: null, error: null });
+    });
+    mockFrom.mockImplementation((table) => {
+      if (table === 'household_members') {
+        return { select: vi.fn().mockReturnThis(), eq: mockEq, delete: mockDelete, then: (cb) => cb({ data: [] }) };
+      }
+      return { select: vi.fn().mockReturnThis(), eq: vi.fn().mockReturnThis(), update: vi.fn().mockReturnThis() };
+    });
+
+    const user = userEvent.setup();
+    renderCloud();
+    await waitFor(() => expect(screen.getByTestId('household')).toHaveTextContent('K7P4XM'));
+
+    await user.click(screen.getByText('expulsar'));
+
+    await waitFor(() => expect(mockDelete).toHaveBeenCalled());
+    await waitFor(() => expect(window.__lastRemoveResult).toBe(true));
+  });
+});
+
+describe('CloudSyncContext — eliminar mi cuenta', () => {
+  it('llama a la Edge Function delete-account y, si va bien, cierra sesión y limpia el estado', async () => {
+    mockAuth.getSession.mockResolvedValue({ data: { session: anonSession() } });
+    mockAuth.signOut.mockResolvedValue({ error: null });
+    mockInvoke.mockResolvedValue({ data: { ok: true }, error: null });
+
+    const user = userEvent.setup();
+    renderCloud();
+    await waitFor(() => expect(screen.getByTestId('status')).toHaveTextContent('no-household'));
+
+    await user.click(screen.getByText('eliminar-cuenta'));
+
+    await waitFor(() => expect(mockInvoke).toHaveBeenCalledWith('delete-account', { body: {} }));
+    await waitFor(() => expect(window.__lastDeleteAccountResult).toEqual({ ok: true }));
+    expect(mockAuth.signOut).toHaveBeenCalled();
+  });
+
+  it('si el usuario es propietario con más miembros, devuelve REQUIERE_DECISION sin cerrar sesión', async () => {
+    mockAuth.getSession.mockResolvedValue({ data: { session: anonSession() } });
+    mockInvoke.mockResolvedValue({ data: { error: 'REQUIERE_DECISION', householdId: 'h1' }, error: null });
+
+    const user = userEvent.setup();
+    renderCloud();
+    await waitFor(() => expect(screen.getByTestId('status')).toHaveTextContent('no-household'));
+
+    await user.click(screen.getByText('eliminar-cuenta'));
+
+    await waitFor(() => expect(window.__lastDeleteAccountResult).toEqual({ error: 'REQUIERE_DECISION', householdId: 'h1' }));
+    expect(mockAuth.signOut).not.toHaveBeenCalled();
   });
 });

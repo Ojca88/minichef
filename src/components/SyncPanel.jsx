@@ -30,6 +30,13 @@ export default function SyncPanel() {
   const [confirmDelete, setConfirmDelete] = useState('');
   const [showDeleteBox, setShowDeleteBox] = useState(false);
 
+  // --- Eliminar mi cuenta -------------------------------------------------
+  const [accountStep, setAccountStep] = useState(null); // null | 'confirm' | 'decide'
+  const [accountConfirmText, setAccountConfirmText] = useState('');
+  const [accountError, setAccountError] = useState('');
+  const [transferChoice, setTransferChoice] = useState('');
+  const [showDeleteHouseholdInstead, setShowDeleteHouseholdInstead] = useState(false);
+
   async function handleCreate() {
     setCreateError('');
     const result = await cloud.createHousehold(nameInput.trim() || 'Mi hogar');
@@ -62,6 +69,29 @@ export default function SyncPanel() {
   async function handleDelete() {
     const ok = await cloud.deleteHousehold(confirmDelete);
     if (ok) { setShowDeleteBox(false); setConfirmDelete(''); }
+  }
+
+  async function handleDeleteAccount() {
+    setAccountError('');
+    const result = await cloud.deleteMyAccount({});
+    if (result?.ok) { setAccountStep(null); return; }
+    if (result?.error === 'REQUIERE_DECISION') { setAccountStep('decide'); return; }
+    setAccountError('No se pudo eliminar la cuenta. Inténtalo de nuevo en unos minutos.');
+  }
+
+  async function handleTransferAndDelete() {
+    if (!transferChoice) return;
+    setAccountError('');
+    const result = await cloud.deleteMyAccount({ transferTo: transferChoice });
+    if (result?.ok) { setAccountStep(null); return; }
+    setAccountError('No se pudo completar la transferencia. Inténtalo de nuevo.');
+  }
+
+  async function handleDeleteHouseholdAndAccount() {
+    setAccountError('');
+    const result = await cloud.deleteMyAccount({ deleteHousehold: true });
+    if (result?.ok) { setAccountStep(null); return; }
+    setAccountError('No se pudo eliminar. Inténtalo de nuevo.');
   }
 
   const isOwner = cloud.members.find((m) => m.user_id === cloud.user?.id)?.role === 'owner';
@@ -248,8 +278,17 @@ export default function SyncPanel() {
                       {(m.profiles?.display_name || '?').charAt(0).toUpperCase()}
                     </span>
                   )}
-                  <span>{m.profiles?.display_name || 'Invitado'}</span>
+                  <span style={{ flex: 1 }}>{m.profiles?.display_name || 'Invitado'}</span>
                   {m.role === 'owner' && <span style={{ color: 'var(--ink-muted)' }}>· propietario</span>}
+                  {isOwner && m.user_id !== cloud.user?.id && (
+                    <button
+                      onClick={() => { if (confirm(`¿Expulsar a ${m.profiles?.display_name || 'esta persona'} del hogar?`)) cloud.removeMember(m.user_id); }}
+                      aria-label={`Expulsar a ${m.profiles?.display_name || 'esta persona'}`}
+                      style={{ fontSize: 11, color: '#C4302B', background: 'none', border: 'none', textDecoration: 'underline' }}
+                    >
+                      Expulsar
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
@@ -323,6 +362,116 @@ export default function SyncPanel() {
             </div>
           )}
         </>
+      )}
+
+      {cloud.isSupabaseConfigured && cloud.user && !cloud.user.isAnonymous && (
+        <div style={{ borderTop: '1px solid var(--line)', paddingTop: 10, marginTop: 4 }}>
+          {accountStep === null && (
+            <button
+              onClick={() => { setAccountStep('confirm'); setAccountConfirmText(''); setAccountError(''); setShowDeleteHouseholdInstead(false); }}
+              style={{ fontSize: 12, color: '#C4302B', background: 'none', border: 'none', textDecoration: 'underline' }}
+            >
+              Eliminar mi cuenta
+            </button>
+          )}
+
+          {accountStep === 'confirm' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <p style={{ fontSize: 12, color: '#9A5A20', lineHeight: 1.5 }}>
+                Esta acción es permanente. Al eliminar tu cuenta perderás la información personal
+                asociada a ella y dejarás de tener acceso a MiniChef mediante esta cuenta.
+                {cloud.household && ' Los datos compartidos del hogar pueden mantenerse para el resto de miembros del hogar.'}
+              </p>
+              <p style={{ fontSize: 12, color: 'var(--ink-muted)' }}>Para confirmar, escribe: <strong>ELIMINAR</strong></p>
+              <input
+                type="text"
+                value={accountConfirmText}
+                onChange={(e) => setAccountConfirmText(e.target.value)}
+                placeholder="ELIMINAR"
+                style={{ fontSize: 13, padding: '9px 10px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)' }}
+              />
+              {accountError && <p style={{ fontSize: 12, color: '#C4302B' }}>{accountError}</p>}
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button
+                  onClick={handleDeleteAccount}
+                  disabled={accountConfirmText !== 'ELIMINAR'}
+                  style={{
+                    flex: 1, fontSize: 12, fontWeight: 600, padding: '9px 0', borderRadius: 'var(--radius-sm)', border: 'none',
+                    background: accountConfirmText === 'ELIMINAR' ? '#C4302B' : 'var(--line)',
+                    color: 'white', opacity: accountConfirmText === 'ELIMINAR' ? 1 : 0.6,
+                  }}
+                >
+                  Eliminar definitivamente mi cuenta
+                </button>
+                <button
+                  onClick={() => setAccountStep(null)}
+                  style={{ fontSize: 12, padding: '9px 12px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)', background: 'white' }}
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          )}
+
+          {accountStep === 'decide' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <p style={{ fontSize: 12, color: '#9A5A20', lineHeight: 1.5 }}>
+                Eres propietario de "{cloud.household?.name}" y hay más gente en el hogar. Antes de
+                eliminar tu cuenta, transfiere la propiedad a otra persona del hogar.
+              </p>
+              <select
+                value={transferChoice}
+                onChange={(e) => setTransferChoice(e.target.value)}
+                style={{ fontSize: 13, padding: '9px 10px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)' }}
+              >
+                <option value="">Elige a quién transferir...</option>
+                {cloud.members.filter((m) => m.user_id !== cloud.user?.id).map((m) => (
+                  <option key={m.user_id} value={m.user_id}>{m.profiles?.display_name || 'Invitado'}</option>
+                ))}
+              </select>
+              {accountError && <p style={{ fontSize: 12, color: '#C4302B' }}>{accountError}</p>}
+              <button
+                onClick={handleTransferAndDelete}
+                disabled={!transferChoice}
+                style={{
+                  fontSize: 12, fontWeight: 600, padding: '9px 0', borderRadius: 'var(--radius-sm)', border: 'none',
+                  background: transferChoice ? '#C4302B' : 'var(--line)', color: 'white', opacity: transferChoice ? 1 : 0.6,
+                }}
+              >
+                Transferir y eliminar mi cuenta
+              </button>
+
+              {!showDeleteHouseholdInstead ? (
+                <button
+                  onClick={() => setShowDeleteHouseholdInstead(true)}
+                  style={{ fontSize: 11, color: 'var(--ink-muted)', background: 'none', border: 'none', textDecoration: 'underline', textAlign: 'left' }}
+                >
+                  Prefiero eliminar el hogar entero en vez de transferirlo
+                </button>
+              ) : (
+                <div style={{ background: 'var(--apricot-light)', borderRadius: 'var(--radius-sm)', padding: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <p style={{ fontSize: 11, color: '#9A5A20', lineHeight: 1.5 }}>
+                    Esto borra el hogar entero (menú, compra, seguimiento) para <strong>todos</strong> los
+                    miembros, no solo para ti. Sin vuelta atrás.
+                  </p>
+                  <button
+                    onClick={handleDeleteHouseholdAndAccount}
+                    style={{ fontSize: 12, fontWeight: 600, padding: '9px 0', borderRadius: 'var(--radius-sm)', border: 'none', background: '#C4302B', color: 'white' }}
+                  >
+                    Eliminar el hogar de todos y mi cuenta
+                  </button>
+                </div>
+              )}
+
+              <button
+                onClick={() => setAccountStep(null)}
+                style={{ fontSize: 12, padding: '9px 12px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)', background: 'white' }}
+              >
+                Cancelar
+              </button>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

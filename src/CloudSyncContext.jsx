@@ -168,6 +168,19 @@ export function CloudSyncProvider({ children }) {
     return !error;
   }, [household?.id]);
 
+  // Expulsar a otro miembro (solo el propietario puede hacerlo — lo aplica
+  // RLS en la tabla, no hace falta ninguna función especial).
+  const removeMember = useCallback(async (userId) => {
+    if (!household?.id) return false;
+    const { error } = await supabase
+      .from('household_members')
+      .delete()
+      .eq('household_id', household.id)
+      .eq('user_id', userId);
+    if (!error) loadMembers(household.id);
+    return !error;
+  }, [household?.id]);
+
   const deleteHousehold = useCallback(async (confirmName) => {
     if (!household?.id) return false;
     const { error } = await supabase.rpc('delete_household', {
@@ -179,6 +192,30 @@ export function CloudSyncProvider({ children }) {
     setStatus('no-household');
     return true;
   }, [household?.id]);
+
+  // Baja voluntaria de la cuenta (no del hogar). Llama a la Edge Function
+  // "delete-account", el único punto de toda la app que usa la service_role
+  // key — y solo en el servidor, nunca aquí en el cliente. Si el usuario es
+  // propietario de un hogar con más gente, la función devuelve
+  // REQUIERE_DECISION y hay que volver a llamarla indicando transferTo o
+  // deleteHousehold.
+  const deleteMyAccount = useCallback(async ({ transferTo, deleteHousehold: alsoDeleteHousehold } = {}) => {
+    if (!isSupabaseConfigured) return { error: 'NO_CONFIGURADO' };
+    const { data: res, error } = await supabase.functions.invoke('delete-account', {
+      body: { transferTo, deleteHousehold: alsoDeleteHousehold },
+    });
+    if (error) {
+      // supabase-js mete el cuerpo de la respuesta de error en error.context, si existe
+      const bodyError = error.context?.error;
+      return { error: bodyError || error.message };
+    }
+    if (res?.error) return { error: res.error, householdId: res.householdId };
+    await supabase.auth.signOut();
+    setHousehold(null);
+    setMembers([]);
+    setUser(null);
+    return { ok: true };
+  }, []);
 
   // --- Vincular la sesión anónima actual a una cuenta de Google -----------
   // Si esa cuenta de Google ya existía de antes (otro dispositivo), la
@@ -212,6 +249,7 @@ export function CloudSyncProvider({ children }) {
   const value = {
     household, members, data, status, save,
     createHousehold, joinHousehold, leaveHousehold, regenerateCode, transferOwnership, deleteHousehold,
+    removeMember, deleteMyAccount,
     isSupabaseConfigured, user, authLoading, signInWithGoogle, signOut,
     // Compat: código de invitación con el mismo nombre que usaba el resto de la app.
     code: household?.invite_code || null,
