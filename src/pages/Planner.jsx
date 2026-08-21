@@ -112,7 +112,7 @@ export default function Planner() {
   function toggleEaten(d, meal) {
     const key = dateKey(d);
     const next = !isEaten(d, meal);
-    const by = next && user ? { name: user.name, avatar: user.avatar } : null;
+    const by = next && user ? { userId: user.id, name: user.name, avatar: user.avatar } : null;
     save(prev => ({
       ...prev,
       eaten: {

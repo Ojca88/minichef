@@ -86,7 +86,7 @@ export default function ShoppingList() {
   function addItem() {
     const name = draft.trim();
     if (!name) return;
-    const addedBy = user ? { name: user.name, avatar: user.avatar } : null;
+    const addedBy = user ? { userId: user.id, name: user.name, avatar: user.avatar } : null;
     setItems(prev => [{ id: nextId(), name, checked: false, manual: true, addedBy }, ...prev]);
     setDraft('');
   }
@@ -117,7 +117,7 @@ export default function ShoppingList() {
     });
     setItems(prev => {
       const existing = new Set(prev.map(i => i.name));
-      const addedBy = user ? { name: user.name, avatar: user.avatar } : null;
+      const addedBy = user ? { userId: user.id, name: user.name, avatar: user.avatar } : null;
       const toAdd = Array.from(names).filter(n => !existing.has(n))
         .map(name => ({ id: nextId(), name, checked: false, manual: false, addedBy }));
       return [...toAdd, ...prev];

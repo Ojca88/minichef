@@ -1,0 +1,12 @@
+# Configuración de las Edge Functions del proyecto.
+#
+# cleanup-inactive-users lleva verify_jwt = false porque no la llama un
+# usuario con sesión: la dispara el cron interno de Supabase (pg_cron), que
+# no tiene un JWT de usuario. En su lugar, la propia función comprueba una
+# cabecera secreta (ver CRON_SECRET) antes de hacer nada.
+
+[functions.delete-account]
+verify_jwt = true
+
+[functions.cleanup-inactive-users]
+verify_jwt = false
