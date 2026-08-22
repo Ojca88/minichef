@@ -10,7 +10,20 @@ export default function CollapsibleLegalHeader({ title, updatedDate }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    function onScroll() { setScrolled(window.scrollY > 24); }
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        // Holgura entre el punto de encogerse (40px) y el de volver a
+        // agrandarse (10px): sin esta diferencia, al hacer scroll justo
+        // cerca del límite la cabecera rebota entre grande y pequeña muy
+        // rápido, y como el contenido se reajusta cada vez, se ve como un
+        // tembleque.
+        setScrolled((prev) => (prev ? window.scrollY > 10 : window.scrollY > 40));
+        ticking = false;
+      });
+    }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -47,11 +60,11 @@ export default function CollapsibleLegalHeader({ title, updatedDate }) {
         )}
       </header>
       {/* Franja de degradado pegada a la cabecera: al ir sticky junto con
-          ella, el texto que sube por debajo siempre "emerge" con un margen
-          suave, en vez de tocar directamente el borde de la cabecera en
-          cualquier posición de scroll. */}
+          ella, el texto que sube por debajo siempre "emerge" con un hueco
+          fijo de unos 4mm, en vez de tocar directamente el borde de la
+          cabecera en cualquier posición de scroll. */}
       <div aria-hidden="true" style={{
-        height: 22, marginBottom: -22,
+        height: 16,
         background: 'linear-gradient(to bottom, var(--cream), rgba(250,247,240,0))',
         pointerEvents: 'none',
       }} />

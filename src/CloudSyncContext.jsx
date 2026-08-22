@@ -245,7 +245,7 @@ export function CloudSyncProvider({ children }) {
     }
     if (res?.error) return { error: res.error };
     if (household?.id) loadInvitations(household.id);
-    return { ok: true, emailSent: res?.emailSent, inviteLink: res?.inviteLink };
+    return { ok: true, emailSent: res?.emailSent, emailError: res?.emailError, inviteLink: res?.inviteLink };
   }, [household?.id]);
 
   const revokeInvitation = useCallback(async (invitationId) => {

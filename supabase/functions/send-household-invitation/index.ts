@@ -160,12 +160,17 @@ Deno.serve(async (req) => {
         // La invitación ya está creada en la base de datos aunque el envío
         // falle — se puede reenviar. No revertimos la creación por un fallo
         // de email, para no perder el token generado si el problema es
-        // puntual del proveedor.
-        return json({ ok: true, emailSent: false, inviteLink }, 200, corsHeaders);
+        // puntual del proveedor. Pero SÍ devolvemos el motivo real de
+        // Resend (p. ej. clave inválida, dominio no verificado...), en vez
+        // de un simple "emailSent: false" que no dice nada de por qué.
+        const resendBody = await emailResp.text().catch(() => '');
+        return json({ ok: true, emailSent: false, emailError: `Resend ${emailResp.status}: ${resendBody.slice(0, 300)}`, inviteLink }, 200, corsHeaders);
       }
+    } else {
+      return json({ ok: true, emailSent: false, emailError: 'RESEND_API_KEY no está configurado en esta función', inviteLink }, 200, corsHeaders);
     }
 
-    return json({ ok: true, emailSent: Boolean(resendApiKey), inviteLink }, 200, corsHeaders);
+    return json({ ok: true, emailSent: true, inviteLink }, 200, corsHeaders);
   } catch (e) {
     return json({ error: String(e) }, 500, corsHeadersFor(req));
   }

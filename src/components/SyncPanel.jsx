@@ -63,7 +63,9 @@ export default function SyncPanel() {
       setInviteError(sendErrorMessage(result.error));
       return;
     }
-    setInviteOk(result.emailSent ? `Invitación enviada a ${email}.` : `Invitación creada, pero el envío de email no está configurado todavía (enlace: ${result.inviteLink}).`);
+    setInviteOk(result.emailSent
+      ? `Invitación enviada a ${email}.`
+      : `Invitación creada, pero el email no se pudo enviar (${result.emailError || 'motivo desconocido'}). Enlace para compartir a mano: ${result.inviteLink}`);
     setInviteEmail('');
   }
 
