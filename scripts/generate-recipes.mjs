@@ -1212,28 +1212,28 @@ const generated = [];
 // pure_fruta — merienda
 [
   ['pera', 'melocoton'], ['manzana', 'ciruela'], ['melocoton', 'albaricoque'], ['pera', 'kiwi'],
-  ['manzana', 'mango'], ['ciruela', 'pera'], ['albaricoque', 'manzana'], ['melocoton', 'pera', 'manzana'],
-  ['mango'], ['papaya'], ['aguacate', 'platano'], ['platano', 'manzana'], ['kiwi', 'pera'],
+  ['manzana', 'melocoton'], ['ciruela', 'pera'], ['albaricoque', 'manzana'], ['melocoton', 'pera', 'manzana'],
+  ['fresas', 'kiwi'], ['sandia', 'fresas'], ['aguacate', 'platano'], ['platano', 'manzana'], ['kiwi', 'manzana'],
   ['arandanos', 'manzana'], ['sandia'],
-  ['ciruela', 'melocoton'], ['papaya', 'platano'], ['fresas', 'manzana'], ['albaricoque', 'pera'],
-  ['kiwi', 'manzana'], ['mango', 'pera'],
-  ['pera', 'ciruela'], ['albaricoque', 'fresas'], ['sandia', 'kiwi'], ['papaya', 'mango'],
+  ['ciruela', 'melocoton'], ['albaricoque', 'ciruela'], ['fresas', 'manzana'], ['albaricoque', 'pera'],
+  ['arandanos', 'albaricoque'], ['kiwi', 'pera'],
+  ['pera', 'ciruela'], ['albaricoque', 'fresas'], ['sandia', 'kiwi'], ['ciruela', 'albaricoque', 'manzana'],
   ['arandanos', 'pera'], ['ciruela', 'kiwi'], ['melocoton', 'platano'], ['manzana', 'arandanos'],
-  ['fresas', 'platano', 'manzana'], ['mango', 'papaya', 'platano'], ['pera', 'melocoton', 'ciruela'],
+  ['fresas', 'platano', 'manzana'], ['fresas', 'albaricoque', 'melocoton'], ['pera', 'melocoton', 'ciruela'],
   ['albaricoque', 'melocoton'],
 ].forEach((keys) => generated.push(pureFruta({ items: keys.map((k) => ING[k]) })));
 
 // yogur_fruta — merienda
-[['platano'], ['melocoton'], ['fresas'], ['mango'], ['kiwi'], ['arandanos'], ['papaya'], ['ciruela'],
-  ['fresas', 'platano'], ['manzana', 'pera'], ['mango', 'fresas'], ['melocoton', 'arandanos'],
-  ['pera', 'ciruela'], ['kiwi', 'fresas'], ['albaricoque', 'platano'], ['papaya', 'kiwi'],
-  ['sandia'], ['arandanos', 'platano'], ['mango', 'manzana'], ['fresas', 'melocoton', 'platano']]
+[['platano'], ['melocoton'], ['fresas'], ['albaricoque'], ['kiwi'], ['arandanos'], ['sandia', 'fresas'], ['ciruela'],
+  ['fresas', 'platano'], ['manzana', 'pera'], ['fresas', 'albaricoque'], ['melocoton', 'arandanos'],
+  ['pera', 'ciruela'], ['kiwi', 'fresas'], ['albaricoque', 'platano'], ['arandanos', 'kiwi'],
+  ['sandia'], ['arandanos', 'platano'], ['ciruela', 'melocoton'], ['fresas', 'melocoton', 'platano']]
   .forEach((keys) => generated.push(yogurFruta({ items: keys.map((k) => ING[k]) })));
 
 // tortitas — merienda
 [['quinoa', 'platano'], ['avena', 'manzana'], ['avena', 'pera'], ['cuscus', 'platano'], ['quinoa', 'melocoton'],
   ['avena', 'ciruela'], ['quinoa', 'pera'], ['cuscus', 'manzana'],
-  ['avena', 'mango'], ['quinoa', 'ciruela'], ['cuscus', 'pera'], ['avena', 'albaricoque'],
+  ['avena', 'fresas'], ['quinoa', 'ciruela'], ['cuscus', 'pera'], ['avena', 'albaricoque'],
   ['quinoa', 'fresas'], ['cuscus', 'melocoton']]
   .forEach(([c, f]) => generated.push(tortitas({ cereal: ING[c], fruit: ING[f] })));
 
@@ -1241,7 +1241,7 @@ const generated = [];
 generated.push(palitosUntables({ spreadName: 'plátano chafado', spreadItems: [ING.platano], prepSteps: ['Chafa el plátano maduro con un tenedor hasta obtener una crema sin grumos grandes.'] }));
 generated.push(palitosUntables({ spreadName: 'queso fresco', spreadItems: [ING.quesoFresco], prepSteps: ['Escurre bien el queso fresco y chafalo con un tenedor hasta que quede cremoso.'], mealType: 'comida' }));
 generated.push(palitosUntables({ spreadName: 'aguacate y plátano', spreadItems: [ING.aguacate, ING.platano], prepSteps: [ING.aguacate.prep, 'Chafa el aguacate junto con el plátano maduro con un tenedor hasta obtener una crema suave.'] }));
-generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.mango], prepSteps: ['Chafa la pulpa de mango con un tenedor hasta obtener una crema suave.'] }));
+generated.push(palitosUntables({ spreadName: 'melocotón chafado', spreadItems: [ING.melocoton], prepSteps: ['Chafa la pulpa de melocotón maduro con un tenedor hasta obtener una crema suave.'] }));
 
 // tortilla_finger — only vegetables that make sense grated raw into an omelette
 [['comida', 'zanahoria'], ['comida', 'boniato'], ['cena', 'calabaza'], ['cena', 'remolacha'],
@@ -1380,7 +1380,7 @@ generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.
 [
   { items: ['sandia', 'melocoton'], mealType: 'merienda', season: 'verano' },
   { items: ['platano', 'fresas'], mealType: 'merienda', season: 'verano' },
-  { items: ['kiwi', 'mango'], mealType: 'merienda', season: 'verano' },
+  { items: ['fresas', 'melocoton'], mealType: 'merienda', season: 'verano' },
   { items: ['calabacin', 'zanahoria', 'pollo'], mealType: 'comida', season: 'ambas' },
 ].forEach(({ items, mealType, season }) => generated.push(brochetasBlandas({ items: items.map((k) => ING[k]), mealType, season })));
 
