@@ -8,13 +8,17 @@ export default function Privacy() {
 
       <div style={{ padding: '0 16px', display: 'flex', flexDirection: 'column', gap: 22, fontSize: 14, lineHeight: 1.6, color: 'var(--ink)' }}>
 
-        <Section title="1. Responsable del tratamiento">
+        <Section title="1. Quién trata tus datos">
+          <p>MiniChef es una aplicación desarrollada de forma independiente.</p>
           <p>
-            MiniChef es una aplicación desarrollada de forma independiente por{' '}
-            <strong>[PENDIENTE: tu nombre o el de tu entidad]</strong>. Para cualquier
-            consulta sobre esta política o tus datos, puedes escribir a{' '}
-            <strong>minicheforbabies@proton.me</strong>.
+            A efectos de esta Política de Privacidad, el responsable del tratamiento de los
+            datos personales tratados a través de MiniChef es <strong>MiniChef</strong>.
           </p>
+          <p>
+            Para cualquier consulta relacionada con esta política, el tratamiento de tus datos o
+            el ejercicio de tus derechos, puedes contactar con MiniChef a través de:
+          </p>
+          <p><strong>Email de contacto:</strong> minicheforbabies@proton.me</p>
         </Section>
 
         <Section title="2. Cómo se accede a MiniChef">

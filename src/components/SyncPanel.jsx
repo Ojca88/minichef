@@ -71,7 +71,7 @@ export default function SyncPanel() {
     } else {
       const isResendTestingLimit = (result.emailError || '').includes('You can only send testing emails');
       setInviteOk(isResendTestingLimit
-        ? 'Invitación creada. Tu cuenta de email todavía está en modo de pruebas, así que no se puede enviar el correo automáticamente — comparte este enlace tú mismo:'
+        ? '¡Invitación lista! Compártele este enlace por donde prefieras (WhatsApp, SMS...):'
         : `Invitación creada, pero el email no se pudo enviar (${result.emailError || 'motivo desconocido'}). Comparte este enlace tú mismo:`);
       setInviteLink(result.inviteLink || '');
     }
