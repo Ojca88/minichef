@@ -14,6 +14,7 @@ import ShoppingList from './pages/ShoppingList';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import InviteAccept from './pages/InviteAccept';
+import Feedback from './pages/Feedback';
 
 function MainApp() {
   const swipe = useSwipeNav();
@@ -29,6 +30,7 @@ function MainApp() {
               <Route path="/recetario/:id" element={<FoodDisclaimerGate><RecipeDetail /></FoodDisclaimerGate>} />
               <Route path="/seguimiento" element={<Tracking />} />
               <Route path="/lista-compra" element={<ShoppingList />} />
+              <Route path="/feedback" element={<Feedback />} />
             </Routes>
           </div>
           <BottomNav />

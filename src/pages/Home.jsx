@@ -133,6 +133,18 @@ export default function Home() {
 
         <SyncPanel />
 
+        <Link
+          to="/feedback"
+          state={{ fromPage: '/' }}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+            marginTop: 14, padding: '12px 0', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)',
+            background: 'var(--white)', fontSize: 13, fontWeight: 600, color: 'var(--ink)', textDecoration: 'none',
+          }}
+        >
+          💬 Ayúdanos a mejorar MiniChef
+        </Link>
+
         <p style={{ textAlign: 'center', marginTop: 18, fontSize: 12, display: 'flex', gap: 12, justifyContent: 'center' }}>
           <Link to="/privacidad" style={{ color: 'var(--ink-muted)', textDecoration: 'underline' }}>
             Política de privacidad

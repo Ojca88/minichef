@@ -228,7 +228,26 @@ export default function Privacy() {
           </ul>
         </Section>
 
-        <Section title="12. Tus derechos">
+        <Section title="12. Feedback y comentarios">
+          <p>
+            Desde "💬 Ayúdanos a mejorar MiniChef" puedes enviarnos voluntariamente comentarios,
+            sugerencias, reportes de errores o valoraciones positivas. Cuando lo haces, guardamos:
+          </p>
+          <ul style={listStyle}>
+            <li>El texto de tu comentario (y, si reportas un error, lo que estabas haciendo, qué esperabas y qué ocurrió, si lo indicas).</li>
+            <li>Una imagen adjunta, si decides añadirla — se guarda en un almacenamiento privado que solo el responsable de MiniChef puede consultar, nunca con un enlace público permanente.</li>
+            <li>Tu nombre, email y a qué hogar perteneces en ese momento, para poder contactarte si hace falta.</li>
+            <li>Información técnica básica (tipo de dispositivo, navegador, la pantalla desde la que enviaste el comentario) para poder investigar mejor los problemas — nunca se usa para hacerte seguimiento fuera de ese comentario concreto.</li>
+          </ul>
+          <p>
+            Usamos esto únicamente para recibir tu opinión, mejorar MiniChef, investigar errores,
+            priorizar mejoras y contactarte si es necesario — nunca para publicidad. Una vez
+            enviado, el comentario no es visible ni editable ni siquiera para ti mismo desde la
+            app: es un canal de un solo sentido hacia el responsable de MiniChef.
+          </p>
+        </Section>
+
+        <Section title="13. Tus derechos">
           <p>
             Si resides en la Unión Europea, tienes derecho a acceder, rectificar, eliminar,
             limitar u oponerte al tratamiento de tus datos, y a la portabilidad de los mismos.
@@ -237,7 +256,7 @@ export default function Privacy() {
           </p>
         </Section>
 
-        <Section title="13. Reclamaciones ante la autoridad de control">
+        <Section title="14. Reclamaciones ante la autoridad de control">
           <p>
             Si consideras que el tratamiento de tus datos no se ajusta a la normativa, puedes
             presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) si
@@ -246,7 +265,7 @@ export default function Privacy() {
           </p>
         </Section>
 
-        <Section title="14. Cambios en esta política">
+        <Section title="15. Cambios en esta política">
           <p>Si esta política cambia de forma relevante, actualizaremos la fecha de arriba y, si el cambio es significativo, te lo indicaremos dentro de la propia app.</p>
         </Section>
 
