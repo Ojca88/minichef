@@ -98,10 +98,30 @@ describe('regla: seguridad de los ingredientes', () => {
     }
   });
 
-  it('las recetas con huevo, gluten, lácteos o pescado avisan del alérgeno', () => {
+  it('los "tacos"/"quesadillas" nunca se sirven enteros y enrollados: siempre cortados en tiras', () => {
+    const wraps = RECIPES.filter(r => /^Taco blando|^Quesadilla/i.test(r.name));
+    expect(wraps.length).toBeGreaterThan(0);
+    for (const r of wraps) {
+      const avisaCortar = r.steps.some(s => /corta en tiras/i.test(s));
+      expect(avisaCortar, `"${r.name}" no indica cortarlo en tiras antes de servir`).toBe(true);
+    }
+  });
+
+  it('toda receta con mantequilla de cacahuete avisa de no usarlo a cucharadas ni en trozos de cacahuete entero', () => {
+    const conCacahuete = RECIPES.filter(r => r.allergens.includes('Cacahuete'));
+    expect(conCacahuete.length).toBeGreaterThan(0);
+    for (const r of conCacahuete) {
+      const texto = r.tips.join(' ') + ' ' + r.steps.join(' ');
+      const avisa = /capa (muy )?fina|nunca (en|a) cucharadas|cacahuetes? enter/i.test(texto);
+      expect(avisa, `"${r.name}" no avisa del riesgo de atragantamiento del cacahuete espeso/entero`).toBe(true);
+    }
+  });
+
+  it('las recetas con huevo, gluten, lácteos, pescado o cacahuete avisan del alérgeno', () => {
     for (const r of RECIPES) {
       const texto = (r.ingredients.join(' ') + ' ' + r.steps.join(' ')).toLowerCase();
       if (/\bhuevo\b/.test(texto)) expect(r.allergens, `"${r.name}" lleva huevo pero no lo lista como alérgeno`).toContain('Huevo');
+      if (/cacahuete/.test(texto)) expect(r.allergens, `"${r.name}" lleva cacahuete pero no lo lista como alérgeno`).toContain('Cacahuete');
       if (/\bpan tierno|pan rallado|pasta\b|fideos|cuscús/.test(texto) && !/\bavena\b/.test(texto)) {
         // el aviso de gluten es exigible salvo que el único cereal presente sea avena (sin gluten)
       }

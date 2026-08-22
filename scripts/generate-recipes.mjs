@@ -464,6 +464,8 @@ const ING = {
   // lacteos
   yogur: { name: 'Yogur natural sin azúcar', group: 'lacteos', minAge: 1, allergens: ['lacteos'], quantity: '1 unidad (125 g)', prep: 'Usa yogur natural sin azúcar ni edulcorantes añadidos.', rawOk: true, doneCue: '' },
   quesoFresco: { name: 'Queso fresco tipo Burgos', group: 'lacteos', minAge: 2, allergens: ['lacteos'], quantity: '30 g (un par de cucharadas)', prep: 'Escurre bien el queso fresco y chafalo con un tenedor.', rawOk: true, doneCue: '' },
+  tortillaTrigo: { name: 'Tortilla de trigo suave (tipo wrap)', group: 'cereales', minAge: 2, allergens: ['gluten'], quantity: '1 unidad pequeña', prep: 'Calienta la tortilla unos segundos por cada lado en una sartén sin aceite, hasta que esté flexible y algo tibia — así se ablanda y se dobla sin romperse.', rawOk: true, doneCue: '' },
+  mantequillaCacahuete: { name: 'Mantequilla de cacahuete 100% (sin azúcar ni sal añadidos)', group: 'grasas', minAge: 0, allergens: ['cacahuete'], quantity: 'Media cucharadita, extendida muy fina', prep: 'Extiende una capa muy fina — nunca a cucharadas ni en grumos: espesa y pegajosa, es un riesgo real de atragantamiento para un bebé.', rawOk: true, doneCue: '' },
 };
 
 // Grammatical gender/number per ingredient, so generated sentences use correct
@@ -476,7 +478,7 @@ const ARTICLES = {
   lentejas: 'las', lentejasRojas: 'las', garbanzos: 'los', judiasBlancas: 'las', guisantes: 'los',
   arroz: 'el', quinoa: 'la', cuscus: 'el', fideosFinos: 'los', panTierno: 'el', avena: 'la',
   pollo: 'la', pavo: 'la', ternera: 'la', merluza: 'la', pescadoBlanco: 'el', salmon: 'el', huevo: 'el',
-  yogur: 'el', quesoFresco: 'el',
+  yogur: 'el', quesoFresco: 'el', tortillaTrigo: 'la', mantequillaCacahuete: 'la',
 };
 Object.keys(ING).forEach((k) => {
   const art = ARTICLES[k] || 'el';
@@ -1071,6 +1073,99 @@ function brochetasBlandas({ items, mealType = 'merienda', season = 'verano' }) {
   };
 }
 
+// ---- wrap_relleno: taco/quesadilla blando, cortado en tiras (nunca entero
+// ni enrollado apretado, por seguridad) ----
+function wrapRelleno({ mealType, items, style = 'taco' }) {
+  const name = `${style === 'quesadilla' ? 'Quesadilla' : 'Taco blando'} de ${joinNatural(items.map((i) => i.name.toLowerCase()))}`;
+  const cookItems = items.filter((i) => !i.rawOk);
+  const rawItems = items.filter((i) => i.rawOk);
+  const hasProtein = items.some((i) => i.group === 'proteina');
+  return {
+    id: stableId(name, mealType),
+    name,
+    mealTypes: [mealType], minAgeIdx: Math.max(2, ING.tortillaTrigo.minAge, ...items.map((i) => i.minAge)),
+    allergens: unique(['gluten', ...items.flatMap((i) => i.allergens || [])]),
+    time: 20, texture: 'finger', season: 'ambas',
+    foodGroups: unique(['cereales', ...items.map((i) => i.group)]),
+    ingredients: [
+      { name: ING.tortillaTrigo.name, quantity: ING.tortillaTrigo.quantity },
+      ...items.map((i) => ({ name: i.name, quantity: vegQty(items.length) })),
+    ],
+    utensils: ['Sartén', 'Tabla y cuchillo'],
+    steps: [
+      ...cookItems.map((i) => i.prep),
+      ...(cookItems.length ? [`Cocina ${artNames(cookItems)} hasta que ${combineDoneCues(cookItems)}.`] : []),
+      ...(hasProtein ? ['Cuando puedas tocarlo sin quemarte, desmenuza o corta en trozos muy pequeños cualquier proteína.'] : []),
+      ...rawItems.map((i) => i.prep),
+      ING.tortillaTrigo.prep,
+      `Reparte ${artNames(items)} sobre media tortilla ya templada.`,
+      style === 'quesadilla'
+        ? 'Dobla la tortilla por la mitad y dórala 1-2 minutos por cada lado en la sartén, hasta que el relleno esté caliente y el queso algo fundido.'
+        : 'Dobla la tortilla por la mitad, sin apretar del todo.',
+      'Deja templar y corta en tiras de unos 2 cm de ancho: nunca sirvas el wrap entero y enrollado, sería un bocado demasiado grande y difícil de morder de forma segura.',
+    ],
+    tips: [
+      'Si prefieres, sirve la tortilla templada y el relleno por separado, sin doblar, para que el bebé los combine él mismo con las manos.',
+      'La tortilla se ablanda al calentarla — nunca la sirvas fría y rígida directamente del paquete.',
+    ],
+  };
+}
+
+// ---- pan_cacahuete: introducción del cacahuete, en capa fina ----
+function panConCacahuete({ mealType = 'merienda' }) {
+  const name = 'Pan con mantequilla de cacahuete, extendida fina';
+  return {
+    id: stableId(name, mealType),
+    name,
+    mealTypes: [mealType], minAgeIdx: 0,
+    allergens: ['gluten', 'cacahuete'],
+    time: 5, texture: 'finger', season: 'ambas',
+    foodGroups: ['cereales', 'grasas'],
+    ingredients: [
+      { name: ING.panTierno.name, quantity: ING.panTierno.quantity },
+      { name: ING.mantequillaCacahuete.name, quantity: ING.mantequillaCacahuete.quantity },
+    ],
+    utensils: ['Cuchillo sin filo'],
+    steps: [
+      ING.panTierno.prep,
+      ING.mantequillaCacahuete.prep,
+      'Unta esa capa fina de mantequilla de cacahuete sobre el pan, cubriendo bien toda la superficie, sin dejar grumos ni montoncitos gruesos.',
+      'Ofrécelo por primera vez en casa, con calma, y quédate con tu bebé al menos un par de horas después, por si aparece alguna señal de alergia.',
+    ],
+    tips: [
+      'Las guías pediátricas actuales recomiendan introducir el cacahuete de forma temprana y en cantidades pequeñas, precisamente para reducir el riesgo de alergia — nunca en cucharadas ni con cacahuetes enteros o trozos grandes, que son un riesgo real de atragantamiento.',
+      'Si en tu familia hay antecedentes de alergia alimentaria grave, o tu bebé ya tiene dermatitis atópica importante, consulta con el pediatra antes de esta primera introducción.',
+    ],
+  };
+}
+
+// ---- papilla_hierro: cereal + fruta con vitamina C, para primeras papillas ----
+function papillaHierro({ cereal, fruit }) {
+  const items = [cereal, fruit];
+  const name = `Papilla de ${cereal.name.toLowerCase()} con ${fruit.name.toLowerCase()}`;
+  const cookItems = items.filter((i) => !i.rawOk);
+  return {
+    id: stableId(name, 'comida'),
+    name,
+    mealTypes: ['comida'], minAgeIdx: 0,
+    allergens: unique(items.flatMap((i) => i.allergens || [])),
+    time: (cookItems.length ? Math.max(...cookItems.map((i) => i.cookTime)) : 5) + 8, texture: 'pure', season: 'ambas',
+    foodGroups: unique(items.map((i) => i.group)),
+    ingredients: items.map((i) => ({ name: i.name, quantity: i.quantity })),
+    utensils: cookItems.length ? ['Cazuela', 'Batidora de mano'] : ['Bol', 'Tenedor'],
+    steps: [
+      ...items.map((i) => i.prep),
+      ...(cookItems.length ? [`Cuece ${artNames(cookItems)} unos ${Math.max(...cookItems.map((i) => i.cookTime))} minutos, hasta que ${combineDoneCues(cookItems)}.`] : []),
+      'Mezcla bien ambos ingredientes y tritura con la batidora (o chafa con un tenedor) hasta obtener una papilla fina y homogénea.',
+      'Si queda muy espesa, añade una cucharadita de agua o de la leche que tome tu bebé, hasta la textura que prefiera.',
+    ],
+    tips: [
+      'La avena aporta hierro, y la vitamina C de la fruta ayuda al cuerpo a absorberlo mejor — una combinación especialmente recomendable en las primeras papillas.',
+      'Esta receta está pensada para las primeras etapas de la alimentación complementaria, cuando la textura debe ser todavía muy fina.',
+    ],
+  };
+}
+
 // ---------------------------------------------------------------------------
 // 3. Explicit, hand-picked combinations (realistic pairings, not random)
 // ---------------------------------------------------------------------------
@@ -1288,6 +1383,23 @@ generated.push(palitosUntables({ spreadName: 'mango chafado', spreadItems: [ING.
   { items: ['kiwi', 'mango'], mealType: 'merienda', season: 'verano' },
   { items: ['calabacin', 'zanahoria', 'pollo'], mealType: 'comida', season: 'ambas' },
 ].forEach(({ items, mealType, season }) => generated.push(brochetasBlandas({ items: items.map((k) => ING[k]), mealType, season })));
+
+// wrap_relleno — tacos blandos y quesadillas
+[
+  { items: ['pollo', 'aguacate'], mealType: 'comida', style: 'taco' },
+  { items: ['pollo', 'tomate', 'aguacate'], mealType: 'cena', style: 'taco' },
+  { items: ['quesoFresco', 'espinacas'], mealType: 'comida', style: 'quesadilla' },
+  { items: ['quesoFresco', 'calabacin'], mealType: 'cena', style: 'quesadilla' },
+].forEach(({ items, mealType, style }) => generated.push(wrapRelleno({ items: items.map((k) => ING[k]), mealType, style })));
+
+// pan_cacahuete — merienda
+generated.push(panConCacahuete({ mealType: 'merienda' }));
+
+// papilla_hierro — comida, primeras papillas
+[
+  { cereal: 'avena', fruit: 'pera' },
+  { cereal: 'avena', fruit: 'manzana' },
+].forEach(({ cereal, fruit }) => generated.push(papillaHierro({ cereal: ING[cereal], fruit: ING[fruit] })));
 
 // ---------------------------------------------------------------------------
 // 4. Assemble, sanity-check, write

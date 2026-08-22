@@ -131,6 +131,23 @@ export default function Home() {
           <NavCard title="Compra" subtitle="Desde tu menú" color="apricot" icon="cart" onClick={() => navigate('/lista-compra')} />
         </div>
 
+        <button onClick={() => navigate('/alergenos')} className="card-interactive" style={{
+          width: '100%', background: 'var(--gradient-blue-bold)', border: 'none', borderRadius: 'var(--radius-lg)',
+          padding: '16px', textAlign: 'left', display: 'flex', alignItems: 'center', gap: 12,
+          boxShadow: 'var(--shadow-blue-bold)', color: 'var(--white)', marginBottom: 20,
+        }}>
+          <span style={{
+            width: 34, height: 34, borderRadius: '50%', background: 'rgba(255,255,255,0.22)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+          }}>
+            <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">{NAV_CARD_ICONS.shield}</svg>
+          </span>
+          <span>
+            <span style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 600 }}>Alérgenos</span>
+            <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.8)' }}>Registra su introducción y cómo le sentó</span>
+          </span>
+        </button>
+
         <SyncPanel />
 
         <Link
@@ -163,6 +180,7 @@ const NAV_CARD_ICONS = {
   book: <path d="M4 4.5c2.5-1 5.5-1 8 0v15c-2.5-1-5.5-1-8 0v-15ZM20 4.5c-2.5-1-5.5-1-8 0v15c2.5-1 5.5-1 8 0v-15Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />,
   leaf: <path d="M5 19c-1-6 2-13 14-14 1 12-6 15-14 14Zm0 0c3-3 6-6 10-9" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />,
   cart: <><circle cx="9" cy="20" r="1.4" fill="currentColor" /><circle cx="17" cy="20" r="1.4" fill="currentColor" /><path d="M3 4h2l2.2 11.2a1.8 1.8 0 0 0 1.78 1.5h7.6a1.8 1.8 0 0 0 1.77-1.46L20 8H6.2" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></>,
+  shield: <path d="M12 3.5 5 6v6c0 5 3 8.5 7 9.5 4-1 7-4.5 7-9.5V6l-7-2.5Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />,
 };
 
 function NavCard({ title, subtitle, color, icon, onClick }) {

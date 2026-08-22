@@ -150,6 +150,40 @@ export default function SyncPanel() {
         invitar a alguien, usa "Invitar a alguien" con su email.
       </p>
 
+      {isOwner && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, background: 'var(--sage-light)', borderRadius: 'var(--radius-md)', padding: 14 }}>
+          <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--sage-dark)' }}>✉️ Invitar a alguien</p>
+          <p style={{ fontSize: 11.5, color: 'var(--ink-muted)', lineHeight: 1.5 }}>
+            La persona recibirá un email con un enlace para unirse a tu hogar. Deberá acceder con
+            la cuenta de Google asociada a ese mismo email.
+          </p>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <input
+              type="email"
+              value={inviteEmail}
+              onChange={(e) => { setInviteEmail(e.target.value); setInviteError(''); setInviteOk(''); }}
+              onKeyDown={(e) => e.key === 'Enter' && handleInvite()}
+              placeholder="email@ejemplo.com"
+              style={{ flex: 1, fontSize: 13, padding: '10px 12px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)', background: 'var(--white)' }}
+            />
+            <button
+              onClick={handleInvite}
+              disabled={inviteBusy || !inviteEmail.trim()}
+              className="pressable"
+              style={{
+                padding: '0 16px', borderRadius: 'var(--radius-sm)', border: 'none',
+                background: 'var(--sage)', color: 'white', fontSize: 13, fontWeight: 600,
+                opacity: inviteBusy || !inviteEmail.trim() ? 0.6 : 1,
+              }}
+            >
+              {inviteBusy ? '...' : 'Enviar'}
+            </button>
+          </div>
+          {inviteError && <p style={{ fontSize: 11.5, color: '#C4302B' }}>{inviteError}</p>}
+          {inviteOk && <p style={{ fontSize: 11.5, color: 'var(--sage-dark)' }}>{inviteOk}</p>}
+        </div>
+      )}
+
       <button
         onClick={() => setShowMembers((v) => !v)}
         style={{ fontSize: 12, color: 'var(--sage-dark)', background: 'none', border: 'none', textAlign: 'left', fontWeight: 600 }}
@@ -209,40 +243,6 @@ export default function SyncPanel() {
                   )}
                 </div>
               ))}
-            </div>
-          )}
-
-          {isOwner && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, borderTop: '1px solid var(--line)', paddingTop: 10 }}>
-              <p style={{ fontSize: 11, color: 'var(--ink-muted)', fontWeight: 600 }}>Invitar a alguien</p>
-              <p style={{ fontSize: 11.5, color: 'var(--ink-muted)', lineHeight: 1.5 }}>
-                La persona recibirá un email con un enlace para unirse a tu hogar. Deberá acceder con
-                la cuenta de Google asociada a ese mismo email.
-              </p>
-              <div style={{ display: 'flex', gap: 8 }}>
-                <input
-                  type="email"
-                  value={inviteEmail}
-                  onChange={(e) => { setInviteEmail(e.target.value); setInviteError(''); setInviteOk(''); }}
-                  onKeyDown={(e) => e.key === 'Enter' && handleInvite()}
-                  placeholder="email@ejemplo.com"
-                  style={{ flex: 1, fontSize: 13, padding: '9px 10px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)' }}
-                />
-                <button
-                  onClick={handleInvite}
-                  disabled={inviteBusy || !inviteEmail.trim()}
-                  className="pressable"
-                  style={{
-                    padding: '0 14px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--sage)',
-                    background: 'var(--white)', color: 'var(--sage-dark)', fontSize: 12, fontWeight: 600,
-                    opacity: inviteBusy ? 0.6 : 1,
-                  }}
-                >
-                  Enviar
-                </button>
-              </div>
-              {inviteError && <p style={{ fontSize: 11.5, color: '#C4302B' }}>{inviteError}</p>}
-              {inviteOk && <p style={{ fontSize: 11.5, color: 'var(--sage-dark)' }}>{inviteOk}</p>}
             </div>
           )}
         </div>

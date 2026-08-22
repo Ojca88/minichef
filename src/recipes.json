@@ -15382,5 +15382,362 @@
     "categories": [
       "carne"
     ]
+  },
+  {
+    "id": "g-comida-taco-blando-de-pechuga-de-pollo-y-aguacate",
+    "name": "Taco blando de pechuga de pollo y aguacate",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 20,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "proteina",
+      "grasas"
+    ],
+    "ingredients": [
+      {
+        "name": "Tortilla de trigo suave (tipo wrap)",
+        "quantity": "1 unidad pequeña"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Aguacate",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Sartén",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Cocina la pechuga de pollo hasta que el pollo esté blanco por dentro, sin ninguna parte rosada.",
+      "Cuando puedas tocarlo sin quemarte, desmenuza o corta en trozos muy pequeños cualquier proteína.",
+      "Parte el aguacate maduro por la mitad, retira el hueso con cuidado y extrae la pulpa con una cuchara.",
+      "Calienta la tortilla unos segundos por cada lado en una sartén sin aceite, hasta que esté flexible y algo tibia — así se ablanda y se dobla sin romperse.",
+      "Reparte la pechuga de pollo y el aguacate sobre media tortilla ya templada.",
+      "Dobla la tortilla por la mitad, sin apretar del todo.",
+      "Deja templar y corta en tiras de unos 2 cm de ancho: nunca sirvas el wrap entero y enrollado, sería un bocado demasiado grande y difícil de morder de forma segura."
+    ],
+    "tips": [
+      "Si prefieres, sirve la tortilla templada y el relleno por separado, sin doblar, para que el bebé los combine él mismo con las manos.",
+      "La tortilla se ablanda al calentarla — nunca la sirvas fría y rígida directamente del paquete."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-cena-taco-blando-de-pechuga-de-pollo-tomate-y-aguacate",
+    "name": "Taco blando de pechuga de pollo, tomate y aguacate",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten"
+    ],
+    "time": 20,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "proteina",
+      "verduras",
+      "grasas"
+    ],
+    "ingredients": [
+      {
+        "name": "Tortilla de trigo suave (tipo wrap)",
+        "quantity": "1 unidad pequeña"
+      },
+      {
+        "name": "Pechuga de pollo",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las 3)"
+      },
+      {
+        "name": "Tomate",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las 3)"
+      },
+      {
+        "name": "Aguacate",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las 3)"
+      }
+    ],
+    "utensils": [
+      "Sartén",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Corta la pechuga de pollo en trozos pequeños, retirando cualquier resto de grasa o piel.",
+      "Escalda el tomate unos segundos en agua hirviendo y pásalo por agua fría para pelarlo con facilidad; retira las semillas y trocéalo.",
+      "Cocina la pechuga de pollo y el tomate hasta que el pollo esté blanco por dentro, sin ninguna parte rosada y el tomate se deshaga.",
+      "Cuando puedas tocarlo sin quemarte, desmenuza o corta en trozos muy pequeños cualquier proteína.",
+      "Parte el aguacate maduro por la mitad, retira el hueso con cuidado y extrae la pulpa con una cuchara.",
+      "Calienta la tortilla unos segundos por cada lado en una sartén sin aceite, hasta que esté flexible y algo tibia — así se ablanda y se dobla sin romperse.",
+      "Reparte la pechuga de pollo, el tomate y el aguacate sobre media tortilla ya templada.",
+      "Dobla la tortilla por la mitad, sin apretar del todo.",
+      "Deja templar y corta en tiras de unos 2 cm de ancho: nunca sirvas el wrap entero y enrollado, sería un bocado demasiado grande y difícil de morder de forma segura."
+    ],
+    "tips": [
+      "Si prefieres, sirve la tortilla templada y el relleno por separado, sin doblar, para que el bebé los combine él mismo con las manos.",
+      "La tortilla se ablanda al calentarla — nunca la sirvas fría y rígida directamente del paquete."
+    ],
+    "categories": [
+      "carne"
+    ]
+  },
+  {
+    "id": "g-comida-quesadilla-de-queso-fresco-tipo-burgos-y-espinacas",
+    "name": "Quesadilla de queso fresco tipo burgos y espinacas",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "lacteos"
+    ],
+    "time": 20,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "lacteos",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Tortilla de trigo suave (tipo wrap)",
+        "quantity": "1 unidad pequeña"
+      },
+      {
+        "name": "Queso fresco tipo Burgos",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Espinacas",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Sartén",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava bien las hojas de espinaca en agua fría, cambiando el agua un par de veces para arrastrar la tierra.",
+      "Cocina las espinacas hasta que las hojas se hayan reducido y estén blandas.",
+      "Escurre bien el queso fresco y chafalo con un tenedor.",
+      "Calienta la tortilla unos segundos por cada lado en una sartén sin aceite, hasta que esté flexible y algo tibia — así se ablanda y se dobla sin romperse.",
+      "Reparte el queso fresco tipo burgos y las espinacas sobre media tortilla ya templada.",
+      "Dobla la tortilla por la mitad y dórala 1-2 minutos por cada lado en la sartén, hasta que el relleno esté caliente y el queso algo fundido.",
+      "Deja templar y corta en tiras de unos 2 cm de ancho: nunca sirvas el wrap entero y enrollado, sería un bocado demasiado grande y difícil de morder de forma segura."
+    ],
+    "tips": [
+      "Si prefieres, sirve la tortilla templada y el relleno por separado, sin doblar, para que el bebé los combine él mismo con las manos.",
+      "La tortilla se ablanda al calentarla — nunca la sirvas fría y rígida directamente del paquete."
+    ],
+    "categories": [
+      "lacteos",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-cena-quesadilla-de-queso-fresco-tipo-burgos-y-calabacin",
+    "name": "Quesadilla de queso fresco tipo burgos y calabacín",
+    "mealTypes": [
+      "cena"
+    ],
+    "minAgeIdx": 2,
+    "allergens": [
+      "gluten",
+      "lacteos"
+    ],
+    "time": 20,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "lacteos",
+      "verduras"
+    ],
+    "ingredients": [
+      {
+        "name": "Tortilla de trigo suave (tipo wrap)",
+        "quantity": "1 unidad pequeña"
+      },
+      {
+        "name": "Queso fresco tipo Burgos",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      },
+      {
+        "name": "Calabacín",
+        "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
+      }
+    ],
+    "utensils": [
+      "Sartén",
+      "Tabla y cuchillo"
+    ],
+    "steps": [
+      "Lava el calabacín y córtalo en dados; no hace falta pelarlo si la piel está en buen estado.",
+      "Cocina el calabacín hasta que el calabacín se deshaga al pincharlo.",
+      "Escurre bien el queso fresco y chafalo con un tenedor.",
+      "Calienta la tortilla unos segundos por cada lado en una sartén sin aceite, hasta que esté flexible y algo tibia — así se ablanda y se dobla sin romperse.",
+      "Reparte el queso fresco tipo burgos y el calabacín sobre media tortilla ya templada.",
+      "Dobla la tortilla por la mitad y dórala 1-2 minutos por cada lado en la sartén, hasta que el relleno esté caliente y el queso algo fundido.",
+      "Deja templar y corta en tiras de unos 2 cm de ancho: nunca sirvas el wrap entero y enrollado, sería un bocado demasiado grande y difícil de morder de forma segura."
+    ],
+    "tips": [
+      "Si prefieres, sirve la tortilla templada y el relleno por separado, sin doblar, para que el bebé los combine él mismo con las manos.",
+      "La tortilla se ablanda al calentarla — nunca la sirvas fría y rígida directamente del paquete."
+    ],
+    "categories": [
+      "lacteos",
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-merienda-pan-con-mantequilla-de-cacahuete-extendida-fina",
+    "name": "Pan con mantequilla de cacahuete, extendida fina",
+    "mealTypes": [
+      "merienda"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [
+      "gluten",
+      "cacahuete"
+    ],
+    "time": 5,
+    "texture": "finger",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "grasas"
+    ],
+    "ingredients": [
+      {
+        "name": "Pan tierno",
+        "quantity": "1 rebanada, a poder ser integral"
+      },
+      {
+        "name": "Mantequilla de cacahuete 100% (sin azúcar ni sal añadidos)",
+        "quantity": "Media cucharadita, extendida muy fina"
+      }
+    ],
+    "utensils": [
+      "Cuchillo sin filo"
+    ],
+    "steps": [
+      "Corta el pan en palitos de aproximadamente 1 cm de grosor.",
+      "Extiende una capa muy fina — nunca a cucharadas ni en grumos: espesa y pegajosa, es un riesgo real de atragantamiento para un bebé.",
+      "Unta esa capa fina de mantequilla de cacahuete sobre el pan, cubriendo bien toda la superficie, sin dejar grumos ni montoncitos gruesos.",
+      "Ofrécelo por primera vez en casa, con calma, y quédate con tu bebé al menos un par de horas después, por si aparece alguna señal de alergia."
+    ],
+    "tips": [
+      "Las guías pediátricas actuales recomiendan introducir el cacahuete de forma temprana y en cantidades pequeñas, precisamente para reducir el riesgo de alergia — nunca en cucharadas ni con cacahuetes enteros o trozos grandes, que son un riesgo real de atragantamiento.",
+      "Si en tu familia hay antecedentes de alergia alimentaria grave, o tu bebé ya tiene dermatitis atópica importante, consulta con el pediatra antes de esta primera introducción."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-papilla-de-avena-con-pera",
+    "name": "Papilla de avena con pera",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 16,
+    "texture": "pure",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Avena",
+        "quantity": "2 cucharadas de copos finos"
+      },
+      {
+        "name": "Pera",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Los copos de avena no necesitan cocción: se ablandan al mezclarlos con líquido o fruta.",
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Cuece la pera unos 8 minutos, hasta que un cuchillo entre en la fruta sin resistencia.",
+      "Mezcla bien ambos ingredientes y tritura con la batidora (o chafa con un tenedor) hasta obtener una papilla fina y homogénea.",
+      "Si queda muy espesa, añade una cucharadita de agua o de la leche que tome tu bebé, hasta la textura que prefiera."
+    ],
+    "tips": [
+      "La avena aporta hierro, y la vitamina C de la fruta ayuda al cuerpo a absorberlo mejor — una combinación especialmente recomendable en las primeras papillas.",
+      "Esta receta está pensada para las primeras etapas de la alimentación complementaria, cuando la textura debe ser todavía muy fina."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
+  },
+  {
+    "id": "g-comida-papilla-de-avena-con-manzana",
+    "name": "Papilla de avena con manzana",
+    "mealTypes": [
+      "comida"
+    ],
+    "minAgeIdx": 0,
+    "allergens": [],
+    "time": 18,
+    "texture": "pure",
+    "season": "ambas",
+    "foodGroups": [
+      "cereales",
+      "frutas"
+    ],
+    "ingredients": [
+      {
+        "name": "Avena",
+        "quantity": "2 cucharadas de copos finos"
+      },
+      {
+        "name": "Manzana",
+        "quantity": "1 unidad"
+      }
+    ],
+    "utensils": [
+      "Cazuela",
+      "Batidora de mano"
+    ],
+    "steps": [
+      "Los copos de avena no necesitan cocción: se ablandan al mezclarlos con líquido o fruta.",
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Cuece la manzana unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia.",
+      "Mezcla bien ambos ingredientes y tritura con la batidora (o chafa con un tenedor) hasta obtener una papilla fina y homogénea.",
+      "Si queda muy espesa, añade una cucharadita de agua o de la leche que tome tu bebé, hasta la textura que prefiera."
+    ],
+    "tips": [
+      "La avena aporta hierro, y la vitamina C de la fruta ayuda al cuerpo a absorberlo mejor — una combinación especialmente recomendable en las primeras papillas.",
+      "Esta receta está pensada para las primeras etapas de la alimentación complementaria, cuando la textura debe ser todavía muy fina."
+    ],
+    "categories": [
+      "vegetariano"
+    ]
   }
 ]

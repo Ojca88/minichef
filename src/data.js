@@ -6,7 +6,28 @@ export const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 
 const MEAL_LABELS = { comida: 'Comida', merienda: 'Merienda', cena: 'Cena' };
 const TEXTURE_LABELS = { pure: 'Puré', trocitos: 'Trocitos', finger: 'Finger food' };
-const ALLERGEN_LABELS = { huevo: 'Huevo', lacteos: 'Lácteos', gluten: 'Gluten', pescado: 'Pescado', frutosSecos: 'Frutos secos' };
+const ALLERGEN_LABELS = { huevo: 'Huevo', lacteos: 'Lácteos', gluten: 'Gluten', pescado: 'Pescado', frutosSecos: 'Frutos secos', cacahuete: 'Cacahuete' };
+
+// Los 14 alérgenos de declaración obligatoria según la normativa de la UE
+// (Reglamento 1169/2011) — es la lista de referencia que se usa en España
+// para hablar de introducción de alérgenos, más completa que los 5 que
+// aparecen realmente en los ingredientes de nuestras recetas (arriba).
+export const ALLERGENS_TO_INTRODUCE = [
+  { key: 'gluten', label: 'Gluten (cereales)' },
+  { key: 'crustaceos', label: 'Crustáceos' },
+  { key: 'huevo', label: 'Huevo' },
+  { key: 'pescado', label: 'Pescado' },
+  { key: 'cacahuetes', label: 'Cacahuetes' },
+  { key: 'soja', label: 'Soja' },
+  { key: 'leche', label: 'Leche / lácteos' },
+  { key: 'frutosCascara', label: 'Frutos de cáscara (nueces, almendras...)' },
+  { key: 'apio', label: 'Apio' },
+  { key: 'mostaza', label: 'Mostaza' },
+  { key: 'sesamo', label: 'Sésamo' },
+  { key: 'sulfitos', label: 'Sulfitos' },
+  { key: 'altramuces', label: 'Altramuces' },
+  { key: 'moluscos', label: 'Moluscos' },
+];
 const FOOD_GROUP_LABELS = { verduras: 'Verduras', legumbres: 'Legumbres', proteina: 'Proteína animal', cereales: 'Cereales', frutas: 'Frutas', lacteos: 'Lácteos', grasas: 'Grasas saludables' };
 export const FOOD_GROUPS = Object.values(FOOD_GROUP_LABELS);
 export const TEXTURES = Object.values(TEXTURE_LABELS);
