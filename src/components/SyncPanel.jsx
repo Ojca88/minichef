@@ -29,6 +29,8 @@ export default function SyncPanel() {
   const [inviteBusy, setInviteBusy] = useState(false);
   const [inviteError, setInviteError] = useState('');
   const [inviteOk, setInviteOk] = useState('');
+  const [inviteLink, setInviteLink] = useState('');
+  const [linkCopied, setLinkCopied] = useState(false);
 
   const [accountStep, setAccountStep] = useState(null); // null | 'confirm' | 'decide'
   const [accountConfirmText, setAccountConfirmText] = useState('');
@@ -57,16 +59,31 @@ export default function SyncPanel() {
     setInviteBusy(true);
     setInviteError('');
     setInviteOk('');
+    setInviteLink('');
     const result = await cloud.sendInvitation(email);
     setInviteBusy(false);
     if (result?.error) {
       setInviteError(sendErrorMessage(result.error));
       return;
     }
-    setInviteOk(result.emailSent
-      ? `Invitación enviada a ${email}.`
-      : `Invitación creada, pero el email no se pudo enviar (${result.emailError || 'motivo desconocido'}). Enlace para compartir a mano: ${result.inviteLink}`);
+    if (result.emailSent) {
+      setInviteOk(`Invitación enviada a ${email}.`);
+    } else {
+      const isResendTestingLimit = (result.emailError || '').includes('You can only send testing emails');
+      setInviteOk(isResendTestingLimit
+        ? 'Invitación creada. Tu cuenta de email todavía está en modo de pruebas, así que no se puede enviar el correo automáticamente — comparte este enlace tú mismo:'
+        : `Invitación creada, pero el email no se pudo enviar (${result.emailError || 'motivo desconocido'}). Comparte este enlace tú mismo:`);
+      setInviteLink(result.inviteLink || '');
+    }
     setInviteEmail('');
+  }
+
+  function handleCopyInviteLink() {
+    if (!inviteLink) return;
+    navigator.clipboard?.writeText(inviteLink).then(() => {
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 1500);
+    });
   }
 
   async function handleDeleteAccount() {
@@ -183,6 +200,24 @@ export default function SyncPanel() {
           </div>
           {inviteError && <p style={{ fontSize: 11.5, color: '#C4302B' }}>{inviteError}</p>}
           {inviteOk && <p style={{ fontSize: 11.5, color: 'var(--sage-dark)', wordBreak: 'break-word', overflowWrap: 'anywhere' }}>{inviteOk}</p>}
+          {inviteLink && (
+            <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+              <input
+                type="text"
+                readOnly
+                value={inviteLink}
+                onFocus={(e) => e.target.select()}
+                style={{ flex: 1, fontSize: 11, padding: '8px 10px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--line)', background: 'var(--white)', color: 'var(--ink-muted)' }}
+              />
+              <button
+                onClick={handleCopyInviteLink}
+                className="pressable"
+                style={{ fontSize: 11.5, fontWeight: 600, padding: '8px 12px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--sage)', background: linkCopied ? 'var(--sage)' : 'var(--white)', color: linkCopied ? 'white' : 'var(--sage-dark)', whiteSpace: 'nowrap' }}
+              >
+                {linkCopied ? '✓ Copiado' : 'Copiar'}
+              </button>
+            </div>
+          )}
         </div>
       )}
 
