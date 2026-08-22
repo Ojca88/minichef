@@ -77,11 +77,24 @@ export default function Feedback() {
     setSendError('');
 
     try {
+      // Comprobamos el límite ANTES de intentar guardar nada — así, si
+      // falla algo después (subir la imagen, guardar el comentario), sabemos
+      // con certeza que no es por el límite, y podemos mostrar el motivo
+      // real en vez de adivinarlo a partir de un código de error genérico.
+      const { data: withinLimit, error: limitError } = await supabase.rpc('check_feedback_rate_limit', { p_user_id: cloud.user.id });
+      if (!limitError && withinLimit === false) {
+        setSendError('Has enviado demasiados comentarios hoy. Inténtalo de nuevo mañana.');
+        return;
+      }
+
       let attachmentPath = null;
       if (image && isSupabaseConfigured && cloud.user?.id) {
         const path = `${cloud.user.id}/${Date.now()}-${image.name}`;
         const { error: uploadError } = await supabase.storage.from('feedback-attachments').upload(path, image);
-        if (uploadError) throw new Error('No se pudo subir la imagen');
+        if (uploadError) {
+          setSendError(`No se pudo subir la imagen (${uploadError.message}). Puedes intentarlo sin imagen, o probar de nuevo.`);
+          return;
+        }
         attachmentPath = path;
       }
 
@@ -106,7 +119,10 @@ export default function Feedback() {
         .select('id')
         .single();
 
-      if (insertError) throw insertError;
+      if (insertError) {
+        setSendError(`No se pudo enviar tu comentario (${insertError.message}). Inténtalo de nuevo.`);
+        return;
+      }
 
       // El aviso por email es "mejor esfuerzo": si falla, el feedback ya
       // está guardado igualmente, así que no bloqueamos la confirmación al
@@ -115,11 +131,7 @@ export default function Feedback() {
 
       setDone(true);
     } catch (err) {
-      setSendError(
-        err?.message?.includes('check_feedback_rate_limit') || err?.code === '42501'
-          ? 'Has enviado demasiados comentarios hoy. Inténtalo de nuevo mañana.'
-          : 'No se pudo enviar tu comentario. Inténtalo de nuevo.'
-      );
+      setSendError(`No se pudo enviar tu comentario (${err?.message || 'error desconocido'}). Inténtalo de nuevo.`);
     } finally {
       setSending(false);
     }

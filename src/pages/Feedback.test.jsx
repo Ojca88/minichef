@@ -7,10 +7,11 @@ import Feedback from './Feedback';
 let mockCloud;
 vi.mock('../CloudSyncContext', () => ({ useCloud: () => mockCloud }));
 
-const { mockFrom, mockStorageFrom, mockInvoke } = vi.hoisted(() => ({
+const { mockFrom, mockStorageFrom, mockInvoke, mockRpc } = vi.hoisted(() => ({
   mockFrom: vi.fn(),
   mockStorageFrom: vi.fn(),
   mockInvoke: vi.fn(),
+  mockRpc: vi.fn(),
 }));
 
 vi.mock('../supabaseClient', () => ({
@@ -19,6 +20,7 @@ vi.mock('../supabaseClient', () => ({
     from: (...args) => mockFrom(...args),
     storage: { from: (...args) => mockStorageFrom(...args) },
     functions: { invoke: (...args) => mockInvoke(...args) },
+    rpc: (...args) => mockRpc(...args),
   },
 }));
 
@@ -34,6 +36,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   mockCloud = { user: { id: 'u1', email: 'ana@gmail.com' }, household: { id: 'h1' } };
   mockInvoke.mockResolvedValue({ data: { ok: true }, error: null });
+  mockRpc.mockResolvedValue({ data: true, error: null }); // dentro del límite, por defecto
 });
 
 describe('Feedback — selección de categoría', () => {
@@ -121,5 +124,20 @@ describe('Feedback — envío', () => {
     await user.click(screen.getByText('Enviar comentario'));
 
     await waitFor(() => expect(screen.getByText(/No se pudo enviar/i)).toBeInTheDocument());
+  });
+
+  it('si se ha superado el límite diario, lo detecta ANTES de intentar guardar (sin llamar a insert)', async () => {
+    mockRpc.mockResolvedValue({ data: false, error: null });
+    const mockInsert = vi.fn();
+    mockFrom.mockReturnValue({ insert: mockInsert });
+
+    const user = userEvent.setup();
+    renderFeedback();
+    await user.click(screen.getByText('Otro comentario'));
+    await user.type(screen.getByPlaceholderText('Escribe aquí tu comentario...'), 'Algo');
+    await user.click(screen.getByText('Enviar comentario'));
+
+    await waitFor(() => expect(screen.getByText('Has enviado demasiados comentarios hoy. Inténtalo de nuevo mañana.')).toBeInTheDocument());
+    expect(mockInsert).not.toHaveBeenCalled();
   });
 });
