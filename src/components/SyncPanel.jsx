@@ -182,7 +182,7 @@ export default function SyncPanel() {
             </button>
           </div>
           {inviteError && <p style={{ fontSize: 11.5, color: '#C4302B' }}>{inviteError}</p>}
-          {inviteOk && <p style={{ fontSize: 11.5, color: 'var(--sage-dark)' }}>{inviteOk}</p>}
+          {inviteOk && <p style={{ fontSize: 11.5, color: 'var(--sage-dark)', wordBreak: 'break-word', overflowWrap: 'anywhere' }}>{inviteOk}</p>}
         </div>
       )}
 

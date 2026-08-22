@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { RECIPES, AGE_RANGES, formatTodayLong, formatUpdatedAt } from '../data';
 import { useCloud } from '../CloudSyncContext';
 import RecipeCard from '../components/RecipeCard';
-import SyncPanel from '../components/SyncPanel';
 
 /* global __LAST_COMMIT_DATE__ */
 
@@ -42,7 +41,23 @@ export default function Home() {
         background: 'var(--gradient-hero-bold)',
         borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
         boxShadow: 'var(--shadow-lg)',
+        position: 'relative',
       }}>
+        <button
+          onClick={() => navigate('/cuenta')}
+          aria-label="Mi cuenta"
+          className="pressable"
+          style={{
+            position: 'absolute', top: 20, right: 20, width: 38, height: 38, borderRadius: '50%',
+            background: 'rgba(255,255,255,0.22)', border: 'none',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6" fill="none" stroke="var(--white)" strokeWidth="1.8" />
+            <path d="M4.5 20c1.5-4 4.5-6 7.5-6s6 2 7.5 6" fill="none" stroke="var(--white)" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+        </button>
         <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>Hola 👋 · {formatTodayLong()}</p>
         <h1 style={{ fontSize: 34, lineHeight: 1.05, color: 'var(--white)', marginTop: 4, letterSpacing: -0.5 }}>
           ¿Qué le damos hoy?
@@ -147,8 +162,6 @@ export default function Home() {
             <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.8)' }}>Registra su introducción y cómo le sentó</span>
           </span>
         </button>
-
-        <SyncPanel />
 
         <Link
           to="/feedback"

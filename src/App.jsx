@@ -16,6 +16,7 @@ import Terms from './pages/Terms';
 import InviteAccept from './pages/InviteAccept';
 import Feedback from './pages/Feedback';
 import Allergens from './pages/Allergens';
+import Account from './pages/Account';
 import ScrollToTop from './components/ScrollToTop';
 
 function MainApp() {
@@ -34,6 +35,7 @@ function MainApp() {
               <Route path="/lista-compra" element={<ShoppingList />} />
               <Route path="/feedback" element={<Feedback />} />
               <Route path="/alergenos" element={<Allergens />} />
+              <Route path="/cuenta" element={<Account />} />
             </Routes>
           </div>
           <BottomNav />
