@@ -6057,12 +6057,12 @@
     ]
   },
   {
-    "id": "g-merienda-manzana-y-melocoton-en-trozos",
-    "name": "Manzana y Melocotón en trozos",
+    "id": "g-merienda-manzana-y-mango-en-trozos",
+    "name": "Manzana y Mango en trozos",
     "mealTypes": [
       "merienda"
     ],
-    "minAgeIdx": 0,
+    "minAgeIdx": 1,
     "allergens": [],
     "time": 18,
     "texture": "trocitos",
@@ -6076,8 +6076,8 @@
         "quantity": "1 unidad"
       },
       {
-        "name": "Melocotón",
-        "quantity": "1-2 unidades, maduras"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       }
     ],
     "utensils": [
@@ -6086,9 +6086,10 @@
     ],
     "steps": [
       "Lava, pela y descorazona la manzana, y córtala en trozos.",
-      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
-      "Cuece la manzana y el melocotón al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia y el melocotón se deshaga. Debe quedar blanda pero entera, sin deshacerse del todo.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Cuece la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia. Debe quedar blanda pero entera, sin deshacerse del todo.",
       "Retira del fuego y deja templar.",
+      "Corta también el mango en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -6238,8 +6239,8 @@
     ]
   },
   {
-    "id": "g-merienda-fresas-y-kiwi-en-trozos",
-    "name": "Fresas y Kiwi en trozos",
+    "id": "g-merienda-mango-en-trozos",
+    "name": "Mango en trozos",
     "mealTypes": [
       "merienda"
     ],
@@ -6253,21 +6254,16 @@
     ],
     "ingredients": [
       {
-        "name": "Fresas",
-        "quantity": "4-5 unidades, maduras"
-      },
-      {
-        "name": "Kiwi",
-        "quantity": "1 unidad, madura"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       }
     ],
     "utensils": [
       "Tabla y cuchillo"
     ],
     "steps": [
-      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
-      "Pela el kiwi y trocéalo.",
-      "Corta las fresas y el kiwi en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Corta el mango en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -6280,8 +6276,8 @@
     ]
   },
   {
-    "id": "g-merienda-sandia-y-fresas-en-trozos",
-    "name": "Sandía y Fresas en trozos",
+    "id": "g-merienda-papaya-en-trozos",
+    "name": "Papaya en trozos",
     "mealTypes": [
       "merienda"
     ],
@@ -6295,21 +6291,16 @@
     ],
     "ingredients": [
       {
-        "name": "Sandía",
-        "quantity": "2 rodajas pequeñas"
-      },
-      {
-        "name": "Fresas",
-        "quantity": "4-5 unidades, maduras"
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
       }
     ],
     "utensils": [
       "Tabla y cuchillo"
     ],
     "steps": [
-      "Corta la sandía en trozos pequeños, retirando bien todas las pepitas.",
-      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
-      "Corta la sandía y las fresas en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
+      "Corta la papaya en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -6410,14 +6401,14 @@
     ]
   },
   {
-    "id": "g-merienda-kiwi-y-manzana-en-trozos",
-    "name": "Kiwi y Manzana en trozos",
+    "id": "g-merienda-kiwi-y-pera-en-trozos",
+    "name": "Kiwi y Pera en trozos",
     "mealTypes": [
       "merienda"
     ],
     "minAgeIdx": 1,
     "allergens": [],
-    "time": 18,
+    "time": 16,
     "texture": "trocitos",
     "season": "verano",
     "foodGroups": [
@@ -6429,7 +6420,7 @@
         "quantity": "1 unidad, madura"
       },
       {
-        "name": "Manzana",
+        "name": "Pera",
         "quantity": "1 unidad"
       }
     ],
@@ -6439,8 +6430,8 @@
     ],
     "steps": [
       "Pela el kiwi y trocéalo.",
-      "Lava, pela y descorazona la manzana, y córtala en trozos.",
-      "Cuece la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia. Debe quedar blanda pero entera, sin deshacerse del todo.",
+      "Lava, pela y descorazona la pera, y córtala en trozos.",
+      "Cuece la pera al vapor (o con un par de cucharadas de agua en una cazuela) unos 8 minutos, hasta que un cuchillo entre en la fruta sin resistencia. Debe quedar blanda pero entera, sin deshacerse del todo.",
       "Retira del fuego y deja templar.",
       "Corta también el kiwi en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
@@ -6580,14 +6571,14 @@
     ]
   },
   {
-    "id": "g-merienda-albaricoque-y-ciruela-en-trozos",
-    "name": "Albaricoque y Ciruela en trozos",
+    "id": "g-merienda-papaya-y-platano-en-trozos",
+    "name": "Papaya y Plátano en trozos",
     "mealTypes": [
       "merienda"
     ],
     "minAgeIdx": 1,
     "allergens": [],
-    "time": 16,
+    "time": 11,
     "texture": "trocitos",
     "season": "verano",
     "foodGroups": [
@@ -6595,23 +6586,21 @@
     ],
     "ingredients": [
       {
-        "name": "Albaricoque",
-        "quantity": "3 unidades, maduras"
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
       },
       {
-        "name": "Ciruela",
-        "quantity": "2 unidades, maduras"
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
       }
     ],
     "utensils": [
-      "Vaporera (o cazuela con cestillo)",
       "Tabla y cuchillo"
     ],
     "steps": [
-      "Lava el albaricoque, deshuésalo y trocéalo.",
-      "Lava la ciruela, deshuésala y trocéala.",
-      "Cuece el albaricoque y la ciruela al vapor (o con un par de cucharadas de agua en una cazuela) unos 8 minutos, hasta que el albaricoque se deshaga y la ciruela se deshaga. Debe quedar blanda pero entera, sin deshacerse del todo.",
-      "Retira del fuego y deja templar.",
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Corta la papaya y el plátano en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -6713,14 +6702,14 @@
     ]
   },
   {
-    "id": "g-merienda-arandanos-y-albaricoque-en-trozos",
-    "name": "Arándanos y Albaricoque en trozos",
+    "id": "g-merienda-kiwi-y-manzana-en-trozos",
+    "name": "Kiwi y Manzana en trozos",
     "mealTypes": [
       "merienda"
     ],
     "minAgeIdx": 1,
     "allergens": [],
-    "time": 16,
+    "time": 18,
     "texture": "trocitos",
     "season": "verano",
     "foodGroups": [
@@ -6728,12 +6717,12 @@
     ],
     "ingredients": [
       {
-        "name": "Arándanos",
-        "quantity": "Un puñado (unos 60 g)"
+        "name": "Kiwi",
+        "quantity": "1 unidad, madura"
       },
       {
-        "name": "Albaricoque",
-        "quantity": "3 unidades, maduras"
+        "name": "Manzana",
+        "quantity": "1 unidad"
       }
     ],
     "utensils": [
@@ -6741,10 +6730,11 @@
       "Tabla y cuchillo"
     ],
     "steps": [
-      "Lava bien los arándanos y aplástalos ligeramente con un tenedor: enteros pueden ser un riesgo de atragantamiento.",
-      "Lava el albaricoque, deshuésalo y trocéalo.",
-      "Cuece los arándanos y el albaricoque al vapor (o con un par de cucharadas de agua en una cazuela) unos 8 minutos, hasta que se ablanden y el albaricoque se deshaga. Debe quedar blanda pero entera, sin deshacerse del todo.",
+      "Pela el kiwi y trocéalo.",
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Cuece la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que un cuchillo entre en la fruta sin resistencia. Debe quedar blanda pero entera, sin deshacerse del todo.",
       "Retira del fuego y deja templar.",
+      "Corta también el kiwi en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -6757,8 +6747,8 @@
     ]
   },
   {
-    "id": "g-merienda-kiwi-y-pera-en-trozos",
-    "name": "Kiwi y Pera en trozos",
+    "id": "g-merienda-mango-y-pera-en-trozos",
+    "name": "Mango y Pera en trozos",
     "mealTypes": [
       "merienda"
     ],
@@ -6772,8 +6762,8 @@
     ],
     "ingredients": [
       {
-        "name": "Kiwi",
-        "quantity": "1 unidad, madura"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       },
       {
         "name": "Pera",
@@ -6785,11 +6775,11 @@
       "Tabla y cuchillo"
     ],
     "steps": [
-      "Pela el kiwi y trocéalo.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
       "Lava, pela y descorazona la pera, y córtala en trozos.",
       "Cuece la pera al vapor (o con un par de cucharadas de agua en una cazuela) unos 8 minutos, hasta que un cuchillo entre en la fruta sin resistencia. Debe quedar blanda pero entera, sin deshacerse del todo.",
       "Retira del fuego y deja templar.",
-      "Corta también el kiwi en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
+      "Corta también el mango en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -6933,14 +6923,14 @@
     ]
   },
   {
-    "id": "g-merienda-ciruela-albaricoque-y-manzana-en-trozos",
-    "name": "Ciruela, Albaricoque y Manzana en trozos",
+    "id": "g-merienda-papaya-y-mango-en-trozos",
+    "name": "Papaya y Mango en trozos",
     "mealTypes": [
       "merienda"
     ],
     "minAgeIdx": 1,
     "allergens": [],
-    "time": 18,
+    "time": 11,
     "texture": "trocitos",
     "season": "verano",
     "foodGroups": [
@@ -6948,28 +6938,21 @@
     ],
     "ingredients": [
       {
-        "name": "Ciruela",
-        "quantity": "2 unidades, maduras"
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
       },
       {
-        "name": "Albaricoque",
-        "quantity": "3 unidades, maduras"
-      },
-      {
-        "name": "Manzana",
-        "quantity": "1 unidad"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       }
     ],
     "utensils": [
-      "Vaporera (o cazuela con cestillo)",
       "Tabla y cuchillo"
     ],
     "steps": [
-      "Lava la ciruela, deshuésala y trocéala.",
-      "Lava el albaricoque, deshuésalo y trocéalo.",
-      "Lava, pela y descorazona la manzana, y córtala en trozos.",
-      "Cuece la ciruela, el albaricoque y la manzana al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que la ciruela se deshaga, el albaricoque se deshaga y un cuchillo entre en la fruta sin resistencia. Debe quedar blanda pero entera, sin deshacerse del todo.",
-      "Retira del fuego y deja templar.",
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Corta la papaya y el mango en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -7210,14 +7193,14 @@
     ]
   },
   {
-    "id": "g-merienda-fresas-albaricoque-y-melocoton-en-trozos",
-    "name": "Fresas, Albaricoque y Melocotón en trozos",
+    "id": "g-merienda-mango-papaya-y-platano-en-trozos",
+    "name": "Mango, Papaya y Plátano en trozos",
     "mealTypes": [
       "merienda"
     ],
     "minAgeIdx": 1,
     "allergens": [],
-    "time": 18,
+    "time": 11,
     "texture": "trocitos",
     "season": "verano",
     "foodGroups": [
@@ -7225,29 +7208,26 @@
     ],
     "ingredients": [
       {
-        "name": "Fresas",
-        "quantity": "4-5 unidades, maduras"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       },
       {
-        "name": "Albaricoque",
-        "quantity": "3 unidades, maduras"
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
       },
       {
-        "name": "Melocotón",
-        "quantity": "1-2 unidades, maduras"
+        "name": "Plátano",
+        "quantity": "1 unidad, bien madura"
       }
     ],
     "utensils": [
-      "Vaporera (o cazuela con cestillo)",
       "Tabla y cuchillo"
     ],
     "steps": [
-      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
-      "Lava el albaricoque, deshuésalo y trocéalo.",
-      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
-      "Cuece el albaricoque y el melocotón al vapor (o con un par de cucharadas de agua en una cazuela) unos 10 minutos, hasta que el albaricoque se deshaga y el melocotón se deshaga. Debe quedar blanda pero entera, sin deshacerse del todo.",
-      "Retira del fuego y deja templar.",
-      "Corta también las fresas en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
+      "Pela el plátano maduro (con alguna mancha en la piel: es más dulce y fácil de chafar).",
+      "Corta el mango, la papaya y el plátano en trozos pequeños del mismo tamaño que el resto, para que la textura sea uniforme.",
       "Corta toda la fruta en trozos pequeños y blandos, del tamaño y forma que tu bebé pueda coger con la mano y llevarse solo a la boca (evita trozos redondos tipo moneda: mejor bastones o medias lunas)."
     ],
     "tips": [
@@ -7492,8 +7472,8 @@
     ]
   },
   {
-    "id": "g-merienda-yogur-con-albaricoque",
-    "name": "Yogur con albaricoque",
+    "id": "g-merienda-yogur-con-mango",
+    "name": "Yogur con mango",
     "mealTypes": [
       "merienda"
     ],
@@ -7514,8 +7494,8 @@
         "quantity": "1 unidad (125 g)"
       },
       {
-        "name": "Albaricoque",
-        "quantity": "3 unidades, maduras"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       }
     ],
     "utensils": [
@@ -7523,8 +7503,7 @@
       "Bol"
     ],
     "steps": [
-      "Lava el albaricoque, deshuésalo y trocéalo.",
-      "Cuece el albaricoque al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
       "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
       "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
       "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
@@ -7632,8 +7611,8 @@
     ]
   },
   {
-    "id": "g-merienda-yogur-con-sandia-y-fresas",
-    "name": "Yogur con sandía y fresas",
+    "id": "g-merienda-yogur-con-papaya",
+    "name": "Yogur con papaya",
     "mealTypes": [
       "merienda"
     ],
@@ -7654,12 +7633,8 @@
         "quantity": "1 unidad (125 g)"
       },
       {
-        "name": "Sandía",
-        "quantity": "2 rodajas pequeñas"
-      },
-      {
-        "name": "Fresas",
-        "quantity": "4-5 unidades, maduras"
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
       }
     ],
     "utensils": [
@@ -7667,8 +7642,7 @@
       "Bol"
     ],
     "steps": [
-      "Corta la sandía en trozos pequeños, retirando bien todas las pepitas.",
-      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
       "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
       "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
       "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
@@ -7833,8 +7807,8 @@
     ]
   },
   {
-    "id": "g-merienda-yogur-con-fresas-y-albaricoque",
-    "name": "Yogur con fresas y albaricoque",
+    "id": "g-merienda-yogur-con-mango-y-fresas",
+    "name": "Yogur con mango y fresas",
     "mealTypes": [
       "merienda"
     ],
@@ -7855,12 +7829,12 @@
         "quantity": "1 unidad (125 g)"
       },
       {
-        "name": "Fresas",
-        "quantity": "4-5 unidades, maduras"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       },
       {
-        "name": "Albaricoque",
-        "quantity": "3 unidades, maduras"
+        "name": "Fresas",
+        "quantity": "4-5 unidades, maduras"
       }
     ],
     "utensils": [
@@ -7868,9 +7842,8 @@
       "Bol"
     ],
     "steps": [
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
       "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
-      "Lava el albaricoque, deshuésalo y trocéalo.",
-      "Cuece el albaricoque al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
       "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
       "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
       "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
@@ -8092,8 +8065,8 @@
     ]
   },
   {
-    "id": "g-merienda-yogur-con-arandanos-y-kiwi",
-    "name": "Yogur con arándanos y kiwi",
+    "id": "g-merienda-yogur-con-papaya-y-kiwi",
+    "name": "Yogur con papaya y kiwi",
     "mealTypes": [
       "merienda"
     ],
@@ -8114,8 +8087,8 @@
         "quantity": "1 unidad (125 g)"
       },
       {
-        "name": "Arándanos",
-        "quantity": "Un puñado (unos 60 g)"
+        "name": "Papaya",
+        "quantity": "1/4 de papaya pequeña"
       },
       {
         "name": "Kiwi",
@@ -8127,9 +8100,8 @@
       "Bol"
     ],
     "steps": [
-      "Lava bien los arándanos y aplástalos ligeramente con un tenedor: enteros pueden ser un riesgo de atragantamiento.",
+      "Corta la papaya por la mitad, retira las semillas negras con una cuchara y extrae la pulpa.",
       "Pela el kiwi y trocéalo.",
-      "Cuece los arándanos al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
       "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
       "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
       "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
@@ -8242,8 +8214,8 @@
     ]
   },
   {
-    "id": "g-merienda-yogur-con-ciruela-y-melocoton",
-    "name": "Yogur con ciruela y melocotón",
+    "id": "g-merienda-yogur-con-mango-y-manzana",
+    "name": "Yogur con mango y manzana",
     "mealTypes": [
       "merienda"
     ],
@@ -8264,12 +8236,12 @@
         "quantity": "1 unidad (125 g)"
       },
       {
-        "name": "Ciruela",
-        "quantity": "2 unidades, maduras"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       },
       {
-        "name": "Melocotón",
-        "quantity": "1-2 unidades, maduras"
+        "name": "Manzana",
+        "quantity": "1 unidad"
       }
     ],
     "utensils": [
@@ -8277,9 +8249,9 @@
       "Bol"
     ],
     "steps": [
-      "Lava la ciruela, deshuésala y trocéala.",
-      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
-      "Cuece la ciruela y el melocotón al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
+      "Lava, pela y descorazona la manzana, y córtala en trozos.",
+      "Cuece la manzana al vapor 5 minutos para ablandar la fruta antes de trocearla en piezas pequeñas y blandas.",
       "Corta la fruta en trozos muy pequeños y blandos, del tamaño que tu bebé pueda manejar sin riesgo.",
       "Pon el yogur natural sin azúcar añadido en un bol y mezcla con la fruta troceada.",
       "Sirve a temperatura ambiente, nunca recién sacado de la nevera, para que no esté demasiado frío."
@@ -8811,8 +8783,8 @@
     ]
   },
   {
-    "id": "g-merienda-tortitas-de-avena-y-fresas",
-    "name": "Tortitas de avena y fresas",
+    "id": "g-merienda-tortitas-de-avena-y-mango",
+    "name": "Tortitas de avena y mango",
     "mealTypes": [
       "merienda"
     ],
@@ -8833,8 +8805,8 @@
         "quantity": "2 cucharadas de copos finos"
       },
       {
-        "name": "Fresas",
-        "quantity": "4-5 unidades, maduras"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       },
       {
         "name": "Huevo",
@@ -8848,10 +8820,10 @@
       "Espátula"
     ],
     "steps": [
-      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
       "Casca el huevo en un bol, comprobando que no caiga nada de cáscara, y bátelo bien con un tenedor.",
       "Los copos de avena no necesitan cocción: se ablandan al mezclarlos con líquido o fruta.",
-      "Tritura avena, fresas y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes.",
+      "Tritura avena, mango y el huevo juntos con la batidora hasta obtener una masa homogénea sin grumos grandes.",
       "Calienta una sartén antiadherente a fuego bajo sin aceite (o con una gota si tiende a pegarse).",
       "Vierte pequeñas porciones de masa, una cucharada cada vez, para formar tortitas pequeñas.",
       "Cocina 2 minutos por un lado hasta que salgan burbujas en la superficie, dale la vuelta con la espátula y cocina 1-2 minutos más por el otro lado.",
@@ -9296,8 +9268,8 @@
     ]
   },
   {
-    "id": "g-merienda-palitos-de-pan-con-melocoton-chafado",
-    "name": "Palitos de pan con melocotón chafado",
+    "id": "g-merienda-palitos-de-pan-con-mango-chafado",
+    "name": "Palitos de pan con mango chafado",
     "mealTypes": [
       "merienda"
     ],
@@ -9318,8 +9290,8 @@
         "quantity": "1 rebanada, a poder ser integral"
       },
       {
-        "name": "Melocotón",
-        "quantity": "1-2 unidades, maduras"
+        "name": "Mango",
+        "quantity": "1/2 unidad, madura"
       }
     ],
     "utensils": [
@@ -9329,8 +9301,8 @@
     ],
     "steps": [
       "Corta el pan en palitos de aproximadamente 1 cm de grosor. Así tu bebé puede sujetarlos bien con el puño.",
-      "Chafa la pulpa de melocotón maduro con un tenedor hasta obtener una crema suave.",
-      "Unta generosamente cada palito de pan con la crema de melocotón chafado por todas las caras.",
+      "Chafa la pulpa de mango con un tenedor hasta obtener una crema suave.",
+      "Unta generosamente cada palito de pan con la crema de mango chafado por todas las caras.",
       "Sirve enseguida, recién untado."
     ],
     "tips": [],
@@ -15319,8 +15291,8 @@
     ]
   },
   {
-    "id": "g-merienda-brocheta-blanda-de-fresas-y-melocoton",
-    "name": "\"Brocheta\" blanda de fresas y melocotón",
+    "id": "g-merienda-brocheta-blanda-de-kiwi-y-mango",
+    "name": "\"Brocheta\" blanda de kiwi y mango",
     "mealTypes": [
       "merienda"
     ],
@@ -15334,11 +15306,11 @@
     ],
     "ingredients": [
       {
-        "name": "Fresas",
+        "name": "Kiwi",
         "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
       },
       {
-        "name": "Melocotón",
+        "name": "Mango",
         "quantity": "50 g aprox. cada una (mitad del plato entre las dos)"
       }
     ],
@@ -15347,9 +15319,8 @@
       "Cazuela (para lo que necesite cocción)"
     ],
     "steps": [
-      "Escalda el melocotón unos segundos en agua hirviendo para pelarlo con facilidad, deshuésalo y trocéalo.",
-      "Cuece el melocotón al vapor unos 10 minutos, hasta que el melocotón se deshaga.",
-      "Lava bien las fresas, retira las hojas verdes y trocéalas en cuartos.",
+      "Pela el kiwi y trocéalo.",
+      "Pela el mango y separa la pulpa del hueso central con un cuchillo.",
       "Corta cada ingrediente en bastones o tiras del mismo grosor, del tamaño de un dedo.",
       "Coloca los trozos en el plato en fila, alternando colores, imitando el aspecto de una brocheta.",
       "No uses un palito ni pincho real: para bebés es un riesgo de atragantamiento o herida — el efecto visual basta sin necesidad de ensartarlos de verdad."

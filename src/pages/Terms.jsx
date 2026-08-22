@@ -9,6 +9,7 @@ export default function Terms() {
         background: 'var(--gradient-sage)',
         borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
         boxShadow: 'var(--shadow-sage)',
+        position: 'sticky', top: 0, zIndex: 20,
       }}>
         <button
           onClick={() => navigate(-1)}

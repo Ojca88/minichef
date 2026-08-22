@@ -183,6 +183,32 @@ describe('CloudSyncContext — invitar a alguien', () => {
 
     await waitFor(() => expect(window.__lastInviteResult).toEqual({ error: 'SOLO_EL_PROPIETARIO_PUEDE_INVITAR' }));
   });
+
+  it('si la Edge Function responde con un error HTTP (no 2xx), extrae el código real del cuerpo, no un mensaje genérico', async () => {
+    mockAuth.getSession.mockResolvedValue({ data: { session: googleSession() } });
+    mockRpc.mockImplementation((fn) => {
+      if (fn === 'my_household') return { maybeSingle: () => Promise.resolve({ data: { id: 'h1', invite_code: 'K7P4XM' }, error: null }) };
+      return Promise.resolve({ data: null, error: null });
+    });
+    mockFrom.mockReturnValue({ select: vi.fn().mockReturnThis(), eq: vi.fn().mockReturnThis(), order: vi.fn().mockResolvedValue({ data: [] }) });
+    // Así es de verdad un FunctionsHttpError de supabase-js: error.context es
+    // el objeto Response en crudo, con su propio .json() para leer el cuerpo.
+    mockInvoke.mockResolvedValue({
+      data: null,
+      error: {
+        message: 'Edge Function returned a non-2xx status code',
+        context: { json: () => Promise.resolve({ error: 'DEMASIADAS_INVITACIONES' }) },
+      },
+    });
+
+    const user = userEvent.setup();
+    renderCloud();
+    await waitFor(() => expect(screen.getByTestId('household')).toHaveTextContent('K7P4XM'));
+
+    await user.click(screen.getByText('invitar'));
+
+    await waitFor(() => expect(window.__lastInviteResult).toEqual({ error: 'DEMASIADAS_INVITACIONES' }));
+  });
 });
 
 describe('CloudSyncContext — aceptar invitación', () => {

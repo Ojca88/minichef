@@ -16,6 +16,7 @@ import Terms from './pages/Terms';
 import InviteAccept from './pages/InviteAccept';
 import Feedback from './pages/Feedback';
 import Allergens from './pages/Allergens';
+import ScrollToTop from './components/ScrollToTop';
 
 function MainApp() {
   const swipe = useSwipeNav();
@@ -46,6 +47,7 @@ export default function App() {
   return (
     <CloudSyncProvider>
       <HashRouter>
+        <ScrollToTop />
         <Routes>
           {/* Fuera de los gates: accesibles sin login, y la propia pantalla
               de aceptar invitación (que gestiona su propio login en contexto). */}

@@ -434,6 +434,6 @@ function sendErrorMessage(code) {
     case 'EMAIL_INVALIDO': return 'Ese email no parece válido.';
     case 'DEMASIADAS_INVITACIONES': return 'Has enviado demasiadas invitaciones en poco tiempo. Espera un poco e inténtalo de nuevo.';
     case 'SIN_HOGAR': return 'No perteneces a ningún hogar todavía.';
-    default: return 'No se pudo enviar la invitación. Inténtalo de nuevo.';
+    default: return `No se pudo enviar la invitación (${code || 'motivo desconocido'}). Inténtalo de nuevo.`;
   }
 }

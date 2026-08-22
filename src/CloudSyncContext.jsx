@@ -39,6 +39,23 @@ export async function hashInviteToken(token) {
   return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
+// Cuando una Edge Function responde con un error (status distinto de 2xx),
+// supabase-js NO nos da directamente el código de error que nosotros mismos
+// definimos (p. ej. 'SOLO_EL_PROPIETARIO_PUEDE_INVITAR') — error.context es
+// el objeto Response en crudo de esa llamada, hay que leer su cuerpo aparte.
+// Sin este paso, siempre se caía al mensaje genérico de supabase-js
+// ("Edge Function returned a non-2xx status code"), ocultando la causa real.
+async function extractFunctionError(error) {
+  if (!error) return null;
+  try {
+    if (error.context && typeof error.context.json === 'function') {
+      const body = await error.context.json();
+      if (body?.error) return body.error;
+    }
+  } catch { /* el cuerpo no era JSON válido, o ya se había leído antes */ }
+  return error.message || null;
+}
+
 const CloudSyncContext = createContext(null);
 
 export function CloudSyncProvider({ children }) {
@@ -206,7 +223,7 @@ export function CloudSyncProvider({ children }) {
       body: { transferTo, deleteHousehold: alsoDeleteHousehold },
     });
     if (error) {
-      const bodyError = error.context?.error;
+      const bodyError = await extractFunctionError(error);
       return { error: bodyError || error.message };
     }
     if (res?.error) return { error: res.error, householdId: res.householdId };
@@ -222,7 +239,10 @@ export function CloudSyncProvider({ children }) {
   const sendInvitation = useCallback(async (email) => {
     if (!isSupabaseConfigured) return { error: 'NO_CONFIGURADO' };
     const { data: res, error } = await supabase.functions.invoke('send-household-invitation', { body: { email } });
-    if (error) return { error: error.context?.error || error.message };
+    if (error) {
+      const bodyError = await extractFunctionError(error);
+      return { error: bodyError || error.message };
+    }
     if (res?.error) return { error: res.error };
     if (household?.id) loadInvitations(household.id);
     return { ok: true, emailSent: res?.emailSent, inviteLink: res?.inviteLink };
