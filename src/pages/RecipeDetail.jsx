@@ -82,6 +82,26 @@ export default function RecipeDetail() {
         {recipe.videoUrl ? (recipe.videoTitle || 'Ver vídeo de esta receta') : 'Buscar vídeos de esta receta en YouTube'}
       </a>
 
+      <div style={{
+        fontSize: 12.5, lineHeight: 1.5, color: 'var(--ink-muted)',
+        background: 'var(--sage-light)', borderRadius: 'var(--radius-md)',
+        padding: '10px 12px', marginBottom: recipe.allergens.length > 0 ? 8 : 22,
+      }}>
+        Antes de preparar esta receta: comprueba los ingredientes, alérgenos, textura y
+        adecuación a la edad y desarrollo de tu bebé.
+      </div>
+
+      {recipe.allergens.length > 0 && (
+        <div style={{
+          fontSize: 12.5, lineHeight: 1.5, color: '#9A5A20',
+          background: 'var(--apricot-light)', borderRadius: 'var(--radius-md)',
+          padding: '10px 12px', marginBottom: 22,
+        }}>
+          <strong>⚠️ Contiene: {recipe.allergens.join(', ')}.</strong> Comprueba siempre el
+          etiquetado del producto utilizado y la adecuación para tu bebé.
+        </div>
+      )}
+
       <section style={{ marginBottom: 22 }}>
         <h2 style={{ fontSize: 15, marginBottom: 10 }}>Ingredientes</h2>
         <ul style={{ margin: 0, paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 6 }}>

@@ -1,81 +1,88 @@
-# Comprobaciones de seguridad manuales (RLS real)
+# Comprobaciones de seguridad manuales (RLS real) — actualizado al sistema de invitaciones
 
-Estas 10 comprobaciones corresponden al punto 25 del documento. No se pueden
-automatizar con Vitest porque necesitan políticas RLS ejecutándose de verdad
-contra Postgres, con dos usuarios autenticados distintos — Vitest corre en
-Node, sin una base de datos real detrás.
+Con el cambio a "solo Google + invitación por email", el test que usaba el
+código para unirse ya no aplica (esa función se eliminó de la base de
+datos). Esta es la versión al día.
 
-**Cómo probarlas:** abre dos pestañas de incógnito distintas (para tener dos
-sesiones anónimas de Supabase independientes), o usa el "SQL Editor" de
-Supabase con `set local role authenticated; set local "request.jwt.claims" = ...`
-para simular cada usuario. La forma más fiable y simple es la primera:
-dos navegadores/pestañas de incógnito reales, cada una creando su propia
-sesión anónima al abrir la app.
+**Importante — ya no valen dos pestañas de incógnito solas.** Antes, dos
+pestañas de incógnito creaban dos sesiones anónimas distintas, suficiente
+para simular "dos personas". Ahora todo el mundo tiene que entrar con
+Google, así que necesitas **dos cuentas de Google reales** (la tuya, y una
+segunda — un Gmail personal, o pídele a alguien de confianza que te ayude
+un momento con la suya). Pestaña normal = cuenta A, pestaña de incógnito =
+cuenta B, cada una con su propio login de Google.
 
 ---
 
 ### Test 1 — Usuario A accede a los datos de su propio hogar
-1. Pestaña A: abre la app, crea un hogar ("Hogar A").
-2. Comprueba que ves el menú/compra de ese hogar con normalidad.
+Pestaña A: entra con Google, crea un hogar ("Hogar A"). Comprueba que ves el menú/compra con normalidad.
 ✅ Esperado: acceso normal.
 
 ### Test 2 — Usuario B no accede a los datos del hogar de A
-1. Pestaña B (incógnito, sesión distinta): abre la app, crea otro hogar ("Hogar B") — **sin usar el código de A**.
-2. En la consola del navegador de la pestaña B, ejecuta:
-   ```js
-   await window.supabase.from('households').select('*').eq('id', '<ID_DEL_HOGAR_A>')
-   ```
-   (el `id` de A lo sacas de la pestaña A, con `cloud.household.id` desde React DevTools, o mirando la Network tab).
-✅ Esperado: el resultado viene vacío (`data: []`), no un error — RLS filtra la fila, no la deniega explícitamente.
+Pestaña B (con la segunda cuenta de Google): crea otro hogar ("Hogar B") — **sin que A lo invite**. En su consola (F12 → Console):
+```js
+await window.supabase.from('households').select('*').eq('id', '<ID_DEL_HOGAR_A>')
+```
+(saca el ID de A con `await window.supabase.rpc('my_household').maybeSingle().then(r => console.log(r.data.id))` desde la pestaña A).
+✅ Esperado: `data: []` (vacío, sin error).
 
-### Test 3 — Usuario A no puede forzar `household_id` de otro hogar
-1. En la pestaña A, intenta en la consola:
-   ```js
-   await window.supabase.from('households').update({ data: { hackeado: true } }).eq('id', '<ID_DEL_HOGAR_B>')
-   ```
-✅ Esperado: no se actualiza ninguna fila (`count: 0` / `data: []`), aunque la petición no dé un error HTTP explícito — así es como responde RLS por diseño (finge que la fila no existe).
+### Test 3 — Usuario A no puede forzar el `household_id` de otro hogar
+En la pestaña A, con el ID del Hogar B:
+```js
+await window.supabase.from('households').update({ data: { hackeado: true } }).eq('id', '<ID_DEL_HOGAR_B>')
+```
+✅ Esperado: no se actualiza nada.
 
-### Test 4 — Un usuario de Google que crea un hogar se convierte en `owner`
-1. Vincula una cuenta de Google en la pestaña A (o inicia sesión con Google desde cero) y crea un hogar.
-2. Ejecuta:
-   ```js
-   await window.supabase.from('household_members').select('role').eq('user_id', (await window.supabase.auth.getUser()).data.user.id)
-   ```
+### Test 4 — Quien crea un hogar se convierte en `owner`
+```js
+await window.supabase.from('household_members').select('role').eq('user_id', (await window.supabase.auth.getUser()).data.user.id)
+```
 ✅ Esperado: `role: 'owner'`.
 
-### Test 5 — Un usuario que se une con código se convierte en `member`
-1. Desde la pestaña B, únete al hogar de A con su código de invitación.
-2. Repite la consulta del Test 4 en la pestaña B.
+### Test 5 — Aceptar una invitación por email te convierte en `member`
+Desde la pestaña A (owner del Hogar A), invita al email de la cuenta B ("Invitar a alguien" en el panel). Copia el enlace que te muestra (o espera el email si ya tienes Resend configurado). Ábrelo en la pestaña B, inicia sesión con la cuenta B si no lo estabas.
+✅ Esperado: B pasa a formar parte del Hogar A automáticamente. Repite la consulta del Test 4 en B.
 ✅ Esperado: `role: 'member'`.
 
 ### Test 6 — Volver a iniciar sesión con Google lleva directo al hogar
-1. Cierra sesión en la pestaña A (botón "Cerrar sesión").
-2. Vuelve a pulsar "Continuar con Google" con la misma cuenta.
-✅ Esperado: entra directo al mismo hogar, sin pedir código.
+Cierra sesión en A, vuelve a pulsar "Continuar con Google" con la misma cuenta.
+✅ Esperado: entra directo al mismo hogar, sin pedir nada.
 
-### Test 7 — El código antiguo deja de servir tras regenerarlo
-1. En la pestaña A (owner), pulsa "Regenerar código". Anota el código viejo y el nuevo.
-2. Desde una tercera sesión (otra pestaña de incógnito), intenta unirte con el código **viejo**.
-✅ Esperado: error "Ese código no existe".
+### Test 7 — Una invitación caducada o revocada no deja unirse
+En A, invita a un tercer email de prueba, y **cancela la invitación** inmediatamente ("Cancelar" en la lista de pendientes). Intenta usar ese mismo enlace para aceptar.
+✅ Esperado: mensaje de "invitación cancelada", no te añade al hogar.
 
 ### Test 8 — Salir del hogar quita el acceso
-1. En la pestaña B (member), pulsa "Salir de este hogar".
-2. Repite la consulta del Test 2 pero apuntando al hogar A desde la pestaña B.
-✅ Esperado: igual que el Test 2 — resultado vacío.
+En B, pulsa "Salir de este hogar". Repite la consulta del Test 2 desde B apuntando al Hogar A.
+✅ Esperado: vacío otra vez.
 
-### Test 9 — Eliminar un miembro no borra los datos del hogar
-1. Con dos miembros en el mismo hogar, que uno salga (o que el owner lo expulse — la expulsión de UI no está implementada todavía, pero se puede probar por SQL con `delete from household_members where user_id = '<ID>' and household_id = '<ID>'` desde el SQL Editor).
-2. El otro miembro sigue viendo el menú/compra con normalidad.
-✅ Esperado: los datos siguen intactos para quien se queda.
+### Test 9 — Expulsar a un miembro no borra los datos del hogar
+Vuelve a invitar y aceptar con B (como en el Test 5). Desde A, usa el botón "Expulsar" sobre B.
+✅ Esperado: B deja de ver el menú; A sigue viéndolo con normalidad.
 
 ### Test 10 — Eliminar el hogar borra todo en cascada
-1. Como owner, usa "Eliminar este hogar" (con la confirmación de escribir el nombre).
-2. Ejecuta:
-   ```js
-   await window.supabase.from('household_members').select('*').eq('household_id', '<ID_BORRADO>')
-   ```
-✅ Esperado: vacío — la cascada de `household_members` funcionó.
+Como owner en A, usa "Eliminar este hogar" (con la confirmación de escribir el nombre).
+```js
+await window.supabase.from('household_members').select('*').eq('household_id', '<ID_BORRADO>')
+```
+✅ Esperado: vacío.
 
 ---
 
-Cuando los hayas probado, cuéntame cuáles pasan y cuáles no (si alguno falla, dime el número y qué viste en vez de lo esperado) y seguimos desde ahí.
+### Extra — específicos del sistema de invitaciones
+
+**Test 11 — Solo el propietario puede invitar.** Con B como member (no owner) del Hogar A, intenta invitar a un tercer email desde el panel de B. No debería aparecer la opción de invitar para B en absoluto (los miembros no ven el formulario), pero si quieres comprobarlo a más bajo nivel:
+```js
+await window.supabase.functions.invoke('send-household-invitation', { body: { email: 'test@ejemplo.com' } })
+```
+✅ Esperado: error `SOLO_EL_PROPIETARIO_PUEDE_INVITAR`.
+
+**Test 12 — El email tiene que coincidir exactamente.** Invita desde A a un email que NO sea el de la cuenta B (por ejemplo, invita a `otra-persona@gmail.com` pero abre el enlace con la cuenta B).
+✅ Esperado: "Esta invitación está dirigida a otra cuenta de Google", no te añade.
+
+**Test 13 — Reenviar invalida el enlace anterior.** Invita a un email, copia ese primer enlace. Sin que se acepte, invita **otra vez al mismo email** (esto reenvía). Intenta usar el enlace viejo (el primero).
+✅ Esperado: el enlace viejo da error (invitación revocada/inválida); solo el nuevo funciona.
+
+---
+
+Ve a tu ritmo. Cuéntame cuáles pasan y, si alguno falla, dime el número y qué viste en vez de lo esperado.

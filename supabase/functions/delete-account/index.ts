@@ -12,12 +12,27 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { offboardUserFromHouseholds } from '../_shared/household-cleanup.ts';
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-};
+// Dominios desde los que se permite llamar a esta función. Antes esto era
+// '*' (cualquier origen) — más abierto de lo necesario: aunque la función
+// exige de todas formas un JWT de usuario válido (así que un origen ajeno
+// no podría hacer nada dañino sin robar antes una sesión real), restringir
+// el origen es una capa extra de defensa barata, así que la aplicamos.
+const ALLOWED_ORIGINS = [
+  'https://minichef-ojca.vercel.app',
+  'http://localhost:5173', // desarrollo local (vite dev)
+];
 
-function json(body: unknown, status = 200) {
+function corsHeadersFor(req: Request) {
+  const origin = req.headers.get('Origin') ?? '';
+  const allowed = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowed,
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Vary': 'Origin',
+  };
+}
+
+function json(body: unknown, status: number, corsHeaders: Record<string, string>) {
   return new Response(JSON.stringify(body), {
     status,
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -25,11 +40,12 @@ function json(body: unknown, status = 200) {
 }
 
 Deno.serve(async (req) => {
+  const corsHeaders = corsHeadersFor(req);
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
 
   try {
     const authHeader = req.headers.get('Authorization');
-    if (!authHeader) return json({ error: 'NO_AUTORIZADO' }, 401);
+    if (!authHeader) return json({ error: 'NO_AUTORIZADO' }, 401, corsHeaders);
 
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
     const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
@@ -39,7 +55,7 @@ Deno.serve(async (req) => {
       global: { headers: { Authorization: authHeader } },
     });
     const { data: { user }, error: userError } = await userClient.auth.getUser();
-    if (userError || !user) return json({ error: 'NO_AUTORIZADO' }, 401);
+    if (userError || !user) return json({ error: 'NO_AUTORIZADO' }, 401, corsHeaders);
 
     const admin = createClient(supabaseUrl, serviceKey);
 
@@ -63,14 +79,14 @@ Deno.serve(async (req) => {
 
     const result = await offboardUserFromHouseholds(admin, user.id, transferTo);
     if (result.requiresDecision) {
-      return json({ error: 'REQUIERE_DECISION', householdId: result.requiresDecision }, 409);
+      return json({ error: 'REQUIERE_DECISION', householdId: result.requiresDecision }, 409, corsHeaders);
     }
 
     const { error: deleteError } = await admin.auth.admin.deleteUser(user.id);
-    if (deleteError) return json({ error: deleteError.message }, 500);
+    if (deleteError) return json({ error: deleteError.message }, 500, corsHeaders);
 
-    return json({ ok: true });
+    return json({ ok: true }, 200, corsHeaders);
   } catch (e) {
-    return json({ error: String(e) }, 500);
+    return json({ error: String(e) }, 500, corsHeadersFor(req));
   }
 });

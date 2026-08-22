@@ -29,36 +29,40 @@ function profileFromSession(session) {
   };
 }
 
+// Hashea un token de invitación en el navegador con el mismo algoritmo
+// (SHA-256) que usa la Edge Function al crearlo — así nunca viaja ni se
+// compara el token en claro por la red salvo dentro de la propia URL que ya
+// lo contenía de entrada.
+export async function hashInviteToken(token) {
+  const data = new TextEncoder().encode(token);
+  const digest = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
 const CloudSyncContext = createContext(null);
 
 export function CloudSyncProvider({ children }) {
-  const [household, setHousehold] = useState(null); // { id, name, invite_code, data, ... } | null
-  const [members, setMembers] = useState([]); // [{ user_id, role, profiles: {...} }]
+  const [household, setHousehold] = useState(null);
+  const [members, setMembers] = useState([]);
+  const [invitations, setInvitations] = useState([]);
   const [data, setData] = useState(readLocalFallback);
-  // status: 'offline' | 'authenticating' | 'no-household' | 'loading' | 'synced' | 'error'
+  // status: 'offline' | 'authenticating' | 'logged-out' | 'no-household' | 'loading' | 'synced' | 'error'
   const [status, setStatus] = useState(isSupabaseConfigured ? 'authenticating' : 'offline');
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(isSupabaseConfigured);
   const channelRef = useRef(null);
 
-  // --- Sesión: en cuanto la app arranca, si no hay sesión de ningún tipo,
-  // creamos una sesión anónima real de Supabase. Así TODO el mundo tiene un
-  // auth.uid() de verdad desde el primer segundo, y las políticas RLS
-  // pueden aplicarse siempre igual, sin excepciones para "gente sin cuenta".
+  // --- Sesión: MiniChef exige Google para todo. Ya no se crea ninguna
+  // sesión anónima automática al arrancar — solo se comprueba si YA hay
+  // alguna sesión (anónima de una versión anterior de la app, o de Google)
+  // y se deja que sea signInWithGoogle() quien decida qué hacer con ella.
   useEffect(() => {
     if (!isSupabaseConfigured) { setAuthLoading(false); return undefined; }
 
-    async function ensureSession() {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        const { error } = await supabase.auth.signInAnonymously();
-        if (error) { setStatus('error'); setAuthLoading(false); return; }
-      }
-      const { data: { session: finalSession } } = await supabase.auth.getSession();
-      setUser(profileFromSession(finalSession));
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(profileFromSession(session));
       setAuthLoading(false);
-    }
-    ensureSession();
+    });
 
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(profileFromSession(session));
@@ -67,9 +71,8 @@ export function CloudSyncProvider({ children }) {
     return () => sub.subscription.unsubscribe();
   }, []);
 
-  // --- Cargar el hogar del usuario actual en cuanto sabemos quién es ------
   const loadHousehold = useCallback(async () => {
-    if (!isSupabaseConfigured || !user) return;
+    if (!isSupabaseConfigured || !user || user.isAnonymous) return;
     setStatus('loading');
     const { data: h, error } = await supabase.rpc('my_household').maybeSingle();
     if (error) { setStatus('error'); return; }
@@ -79,19 +82,34 @@ export function CloudSyncProvider({ children }) {
     writeLocalFallback(h.data || {});
     setStatus('synced');
     loadMembers(h.id);
+    loadInvitations(h.id);
   }, [user]);
 
   async function loadMembers(householdId) {
     const { data: rows } = await supabase
       .from('household_members')
-      .select('user_id, role, profiles(display_name, avatar_url)')
+      .select('user_id, role, profiles(display_name, avatar_url, email)')
       .eq('household_id', householdId);
     setMembers(rows || []);
   }
 
-  useEffect(() => { if (user) loadHousehold(); }, [user, loadHousehold]);
+  async function loadInvitations(householdId) {
+    await supabase.rpc('expire_stale_invitations');
+    const { data: rows } = await supabase
+      .from('household_invitations')
+      .select('id, invited_email, status, created_at, expires_at')
+      .eq('household_id', householdId)
+      .eq('status', 'pending')
+      .order('created_at', { ascending: false });
+    setInvitations(rows || []);
+  }
 
-  // --- Suscripción en tiempo real a los cambios del hogar activo ----------
+  useEffect(() => {
+    if (user && !user.isAnonymous) loadHousehold();
+    else if (user) setStatus('logged-out'); // sesión anónima heredada, no cuenta como "logueado"
+    else if (!authLoading) setStatus('logged-out');
+  }, [user, authLoading, loadHousehold]);
+
   useEffect(() => {
     if (!isSupabaseConfigured || !household?.id) return undefined;
 
@@ -132,22 +150,12 @@ export function CloudSyncProvider({ children }) {
     return { household: h };
   }, []);
 
-  const joinHousehold = useCallback(async (code) => {
-    const { data: h, error } = await supabase.rpc('join_household', { code });
-    if (error) return { error: error.message?.includes('CODIGO_INVALIDO') ? 'CODIGO_INVALIDO' : error.message };
-    setHousehold(h);
-    setData(h.data || {});
-    writeLocalFallback(h.data || {});
-    setStatus('synced');
-    loadMembers(h.id);
-    return { household: h };
-  }, []);
-
   const leaveHousehold = useCallback(async () => {
     if (!household?.id) return;
     await supabase.rpc('leave_household', { target_household: household.id });
     setHousehold(null);
     setMembers([]);
+    setInvitations([]);
     setStatus('no-household');
   }, [household?.id]);
 
@@ -168,8 +176,6 @@ export function CloudSyncProvider({ children }) {
     return !error;
   }, [household?.id]);
 
-  // Expulsar a otro miembro (solo el propietario puede hacerlo — lo aplica
-  // RLS en la tabla, no hace falta ninguna función especial).
   const removeMember = useCallback(async (userId) => {
     if (!household?.id) return false;
     const { error } = await supabase
@@ -189,23 +195,17 @@ export function CloudSyncProvider({ children }) {
     if (error) return false;
     setHousehold(null);
     setMembers([]);
+    setInvitations([]);
     setStatus('no-household');
     return true;
   }, [household?.id]);
 
-  // Baja voluntaria de la cuenta (no del hogar). Llama a la Edge Function
-  // "delete-account", el único punto de toda la app que usa la service_role
-  // key — y solo en el servidor, nunca aquí en el cliente. Si el usuario es
-  // propietario de un hogar con más gente, la función devuelve
-  // REQUIERE_DECISION y hay que volver a llamarla indicando transferTo o
-  // deleteHousehold.
   const deleteMyAccount = useCallback(async ({ transferTo, deleteHousehold: alsoDeleteHousehold } = {}) => {
     if (!isSupabaseConfigured) return { error: 'NO_CONFIGURADO' };
     const { data: res, error } = await supabase.functions.invoke('delete-account', {
       body: { transferTo, deleteHousehold: alsoDeleteHousehold },
     });
     if (error) {
-      // supabase-js mete el cuerpo de la respuesta de error en error.context, si existe
       const bodyError = error.context?.error;
       return { error: bodyError || error.message };
     }
@@ -213,28 +213,61 @@ export function CloudSyncProvider({ children }) {
     await supabase.auth.signOut();
     setHousehold(null);
     setMembers([]);
+    setInvitations([]);
     setUser(null);
     return { ok: true };
   }, []);
 
-  // --- Vincular la sesión anónima actual a una cuenta de Google -----------
-  // Si esa cuenta de Google ya existía de antes (otro dispositivo), la
-  // vinculación falla (Supabase no permite que una identidad pertenezca a
-  // dos usuarios); en ese caso cerramos la sesión anónima y hacemos un login
-  // normal, que te llevará a tu cuenta y hogar reales de siempre.
+  // --- Invitar a alguien por email (solo el propietario) -------------------
+  const sendInvitation = useCallback(async (email) => {
+    if (!isSupabaseConfigured) return { error: 'NO_CONFIGURADO' };
+    const { data: res, error } = await supabase.functions.invoke('send-household-invitation', { body: { email } });
+    if (error) return { error: error.context?.error || error.message };
+    if (res?.error) return { error: res.error };
+    if (household?.id) loadInvitations(household.id);
+    return { ok: true, emailSent: res?.emailSent, inviteLink: res?.inviteLink };
+  }, [household?.id]);
+
+  const revokeInvitation = useCallback(async (invitationId) => {
+    const { error } = await supabase.rpc('revoke_household_invitation', { p_invitation_id: invitationId });
+    if (!error && household?.id) loadInvitations(household.id);
+    return !error;
+  }, [household?.id]);
+
+  // Aceptar una invitación a partir de su token en claro (viene de la URL
+  // /invite/:token). Hashea el token en el navegador y llama a la función
+  // atómica en Postgres — nunca decide nada de esto el frontend por su
+  // cuenta.
+  const acceptInvitation = useCallback(async (token) => {
+    if (!isSupabaseConfigured) return { error: 'NO_CONFIGURADO' };
+    const tokenHash = await hashInviteToken(token);
+    const { data: res, error } = await supabase.rpc('accept_household_invitation', { p_token_hash: tokenHash });
+    if (error) return { error: error.message };
+    if (res?.error) return { error: res.error, invitedEmail: res.invited_email };
+    await loadHousehold();
+    return { ok: true };
+  }, [loadHousehold]);
+
+  // --- Vincular la sesión actual (o crear una nueva) a una cuenta de Google.
+  // Si ya había una sesión (por ejemplo, una anónima heredada de una versión
+  // anterior de la app), intenta vincularla conservando su hogar. Si esa
+  // cuenta de Google ya existía de antes (otro dispositivo), la vinculación
+  // falla y hacemos un login normal, que lleva a la cuenta y hogar reales.
   const signInWithGoogle = useCallback(async () => {
     if (!isSupabaseConfigured) return;
-    const { error } = await supabase.auth.linkIdentity({
-      provider: 'google',
-      options: { redirectTo: window.location.origin },
-    });
-    if (error) {
-      await supabase.auth.signOut();
-      await supabase.auth.signInWithOAuth({
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) {
+      const { error } = await supabase.auth.linkIdentity({
         provider: 'google',
         options: { redirectTo: window.location.origin },
       });
+      if (!error) return;
+      await supabase.auth.signOut();
     }
+    await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin },
+    });
   }, []);
 
   const signOut = useCallback(async () => {
@@ -242,16 +275,15 @@ export function CloudSyncProvider({ children }) {
     await supabase.auth.signOut();
     setHousehold(null);
     setMembers([]);
-    // Al cerrar sesión, se crea automáticamente una sesión anónima nueva la
-    // próxima vez que se cargue la app (ver ensureSession arriba).
+    setInvitations([]);
+    setStatus('logged-out');
   }, []);
 
   const value = {
-    household, members, data, status, save,
-    createHousehold, joinHousehold, leaveHousehold, regenerateCode, transferOwnership, deleteHousehold,
-    removeMember, deleteMyAccount,
+    household, members, invitations, data, status, save,
+    createHousehold, leaveHousehold, regenerateCode, transferOwnership, deleteHousehold,
+    removeMember, deleteMyAccount, sendInvitation, revokeInvitation, acceptInvitation,
     isSupabaseConfigured, user, authLoading, signInWithGoogle, signOut,
-    // Compat: código de invitación con el mismo nombre que usaba el resto de la app.
     code: household?.invite_code || null,
   };
   return <CloudSyncContext.Provider value={value}>{children}</CloudSyncContext.Provider>;

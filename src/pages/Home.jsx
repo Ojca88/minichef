@@ -133,9 +133,12 @@ export default function Home() {
 
         <SyncPanel />
 
-        <p style={{ textAlign: 'center', marginTop: 18, fontSize: 12 }}>
+        <p style={{ textAlign: 'center', marginTop: 18, fontSize: 12, display: 'flex', gap: 12, justifyContent: 'center' }}>
           <Link to="/privacidad" style={{ color: 'var(--ink-muted)', textDecoration: 'underline' }}>
             Política de privacidad
+          </Link>
+          <Link to="/condiciones" style={{ color: 'var(--ink-muted)', textDecoration: 'underline' }}>
+            Condiciones de uso
           </Link>
         </p>
       </div>

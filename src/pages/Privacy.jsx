@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Privacy() {
   return (
     <div style={{ paddingBottom: 90 }}>
@@ -20,7 +22,7 @@ export default function Privacy() {
             MiniChef es una aplicación desarrollada de forma independiente por{' '}
             <strong>[PENDIENTE: tu nombre o el de tu entidad]</strong>. Para cualquier
             consulta sobre esta política o tus datos, puedes escribir a{' '}
-            <strong>[PENDIENTE: tu email de contacto]</strong>.
+            <strong>minicheforbabies@proton.me</strong>.
           </p>
         </Section>
 
@@ -39,7 +41,20 @@ export default function Privacy() {
             solo para los demás miembros de tu mismo hogar, nunca para nadie más. Esta referencia
             se elimina automáticamente si esa persona borra su cuenta (ver sección 9).
           </p>
-          <p>MiniChef no usa herramientas de analítica ni de rastreo de terceros, y no muestra publicidad ni comparte datos con anunciantes.</p>
+          <p>
+            MiniChef no necesita conocer el nombre, la fotografía ni otros datos identificativos
+            del menor para funcionar, y no incluye ningún campo para introducir información
+            sanitaria (alergias, diagnósticos, tratamientos, peso, historial médico). Si en el
+            futuro se añadiera alguna funcionalidad de este tipo, se actualizaría esta política
+            antes de activarla. Mientras tanto, evita introducir en los campos de texto libres
+            de la app (como los platos "puestos a mano") información médica que no sea necesaria.
+          </p>
+          <p>MiniChef no usa herramientas de analítica ni de rastreo de terceros (revisado el código: no hay Google Analytics, Tag Manager, Meta Pixel, Sentry, PostHog, Hotjar, Mixpanel, ni ningún otro SDK de este tipo), y no muestra publicidad ni comparte datos con anunciantes.</p>
+          <p style={{ fontSize: 12, color: 'var(--ink-muted)' }}>
+            Esta política se complementa con las{' '}
+            <Link to="/condiciones" style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>Condiciones de uso y aviso de responsabilidad</Link>,
+            especialmente relevantes si vas a usar las recetas de la app.
+          </p>
         </Section>
 
         <Section title="3. Funcionamiento del hogar y el código de invitación">
@@ -102,9 +117,10 @@ export default function Privacy() {
           </p>
           <ul style={listStyle}>
             <li>
-              <strong>Supabase</strong>: según pudimos comprobar en su panel, la base de datos
-              de MiniChef está alojada en la región de Fráncfort (UE) — pero el soporte técnico
-              y determinados subencargados de Supabase pueden tratar datos fuera del Espacio
+              <strong>Supabase</strong>: confirmado directamente en el panel del proyecto — la
+              base de datos primaria de MiniChef está alojada en la región Central EU
+              (Fráncfort, Alemania — AWS eu-central-1). Aun así, el soporte técnico y
+              determinados subencargados de Supabase pueden tratar datos fuera del Espacio
               Económico Europeo. Supabase ofrece un Acuerdo de Tratamiento de Datos (DPA) y usa
               Cláusulas Contractuales Tipo para estos casos.
             </li>
@@ -115,11 +131,6 @@ export default function Privacy() {
               Contractuales Tipo y en el marco EU-US Data Privacy Framework.
             </li>
           </ul>
-          <p style={{ fontSize: 12, color: 'var(--ink-muted)' }}>
-            PENDIENTE DE VALIDACIÓN: no hemos podido reconfirmar en el momento de escribir esto
-            la región exacta configurada en el proyecto de Supabase directamente desde su panel
-            (nos basamos en una comprobación anterior). Se recomienda verificarlo en Supabase → Project Settings → General.
-          </p>
         </Section>
 
         <Section title="7. Seguridad">
@@ -221,7 +232,7 @@ export default function Privacy() {
           <p>
             Si resides en la Unión Europea, tienes derecho a acceder, rectificar, eliminar,
             limitar u oponerte al tratamiento de tus datos, y a la portabilidad de los mismos.
-            Puedes ejercerlos escribiendo a <strong>[PENDIENTE: tu email de contacto]</strong>,
+            Puedes ejercerlos escribiendo a <strong>minicheforbabies@proton.me</strong>,
             o directamente desde la app en el caso de la eliminación de tu cuenta (sección 10).
           </p>
         </Section>
