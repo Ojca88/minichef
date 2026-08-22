@@ -17,8 +17,13 @@ import { offboardUserFromHouseholds } from '../_shared/household-cleanup.ts';
 // exige de todas formas un JWT de usuario válido (así que un origen ajeno
 // no podría hacer nada dañino sin robar antes una sesión real), restringir
 // el origen es una capa extra de defensa barata, así que la aplicamos.
+// TEMPORAL: minichef-hazel.vercel.app es un alias antiguo de Vercel que
+// debería eliminarse de Project Settings -> Domains. Se permite aquí solo
+// como red de seguridad mientras tanto — quítalo de esta lista en cuanto
+// el dominio viejo esté eliminado de Vercel.
 const ALLOWED_ORIGINS = [
   'https://minichef-ojca.vercel.app',
+  'https://minichef-hazel.vercel.app',
   'http://localhost:5173', // desarrollo local (vite dev)
 ];
 

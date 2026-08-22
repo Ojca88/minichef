@@ -3,7 +3,7 @@ import CollapsibleLegalHeader from '../components/CollapsibleLegalHeader';
 export default function Terms() {
   return (
     <div style={{ paddingBottom: 90 }}>
-      <CollapsibleLegalHeader title="Condiciones de uso y aviso de responsabilidad" updatedDate="22 de agosto de 2026" />
+      <CollapsibleLegalHeader title="Condiciones de uso y aviso de responsabilidad" updatedDate="23 de agosto de 2026" />
 
       <div style={{ padding: '0 16px', display: 'flex', flexDirection: 'column', gap: 22, fontSize: 14, lineHeight: 1.6, color: 'var(--ink)' }}>
 
@@ -169,7 +169,7 @@ export default function Terms() {
           <p>
             El usuario debe comprobar la información relevante antes de utilizarla, especialmente
             cuando pueda afectar a la salud o seguridad del menor. Si detectas algún error,
-            puedes comunicárnoslo desde "💬 Ayúdanos a mejorar MiniChef" (ver sección 13).
+            puedes comunicárnoslo desde "💬 Ayúdanos a mejorar MiniChef" (ver sección 14).
           </p>
         </Section>
 

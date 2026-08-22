@@ -17,8 +17,13 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
+// TEMPORAL: minichef-hazel.vercel.app es un alias antiguo de Vercel que
+// debería eliminarse de Project Settings -> Domains. Se permite aquí solo
+// como red de seguridad mientras tanto — quítalo de esta lista en cuanto
+// el dominio viejo esté eliminado de Vercel.
 const ALLOWED_ORIGINS = [
   'https://minichef-ojca.vercel.app',
+  'https://minichef-hazel.vercel.app',
   'http://localhost:5173',
 ];
 

@@ -4,7 +4,7 @@ import CollapsibleLegalHeader from '../components/CollapsibleLegalHeader';
 export default function Privacy() {
   return (
     <div style={{ paddingBottom: 90 }}>
-      <CollapsibleLegalHeader title="Política de privacidad" updatedDate="22 de agosto de 2026" />
+      <CollapsibleLegalHeader title="Política de privacidad" updatedDate="23 de agosto de 2026" />
 
       <div style={{ padding: '0 16px', display: 'flex', flexDirection: 'column', gap: 22, fontSize: 14, lineHeight: 1.6, color: 'var(--ink)' }}>
 
@@ -60,7 +60,7 @@ export default function Privacy() {
             Cuando una acción se puede atribuir a una persona concreta (por ejemplo, quién marcó
             una comida o quién añadió un artículo a la compra), guardamos esa referencia —
             visible solo para los demás miembros de tu mismo hogar, nunca para nadie más. Esta
-            referencia se elimina automáticamente si esa persona borra su cuenta (ver sección 18).
+            referencia se elimina automáticamente si esa persona borra su cuenta (ver sección 17).
           </p>
           <p>MiniChef no usa herramientas de analítica ni de rastreo de terceros (revisado el código: no hay Google Analytics, Tag Manager, Meta Pixel, Sentry, PostHog, Hotjar, Mixpanel, ni ningún otro SDK de este tipo), y no muestra publicidad ni comparte datos con anunciantes.</p>
         </Section>
