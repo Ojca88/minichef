@@ -1,34 +1,9 @@
-import { useNavigate } from 'react-router-dom';
+import CollapsibleLegalHeader from '../components/CollapsibleLegalHeader';
 
 export default function Terms() {
-  const navigate = useNavigate();
   return (
     <div style={{ paddingBottom: 90 }}>
-      <header style={{
-        padding: '22px 16px 26px', marginBottom: 18,
-        background: 'var(--gradient-sage)',
-        borderRadius: '0 0 var(--radius-xl) var(--radius-xl)',
-        boxShadow: 'var(--shadow-sage)',
-        position: 'sticky', top: 0, zIndex: 20,
-      }}>
-        <button
-          onClick={() => navigate(-1)}
-          aria-label="Volver"
-          style={{
-            display: 'flex', alignItems: 'center', gap: 6, marginBottom: 12,
-            background: 'none', border: 'none', color: 'var(--white)', fontSize: 13, fontWeight: 600, padding: 0,
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M15 5 8 12l7 7" fill="none" stroke="var(--white)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Volver
-        </button>
-        <h1 style={{ fontSize: 24, color: 'var(--white)' }}>Condiciones de uso y aviso de responsabilidad</h1>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', marginTop: 4 }}>
-          Última actualización: 21 de agosto de 2026
-        </p>
-      </header>
+      <CollapsibleLegalHeader title="Condiciones de uso y aviso de responsabilidad" updatedDate="21 de agosto de 2026" />
 
       <div style={{ padding: '0 16px', display: 'flex', flexDirection: 'column', gap: 22, fontSize: 14, lineHeight: 1.6, color: 'var(--ink)' }}>
 
