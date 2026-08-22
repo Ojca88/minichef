@@ -120,8 +120,8 @@ export default function Terms() {
           <p>
             Las recetas y contenidos de MiniChef son contenidos de carácter orientativo,
             redactados y curados durante el desarrollo de la aplicación. Durante su elaboración
-            se han tenido en cuenta criterios generales de sentido común sobre alimentación
-            infantil (por ejemplo, evitar sal y azúcar añadidos, o introducir alérgenos comunes
+            se han tenido en cuenta criterios generales de carácter orientativo sobre
+            alimentación infantil y seguridad alimentaria (por ejemplo, evitar sal y azúcar añadidos, o introducir alérgenos comunes
             de forma progresiva), sin que esto implique una auditoría formal de seguridad
             alimentaria ni una certificación de ningún tipo. Ninguna receta de MiniChef ha sido
             revisada, evaluada ni validada por un profesional sanitario, ni de forma individual
@@ -132,11 +132,9 @@ export default function Terms() {
 
         <Section title="9. Fuentes utilizadas como referencia">
           <p>
-            Durante el desarrollo de sus contenidos, MiniChef puede haber tenido en cuenta
-            criterios generales de alimentación infantil y seguridad alimentaria de carácter
-            público y ampliamente reconocido en este ámbito (por ejemplo, recomendaciones
-            generales sobre introducción de alérgenos, texturas por edad, o evitar sal y azúcar
-            añadidos en la primera infancia).
+            Durante el desarrollo de sus contenidos, MiniChef ha tenido en cuenta criterios y
+            recomendaciones generales de carácter público relacionados con la alimentación
+            infantil y la seguridad alimentaria.
           </p>
           <p>Esto no significa en ningún caso que:</p>
           <ul style={listStyle}>
